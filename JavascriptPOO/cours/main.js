@@ -24,8 +24,8 @@ formPersonne.addEventListener('submit', (e) => {
     //L'arret de l'envoie du formulaire.
     e.preventDefault()
     //Récupérer les valeurs des champs
-    const nom = document.querySelector("input[name='nom']").value
-    const prenom = document.querySelector("input[name='prenom']").value
+    const nom = formPersonne.querySelector("input[name='nom']").value
+    const prenom = formPersonne.querySelector("input[name='prenom']").value
     const p = new Personne(nom, prenom)
     tableauPersonnes.push(p)
     console.log(tableauPersonnes)
