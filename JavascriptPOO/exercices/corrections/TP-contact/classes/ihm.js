@@ -16,13 +16,14 @@ export class Ihm {
 
     ajouter() {
         //Récupérer les champs et créer un contact
-        const radios = this.formulaire.querySelectorAll("input[name='titre']")
-        let titre = ""
-        radios.forEach(c => {
-            if(c.checked == true) {
-                titre = c.value
-            }
-        })
+        // const radios = this.formulaire.querySelectorAll("input[name='titre']")
+        // let titre = ""
+        // radios.forEach(c => {
+        //     if(c.checked == true) {
+        //         titre = c.value
+        //     }
+        // })
+        const titre = this.formulaire.querySelector("input[name='titre']:checked").value
         const nom = this.formulaire.querySelector("input[name='nom']").value
         const prenom = this.formulaire.querySelector("input[name='prenom']").value
         const telephone = this.formulaire.querySelector("input[name='telephone']").value
