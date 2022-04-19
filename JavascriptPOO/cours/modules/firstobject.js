@@ -17,10 +17,10 @@ export const chaine = "bonjour tout le monde"
 //<=> Après 2015
 export class Personne {
     //A la construction de chaque objet, on utilise cette méthode
-    constructor() {
+    constructor(n, p) {
         //Attributs
-        this.nom = "toto"
-        this.prenom = "tata"
+        this.nom = n
+        this.prenom = p
     }
 
     //méthodes

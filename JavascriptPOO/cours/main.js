@@ -15,7 +15,9 @@ import { chaine, Personne } from "./modules/firstobject.js";
 
 // console.log(chaine.indexOf('o'))
 
-const p1 = new Personne()
-p1.nom = "titi"
+const valSaisi = prompt("Merci de saisir le nom : ")
+
+const p1 = new Personne(valSaisi, "tata")
+// p1.nom = "titi"
 console.log(p1.nom)
 p1.direBonjour()
