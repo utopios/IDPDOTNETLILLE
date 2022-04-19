@@ -1,0 +1,3 @@
+Créer une classe contact avec 
+les attributs : (nom, prenom, date naissance, telephone, email)
+une méthode pour afficher les informations du contact
