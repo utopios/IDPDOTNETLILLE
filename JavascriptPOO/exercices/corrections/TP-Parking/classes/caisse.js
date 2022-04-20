@@ -24,22 +24,17 @@ export class Caisse {
 
     getTicket() {
         //Le scénario => un nouveau vehicule dans le parking
-        const immatriculation = prompt("Merci de saisir l'immatriculation du vehicule")
+        const immatriculation = this.getImmatriculation()
         const vehicule = new Vehicule(immatriculation)
         this.vehicules.push(vehicule)
     }
 
     payTicket() {
         //Le scénario => sorti d'un vehicule du parking
-        const immatriculation = prompt("Merci de saisir l'immatriculation du vehicule")
-        let vehicule = undefined
-        for(let i=0; i < this.vehicules.length; i++) {
-            if(this.vehicules[i].immatriculation == immatriculation) {
-                vehicule = this.vehicules[i]
-                break
-            }
-        }
-
+        // const immatriculation = this.getImmatriculation()
+        // let vehicule = this.rechercherVehicule(immatriculation)
+        //<=>
+        let vehicule = this.rechercherVehicule(this.getImmatriculation())
         if(vehicule != undefined) {
             //Calculer le prix du parking
             const time = Math.round(vehicule.getTime())
@@ -59,5 +54,22 @@ export class Caisse {
         else {
             alert("pas de vehicule avec cette immatriculation dans le parking")
         }
+    }
+
+    getImmatriculation() {
+        // const immatriculation = prompt("Merci de saisir l'immatriculation du vehicule")
+        // return immatriculation
+        return prompt("Merci de saisir l'immatriculation du vehicule")
+    }
+
+    rechercherVehicule(immatriculation) {
+        let vehicule = undefined
+        for(let i=0; i < this.vehicules.length; i++) {
+            if(this.vehicules[i].immatriculation == immatriculation) {
+                vehicule = this.vehicules[i]
+                break
+            }
+        }
+        return vehicule
     }
 }
