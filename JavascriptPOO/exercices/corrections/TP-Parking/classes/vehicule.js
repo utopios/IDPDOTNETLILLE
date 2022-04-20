@@ -1,7 +1,7 @@
 export class Vehicule {
 
-    constructor(dateIn, immatriculation) {
-        this.dateIn = dateIn
+    constructor(immatriculation) {
+        this.dateIn = new Date()
         this.immatriculation = immatriculation
     }
 
