@@ -50,6 +50,7 @@ export class Caisse {
                 prix = 1.7
             }
             alert(`le prix est de ${prix} euros`)
+            this.vehicules = this.vehicules.filter(v => v.immatriculation != immatriculation)
         }
         else {
             alert("pas de vehicule avec cette immatriculation dans le parking")
