@@ -1,7 +1,9 @@
 //Exemple d'import à partir d'un autre module
 // import {config1, direBonjour as Bonjour} from "./modules/configuration.js"
 
-import { chaine, Personne } from "./modules/firstobject.js";
+import { Formateur } from "./modules/formateur.js";
+
+//import { chaine, Personne } from "./modules/firstobject.js";
 
 // import elementDefault from "./modules/configuration.js"
 
@@ -45,29 +47,36 @@ import { chaine, Personne } from "./modules/firstobject.js";
 
 
 //Réaliser un timer
-const timer = document.querySelector("#timer")
-const btnIn = document.querySelector("#entrer")
-const btnOut = document.querySelector("#sortir")
-let intTime, outTime
-let temps = 0
+// const timer = document.querySelector("#timer")
+// const btnIn = document.querySelector("#entrer")
+// const btnOut = document.querySelector("#sortir")
+// let intTime, outTime
+// let temps = 0
 
-// setInterval(() => {
-//     new Date()
-// },1000)
+// // setInterval(() => {
+// //     new Date()
+// // },1000)
 
-// setTimeout(() => {
-//     const result = prompt("Bonjour tout le monde \n Question : ");
-//     alert(result)
-// },2000)
-btnIn.addEventListener('click', (e) => {
-    intTime = new Date()
-})
+// // setTimeout(() => {
+// //     const result = prompt("Bonjour tout le monde \n Question : ");
+// //     alert(result)
+// // },2000)
+// btnIn.addEventListener('click', (e) => {
+//     intTime = new Date()
+// })
 
-btnOut.addEventListener('click', (e) => {
-    outTime = new Date()
-    console.log(intTime)
-    console.log(outTime)
-    alert((outTime-intTime)/1000)
-})
+// btnOut.addEventListener('click', (e) => {
+//     outTime = new Date()
+//     console.log(intTime)
+//     console.log(outTime)
+//     alert((outTime-intTime)/1000)
+// })
 
 
+//Cours héritage
+const formateur= new Formateur("abadi", "ihab", "0101010101", "javascript")
+// formateur.nom = "abadi"
+// formateur.prenom = "ihab"
+// formateur.telephone = "0101010101"
+
+formateur.afficher()
