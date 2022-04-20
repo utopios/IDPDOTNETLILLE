@@ -1,4 +1,4 @@
-import { Caisse } from "./classes/caisse";
+import { Caisse } from "./classes/caisse.js";
 
 const caisse = new Caisse()
 

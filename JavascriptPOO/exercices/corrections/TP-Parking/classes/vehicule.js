@@ -6,7 +6,10 @@ export class Vehicule {
     }
 
     //Le temps dans le parking
-    getTimeIn() {
-        //Date Out - Date In
+    getTime() {
+        const dateOut = new Date()
+        console.log(dateOut)
+        console.log(this.dateIn)
+        return ((dateOut - this.dateIn)/1000)
     }
 }
