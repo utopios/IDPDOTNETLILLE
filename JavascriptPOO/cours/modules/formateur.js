@@ -8,5 +8,7 @@ export class Formateur extends Personne {
     afficher() {
         super.afficher()
         console.log(this.langage)
+        
     }
+
 }
