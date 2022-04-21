@@ -1,3 +1,5 @@
+import { Produit } from "./produit.js"
+import { Service } from "./service.js"
 
 export class Ihm {
 
@@ -40,10 +42,27 @@ export class Ihm {
 
     ajouterProduit() {
         //Ajouter produit 
+        //Récupération des champs
+        const titre = document.querySelector("input[name='titre']").value
+        const prix= document.querySelector("input[name='prix']").value
+        const description= document.querySelector("textarea[name='description']").value
+        const stock= document.querySelector("input[name='stock']").value
+        //Faire des vérification sur les champs...
+        const produit = new Produit(titre, prix, description, stock)
+        this.articles.push(produit)
+        this.domProduits.innerHTML += `<tr><td>${titre}</td><td>${prix}</td><td>${description}</td><td>${stock}</td></tr>`
     }
 
     ajouterService() {
         //Ajouter service
+        const titre = document.querySelector("input[name='titre']").value
+        const prix= document.querySelector("input[name='prix']").value
+        const description= document.querySelector("textarea[name='description']").value
+        const domaine= document.querySelector("input[name='domaine']").value
+        //Faire des vérification sur les champs...
+        const service = new Service(titre, prix, description, domaine)
+        this.articles.push(service)
+        this.domServices.innerHTML += `<tr><td>${titre}</td><td>${prix}</td><td>${description}</td><td>${domaine}</td></tr>`
     }
 
     switchProduitService(type) {
