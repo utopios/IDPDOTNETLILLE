@@ -19,19 +19,31 @@ export class Ihm {
             console.log(e.target.value)
             this.switchProduitService(e.target.value)
         })
+
+        this.formulaire.addEventListener('submit', (e) => {
+            e.preventDefault()
+            this.ajouterArticle()
+        })
     }
 
     ajouterArticle() {
+        const type = this.formulaire.querySelector("input[name='type']:checked").value
         //Si produit => ajouterProduit
+        if(type == 'produit') {
+            this.ajouterProduit()
+        }
         //Si Service => ajouterService
+        else if(type == 'service') {
+            this.ajouterService()
+        }
     }
 
     ajouterProduit() {
-
+        //Ajouter produit 
     }
 
     ajouterService() {
-
+        //Ajouter service
     }
 
     switchProduitService(type) {
