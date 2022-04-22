@@ -25,8 +25,15 @@ export class Ihm {
             const id = e.target.getAttribute("data-id")
             switch(action) {
                 case "update":
+                    console.log("update")
+                    this.changerStatusTodo(id).then(res => {
+                        if(res) {
+                            alert("satut changé")
+                        }
+                    })
                     break;
                 case "delete":
+                    console.log("delete")
                     break;
             }
         })
@@ -46,19 +53,22 @@ export class Ihm {
         })
     }
 
-    rechercherTodo() {
+    rechercherTodos() {
         return new Promise((resolve, reject) => {
 
         })
     }
 
-    changerStatusTodo() {
+    changerStatusTodo(id) {
         return new Promise((resolve, reject) => {
-
+            const todo = this.todos.find(t => t.id == id)
+            todo.status = !todo.status
+            console.log(this.todos)
+            resolve(true)
         })
     }
 
-    supprimerTodo() {
+    supprimerTodo(id) {
         return new Promise((resolve, reject) => {
             
         })
