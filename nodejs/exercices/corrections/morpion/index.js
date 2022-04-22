@@ -1,4 +1,3 @@
-import { Jeu } from "./classes/jeu.js";
+import { Ihm } from "./classes/ihm.js";
 
-const jeu = new Jeu()
-jeu.afficher()
+new Ihm().demarrer()

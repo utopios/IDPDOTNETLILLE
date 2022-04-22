@@ -16,4 +16,12 @@ export class Jeu {
             console.log('---------')
         }
     }
+
+    jouer(joueur, x, y) {
+        if(this.board[x-1][y-1] == ' ') {
+            this.board[x-1][y-1] = joueur
+            return true
+        }
+        return false
+    }
 }
