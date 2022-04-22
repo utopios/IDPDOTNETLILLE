@@ -20,6 +20,14 @@ export class Ihm {
                 this.resultat.innerHTML += res.renduHTML
             })
         })
+
+        this.formulaireRecherche.addEventListener('submit', (e) => {
+            e.preventDefault()
+            this.rechercherTodos().then(res => {
+                this.afficherToDos(res)
+            })
+        })
+
         this.resultat.addEventListener('click', (e) => {
             const action = e.target.getAttribute("data-action")
             const id = e.target.getAttribute("data-id")
@@ -44,9 +52,12 @@ export class Ihm {
         })
     }
 
-    // afficherToDos() {
-        
-    // }
+     afficherToDos(todos) {
+        this.resultat.innerHTML = ""
+        todos.forEach(todo => {
+            this.resultat.innerHTML += `<tr data-element=${todo.id}><td>${todo.id}</td><td>${todo.titre}</td><td>${todo.contenu}</td><td><input data-action='update' data-id='${todo.id}' type='checkbox' ${todo.status ? 'checked' : ''} /><span data-action='delete' data-id='${todo.id}' class="material-symbols-outlined">delete</span></td></tr>`
+        })
+     }
 
     ajouterTodo() {
         return new Promise((resolve, reject) => {
@@ -60,7 +71,13 @@ export class Ihm {
 
     rechercherTodos() {
         return new Promise((resolve, reject) => {
-
+            const search = this.formulaireRecherche.querySelector("input[name='search']").value
+            if(search == undefined || search == '' ) {
+                resolve(this.todos)
+            }
+            else {
+                resolve(this.todos.filter(t => t.titre.includes(search)))
+            }
         })
     }
 
