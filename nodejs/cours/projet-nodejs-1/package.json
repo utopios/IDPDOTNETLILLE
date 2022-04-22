@@ -1,0 +1,13 @@
+
+{
+  "name": "projet-nodejs-1",
+  "version": "1.0.0",
+  "description": "Un fichier généré par la commande initialisation de npm 'npm init'",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
