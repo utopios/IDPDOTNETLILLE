@@ -32,7 +32,7 @@ export class Ihm {
             const contenu = this.formulaireAjout.querySelector("textarea[name='contenu']").value
             const todo = new Todo(++this.compteur, titre, contenu)
             this.todos.push(todo)
-            resolve({renduHTML: `<tr><td>${todo.id}</td><td>${todo.titre}</td><td>${todo.contenu}</td></tr>`})
+            resolve({renduHTML: `<tr><td>${todo.id}</td><td>${todo.titre}</td><td>${todo.contenu}</td><td><input type='checkbox' ${todo.status ? 'checked' : ''} /></td></tr>`})
         })
     }
 
