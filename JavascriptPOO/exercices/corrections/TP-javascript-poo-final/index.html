@@ -10,7 +10,36 @@
 
 </head>
 <body>
+    <section>
+        <form class="container" id="formulaireAjout">
+            <div class="row justify-content-center m-1">
+                <input type="text" class="col-9 p-1 form-control" placeholder="Titre de la tâche" name="titre" /> 
+            </div>
+            <div class="row justify-content-center m-1">
+                <textarea class="col-9 p-1 form-control" placeholder="contenu de la tâche" name="contenu" ></textarea> 
+            </div>
+            <div class="row justify-content-center m-1">
+                <button type="submit" class="col-9 p-1 btn btn-primary"  >Valider</button> 
+            </div>
+        </form>
+    </section>
+    <section class="container">
+
+    </section>
+    <section>
+        <table class="table container">
+            <thead>
+                <tr class="table-dark">
+                    <th scope="col">id</th>
+                    <th scope="col">Titre</th>
+                    <th scope="col">contenu</th>
+                </tr>
+            </thead>
+            <tbody id="resultat">
     
+            </tbody>
+        </table>
+    </section>
     <script type="module" src='main.js'></script>
 </body>
 </html>

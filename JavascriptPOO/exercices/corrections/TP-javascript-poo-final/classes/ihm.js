@@ -1,4 +1,4 @@
-import { Todo } from "./todo"
+import { Todo } from "./todo.js"
 
 export class Ihm {
     constructor(formulaireRecherche, formulaireAjout, resultat) {
@@ -10,7 +10,7 @@ export class Ihm {
     }
 
     demarrer() {
-
+        this.ajouterEvent()
     }
 
     ajouterEvent() {
