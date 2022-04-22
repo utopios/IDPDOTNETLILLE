@@ -34,14 +34,19 @@ export class Ihm {
                     break;
                 case "delete":
                     console.log("delete")
+                    this.supprimerTodo(id).then(res => {
+                        if(res) {
+                            alert("task supprimée")
+                        }
+                    })
                     break;
             }
         })
     }
 
-    afficherToDos() {
+    // afficherToDos() {
         
-    }
+    // }
 
     ajouterTodo() {
         return new Promise((resolve, reject) => {
@@ -49,7 +54,7 @@ export class Ihm {
             const contenu = this.formulaireAjout.querySelector("textarea[name='contenu']").value
             const todo = new Todo(++this.compteur, titre, contenu)
             this.todos.push(todo)
-            resolve({renduHTML: `<tr><td>${todo.id}</td><td>${todo.titre}</td><td>${todo.contenu}</td><td><input data-action='update' data-id='${todo.id}' type='checkbox' ${todo.status ? 'checked' : ''} /><span data-action='delete' data-id='${todo.id}' class="material-symbols-outlined">delete</span></td></tr>`})
+            resolve({renduHTML: `<tr data-element=${todo.id}><td>${todo.id}</td><td>${todo.titre}</td><td>${todo.contenu}</td><td><input data-action='update' data-id='${todo.id}' type='checkbox' ${todo.status ? 'checked' : ''} /><span data-action='delete' data-id='${todo.id}' class="material-symbols-outlined">delete</span></td></tr>`})
         })
     }
 
@@ -70,7 +75,9 @@ export class Ihm {
 
     supprimerTodo(id) {
         return new Promise((resolve, reject) => {
-            
+            this.todos = this.todos.filter(t => t.id != id)
+            this.resultat.querySelector("tr[data-element='"+id+"']").remove()
+            resolve(true)
         })
     }
 
