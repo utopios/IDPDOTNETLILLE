@@ -20,6 +20,16 @@ export class Ihm {
                 this.resultat.innerHTML += res.renduHTML
             })
         })
+        this.resultat.addEventListener('click', (e) => {
+            const action = e.target.getAttribute("data-action")
+            const id = e.target.getAttribute("data-id")
+            switch(action) {
+                case "update":
+                    break;
+                case "delete":
+                    break;
+            }
+        })
     }
 
     afficherToDos() {
@@ -32,7 +42,7 @@ export class Ihm {
             const contenu = this.formulaireAjout.querySelector("textarea[name='contenu']").value
             const todo = new Todo(++this.compteur, titre, contenu)
             this.todos.push(todo)
-            resolve({renduHTML: `<tr><td>${todo.id}</td><td>${todo.titre}</td><td>${todo.contenu}</td><td><input type='checkbox' ${todo.status ? 'checked' : ''} /></td></tr>`})
+            resolve({renduHTML: `<tr><td>${todo.id}</td><td>${todo.titre}</td><td>${todo.contenu}</td><td><input data-action='update' data-id='${todo.id}' type='checkbox' ${todo.status ? 'checked' : ''} /><span data-action='delete' data-id='${todo.id}' class="material-symbols-outlined">delete</span></td></tr>`})
         })
     }
 
