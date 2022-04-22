@@ -22,6 +22,10 @@ export class Ihm {
             if(this.jeu.jouer(res.joueur, res.x, res.y)) {
                 this.first = !this.first
                 this.jeu.afficher()
+                if(this.jeu.testwin(res.joueur)) {
+                    console.log("bravo "+ joueur)
+                }
+                this.fin = this.jeu.testFin()
             }
         }
     }

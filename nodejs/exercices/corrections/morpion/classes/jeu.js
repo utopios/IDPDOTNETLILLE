@@ -24,4 +24,48 @@ export class Jeu {
         }
         return false
     }
+    testFin() {
+        let test = true
+        for(let i=0; i < this.board.length; i++) {
+            for(let j =0; j < this.board[i].length; j++) {
+                if(this.board[i][j] == ' ') {
+                    test = false
+                    break
+                }
+            }
+        }
+        return test
+    }
+
+    testwin(joueur) {
+        this.testHor(joueur) || this.testVertical(joueur)
+    }
+
+    testHor(joueur) {
+        let test
+        for(let i=0; i < this.board.length; i++) {
+            test = true
+            for(let j=0 ; j < this.board.length; j++) {
+                if(this.board[j] != joueur) {
+                    test = false
+                    break
+                }
+            }
+        }
+        return test
+    }
+    testVertical(joueur) {
+        let test
+        for(let i=0; i < this.board.length; i++) {
+            test = true
+            for(let j=0 ; j < this.board.length; j++) {
+                console.log(this.board[j][i])
+                if(this.board[j][i] != joueur) {
+                    test = false
+                    break
+                }
+            }
+        }
+        return test
+    }
 }
