@@ -5,3 +5,18 @@ Créer une application express qui permet :
     -de modifier un contact par son id 
     -de supprimer un contact
 Chaque contact est caractérisé par (id, nom, prénom, téléphone, email)
+
+
+Exercice
+
+Créer une API en express (get, post, update and delete) pour gérer les todos.
+    - Un endPoint pour ajouter un todo.
+    - Un endPoint pour modifier un todo.
+    - Un endPoint pour Récupérer la liste des todos.
+    - Un endPoint pour Récupérer un todo.
+    - Un endPoint pour supprimer un todo
+    - Un endPoint pour rechercher des todos par leur titre
+
+On rappelle qu'un todo est caractérisé par  (id, titre, contenu, statut)
+On utilise json pour l'envoie et la réception des données
+
