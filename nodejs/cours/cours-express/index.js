@@ -12,6 +12,10 @@ app.get('', (req, res) => {
     //res.json(req.headers)
 })
 
+app.get('/data/:nomparams', (req, res) => {
+    res.end(req.params.nomparams)
+})
+
 app.get('/data', (req, res) => {
     res.json(data)
 })
