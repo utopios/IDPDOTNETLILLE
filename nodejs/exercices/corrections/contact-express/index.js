@@ -20,6 +20,16 @@ app.get('/contacts/:id', (req, res) => {
     }
 })
 
+app.put("/contacts/:id", (req, res)=> {
+    const {nom, prenom, telephone, email} = req.body
+    if(data.modifierContact(req.params.id, nom, prenom, telephone, email)) {
+        res.json({message : "contact modifié"})
+    }
+    else {
+        res.json({message: "erreur modification"})
+    }
+})
+
 app.post('/contacts', (req, res) => {
     const {nom, prenom, telephone, email} = req.body
     data.ajouterContact(nom, prenom, telephone, email)
