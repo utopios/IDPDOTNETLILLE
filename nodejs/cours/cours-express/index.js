@@ -24,6 +24,11 @@ app.post('', (req, res) => {
     data.push(req.body)
     res.json(req.body)
 })
+
+//Utiliser pour modifier un élément
+app.put('/data/:id', (req, res) => {
+    res.json({body: req.body, id: req.params.id})
+})
 //pour démarrer notre application web sur un port donné.
 app.listen(3000, () => {
     console.log("Démarrage de l'application")
