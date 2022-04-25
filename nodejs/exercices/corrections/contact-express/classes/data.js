@@ -10,4 +10,8 @@ export class Data {
         const contact = new Contact(++this.compteur, nom, prenom, email, telephone)
         this.contacts.push(contact)
     }
+
+    recuperContact(id) {
+        return this.contacts.find(c => c.id == id)
+    }
 }
