@@ -1,0 +1,5 @@
+Créer une application express qui permet :
+    -d'ajouter un contact avec le verb post 
+    -de récupérer la liste des contacts avec un verb Get
+
+Chaque contact est caractérisé par (id, nom, prénom, téléphone, email)
