@@ -30,4 +30,13 @@ export class Data {
     }
 
     //Supprimer => id
+
+    supprimerContact(id) {
+        const contact = this.recuperContact(id)
+        if(contact != undefined) {
+            this.contacts = this.contacts.filter(c => c.id != id)
+            return true
+        }
+        return false
+    }
 }

@@ -36,6 +36,15 @@ app.post('/contacts', (req, res) => {
     res.json({message : "contact ajouté"})
 })
 
+app.delete("/contacts/:id", (req, res) => {
+    if(data.supprimerContact(req.params.id)) {
+        res.json({message : "contact supprimé"})
+    }
+    else {
+        res.json({message: "erreur suppression contact"})
+    }
+})
+
 app.listen(5000, () => {
 
 })
