@@ -17,7 +17,8 @@ api.post('/todos', (req, res) => {
         dataService.createTodo(title, content)
         res.json({message: "todo ajouté"})
     }
-    res.json({message: "Merci de envoyer un titre et un contenu"})
+    else
+        res.json({message: "Merci de envoyer un titre et un contenu"})
 })
 
 //Endpoint pour récuperer la liste des todos
@@ -30,9 +31,10 @@ api.get('/todos/:id', (req, res) => {
     const todo = dataService.findTodoById(req.params.id)
     if(todo != undefined)
         res.json(todo)
-    res.json({mesage: "aucun todo avec cet id"})
+    else
+        res.json({mesage: "aucun todo avec cet id"})
 })
 
 api.listen(80, () => {
-    
+
 })
