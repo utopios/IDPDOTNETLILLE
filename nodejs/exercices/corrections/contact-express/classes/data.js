@@ -1,14 +1,16 @@
 import { Contact } from "./contact.js"
-
+import {appendFileSync} from "fs"
 export class Data {
     constructor() {
         this.contacts = []
         this.compteur = 0
+        this.fichier = "data.csv"
     }
 
     ajouterContact(nom, prenom, telephone, email) {
-        const contact = new Contact(++this.compteur, nom, prenom, email, telephone)
+        const contact = new Contact(++this.compteur, nom, prenom, telephone,email)
         this.contacts.push(contact)
+        appendFileSync(this.fichier, `${contact.id};${contact.nom};${contact.prenom};${contact.telephone};${contact.email};\n`)
     }
 
     recuperContact(id) {
