@@ -62,7 +62,7 @@ export class Data {
             this.contacts = this.contacts.filter(c => c.id != id)
             this.ecrire()
             return true
-        }
+        } 
         return false
     }
 }
