@@ -1,6 +1,6 @@
 import readline from "readline"
 import fs from "fs"
-
+import LineByline from "n-readlines"
 //La lecture du contenu d'un fichier async
 // fs.readFile("fichier1.txt", (err, data) => {
 //     if(err == null)
@@ -37,19 +37,26 @@ import fs from "fs"
 // })
 
 //Exemple d'écriture de csv
-const nom = "abadi"
-const prenom = "ihab"
+// const nom = "abadi"
+// const prenom = "ihab"
 
 // fs.appendFileSync("data.csv", `${nom};${prenom}\n`)
 // fs.appendFileSync("data.csv", `${nom};${prenom}\n`)
 
-const lectureLigneFichier= (fichier) => {
-    const readlineInterface = readline.createInterface({
-        input: fs.createReadStream(fichier),        
-    })
-    return readlineInterface
+// const lectureLigneFichier= (fichier) => {
+//     const readlineInterface = readline.createInterface({
+//         input: fs.createReadStream(fichier),        
+//     })
+//     return readlineInterface
+// }
+
+// lectureLigneFichier("data.csv").on('line', (line) => {
+//     console.log(line)
+// })
+
+//utilisation du package n-readlines
+const lineReader = new LineByline("data.csv")
+let line 
+while(line = lineReader.next()) {
+    console.log(line.toString())
 }
-
-lectureLigneFichier("data.csv").on('line', (line) => {
-    console.log(line)
-})
