@@ -21,9 +21,16 @@ import fs from "fs"
 // fs.writeFileSync("fichier3.txt", "contenu fichier 3")
 
 //Ajouter du contenu dans un fichier
-fs.appendFile("fichier.txt", "contenu ajouté", (err) => {
-    console.log(err)
-})
+// fs.appendFile("fichier.txt", "contenu ajouté", (err) => {
+//     console.log(err)
+// })
 
 //Une version sync
-fs.appendFileSync("fichier.txt", "\ncontenu fichier")
+//fs.appendFileSync("fichier.txt", "\ncontenu fichier")
+
+//pour écouter un fichier
+fs.watchFile("fichier1.txt", (curr, prev) => {
+    //console.log(curr)
+    console.log(fs.readFileSync("fichier1.txt").toString())
+    //console.log(prev)
+})
