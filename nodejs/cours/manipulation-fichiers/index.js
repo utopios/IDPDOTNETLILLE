@@ -1,3 +1,4 @@
+import readline from "readline"
 import fs from "fs"
 
 //La lecture du contenu d'un fichier async
@@ -29,8 +30,26 @@ import fs from "fs"
 //fs.appendFileSync("fichier.txt", "\ncontenu fichier")
 
 //pour écouter un fichier
-fs.watchFile("fichier1.txt", (curr, prev) => {
-    //console.log(curr)
-    console.log(fs.readFileSync("fichier1.txt").toString())
-    //console.log(prev)
+// fs.watchFile("fichier1.txt", (curr, prev) => {
+//     //console.log(curr)
+//     console.log(fs.readFileSync("fichier1.txt").toString())
+//     //console.log(prev)
+// })
+
+//Exemple d'écriture de csv
+const nom = "abadi"
+const prenom = "ihab"
+
+// fs.appendFileSync("data.csv", `${nom};${prenom}\n`)
+// fs.appendFileSync("data.csv", `${nom};${prenom}\n`)
+
+const lectureLigneFichier= (fichier) => {
+    const readlineInterface = readline.createInterface({
+        input: fs.createReadStream(fichier),        
+    })
+    return readlineInterface
+}
+
+lectureLigneFichier("data.csv").on('line', (line) => {
+    console.log(line)
 })
