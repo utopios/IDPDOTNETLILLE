@@ -59,5 +59,5 @@ api.patch('/todos/:id', (req, res) => {
 })
 
 api.listen(80, () => {
-
+    dataService.read()
 })
