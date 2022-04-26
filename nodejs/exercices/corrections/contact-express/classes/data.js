@@ -1,5 +1,5 @@
 import { Contact } from "./contact.js"
-import {appendFileSync} from "fs"
+import {appendFileSync, writeFileSync} from "fs"
 import LineByLine from "n-readlines"
 export class Data {
     constructor() {
@@ -27,6 +27,14 @@ export class Data {
         return this.contacts
     }
 
+    ecrire() {
+        let content =""
+        this.contacts.forEach(contact => {
+            content += `${contact.id};${contact.nom};${contact.prenom};${contact.telephone};${contact.email};\n`
+        })
+        writeFileSync(this.fichier, content)
+    }
+
     recuperContact(id) {
         return this.contacts.find(c => c.id == id)
     }
@@ -40,6 +48,7 @@ export class Data {
             contact.prenom = prenom
             contact.telephone = telephone
             contact.email = email
+            this.ecrire()
             return true
         }
         return false
@@ -51,6 +60,7 @@ export class Data {
         const contact = this.recuperContact(id)
         if(contact != undefined) {
             this.contacts = this.contacts.filter(c => c.id != id)
+            this.ecrire()
             return true
         }
         return false
