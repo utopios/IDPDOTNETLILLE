@@ -37,7 +37,7 @@ export class App {
     deleteTodo(id) {
         const todo = this.findTodoById(id)
         if(todo != undefined) {
-            this.todos = this.filter(t => t.id != id)
+            this.todos = this.todos.filter(t => t.id != id)
             return true
         }
         return false

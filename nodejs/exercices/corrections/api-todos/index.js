@@ -35,6 +35,29 @@ api.get('/todos/:id', (req, res) => {
         res.json({mesage: "aucun todo avec cet id"})
 })
 
+//Endpoint pour la recherche
+api.get('/todos/search/:search', (req, res) => {
+    res.json(dataService.searchTodosByTitle(req.params.search))
+})
+
+//EndPoint pour la suppression d'un todo
+api.delete('/todos/:id', (req, res) => {
+    if(dataService.deleteTodo(req.params.id)) 
+        res.json({message: 'todo supprimé'})
+    else 
+        res.json({message: 'erreur suppression todo'})
+})
+
+//EndPoint pour la mise à jour du statut
+api.patch('/todos/:id', (req, res) => {
+    if(dataService.updateTodoStatus(req.params.id)) {
+        res.json({message : "statut modifié"})
+    }
+    else {
+        res.json({message: "erreur de modification du statut"})
+    }
+})
+
 api.listen(80, () => {
 
 })
