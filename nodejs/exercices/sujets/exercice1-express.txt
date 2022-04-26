@@ -6,6 +6,8 @@ Créer une application express qui permet :
     -de supprimer un contact
 Chaque contact est caractérisé par (id, nom, prénom, téléphone, email)
 
+- On souhaite modifier notre api contact pour stocker les données dans un fichier csv.
+  Les actions ajout, modification, suppression et lecture du contact seront liées à notre ficher csv
 
 Exercice
 
