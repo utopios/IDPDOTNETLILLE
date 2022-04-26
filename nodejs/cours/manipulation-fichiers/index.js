@@ -55,8 +55,15 @@ import LineByline from "n-readlines"
 // })
 
 //utilisation du package n-readlines
-const lineReader = new LineByline("data.csv")
-let line 
-while(line = lineReader.next()) {
-    console.log(line.toString())
-}
+// const lineReader = new LineByline("data.csv")
+// let line 
+// while(line = lineReader.next()) {
+//     console.log(line.toString())
+// }
+
+const objet = {cle: "valeur"}
+//<=> en chaine de caractère JSON
+const chaineJson = JSON.stringify(objet)
+console.log(chaineJson)
+const objectFromJsonString = JSON.parse(chaineJson)
+console.log(objectFromJsonString)
