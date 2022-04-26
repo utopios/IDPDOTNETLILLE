@@ -10,7 +10,7 @@ export class App {
     read() {
         const contenu = readFileSync(this.fichier).toString()
         this.todos = JSON.parse(contenu)
-        this.count = this.todos[this.todos.length - 1].id
+        this.count = (this.todos[this.todos.length - 1] != undefined) ? this.todos[this.todos.length - 1].id : 0
     }
 
     write() {
