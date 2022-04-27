@@ -1,3 +1,4 @@
+import { Formateur } from './formateur';
 import { Stagiaire } from './stagiaire';
 import { poserUneQuestion } from './../tools/tools';
 export class Ihm {
@@ -26,6 +27,12 @@ export class Ihm {
                 case "2":
                     const nomFormateur = await poserUneQuestion("Merci de saisir le nom : ");
                     const prenomFormateur = await poserUneQuestion("Merci de saisir le prénom : ");
+                    const modules = [];
+                    modules.push("module 1");
+                    modules.push("module 2");
+                    //...c'est mieux avec une boucle do while
+                    const formateur = new Formateur(++this.compteur, nomFormateur, prenomFormateur, modules);
+                    this.personnes.push(formateur);
                     break;
                 case "3":
                     this.personnes.forEach(p => {
