@@ -3,12 +3,12 @@ import {readFileSync, writeFileSync} from "fs"
 import { CustomerService } from "./customerService.js"
 import { ProductService } from "./productService.js"
 export class OrderService {
-    constructor() {
+    constructor(customerService, productService) {
         this.file = "data/commandes.json"
         this.orders = []
         this.count = 0
-        this.customerService = new CustomerService()
-        this.productService = new ProductService()
+        this.customerService = customerService
+        this.productService = productService
     }
 
     readFromJson() {
@@ -21,8 +21,9 @@ export class OrderService {
         writeFileSync(this.file, JSON.stringify(this.orders))
     }
 
-    addOrder(cusotmerId, products) {
-        const customer = this.customerService.getCustomerById(cusotmerId)
+    addOrder(customerId, products) {
+        const customer = this.customerService.getCustomerById(customerId)
+        
         if(customer != undefined) {
             const orderProducts = []
             products.forEach(p => {
@@ -38,5 +39,13 @@ export class OrderService {
             return true
         }
         return false
+    }
+
+    getOrderById(id) {
+        return this.orders.find(o => o.id == id)
+    }
+
+    getAllOrders() {
+        return this.orders
     }
 }

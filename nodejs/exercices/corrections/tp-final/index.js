@@ -1,5 +1,6 @@
 import express from "express"
 import { CustomerService } from "./services/customerService.js"
+import { OrderService } from "./services/orderService.js"
 import { ProductService } from "./services/productService.js"
 
 const app = express()
@@ -9,6 +10,7 @@ app.use(express.json())
 //Création de services
 const productService = new ProductService()
 const customerService = new CustomerService()
+const orderService = new OrderService(customerService, productService)
 //EndPoints
 
 //1-Création produit
@@ -54,17 +56,28 @@ app.get('/clients/:id', (req, res) => {
 
 //1- Création d'un commande 
 app.post('/commandes', (req, res) => {
-    
+    const {customerId, products} = req.body
+    if(orderService.addOrder(customerId, products)) {
+        res.json({message: "commande ajoutée"})
+    }
+    else {
+        res.json({message: "erreur création de commande"})
+    }
 })
 
 //2- Récupération de la liste des commandes
 app.get('/commandes', (req, res) => {
-    
+    res.json(orderService.getAllOrders())
 })
 
 //3- Récupération d'un commande par son id
 app.get('/commandes/:id', (req, res) => {
-    
+    const order = orderService.getOrderById(req.params.id)
+    if(order != undefined) {
+        res.json(order)
+    }else {
+        res.json({message: "aucune commande avec cet id"})
+    }
 })
 
 
@@ -72,4 +85,5 @@ app.get('/commandes/:id', (req, res) => {
 app.listen(2000,() => {
     productService.readFromJson()
     customerService.readFromJson()
+    orderService.readFromJson()
 })

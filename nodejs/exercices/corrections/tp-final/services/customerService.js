@@ -24,6 +24,7 @@ export class CustomerService {
     }
 
     getCustomerById(id) {
+        
         return this.customers.find(c =>c.id == id)
     }
     getAllCustomers() {
