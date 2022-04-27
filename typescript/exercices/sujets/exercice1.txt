@@ -1,0 +1,5 @@
+-Créer une application console qui permet d'ajouter 
+ soit des stagiaires ou des formateurs dans un tableau.
+ Les stagiaires ont les attributs: id, nom, prenom, promotion.
+ les formateurs ont les attributs: id, nom, prenom, modules.
+ 
