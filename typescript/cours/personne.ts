@@ -8,5 +8,12 @@ export class Personne {
         this.prenom = p
     }
 
+    afficher():void {
+        console.log(this.nom + " "+this.prenom)
+    }
+
+    nomComplet():String {
+        return this.nom + " "+ this.prenom
+    }
     
 }
