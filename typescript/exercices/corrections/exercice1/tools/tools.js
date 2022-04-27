@@ -1,8 +1,8 @@
 import { stdin, stdout } from "process";
-import readline from "readline";
+import { createInterface } from "readline";
 export const poserUneQuestion = async (question) => {
     console.log(question);
-    const readlineInterface = readline.createInterface({
+    const readlineInterface = createInterface({
         input: stdin,
         output: stdout
     });
