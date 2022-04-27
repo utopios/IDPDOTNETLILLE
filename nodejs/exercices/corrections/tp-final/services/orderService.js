@@ -1,24 +1,13 @@
 import { Order } from "../classes/order.js"
 import {readFileSync, writeFileSync} from "fs"
-import { CustomerService } from "./customerService.js"
-import { ProductService } from "./productService.js"
-export class OrderService {
+import { BaseService } from "./baseService.js"
+
+export class OrderService extends BaseService {
     constructor(customerService, productService) {
-        this.file = "data/commandes.json"
-        this.orders = []
-        this.count = 0
+        super("data/commandes.json")
+
         this.customerService = customerService
         this.productService = productService
-    }
-
-    readFromJson() {
-        const data = readFileSync(this.file).toString()
-        this.orders = JSON.parse(data)
-        this.count = this.orders.length > 0 ? this.orders[this.orders.length-1].id : 0
-    }
-
-    writeToJson() {
-        writeFileSync(this.file, JSON.stringify(this.orders))
     }
 
     addOrder(customerId, products) {
@@ -34,7 +23,7 @@ export class OrderService {
                 }
             });
             const order = new Order(++this.count,customer, orderProducts)
-            this.orders.push(order)
+            this.data.push(order)
             this.writeToJson()
             return true
         }
@@ -42,10 +31,10 @@ export class OrderService {
     }
 
     getOrderById(id) {
-        return this.orders.find(o => o.id == id)
+        return this.data.find(o => o.id == id)
     }
 
     getAllOrders() {
-        return this.orders
+        return this.data
     }
 }
