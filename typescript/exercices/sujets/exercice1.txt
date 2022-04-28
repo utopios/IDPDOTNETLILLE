@@ -3,3 +3,6 @@
  Les stagiaires ont les attributs: id, nom, prenom, promotion.
  les formateurs ont les attributs: id, nom, prenom, modules.
  les formateurs et stagiaires ont la méthode afficher
+
+ Exercice 2
+ Convertir l'api contact-express en une api express avec typescript
