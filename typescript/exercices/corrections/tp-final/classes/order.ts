@@ -8,7 +8,7 @@ export class Order extends BaseClass {
     products:Array<OrderProduct> = []
     constructor(id:number, customer:Customer, products:Array<OrderProduct>) {
         super(id)
-        this.id = id
+       
         this.customer = customer
         this.products = products
     }
