@@ -1,3 +1,4 @@
+import {Component} from "react"
 class FormPersonne extends Component {
     constructor(props) {
         super(props);

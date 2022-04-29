@@ -1,6 +1,6 @@
 import DetailPersonne from "./detail-personne";
 import FormPersonne from "./form-personne";
-
+import {Component} from "react"
 class Personne extends Component {
     constructor(props) {
         super(props);

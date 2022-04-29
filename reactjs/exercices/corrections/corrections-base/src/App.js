@@ -3,13 +3,14 @@ import './App.css';
 import { Header } from './composants/header';
 import { Content } from './composants/content';
 import { Footer } from './composants/footer';
-
+import Personne from './composants/personne';
 function App() {
   return (
     <div className="App">
-      <Header></Header>
+      {/* <Header></Header>
       <Content></Content>
-      <Footer></Footer>
+      <Footer></Footer> */}
+      <Personne></Personne>
     </div>
   );
 }

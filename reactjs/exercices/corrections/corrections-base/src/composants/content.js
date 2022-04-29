@@ -13,7 +13,7 @@
 //         </main>
 //     )
 // }
-
+import {Component} from "react"
 export class Content extends Component {
     constructor(props) {
         super(props)
