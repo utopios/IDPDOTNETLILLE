@@ -1,0 +1,4 @@
+Créer un composant, en fonction qui permet d'afficher:
+    - un composant entete.
+    - un composant contenu.
+    - un composant pied de page
