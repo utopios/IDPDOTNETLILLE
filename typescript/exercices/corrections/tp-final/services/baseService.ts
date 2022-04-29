@@ -5,7 +5,7 @@ export class BaseService<T extends BaseClass> {
     data:Array<T> = []
     count:number
     file:string
-    constructor(file) {
+    constructor(file:string) {
         this.data = []
         this.count = 0
         this.file = file
