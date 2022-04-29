@@ -2,3 +2,9 @@ Créer un composant, en fonction, (const et des classes) qui permet d'afficher:
     - un composant entete.
     - un composant contenu.
     - un composant pied de page.
+
+Exercice 2
+
+Créer la structure d'un composant qui contient :
+    - Un composant Formulaire pour saisir un nom et un prénom
+    - Un composant pour afficher les valeurs du formulaire
