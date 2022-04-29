@@ -25,10 +25,12 @@ export class Bonjour extends Component {
     }
 
     render() {
-        return(
+        return (
+        {/*
             <div>
                 <h1>Bonjour tout le monde</h1>
             </div>
+        */}
         )
     }
 }
