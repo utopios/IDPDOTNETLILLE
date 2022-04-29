@@ -5,6 +5,6 @@ Créer un composant, en fonction, (const et des classes) qui permet d'afficher:
 
 Exercice 2
 
-Créer la structure d'un composant qui contient :
+Créer la structure d'dun composant qui contient :
     - Un composant Formulaire pour saisir un nom et un prénom
     - Un composant pour afficher les valeurs du formulaire
