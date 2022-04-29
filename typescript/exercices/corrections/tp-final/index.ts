@@ -1,28 +1,33 @@
-import express from "express"
-import { CustomerService } from "./services/customerService.js"
-import { OrderService } from "./services/orderService.js"
-import { ProductService } from "./services/productService.js"
+import express,{Express, Request, Response} from "express"
+import { Customer } from "./classes/customer"
+import { Product } from "./classes/product"
+import { CreateOrder } from "./interfaces/create-order.interface"
+import { Id } from "./interfaces/id.interface"
+import { Message } from "./interfaces/message.interface"
+import { CustomerService } from "./services/customerService"
+import { OrderService } from "./services/orderService"
+import { ProductService } from "./services/productService"
 
-const app = express()
+const app:Express = express()
 
 app.use(express.json())
 
 //Création de services
-const productService = new ProductService()
-const customerService = new CustomerService()
-const orderService = new OrderService(customerService, productService)
+const productService:ProductService = new ProductService()
+const customerService:CustomerService = new CustomerService()
+const orderService:OrderService = new OrderService(customerService, productService)
 //EndPoints
 
 //1-Création produit
-app.post('/produits', (req, res) => {
+app.post('/produits', (req:Request<any,any,Product>, res:Response<Message>) => {
     const {title, price, stock} = req.body
     productService.addProduct(title, price, stock)
     res.json({message: "produit ajouté"})
 })
 
 //2-Récupération d'un produit par son id
-app.get('/produits/:id', (req, res) => {
-    const product = productService.getProductById(req.params.id)
+app.get('/produits/:id', (req:Request<Id>, res:Response<Message|Product>) => {
+    const product:Product = productService.getProductById(req.params.id)
     if(product != undefined) {
         res.json(product)
     }
@@ -32,30 +37,30 @@ app.get('/produits/:id', (req, res) => {
 })
 
 //1-Création d'un client
-app.post('/clients', (req, res) => {
+app.post('/clients', (req:Request<any,any,Customer>, res:Response<Message>) => {
     const {firstName, lastName, phone} = req.body
     customerService.addCustomer(firstName, lastName, phone)
     res.json({message: "client ajouté"})
 })
 
 //2- Récupération de la liste des clients
-app.get('/clients', (req, res) => {
+app.get('/clients', (req, res:Response<Array<Customer>>) => {
     res.json(customerService.getAllCustomers())
 })
 
 //3- Récupération d'un client
-app.get('/clients/:id', (req, res) => {
-    const customer = customerService.getCustomerById(req.params.id)
+app.get('/clients/:id', (req:Request<Id>, res:Response<Message|Customer>) => {
+    const customer:Customer = customerService.getCustomerById(req.params.id)
     if(customer != undefined) {
         res.json(customer)
     }
     else {
-        res.json({mesasge:"aucun client avec cet id"})
+        res.json({message:"aucun client avec cet id"})
     }
 })
 
 //1- Création d'un commande 
-app.post('/commandes', (req, res) => {
+app.post('/commandes', (req:Request<any, any, CreateOrder>, res:Response<Message>) => {
     const {customerId, products} = req.body
     if(orderService.addOrder(customerId, products)) {
         res.json({message: "commande ajoutée"})
