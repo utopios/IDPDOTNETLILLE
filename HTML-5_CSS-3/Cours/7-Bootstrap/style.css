@@ -1,0 +1,39 @@
+header{
+    display: flex
+}
+body{
+    display: flex;
+}
+.card{
+    margin: 10px;
+}
+
+.black{
+    background-color: black;
+}
+.space{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.red{
+    background-color: red;
+}
+.blue{
+    background-color: blue;
+}
+.green{
+    background-color: green;
+}
+.purple{
+    background-color: purple;
+}
+.yellow{
+    background-color: yellow;
+}
+.pink{
+    background-color: pink;
+}
+
+#navMenu {
+    padding: 0 10%;
+}
