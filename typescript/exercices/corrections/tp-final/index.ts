@@ -1,5 +1,6 @@
 import express,{Express, Request, Response} from "express"
 import { Customer } from "./classes/customer"
+import { Order } from "./classes/order"
 import { Product } from "./classes/product"
 import { CreateOrder } from "./interfaces/create-order.interface"
 import { Id } from "./interfaces/id.interface"
@@ -71,13 +72,13 @@ app.post('/commandes', (req:Request<any, any, CreateOrder>, res:Response<Message
 })
 
 //2- Récupération de la liste des commandes
-app.get('/commandes', (req, res) => {
+app.get('/commandes', (req, res:Response<Array<Order>>) => {
     res.json(orderService.getAllOrders())
 })
 
 //3- Récupération d'un commande par son id
-app.get('/commandes/:id', (req, res) => {
-    const order = orderService.getOrderById(req.params.id)
+app.get('/commandes/:id', (req:Request<Id>, res:Response<Order|Message>) => {
+    const order:Order = orderService.getOrderById(req.params.id)
     if(order != undefined) {
         res.json(order)
     }else {
