@@ -8,3 +8,9 @@ Exercice 2
 Créer la structure d'dun composant qui contient :
     - Un composant Formulaire pour saisir un nom et un prénom
     - Un composant pour afficher les valeurs du formulaire
+
+Exercice 3
+
+Créer un composant contact (nom, prenom, email, telephone).
+Afficher une liste de contacts (Tableau de contacts) 
+avec le composant contact.
