@@ -6,7 +6,9 @@ export function App() {
   return (
     <div className="App">
       <h1>Bonjour tout le monde, cava </h1>
-      <Bonjour />
+      <Bonjour name="toto" />
+      <Bonjour name="tata" />
+      <Bonjour name="titi" />
     </div>
   );
 }

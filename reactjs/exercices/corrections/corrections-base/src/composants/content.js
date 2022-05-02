@@ -1,4 +1,4 @@
-// export function Content() {
+// export function Content(props) {
 //     return(
 //         <main>
 //             <h2>contenu de la page</h2>
@@ -6,7 +6,7 @@
 //     )
 // }
 
-// const Content = () => {
+// const Content = (props) => {
 //     return(
 //         <main>
 //             <h2>Contenu de la page</h2>
