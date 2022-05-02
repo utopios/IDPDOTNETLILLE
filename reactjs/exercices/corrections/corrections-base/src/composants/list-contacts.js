@@ -11,7 +11,8 @@ export class ListContacts extends Component {
     }
     render() { 
         return (  
-            this.contacts.map((c, i) => (<Contact key={i} nom={c.nom} prenom={c.prenom} telephone={c.telephone} email={c.email} />))
+            // this.contacts.map((c, i) => (<Contact key={i} nom={c.nom} prenom={c.prenom} telephone={c.telephone} email={c.email} />))
+            this.contacts.map((c, i) => (<Contact key={i} contact={c}/>))
         );
     }
 }

@@ -5,7 +5,7 @@ export class Contact extends Component {
     }
 
     render() {
-        const {nom, prenom, telephone, email} = this.props
+        const {nom, prenom, telephone, email} = this.props.contact
         return(
             <div>
                 Nom : {nom}, Prénom : {prenom}, Téléphone : {telephone}, email: {email}
