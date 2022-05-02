@@ -7,7 +7,7 @@ Exercice 2
 
 Créer la structure d'dun composant qui contient :
     - Un composant Formulaire pour saisir un nom et un prénom
-    - Un composant pour afficher les valeurs du formulaire
+    - Un composant pour afficher les valeurs du formulaire avec plusieurs personnes
 
 Exercice 3
 
