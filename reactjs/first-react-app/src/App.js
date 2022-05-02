@@ -25,10 +25,17 @@ export class App extends Component {
     })
     
   }
+
+  changeCountInput = (e) => {
+   
+    this.setState({count: e.target.value})
+  }
   render() {
     return (
       <div className="App">
+        <div><input defaultValue={this.state.count} onChange={this.changeCountInput}  /></div>
         <h1>{this.state.count}</h1>
+
         <button onClick={this.clickButton}>valider</button>
         <h1>Bonjour tout le monde, cava </h1>
         {/* <Bonjour nom="toto" prenom="titi" />
