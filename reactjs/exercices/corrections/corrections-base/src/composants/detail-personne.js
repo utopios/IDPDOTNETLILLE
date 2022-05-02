@@ -8,10 +8,10 @@ class DetailPersonne extends Component {
         return (
             <div>
                 <div>
-                    Resultat Nom: 
+                    Resultat Nom: {this.props.nom}
                 </div>
                 <div>
-                    Resultat Prénom
+                    Resultat Prénom: {this.props.prenom}
                 </div>
             </div>
         );

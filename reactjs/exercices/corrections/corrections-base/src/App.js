@@ -11,8 +11,8 @@ function App() {
       {/* <Header></Header>
       <Content></Content>
       <Footer></Footer> */}
-      {/* <Personne></Personne> */}
-      <ListContacts />
+      <Personne></Personne>
+      {/* <ListContacts /> */}
     </div>
   );
 }
