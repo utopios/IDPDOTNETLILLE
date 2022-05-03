@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import { Bonjour } from './Bonjour';
 import {Component} from "react"
+import { Toto } from './toto';
 export class App extends Component {
   
   constructor(props) {
@@ -48,6 +49,7 @@ export class App extends Component {
             )
           })
         }
+        <Toto></Toto>
       </div>
     )
   }
