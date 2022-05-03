@@ -1,6 +1,7 @@
 import {useState} from "react"
 export const Toto = (props) => {
     const [first, setFirst] = useState()
+    const [nom, setNom] = useState()
     return(
         <div>
             {first}
@@ -13,7 +14,8 @@ export const Toto = (props) => {
 //     constructor(props) {
 //         super(props) 
 //         this.state = {
-//             first: "default value"
+//             first: "default value",
+//               nom: undefined 
 //         }
 //     }
 // }
