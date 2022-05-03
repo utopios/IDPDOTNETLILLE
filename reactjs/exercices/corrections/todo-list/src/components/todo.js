@@ -15,9 +15,12 @@ export class Todo extends Component{
         this.props.update(id)
     }
     render() {
-        const {title, content, status} = this.props.todo
+        const {id,title, content, status} = this.props.todo
         return(
             <div className="row">
+                <div className="col">
+                    {id}
+                </div>
                 <div className="col">
                     {title}
                 </div>
