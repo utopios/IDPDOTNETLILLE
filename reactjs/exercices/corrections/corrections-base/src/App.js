@@ -5,6 +5,7 @@ import { Content } from './composants/content';
 import { Footer } from './composants/footer';
 import Personne from './composants/personne';
 import { ListContacts } from './composants/list-contacts';
+import { Compteur } from './Compteur';
 function App() {
   return (
     <div className="App">
@@ -13,6 +14,7 @@ function App() {
       <Footer></Footer> */}
       <Personne></Personne>
       {/* <ListContacts /> */}
+      <Compteur></Compteur>
     </div>
   );
 }
