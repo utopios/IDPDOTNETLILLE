@@ -37,12 +37,12 @@ export class AppTodo extends Component {
                 t.status = !t.status
             }
         })
-        this.setState({ todos: [...tmpTodos]  });
+        this.setState({ todos: [...tmpTodos], searchTodos:[]    });
     }
 
     delete = (id) => {
         const tmpTodos = this.state.todos.filter(t => t.id != id)
-        this.setState({ todos: [...tmpTodos]  });
+        this.setState({ todos: [...tmpTodos], searchTodos:[]    });
     }
     render() { 
         return ( 
