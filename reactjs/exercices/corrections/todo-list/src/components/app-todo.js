@@ -17,7 +17,8 @@ export class AppTodo extends Component {
         const createdTodo = {id:newCount, ...todo}
         this.setState({ 
            todos : [...this.state.todos, createdTodo],
-           count: newCount  
+           count: newCount,
+           searchTodos:[]  
         });
     }
 
