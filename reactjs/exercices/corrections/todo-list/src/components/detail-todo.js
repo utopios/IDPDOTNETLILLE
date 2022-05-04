@@ -1,4 +1,5 @@
 import { Component } from "react";
+import { withNavigate } from "../tools/with-navigate";
 
 import { withParams } from "../tools/with-params";
 
@@ -48,9 +49,10 @@ class DetailTodo extends Component {
                         {todo.content}
                     </div>)
                 }
+                <button onClick={e => this.props.navigate("/")}>Accueil</button>
             </div>
         )
     }
 }
 
-export default withParams(DetailTodo)
+export default withNavigate(withParams(DetailTodo))
