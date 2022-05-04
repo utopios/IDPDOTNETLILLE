@@ -1,6 +1,6 @@
 import { Component } from "react";
-import { useParams } from "react-router-dom"
-import { WithParams } from "../tools/with-params";
+
+import { withParams } from "../tools/with-params";
 
 // export const DetailTodo = (props) => {
 //     const parms = useParams()
@@ -31,7 +31,7 @@ class DetailTodo extends Component {
     }
 
     render() {
-        const id = this.props.parms.id
+        const id = this.props.params.id
         let todo = undefined
         if (id != undefined) {
             todo = this.props.find(id)
@@ -53,4 +53,4 @@ class DetailTodo extends Component {
     }
 }
 
-export default WithParams(DetailTodo)
+export default withParams(DetailTodo)
