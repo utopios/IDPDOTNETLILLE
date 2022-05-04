@@ -28,6 +28,9 @@ import { Component } from 'react';
 class App extends Component {
   constructor(props) {
     super(props)
+    this.state = {
+      liens : [1, 2, 3]
+    }
   }
 
   redirection = (e) => {
@@ -43,6 +46,7 @@ class App extends Component {
             <Link to="/">Home</Link>
             <Link to="/a">A</Link>
             <Link to="/b">B</Link>
+            {this.state.liens.map((e,i) => (<Link to={"/avec-param/"+e} key={i}>{e}</Link>))}
           </nav>
           <button onClick={this.redirection}>Redirection</button>
         </header>
