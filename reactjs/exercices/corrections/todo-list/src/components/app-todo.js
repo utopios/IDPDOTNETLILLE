@@ -1,6 +1,6 @@
 import { Component } from "react";
 import { Route, Routes } from "react-router-dom";
-import { DetailTodo } from "./detail-todo";
+import  DetailTodo  from "./detail-todo";
 import { FormTodo } from "./form-todo";
 import { HomeTodo } from "./home-todo";
 import { ListTodos } from "./list-todos";
