@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import { Routes, Route, BrowserRouter, Link, Navigate, Outlet } from "react-router-dom"
-import { ComponentA, ComponentB } from './components/components';
+import { ComponentA, ComponentB, ComponentParams } from './components/components';
 import { Component } from 'react';
 // function App() {
 //   return (
@@ -48,6 +48,7 @@ class App extends Component {
         </header>
         <Routes>
           <Route path='/a' element={<ComponentA />}></Route>
+          <Route path='/avec-param/:id' element={<ComponentParams/>}></Route>
           <Route path='/b' element={<ComponentB />}></Route>
         </Routes>
       </div>      

@@ -1,4 +1,4 @@
-import { Navigate, useNavigate } from "react-router-dom"
+import { Navigate, useNavigate, useParams } from "react-router-dom"
 
 export const ComponentA = () => {
     const navigation = useNavigate()
@@ -17,6 +17,15 @@ export const ComponentB = () => {
     return(
         <div>
             <h1>Je suis le composant B</h1>
+        </div>
+    )
+}
+
+export const ComponentParams = (props) => {
+    const params = useParams()
+    return(
+        <div>
+            {params.id}
         </div>
     )
 }
