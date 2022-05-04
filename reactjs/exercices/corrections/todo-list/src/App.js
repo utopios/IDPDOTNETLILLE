@@ -1,12 +1,19 @@
 import logo from './logo.svg';
 import './App.css';
 import { AppTodo } from './components/app-todo';
-import {BrowserRouter} from "react-router-dom"
+import {BrowserRouter, useNavigate} from "react-router-dom"
+
+const FakeBrowser = (props) => {
+  const navigate = useNavigate()
+  return(
+    <AppTodo navigate={navigate}></AppTodo>
+  )
+}
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-      <AppTodo></AppTodo>
+      <FakeBrowser></FakeBrowser>
       </BrowserRouter>
       
     </div>

@@ -56,7 +56,7 @@ export class AppTodo extends Component {
                     delete={this.delete} update={this.update} todos={ (this.state.searchTodos.length > 0) ? this.state.searchTodos : this.state.todos}
                     />}>                        
                     </Route>
-                    <Route path="/formulaire" element={<FormTodo addTodo={this.addTodo} />}>
+                    <Route path="/formulaire" element={<FormTodo addTodo={this.addTodo} navigate={this.props.navigate} />}>
                     </Route>
                 </Routes>
             </div>
