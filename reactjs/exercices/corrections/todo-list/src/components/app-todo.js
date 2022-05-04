@@ -1,6 +1,9 @@
 import { Component } from "react";
+import { Route, Routes } from "react-router-dom";
 import { FormTodo } from "./form-todo";
+import { HomeTodo } from "./home-todo";
 import { ListTodos } from "./list-todos";
+import { MenuTodo } from "./menu-todo";
 import { SearchTodo } from "./search-todo";
 
 export class AppTodo extends Component {
@@ -47,9 +50,15 @@ export class AppTodo extends Component {
     render() { 
         return ( 
             <div>
-                <FormTodo addTodo={this.addTodo}></FormTodo>
-                <SearchTodo search={this.search}></SearchTodo>
-                <ListTodos delete={this.delete} update={this.update} todos={ (this.state.searchTodos.length > 0) ? this.state.searchTodos : this.state.todos}></ListTodos>
+                <MenuTodo></MenuTodo>
+                <Routes>
+                    <Route path="/" element={<HomeTodo search={this.search}
+                    delete={this.delete} update={this.update} todos={ (this.state.searchTodos.length > 0) ? this.state.searchTodos : this.state.todos}
+                    />}>                        
+                    </Route>
+                    <Route path="/formulaire" element={<FormTodo addTodo={this.addTodo} />}>
+                    </Route>
+                </Routes>
             </div>
          );
     }
