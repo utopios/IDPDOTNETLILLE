@@ -1,5 +1,6 @@
 import { Component } from "react";
 import { Route, Routes } from "react-router-dom";
+import { DetailTodo } from "./detail-todo";
 import { FormTodo } from "./form-todo";
 import { HomeTodo } from "./home-todo";
 import { ListTodos } from "./list-todos";
@@ -47,6 +48,10 @@ export class AppTodo extends Component {
         const tmpTodos = this.state.todos.filter(t => t.id != id)
         this.setState({ todos: [...tmpTodos], searchTodos:[]    });
     }
+
+    find = (id) => {
+        return this.state.todos.find(t => t.id == id)
+    }
     render() { 
         return ( 
             <div>
@@ -58,6 +63,7 @@ export class AppTodo extends Component {
                     </Route>
                     <Route path="/formulaire" element={<FormTodo addTodo={this.addTodo} navigate={this.props.navigate} />}>
                     </Route>
+                    <Route path="/detail/:id" element={<DetailTodo find={this.find} />}></Route>
                 </Routes>
             </div>
          );

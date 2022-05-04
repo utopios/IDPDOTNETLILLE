@@ -1,4 +1,5 @@
 import {Component} from "react"
+import { Link } from "react-router-dom"
 export class Todo extends Component{
     constructor(props) {
         super(props)
@@ -31,6 +32,7 @@ export class Todo extends Component{
                     <a onClick={this.delete}>supprimer</a>
                     <input type="checkbox" onChange={this.update} checked={status} />
                 </div>
+                <Link to={"/detail/"+id}>Detail</Link>
             </div>
         )
     }
