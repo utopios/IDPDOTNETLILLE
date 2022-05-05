@@ -1,4 +1,5 @@
 import { Component } from "react";
+import { addTodos } from "../services/todos.service";
 export class FormTodo extends Component {
     constructor(props) {
         super(props);
@@ -17,7 +18,7 @@ export class FormTodo extends Component {
 
     confirm = (e) => {
         e.preventDefault()
-        this.props.addTodo({...this.state.todo, status:false})
+        addTodos({...this.state.todo, status:false})
         this.props.navigate("/")
     }
     render() { 

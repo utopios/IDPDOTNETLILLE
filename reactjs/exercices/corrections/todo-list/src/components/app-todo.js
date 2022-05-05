@@ -57,11 +57,9 @@ export class AppTodo extends Component {
             <div>
                 <MenuTodo></MenuTodo>
                 <Routes>
-                    <Route path="/" element={<HomeTodo search={this.search}
-                    delete={this.delete} update={this.update} todos={ (this.state.searchTodos.length > 0) ? this.state.searchTodos : this.state.todos}
-                    />}>                        
+                    <Route path="/" element={<HomeTodo />}>                        
                     </Route>
-                    <Route path="/formulaire" element={<FormTodo addTodo={this.addTodo} navigate={this.props.navigate} />}>
+                    <Route path="/formulaire" element={<FormTodo  navigate={this.props.navigate} />}>
                     </Route>
                     <Route path="/detail/:id" element={<DetailTodo find={this.find} />}></Route>
                 </Routes>
