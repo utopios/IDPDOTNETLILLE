@@ -1,4 +1,5 @@
 import { Component } from "react";
+import { findTodoById } from "../services/todos.service";
 import { withNavigate } from "../tools/with-navigate";
 
 import { withParams } from "../tools/with-params";
@@ -29,14 +30,20 @@ import { withParams } from "../tools/with-params";
 class DetailTodo extends Component {
     constructor(props) {
         super(props)
+        this.state = {
+            todo : undefined
+        }
+    }
+
+    componentDidMount() {
+        const id = this.props.params.id
+        findTodoById(id).then(res => {
+            this.setState({ todo:res  });
+        })
     }
 
     render() {
-        const id = this.props.params.id
-        let todo = undefined
-        if (id != undefined) {
-            todo = this.props.find(id)
-        }
+        const todo = this.state.todo
 
         return (
             <div>
