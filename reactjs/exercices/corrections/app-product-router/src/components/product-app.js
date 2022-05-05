@@ -39,7 +39,7 @@ export class ProductApp extends Component {
         return(
             <BrowserRouter>
             <ProductMenu totalProduct={this.state.cart.length}/>      
-            <ProductRouter products={this.state.products} removeFromCart={this.removeFromCart} addToCart={this.addToCart} findProduct={this.findProduct} isInCart={this.isInCart} />
+            <ProductRouter cart={this.state.cart} products={this.state.products} removeFromCart={this.removeFromCart} addToCart={this.addToCart} findProduct={this.findProduct} isInCart={this.isInCart} />
                 
             </BrowserRouter>
         )
