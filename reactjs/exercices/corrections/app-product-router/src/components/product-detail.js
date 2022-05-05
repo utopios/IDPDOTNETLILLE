@@ -19,7 +19,7 @@ export const ProductDetail = withRouter((props) => {
                     Detail Produit
                     {product.title}<br/>
                     {product.price}<br/>
-                    <ProductButton removeFromCart={props.removeFromCart} addToCart={props.addToCart} isInCart={props.isInCart}></ProductButton>
+                    <ProductButton id={id} removeFromCart={props.removeFromCart} addToCart={props.addToCart} isInCart={props.isInCart}></ProductButton>
                 </div>
             )
         }

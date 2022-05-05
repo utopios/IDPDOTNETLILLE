@@ -22,6 +22,7 @@ export class ProductApp extends Component {
         return this.state.products.find(p => p.id == id)
     }
     addToCart = (id) => {
+        
         const product = this.state.products.find(p => p.id == id)
         if(product != undefined) {
             this.setState({cart : [...this.state.cart, {...product}]})
