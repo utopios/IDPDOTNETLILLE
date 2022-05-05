@@ -14,3 +14,10 @@ Exercice 3
 Créer un composant contact (nom, prenom, email, telephone).
 Afficher une liste de contacts (Tableau de contacts) 
 avec le composant contact.
+
+
+Exerice Cycle de vie
+En utilisant le projet todo avec router:
+Il faut charger la liste des todos à partir d'un service data
+Il faut récupérer un todo dans le composant detail à partir du service data
+Il faut ajouter les données dans le data service.
