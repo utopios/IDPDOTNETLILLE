@@ -38,7 +38,7 @@ class DetailTodo extends Component {
     componentDidMount() {
         const id = this.props.params.id
         findTodoById(id).then(res => {
-            this.setState({ todo:res  });
+            this.setState({ todo:res.data  });
         })
     }
 

@@ -1,6 +1,6 @@
 import express from "express"
 import { App } from "./classes/app.js"
-
+import cors from "cors"
 //Un objet pour gérer les données
 const dataService = new App()
 
@@ -10,12 +10,13 @@ const api = express()
 //Utilisation d'un middleware json
 api.use(express.json())
 
+api.use(cors({origin:"*"}))
 //Endpoint pour créer un todo
 api.post('/todos', (req, res) => {
     const {title, content} = req.body
     if(title != undefined && content != undefined) {
         dataService.createTodo(title, content)
-        res.json({message: "todo ajouté"})
+        res.json({message: "todo ajouté", error:false})
     }
     else
         res.json({message: "Merci de envoyer un titre et un contenu"})

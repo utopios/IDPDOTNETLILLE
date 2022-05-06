@@ -15,7 +15,7 @@ export class ListTodos extends Component {
 
     fetchData = () => {
         getTodos().then((res) => {
-            this.setState({ todos:[...res]  });
+            this.setState({ todos:[...res.data]  });
         })
     }
 

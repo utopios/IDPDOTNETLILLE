@@ -18,8 +18,15 @@ export class FormTodo extends Component {
 
     confirm = (e) => {
         e.preventDefault()
-        addTodos({...this.state.todo, status:false})
-        this.props.navigate("/")
+        addTodos({...this.state.todo, status:false}).then(res => {
+            if(res.data.error == false) {
+                this.props.navigate("/")
+            }
+            else {
+                alert(this.data.message)
+            }
+        })
+        
     }
     render() { 
         return ( 
