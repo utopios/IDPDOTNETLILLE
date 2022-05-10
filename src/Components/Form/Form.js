@@ -14,10 +14,10 @@ export default function Form() {
   const handleForm = (e) => {
     e.preventDefault();
 
-    const newArticle = {
-      title: article.title,
-      body: article.body,
-    };
+    // const newArticle = {
+    //   title: article.title,
+    //   body: article.body,
+    // };
 
     dispatch({
       type: "ADDARTICLE",
@@ -42,8 +42,6 @@ export default function Form() {
 
   return (
     <>
-      <Navbar />
-      <h1 className="title-form">Écrivez un article</h1>
       <form className="container-form" onSubmit={handleForm}>
         <label htmlFor="title">Titre</label>
         <input
@@ -62,7 +60,7 @@ export default function Form() {
           placeholder="Votre article"
         ></textarea>
 
-        <button>Envoyer l'article</button>
+        <button >Envoyer l'article</button>
       </form>
     </>
   );

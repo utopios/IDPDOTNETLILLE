@@ -17,7 +17,6 @@ function Home() {
   useEffect(() => {
     if (articles.length === 0) {
       const data = getArticle().then(res => {
-        console.log(res.data);
         dispatch({
           type: "LOADARTICLES",
           payload: res.data,
