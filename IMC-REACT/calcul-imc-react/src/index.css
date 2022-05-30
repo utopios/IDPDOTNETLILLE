@@ -1,0 +1,156 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.table-row-surpoid {
+  color: orange;
+}
+.table-row-normal {
+  color: green;
+}
+.table-row-dark {
+  background-color: #fbfbfb;
+}
+
+.table-row-maigreur {
+  color: lightskyblue;
+}
+.table-row-obesite {
+  color: red;
+}
+.table-row-morbide {
+  color: black;
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+#cardu {
+  width: 180px;
+  text-align: center;
+  margin-bottom: 50px;
+  margin-top: 30px;
+  box-shadow: 9px 4px 4px #eee2dc;
+  color: beige;
+  background-color: gray;
+}
+
+.card-body {
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+.h1 {
+  margin-top: 20px;
+}
+.affichage,
+.form, .form2 {
+  min-height: 100vh;
+  background-color: gray;
+}
+
+.affichage {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding-left: 30px;
+}
+
+#aff #nav {
+  padding: 0px;
+  margin: 0px;
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
+.form {
+  flex-direction: column;
+  display: flex;
+  justify-content: space-around;
+  justify-content: center;
+  padding-left:60px;
+}
+
+.form2{
+  flex-direction: column;
+  display: flex;
+  justify-content: space-around;
+  justify-content: center;
+  padding-left:200px;
+}
+h2 {
+  color: white;
+}
+
+.home {
+  margin: 0px;
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  min-height: 100vh;
+  padding: 0px;
+}
+
+table {
+  height: 50vh;
+  width: 100%;
+}
+
+.but {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-top: 50px;
+  height: 150px;
+}
+
+.boutonPoids {
+  margin-bottom: 20px;
+}
+
+.tab {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+#navside {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  align-items: center;
+  background-color: #eee2dc;
+  justify-content: stretch;
+}
+
+.identification,
+#creation {
+  height: 100vh;
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.textCompte {
+  font-size: 10px;
+}
+
+.imc {
+  margin-top: 20px;
+}
+
+#listImc {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+li {
+  list-style: none;
+}
