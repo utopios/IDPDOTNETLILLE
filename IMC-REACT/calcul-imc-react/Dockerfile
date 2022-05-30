@@ -17,6 +17,7 @@ FROM node:16 as build
 WORKDIR /app
 COPY . .
 RUN npm install
+# ENV REACT_APP_API=172.17.0.2
 RUN npm run build
 
 #stage 2
