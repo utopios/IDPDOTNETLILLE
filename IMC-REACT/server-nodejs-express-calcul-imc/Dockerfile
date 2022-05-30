@@ -6,7 +6,7 @@ COPY . .
 
 RUN npm install 
 
-EXPOSE 3000
+EXPOSE 3001
 
 # ENTRYPOINT ["npm", "start"] 
-CMD ["npm", "start"] 
+CMD ["node", "index.js"] 
