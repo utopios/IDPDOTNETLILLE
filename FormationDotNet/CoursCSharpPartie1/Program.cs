@@ -43,7 +43,12 @@ namespace CoursCSharpPartie1
             Console.Write("Merci de saisir votre prénom : ");
             string prenom = Console.ReadLine();
             //Console.WriteLine("Bonjour " + nom + " " + prenom);
-            Console.WriteLine($"Bonjour {nom} {prenom}");
+            //Console.WriteLine($"Bonjour {nom} {prenom}");
+            
+            //Correction partie exercice 4
+            Console.Write("Merci de saisir votre age : ");
+            int age = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine($"Bonjour {nom} {prenom}, vous avez {age} ans");
         }
     }
 }
