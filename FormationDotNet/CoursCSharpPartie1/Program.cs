@@ -51,12 +51,20 @@ namespace CoursCSharpPartie1
             Console.WriteLine($"Bonjour {nom} {prenom}, vous avez {age} ans");*/
 
             //Correction exercice 5
-            Console.Write("Merci de saisir le premier nombre : ");
-            double premierNombre = Convert.ToDouble(Console.ReadLine());
-            Console.Write("Merci de saisir le second nombre : ");
-            double secondNombre = Convert.ToDouble(Console.ReadLine());
-            double resultat = premierNombre + secondNombre;
-            Console.WriteLine($"Le result de l'addition de {premierNombre} et {secondNombre} est égale à {resultat}");
+            //Console.Write("Merci de saisir le premier nombre : ");
+            //double premierNombre = Convert.ToDouble(Console.ReadLine());
+            //Console.Write("Merci de saisir le second nombre : ");
+            //double secondNombre = Convert.ToDouble(Console.ReadLine());
+            //double resultat = premierNombre + secondNombre;
+            //Console.WriteLine($"Le result de l'addition de {premierNombre} et {secondNombre} est égale à {resultat}");
+
+            //Correction exercice 7
+            Console.Write("Merci de saisir la longueur du premier côté : ");
+            double first = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Merci de saisir la longueur du second côté : ");
+            double second= Convert.ToDouble(Console.ReadLine());
+            double hypo = Math.Sqrt(Math.Pow(first, 2) + Math.Pow(second, 2));
+            Console.WriteLine($"L'hypothénuse est de {Math.Round(hypo, 2)}");
         }
     }
 }
