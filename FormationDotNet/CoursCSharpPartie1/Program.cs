@@ -38,7 +38,7 @@ namespace CoursCSharpPartie1
             //Console.WriteLine(saisi);
 
             //Correction exercice 3
-            Console.Write("Merci de saisir votre nom : ");
+            /*Console.Write("Merci de saisir votre nom : ");
             string nom = Console.ReadLine();
             Console.Write("Merci de saisir votre prénom : ");
             string prenom = Console.ReadLine();
@@ -48,7 +48,15 @@ namespace CoursCSharpPartie1
             //Correction partie exercice 4
             Console.Write("Merci de saisir votre age : ");
             int age = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine($"Bonjour {nom} {prenom}, vous avez {age} ans");
+            Console.WriteLine($"Bonjour {nom} {prenom}, vous avez {age} ans");*/
+
+            //Correction exercice 5
+            Console.Write("Merci de saisir le premier nombre : ");
+            double premierNombre = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Merci de saisir le second nombre : ");
+            double secondNombre = Convert.ToDouble(Console.ReadLine());
+            double resultat = premierNombre + secondNombre;
+            Console.WriteLine($"Le result de l'addition de {premierNombre} et {secondNombre} est égale à {resultat}");
         }
     }
 }
