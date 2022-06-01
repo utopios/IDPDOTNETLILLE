@@ -8,7 +8,19 @@ namespace CoursCSharpPartie1
     {
         public static void Main(String[] args)
         {
-            Console.WriteLine("Hello, World!");
+            //Console.WriteLine("Hello, World!");
+            //Utilisation des variables
+            //Déclaration d'une variables
+            /*string nomComplet = "abadi ihab";
+            int age = 34;
+            Console.WriteLine(nomComplet);
+            Console.WriteLine(age);
+            int @int = 10;*/
+            int a, b;
+            a = 10;
+            b = 20;
+            Console.WriteLine(a + b);
+
         }
     }
 }
