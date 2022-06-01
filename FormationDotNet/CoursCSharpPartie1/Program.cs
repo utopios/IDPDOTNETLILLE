@@ -91,15 +91,29 @@ namespace CoursCSharpPartie1
             //    Console.WriteLine("A est <= 5");
             //}
             //Correction exercice 10
-            Console.Write("Merci de sasir  une lettre : ");
-            string lettre = Console.ReadLine();
-            if(lettre == "e" || lettre == "a" || lettre =="o" || lettre == "u" || lettre == "y" || lettre == "i")
+            //Console.Write("Merci de sasir  une lettre : ");
+            //string lettre = Console.ReadLine();
+            //if(lettre == "e" || lettre == "a" || lettre =="o" || lettre == "u" || lettre == "y" || lettre == "i")
+            //{
+            //    Console.WriteLine("La lettre est une voyelle");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Une consonne");
+            //}
+
+            //Correction exercice 11
+            Console.Write("Merci de saisir un nombre entier : ");
+            int nb = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Merci de saisir un le diviseur : ");
+            int diviseur = Convert.ToInt32(Console.ReadLine());
+            if(nb % diviseur == 0)
             {
-                Console.WriteLine("La lettre est une voyelle");
+                Console.WriteLine($"le nombre {nb} est divisible par {diviseur}");
             }
             else
             {
-                Console.WriteLine("Une consonne");
+                Console.WriteLine("Le nombre n'est pas divisible");
             }
         }
     }
