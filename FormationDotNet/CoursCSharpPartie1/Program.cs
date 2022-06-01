@@ -59,12 +59,37 @@ namespace CoursCSharpPartie1
             //Console.WriteLine($"Le result de l'addition de {premierNombre} et {secondNombre} est égale à {resultat}");
 
             //Correction exercice 7
-            Console.Write("Merci de saisir la longueur du premier côté : ");
-            double first = Convert.ToDouble(Console.ReadLine());
-            Console.Write("Merci de saisir la longueur du second côté : ");
-            double second= Convert.ToDouble(Console.ReadLine());
-            double hypo = Math.Sqrt(Math.Pow(first, 2) + Math.Pow(second, 2));
-            Console.WriteLine($"L'hypothénuse est de {Math.Round(hypo, 2)}");
+            //Console.Write("Merci de saisir la longueur du premier côté : ");
+            //double first = Convert.ToDouble(Console.ReadLine());
+            //Console.Write("Merci de saisir la longueur du second côté : ");
+            //double second= Convert.ToDouble(Console.ReadLine());
+            //double hypo = Math.Sqrt(Math.Pow(first, 2) + Math.Pow(second, 2));
+            //Console.WriteLine($"L'hypothénuse est de {Math.Round(hypo, 2)}");
+
+            //Structure de controle
+            //if else
+            //bool test = false;
+            //if(test)
+            //{
+            //    Console.WriteLine("Le test est true");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Le test est faux");
+            //}
+            int a = 10;
+            if(a > 10)
+            {
+                Console.WriteLine("A est > 0");
+            }
+            else if(a > 5 && a <= 10)
+            {
+                Console.WriteLine("A est > 5 et <= 10");
+            }
+            else
+            {
+                Console.WriteLine("A est <= 5");
+            }
         }
     }
 }
