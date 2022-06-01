@@ -103,17 +103,48 @@ namespace CoursCSharpPartie1
             //}
 
             //Correction exercice 11
-            Console.Write("Merci de saisir un nombre entier : ");
+            /*Console.Write("Merci de saisir un nombre entier : ");
             int nb = Convert.ToInt32(Console.ReadLine());
             Console.Write("Merci de saisir un le diviseur : ");
             int diviseur = Convert.ToInt32(Console.ReadLine());
+            string type = nb < 10 ? "chiffre" : "nombre";
             if(nb % diviseur == 0)
             {
-                Console.WriteLine($"le nombre {nb} est divisible par {diviseur}");
+                Console.WriteLine($"{type} {nb} est divisible par {diviseur}");
             }
             else
             {
-                Console.WriteLine("Le nombre n'est pas divisible");
+                Console.WriteLine($"Le {type} n'est pas divisible");
+            }*/
+            //Correction exercice 13
+            Console.Write("Merci de saisir AB : ");
+            double ab = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Merci de saisir AC : ");
+            double ac = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Merci de saisir BC : ");
+            double bc = Convert.ToInt32(Console.ReadLine());
+            if(ab == ac)
+            {
+                if(ab == bc)
+                {
+                    Console.WriteLine("Equilatéral");
+                }
+                else
+                {
+                    Console.WriteLine("Isocèle en A");
+                }
+            }
+            else if(ac == bc)
+            {
+                Console.WriteLine("Isocèle en C");
+            }
+            else if(ab == bc)
+            {
+                Console.WriteLine("Isocèle en B");
+            }
+            else
+            {
+                Console.WriteLine("rien");
             }
         }
     }
