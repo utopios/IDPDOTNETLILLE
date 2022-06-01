@@ -77,18 +77,29 @@ namespace CoursCSharpPartie1
             //{
             //    Console.WriteLine("Le test est faux");
             //}
-            int a = 10;
-            if(a > 10)
+            //int a = 10;
+            //if(a > 10)
+            //{
+            //    Console.WriteLine("A est > 0");
+            //}
+            //else if(a > 5 && a <= 10)
+            //{
+            //    Console.WriteLine("A est > 5 et <= 10");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("A est <= 5");
+            //}
+            //Correction exercice 10
+            Console.Write("Merci de sasir  une lettre : ");
+            string lettre = Console.ReadLine();
+            if(lettre == "e" || lettre == "a" || lettre =="o" || lettre == "u" || lettre == "y" || lettre == "i")
             {
-                Console.WriteLine("A est > 0");
-            }
-            else if(a > 5 && a <= 10)
-            {
-                Console.WriteLine("A est > 5 et <= 10");
+                Console.WriteLine("La lettre est une voyelle");
             }
             else
             {
-                Console.WriteLine("A est <= 5");
+                Console.WriteLine("Une consonne");
             }
         }
     }
