@@ -117,7 +117,7 @@ namespace CoursCSharpPartie1
                 Console.WriteLine($"Le {type} n'est pas divisible");
             }*/
             //Correction exercice 13
-            Console.Write("Merci de saisir AB : ");
+            /*Console.Write("Merci de saisir AB : ");
             double ab = Convert.ToInt32(Console.ReadLine());
             Console.Write("Merci de saisir AC : ");
             double ac = Convert.ToInt32(Console.ReadLine());
@@ -145,6 +145,27 @@ namespace CoursCSharpPartie1
             else
             {
                 Console.WriteLine("rien");
+            }*/
+            //Correction exercice 14
+            Console.Write("Merci de saisir votre poids : ");
+            ushort poids = Convert.ToUInt16(Console.ReadLine());
+            Console.Write("Merci de saisir votre taille : ");
+            ushort taille = Convert.ToUInt16(Console.ReadLine());
+            if((taille >= 145 && taille <= 169 && poids >= 43 && poids <= 47) || (taille >= 145 && taille <= 166 && poids >= 48 && poids <= 53) || (taille >= 145 && taille <= 163 && poids >= 54 && poids <= 59) || (taille >= 145 && taille <= 160 && poids >= 60 && poids <= 65))
+            {
+                Console.WriteLine("Taille 1");
+            }
+            else if((taille >= 145 && taille <= 169 && poids >= 43 && poids <= 47) || (taille >= 145 && taille <= 166 && poids >= 48 && poids <= 53) || (taille >= 145 && taille <= 163 && poids >= 54 && poids <= 59) || (taille >= 145 && taille <= 160 && poids >= 60 && poids <= 65))
+            {
+                Console.WriteLine("taille 2");
+            }
+            else if ((taille >= 145 && taille <= 169 && poids >= 43 && poids <= 47) || (taille >= 145 && taille <= 166 && poids >= 48 && poids <= 53) || (taille >= 145 && taille <= 163 && poids >= 54 && poids <= 59) || (taille >= 145 && taille <= 160 && poids >= 60 && poids <= 65))
+            {
+                Console.WriteLine("taille 3");
+            }
+            else
+            {
+                Console.WriteLine("Aucune taille");
             }
         }
     }
