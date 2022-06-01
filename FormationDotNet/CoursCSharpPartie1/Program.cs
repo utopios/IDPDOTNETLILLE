@@ -34,8 +34,16 @@ namespace CoursCSharpPartie1
             //Console.Write("Toto");
             //Console.Write("tata");
             //Lire dans la console
-            string saisi = Console.ReadLine();
-            Console.WriteLine(saisi);
+            //string saisi = Console.ReadLine();
+            //Console.WriteLine(saisi);
+
+            //Correction exercice 3
+            Console.Write("Merci de saisir votre nom : ");
+            string nom = Console.ReadLine();
+            Console.Write("Merci de saisir votre prénom : ");
+            string prenom = Console.ReadLine();
+            //Console.WriteLine("Bonjour " + nom + " " + prenom);
+            Console.WriteLine($"Bonjour {nom} {prenom}");
         }
     }
 }
