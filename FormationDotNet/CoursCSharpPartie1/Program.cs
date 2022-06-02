@@ -298,18 +298,26 @@ namespace CoursCSharpPartie1
             //}
 
             //Correction exercice 21
-            Console.Write("Merci de saisir le nombre de chapitres : ");
-            int chapitre = Convert.ToInt32(Console.ReadLine());
-            Console.Write("Merci de saisir le nombre de parties: ");
-            int partie= Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Table des matières : ");
-            for(int i = 1; i <= chapitre; i++)
+            //Console.Write("Merci de saisir le nombre de chapitres : ");
+            //int chapitre = Convert.ToInt32(Console.ReadLine());
+            //Console.Write("Merci de saisir le nombre de parties: ");
+            //int partie= Convert.ToInt32(Console.ReadLine());
+            //Console.WriteLine("Table des matières : ");
+            //for(int i = 1; i <= chapitre; i++)
+            //{
+            //    Console.WriteLine($"\t Chapitre {i}");
+            //    for(int j = 1; j <= partie; j++)
+            //    {
+            //        Console.WriteLine($"\t\t Partie {i}.{j}");
+            //    }
+            //}
+            //Correction exercice 22
+            Console.Write("Merci de saisir un nombre : ");
+            int nombre = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine($"Table de {nombre}");
+            for(int i=1; i<=10; i++)
             {
-                Console.WriteLine($"\t Chapitre {i}");
-                for(int j = 1; j <= partie; j++)
-                {
-                    Console.WriteLine($"\t\t Partie {i}.{j}");
-                }
+                Console.WriteLine($"\t {i} X {nombre} = {i * nombre}");
             }
         }
     }
