@@ -320,26 +320,50 @@ namespace CoursCSharpPartie1
             //    Console.WriteLine($"\t {i} X {nombre} = {i * nombre}");
             //}
             //Correction ex 23
-            Console.Write("Merci de saisir le nombre d'habitant : ");
+            //Console.Write("Merci de saisir le nombre d'habitant : ");
+            //int nombre = Convert.ToInt32(Console.ReadLine());
+            //Console.Write("Année de départ : ");
+            //int annee = Convert.ToInt32(Console.ReadLine());
+            //int anneeInitial = annee;
+            //for(int i= 1; i > 0; i++)
+            //{
+            //    nombre += (int)(nombre * 0.0089F);
+            //    annee++;
+            //    if (nombre > 120000)
+            //    {
+            //        break;
+            //    }
+            //    //else
+            //    //{
+            //    //    break;
+            //    //}
+            //}
+            //Console.WriteLine($"Il faudra {annee - anneeInitial}, nous serons {annee}");
+            //Console.WriteLine($"Il y aura  {nombre} habitants en {annee}");
+
+            //Correction exercice 24
+            Console.Write("Merci de saisir un nombre : ");
             int nombre = Convert.ToInt32(Console.ReadLine());
-            Console.Write("Année de départ : ");
-            int annee = Convert.ToInt32(Console.ReadLine());
-            int anneeInitial = annee;
-            for(int i= 1; i > 0; i++)
+            for(int i = 1; i <= nombre/2 + 1; i++)
             {
-                nombre += (int)(nombre * 0.0089F);
-                annee++;
-                if (nombre > 120000)
+                int somme = i;
+                string chaine = $"{nombre} = {i}";
+                bool found = false;
+                for(int j = i + 1; j <= nombre / 2 + 1; j++)
                 {
-                    break;
+                    somme += j;
+                    chaine += $" + {j}";
+                    if(somme == nombre)
+                    {
+                        found = true;
+                        break;
+                    }
                 }
-                //else
-                //{
-                //    break;
-                //}
+                if(found)
+                {
+                    Console.WriteLine(chaine);
+                }
             }
-            Console.WriteLine($"Il faudra {annee - anneeInitial}, nous serons {annee}");
-            Console.WriteLine($"Il y aura  {nombre} habitants en {annee}");
         }
     }
 }
