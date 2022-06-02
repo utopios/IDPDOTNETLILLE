@@ -399,7 +399,7 @@ namespace CoursCSharpPartie1
             Console.WriteLine($"La moyenne est de {(double)somme / nombre}");*/
 
             //Boucle While
-           //int i = 10;
+            //int i = 10;
             //while (i > 10)
             //{
             //    Console.WriteLine($"{--i}");
@@ -437,8 +437,8 @@ namespace CoursCSharpPartie1
             }while (saisi != nombre);
             Console.WriteLine($"Bravo vous avez gagné en {nombreEssai} Essais");*/
             //Correction exercice 29
-            
-            int min = 0, max = 0, somme = 0, note;
+
+            /*int min = 0, max = 0, somme = 0, note;
             int i = 1;
             do
             {
@@ -474,7 +474,37 @@ namespace CoursCSharpPartie1
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine($"La plus petite note est {min}");
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine($"La moyenne est de {(double)somme / (i - 1)}");
+            Console.WriteLine($"La moyenne est de {(double)somme / (i - 1)}");*/
+            //Exercice 30
+            Console.WriteLine("Quelle est l'instruction qui permet de sortir d'une boucle en C# ?");
+            Console.WriteLine("\t a- break");
+            Console.WriteLine("\t b- continue");
+            Console.WriteLine("\t c- exit");
+            Console.WriteLine("\t d- quit");
+            string choix;
+            do
+            {
+                Console.Write("Entrez votre réponse : ");
+                choix = Console.ReadLine();
+                if(choix != "a")
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Il faut réviser !!!!");
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.Write("Nouvel essai ? (o/n) ");
+                    string c = Console.ReadLine();
+                    if(c == "n")
+                    {
+                        break;
+                    }
+                }
+            } while (choix != "a");
+            if(choix == "a")
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Bravo vous avez gagné un contrat");
+                Console.ForegroundColor = ConsoleColor.White;
+            }
         }
     }
 }
