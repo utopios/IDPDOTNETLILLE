@@ -292,9 +292,24 @@ namespace CoursCSharpPartie1
             //{
             //    Console.WriteLine(i);
             //}
-            for(char c='A'; c <= 'z'; c++)
+            //for(char c='A'; c <= 'z'; c++)
+            //{
+            //    Console.WriteLine(c);
+            //}
+
+            //Correction exercice 21
+            Console.Write("Merci de saisir le nombre de chapitres : ");
+            int chapitre = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Merci de saisir le nombre de parties: ");
+            int partie= Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Table des matières : ");
+            for(int i = 1; i <= chapitre; i++)
             {
-                Console.WriteLine(c);
+                Console.WriteLine($"\t Chapitre {i}");
+                for(int j = 1; j <= partie; j++)
+                {
+                    Console.WriteLine($"\t\t Partie {i}.{j}");
+                }
             }
         }
     }
