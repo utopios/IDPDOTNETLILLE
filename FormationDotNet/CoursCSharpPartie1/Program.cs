@@ -255,31 +255,46 @@ namespace CoursCSharpPartie1
             //Console.WriteLine(message);
 
             //Correction ex 18
-            Console.Write("Merci de saisir l'âge de votre enfant : ");
-            ushort age = Convert.ToUInt16(Console.ReadLine());
-            if (age < 18)
+            //Console.Write("Merci de saisir l'âge de votre enfant : ");
+            //ushort age = Convert.ToUInt16(Console.ReadLine());
+            //if (age < 18)
+            //{
+            //    switch (age)
+            //    {
+            //        case ushort n when n >= 3 && n <= 6:
+            //            Console.WriteLine("Baby");
+            //            break;
+            //        case ushort n when n >= 7 && n <= 8:
+            //            Console.WriteLine("Poussin");
+            //            break;
+            //        case ushort n when n >= 9 && n <= 10:
+            //            Console.WriteLine("Pupille");
+            //            break;
+            //        case ushort n when n >= 11 && n <= 12:
+            //            Console.WriteLine("minime");
+            //            break;
+            //        case ushort n when n >= 13:
+            //            Console.WriteLine("Cadet");
+            //            break;
+            //            default:
+            //            Console.WriteLine("Trop jeune");
+            //            break;
+            //    }
+            //}
+
+            //Suite cours 'Structure d'itération'
+            //la boucle for
+            //for(int i= 1; i < 100; i=i+3)
+            //{
+            //    Console.WriteLine(i);
+            //}
+            //for (int i = 100; i> 0; i--)
+            //{
+            //    Console.WriteLine(i);
+            //}
+            for(char c='A'; c <= 'z'; c++)
             {
-                switch (age)
-                {
-                    case ushort n when n >= 3 && n <= 6:
-                        Console.WriteLine("Baby");
-                        break;
-                    case ushort n when n >= 7 && n <= 8:
-                        Console.WriteLine("Poussin");
-                        break;
-                    case ushort n when n >= 9 && n <= 10:
-                        Console.WriteLine("Pupille");
-                        break;
-                    case ushort n when n >= 11 && n <= 12:
-                        Console.WriteLine("minime");
-                        break;
-                    case ushort n when n >= 13:
-                        Console.WriteLine("Cadet");
-                        break
-                        default:
-                        Console.WriteLine("Trop jeune");
-                        break;
-                }
+                Console.WriteLine(c);
             }
         }
     }
