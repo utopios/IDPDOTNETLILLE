@@ -212,14 +212,16 @@ namespace CoursCSharpPartie1
                     Console.WriteLine("Erreur mois");
                     break;
             }
-
-            switch(mois)
+            int toto = 0;
+            switch (mois)
             {
                 case int n when n >= 1 && n <= 3:
-                    Console.WriteLine("hiver");
+                    Console.WriteLine("hiver "+n);
+                    toto = 1;
                     break;
                 case int n when n >= 4 && n <= 6:
                     Console.WriteLine("printemps");
+                    toto = 2;
                     break;
             }
         }
