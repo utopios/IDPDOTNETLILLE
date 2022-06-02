@@ -147,26 +147,55 @@ namespace CoursCSharpPartie1
                 Console.WriteLine("rien");
             }*/
             //Correction exercice 14
-            Console.Write("Merci de saisir votre poids : ");
-            ushort poids = Convert.ToUInt16(Console.ReadLine());
-            Console.Write("Merci de saisir votre taille : ");
-            ushort taille = Convert.ToUInt16(Console.ReadLine());
-            if((taille >= 145 && taille <= 169 && poids >= 43 && poids <= 47) || (taille >= 145 && taille <= 166 && poids >= 48 && poids <= 53) || (taille >= 145 && taille <= 163 && poids >= 54 && poids <= 59) || (taille >= 145 && taille <= 160 && poids >= 60 && poids <= 65))
+            //Console.Write("Merci de saisir votre poids : ");
+            //ushort poids = Convert.ToUInt16(Console.ReadLine());
+            //Console.Write("Merci de saisir votre taille : ");
+            //ushort taille = Convert.ToUInt16(Console.ReadLine());
+            //if((taille >= 145 && taille <= 169 && poids >= 43 && poids <= 47) || (taille >= 145 && taille <= 166 && poids >= 48 && poids <= 53) || (taille >= 145 && taille <= 163 && poids >= 54 && poids <= 59) || (taille >= 145 && taille <= 160 && poids >= 60 && poids <= 65))
+            //{
+            //    Console.WriteLine("Taille 1");
+            //}
+            //else if((taille >= 145 && taille <= 169 && poids >= 43 && poids <= 47) || (taille >= 145 && taille <= 166 && poids >= 48 && poids <= 53) || (taille >= 145 && taille <= 163 && poids >= 54 && poids <= 59) || (taille >= 145 && taille <= 160 && poids >= 60 && poids <= 65))
+            //{
+            //    Console.WriteLine("taille 2");
+            //}
+            //else if ((taille >= 145 && taille <= 169 && poids >= 43 && poids <= 47) || (taille >= 145 && taille <= 166 && poids >= 48 && poids <= 53) || (taille >= 145 && taille <= 163 && poids >= 54 && poids <= 59) || (taille >= 145 && taille <= 160 && poids >= 60 && poids <= 65))
+            //{
+            //    Console.WriteLine("taille 3");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Aucune taille");
+            //}
+
+            //Correction Exercice 15
+            Console.Write("Merci saisir le dernier salaire : ");
+            decimal salaire = Convert.ToDecimal(Console.ReadLine());
+            Console.Write("Merci saisir votre âge : ");
+            ushort age = Convert.ToUInt16(Console.ReadLine());
+            Console.Write("Merci saisir le nombre d'années d'anciennete : ");
+            ushort anc = Convert.ToUInt16(Console.ReadLine());
+            decimal ind = 0;
+            if(anc > 10)
             {
-                Console.WriteLine("Taille 1");
+                ind += (anc - 10) * salaire + 10 * salaire / 2;
+                //anc -= 10;
             }
-            else if((taille >= 145 && taille <= 169 && poids >= 43 && poids <= 47) || (taille >= 145 && taille <= 166 && poids >= 48 && poids <= 53) || (taille >= 145 && taille <= 163 && poids >= 54 && poids <= 59) || (taille >= 145 && taille <= 160 && poids >= 60 && poids <= 65))
+            else if (anc >= 1)
             {
-                Console.WriteLine("taille 2");
+                ind += anc * salaire / 2;
             }
-            else if ((taille >= 145 && taille <= 169 && poids >= 43 && poids <= 47) || (taille >= 145 && taille <= 166 && poids >= 48 && poids <= 53) || (taille >= 145 && taille <= 163 && poids >= 54 && poids <= 59) || (taille >= 145 && taille <= 160 && poids >= 60 && poids <= 65))
+            //ind += anc * salaire / 2;
+            if(age >= 50)
             {
-                Console.WriteLine("taille 3");
+                ind += 5 * salaire;
             }
-            else
+            else if(age >= 46)
             {
-                Console.WriteLine("Aucune taille");
+                ind += 2 * salaire;
             }
+
+            Console.WriteLine($"Votre indemnité est de {ind} euros");
         }
     }
 }
