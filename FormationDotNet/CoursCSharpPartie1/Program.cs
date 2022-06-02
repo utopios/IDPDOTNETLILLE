@@ -365,7 +365,7 @@ namespace CoursCSharpPartie1
                 }
             }*/
             //Correction exercice 25
-            Console.Write("Merci de saisir le nombre des notes : ");
+            /*Console.Write("Merci de saisir le nombre des notes : ");
             int nombre = Convert.ToInt32(Console.ReadLine());
             int min = 0, max = 0, somme = 0, note;
             for(int i = 1; i <= nombre; i++)
@@ -396,7 +396,19 @@ namespace CoursCSharpPartie1
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine($"La plus petite note est {min}");
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine($"La moyenne est de {(double)somme / nombre}");
+            Console.WriteLine($"La moyenne est de {(double)somme / nombre}");*/
+
+            //Boucle While
+            int i = 10;
+            //while (i > 10)
+            //{
+            //    Console.WriteLine($"{--i}");
+            //}
+            //Boucle Do While
+            do
+            {
+                Console.WriteLine($"{--i}");
+            } while (i > 20);
         }
     }
 }
