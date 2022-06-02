@@ -198,31 +198,88 @@ namespace CoursCSharpPartie1
             //Console.WriteLine($"Votre indemnité est de {ind} euros");
 
             //Switch
-            int mois = 1;
-            switch (mois)
+            //int mois = 1;
+            //switch (mois)
+            //{
+            //    case 1:
+            //        Console.WriteLine("Janvier");
+            //        break;
+            //    case 2:
+            //        Console.WriteLine("Février");
+            //        break;
+            //    //...
+            //    default:
+            //        Console.WriteLine("Erreur mois");
+            //        break;
+            //}
+            //int toto = 0;
+            //switch (mois)
+            //{
+            //    case int n when n >= 1 && n <= 3:
+            //        Console.WriteLine("hiver "+n);
+            //        toto = 1;
+            //        break;
+            //    case int n when n >= 4 && n <= 6:
+            //        Console.WriteLine("printemps");
+            //        toto = 2;
+            //        break;
+            //}
+
+            //Correction de l'exercice 17
+            //Console.WriteLine("Liste des boissons disponibles : ");
+            //Console.WriteLine("\t 1 - Eau plate");
+            //Console.WriteLine("\t 2 - Eau gazeuse");
+            //Console.WriteLine("\t 3 - coca");
+            //Console.WriteLine("\t 4 - Fanta");
+            //Console.Write("Votre choix : ");
+            //string choix = Console.ReadLine();
+            //string message = "";
+            //switch(choix)
+            //{
+            //    case "1":
+            //        message = "eau plate";
+            //        break;
+            //    case "2":
+            //        message = "eau gazeuse";
+            //        break;
+            //    case "3":
+            //        message = "coca";
+            //        break;
+            //    case "4":
+            //        message = "fanta";
+            //        break;
+            //    default:
+            //        message = "mauvais choix ! ";
+            //        break;
+            //}
+            //Console.WriteLine(message);
+
+            //Correction ex 18
+            Console.Write("Merci de saisir l'âge de votre enfant : ");
+            ushort age = Convert.ToUInt16(Console.ReadLine());
+            if (age < 18)
             {
-                case 1:
-                    Console.WriteLine("Janvier");
-                    break;
-                case 2:
-                    Console.WriteLine("Février");
-                    break;
-                //...
-                default:
-                    Console.WriteLine("Erreur mois");
-                    break;
-            }
-            int toto = 0;
-            switch (mois)
-            {
-                case int n when n >= 1 && n <= 3:
-                    Console.WriteLine("hiver "+n);
-                    toto = 1;
-                    break;
-                case int n when n >= 4 && n <= 6:
-                    Console.WriteLine("printemps");
-                    toto = 2;
-                    break;
+                switch (age)
+                {
+                    case ushort n when n >= 3 && n <= 6:
+                        Console.WriteLine("Baby");
+                        break;
+                    case ushort n when n >= 7 && n <= 8:
+                        Console.WriteLine("Poussin");
+                        break;
+                    case ushort n when n >= 9 && n <= 10:
+                        Console.WriteLine("Pupille");
+                        break;
+                    case ushort n when n >= 11 && n <= 12:
+                        Console.WriteLine("minime");
+                        break;
+                    case ushort n when n >= 13:
+                        Console.WriteLine("Cadet");
+                        break
+                        default:
+                        Console.WriteLine("Trop jeune");
+                        break;
+                }
             }
         }
     }
