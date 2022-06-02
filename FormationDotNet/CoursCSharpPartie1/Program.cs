@@ -342,7 +342,7 @@ namespace CoursCSharpPartie1
             //Console.WriteLine($"Il y aura  {nombre} habitants en {annee}");
 
             //Correction exercice 24
-            Console.Write("Merci de saisir un nombre : ");
+            /*Console.Write("Merci de saisir un nombre : ");
             int nombre = Convert.ToInt32(Console.ReadLine());
             for(int i = 1; i <= nombre/2 + 1; i++)
             {
@@ -363,7 +363,40 @@ namespace CoursCSharpPartie1
                 {
                     Console.WriteLine(chaine);
                 }
+            }*/
+            //Correction exercice 25
+            Console.Write("Merci de saisir le nombre des notes : ");
+            int nombre = Convert.ToInt32(Console.ReadLine());
+            int min = 0, max = 0, somme = 0, note;
+            for(int i = 1; i <= nombre; i++)
+            {
+                Console.Write($"Merci de saisir la note N° {i} : ");
+                note = Convert.ToInt32(Console.ReadLine());
+                somme += note;
+                if(i == 1)
+                {
+                    min = note;
+                    max = note;
+                }
+                else
+                {
+                    if(note > max)
+                    {
+                        max = note;
+                    }
+                    else if(note < min)
+                    {
+                        min = note;
+                    }
+                }
             }
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine($"La plus grande note est {max}");
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"La plus petite note est {min}");
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine($"La moyenne est de {(double)somme / nombre}");
         }
     }
 }
