@@ -169,33 +169,59 @@ namespace CoursCSharpPartie1
             //}
 
             //Correction Exercice 15
-            Console.Write("Merci saisir le dernier salaire : ");
-            decimal salaire = Convert.ToDecimal(Console.ReadLine());
-            Console.Write("Merci saisir votre âge : ");
-            ushort age = Convert.ToUInt16(Console.ReadLine());
-            Console.Write("Merci saisir le nombre d'années d'anciennete : ");
-            ushort anc = Convert.ToUInt16(Console.ReadLine());
-            decimal ind = 0;
-            if(anc > 10)
+            //Console.Write("Merci saisir le dernier salaire : ");
+            //decimal salaire = Convert.ToDecimal(Console.ReadLine());
+            //Console.Write("Merci saisir votre âge : ");
+            //ushort age = Convert.ToUInt16(Console.ReadLine());
+            //Console.Write("Merci saisir le nombre d'années d'anciennete : ");
+            //ushort anc = Convert.ToUInt16(Console.ReadLine());
+            //decimal ind = 0;
+            //if(anc > 10)
+            //{
+            //    ind += (anc - 10) * salaire + 10 * salaire / 2;
+            //    //anc -= 10;
+            //}
+            //else if (anc >= 1)
+            //{
+            //    ind += anc * salaire / 2;
+            //}
+            ////ind += anc * salaire / 2;
+            //if(age >= 50)
+            //{
+            //    ind += 5 * salaire;
+            //}
+            //else if(age >= 46)
+            //{
+            //    ind += 2 * salaire;
+            //}
+
+            //Console.WriteLine($"Votre indemnité est de {ind} euros");
+
+            //Switch
+            int mois = 1;
+            switch (mois)
             {
-                ind += (anc - 10) * salaire + 10 * salaire / 2;
-                //anc -= 10;
-            }
-            else if (anc >= 1)
-            {
-                ind += anc * salaire / 2;
-            }
-            //ind += anc * salaire / 2;
-            if(age >= 50)
-            {
-                ind += 5 * salaire;
-            }
-            else if(age >= 46)
-            {
-                ind += 2 * salaire;
+                case 1:
+                    Console.WriteLine("Janvier");
+                    break;
+                case 2:
+                    Console.WriteLine("Février");
+                    break;
+                //...
+                default:
+                    Console.WriteLine("Erreur mois");
+                    break;
             }
 
-            Console.WriteLine($"Votre indemnité est de {ind} euros");
+            switch(mois)
+            {
+                case int n when n >= 1 && n <= 3:
+                    Console.WriteLine("hiver");
+                    break;
+                case int n when n >= 4 && n <= 6:
+                    Console.WriteLine("printemps");
+                    break;
+            }
         }
     }
 }
