@@ -399,16 +399,82 @@ namespace CoursCSharpPartie1
             Console.WriteLine($"La moyenne est de {(double)somme / nombre}");*/
 
             //Boucle While
-            int i = 10;
+           //int i = 10;
             //while (i > 10)
             //{
             //    Console.WriteLine($"{--i}");
             //}
             //Boucle Do While
-            do
+            /*do
             {
                 Console.WriteLine($"{--i}");
-            } while (i > 20);
+            } while (i > 20);*/
+            //Correction ex 28
+            /*Random random = new Random();
+            int nombre = random.Next(1, 51);
+            int saisi = 0;
+            int nombreEssai = 0;
+            do
+            {
+                //Console.Write("Merci de saisir un nombre : ");
+                //saisi = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("test en cours...");
+                if(nombreEssai == 0)
+                {
+                    saisi = random.Next(1, 51);
+                }                
+                nombreEssai++;
+                if(saisi < nombre)
+                {
+                    saisi = random.Next(saisi+1, 51);
+                    Console.WriteLine("Plus grand");
+                }
+                else if(saisi > nombre)
+                {
+                    saisi = random.Next(1, saisi);
+                    Console.WriteLine("Plus petit");
+                }
+            }while (saisi != nombre);
+            Console.WriteLine($"Bravo vous avez gagné en {nombreEssai} Essais");*/
+            //Correction exercice 29
+            
+            int min = 0, max = 0, somme = 0, note;
+            int i = 1;
+            do
+            {
+                Console.Write($"Merci de saisir la note N° {i} : ");
+                note = Convert.ToInt32(Console.ReadLine());
+                if(note != 999)
+                {
+                    somme += note;
+                    if (i == 1)
+                    {
+                        min = note;
+                        max = note;
+                    }
+                    else
+                    {
+                        if (note > max)
+                        {
+                            max = note;
+                        }
+                        else if (note < min)
+                        {
+                            min = note;
+                        }
+                    }
+                    i++;
+                }
+                
+                
+            } while (note != 999);
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine($"La plus grande note est {max}");
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"La plus petite note est {min}");
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine($"La moyenne est de {(double)somme / (i - 1)}");
         }
     }
 }
