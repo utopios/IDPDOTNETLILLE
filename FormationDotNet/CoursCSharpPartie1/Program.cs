@@ -312,13 +312,34 @@ namespace CoursCSharpPartie1
             //    }
             //}
             //Correction exercice 22
-            Console.Write("Merci de saisir un nombre : ");
+            //Console.Write("Merci de saisir un nombre : ");
+            //int nombre = Convert.ToInt32(Console.ReadLine());
+            //Console.WriteLine($"Table de {nombre}");
+            //for(int i=1; i<=10; i++)
+            //{
+            //    Console.WriteLine($"\t {i} X {nombre} = {i * nombre}");
+            //}
+            //Correction ex 23
+            Console.Write("Merci de saisir le nombre d'habitant : ");
             int nombre = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine($"Table de {nombre}");
-            for(int i=1; i<=10; i++)
+            Console.Write("Année de départ : ");
+            int annee = Convert.ToInt32(Console.ReadLine());
+            int anneeInitial = annee;
+            for(int i= 1; i > 0; i++)
             {
-                Console.WriteLine($"\t {i} X {nombre} = {i * nombre}");
+                nombre += (int)(nombre * 0.0089F);
+                annee++;
+                if (nombre > 120000)
+                {
+                    break;
+                }
+                //else
+                //{
+                //    break;
+                //}
             }
+            Console.WriteLine($"Il faudra {annee - anneeInitial}, nous serons {annee}");
+            Console.WriteLine($"Il y aura  {nombre} habitants en {annee}");
         }
     }
 }
