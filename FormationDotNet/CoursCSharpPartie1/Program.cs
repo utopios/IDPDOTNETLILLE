@@ -618,7 +618,7 @@ namespace CoursCSharpPartie1
             }*/
 
             //Correction exercice 35
-            Console.Write("Merci de saisir la taille de l'annuaire : ");
+            /*Console.Write("Merci de saisir la taille de l'annuaire : ");
             int taille = Convert.ToInt32(Console.ReadLine());
             string[] contacts = new string[taille];
             int count = 0;
@@ -652,7 +652,69 @@ namespace CoursCSharpPartie1
                         }
                         break;
                 }
-            } while (choix != "0");
+            } while (choix != "0");*/
+            Console.Write("Merci de saisir la taille des notes : ");
+            int taille = Convert.ToInt32(Console.ReadLine());
+            int[] notes= new int[taille];
+            string choix;
+  
+            do
+            {
+                Console.WriteLine("1 - Saisir les notes");
+                Console.WriteLine("2 - La plus grande note");
+                Console.WriteLine("3 - La plus petite note");
+                Console.WriteLine("4 - La moyenne des notes");
+                Console.WriteLine("0 - Quitter");
+                Console.Write("Votre choix : ");
+                choix = Console.ReadLine();
+                Console.Clear();
+                switch (choix)
+                {
+                    case "1":
+                        for(int i = 0; i < notes.Length; i++)
+                        {
+                            Console.Write($"Merci de saisir la note N° {i + 1} :");
+                            notes[i] = Convert.ToInt32(Console.ReadLine());
+                        }
+                        
+                        break;
+                    case "2":
+                        int max = notes[0];
+                        for(int i=1; i < notes.Length; i++)
+                        {
+                            if (notes[i] > max)
+                            {
+                                max = notes[i];
+                            }
+                        }
+                        Console.WriteLine($"La plus grande note est {max}");
+                        break;
+                    case "3":
+                        int min = notes[0];
+                        for (int i = 1; i < notes.Length; i++)
+                        {
+                            if (notes[i] < min)
+                            {
+                                min = notes[i];
+                            }
+                        }
+                        Console.WriteLine($"La plus petite note est {min}");
+
+                        break;
+                    case "4":
+                        int somme = 0;
+                        for (int i = 0; i < notes.Length; i++)
+                        {
+                            somme += notes[i];
+                        }
+                        Console.WriteLine($"La moyenne est {(double)somme / notes.Length}");
+
+                        break;
+                    case "0":
+                        Environment.Exit(0);
+                        break;
+                }
+            } while (choix != "0"); 
         }
     }
 }
