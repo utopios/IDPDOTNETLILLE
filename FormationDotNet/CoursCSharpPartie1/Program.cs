@@ -718,15 +718,93 @@ namespace CoursCSharpPartie1
             } while (choix != "0"); */
 
             //Correction exercice 37
-            string[] mois = new string[] { "Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Aout", "Septembre", "Octobre", "Novembre", "Decembre" };
+            //string[] mois = new string[] { "Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Aout", "Septembre", "Octobre", "Novembre", "Decembre" };
 
-            string dec = "\t";
-            
-            foreach(string m in mois)
+            //string dec = "\t";
+
+            //foreach(string m in mois)
+            //{
+            //    Console.WriteLine($"{dec} {m}");
+            //    dec += "\t";
+            //}
+            /*int[] tab = new int[10];
+            Random random = new Random();
+            for(int i=0; i<tab.Length; i++)
             {
-                Console.WriteLine($"{dec} {m}");
+                tab[i] = random.Next(1,51);
+            }
+            string dec = "\t";
+            foreach (int i in tab)
+            {
+                Console.WriteLine(dec + i);
                 dec += "\t";
             }
+            //
+            Array.Sort(tab);
+            dec = "\t";
+            foreach (int i in tab)
+            {
+                Console.WriteLine(dec + i);
+                dec += "\t";
+            }*/
+            //The great TP
+            string[] tab1 = new string[] { "toto", "tata", "titi", "minet" };
+            string[] tab2 = new string[tab1.Length];
+            int compteur = 0;
+            Random r = new Random();
+            string choix;
+            do
+            {
+                Console.WriteLine("1-- Effectuer un tirage ");
+                Console.WriteLine("2-- Voir la liste des personnes déjà tirées");
+                Console.WriteLine("3-- Voir la liste des personnes restantes");
+                Console.WriteLine("0-- Quitter");
+
+                Console.Write("Votre choix : ");
+                choix = Console.ReadLine();
+                Console.Clear();
+                switch (choix)
+                {
+                    case "1":
+                        string element;
+                        int index;
+                        if (compteur < tab1.Length)
+                        {
+                            do
+                            {
+                                index = r.Next(0, tab1.Length);
+                                element = tab1[index];
+                            } while (element == null);
+                            Console.WriteLine(element);
+                            tab2[compteur++] = element;
+                            tab1[index] = null;
+                        }
+                        else
+                        {
+                            compteur = 0;
+                            for(int i = 0; i < tab1.Length; i++)
+                            {
+                                tab1[i] = tab2[i];
+                                tab2[i] = null;
+                            }
+                        }
+                        break;
+                    case "2":
+                        foreach(string e in tab2)
+                        {
+                            if (e != null)
+                                Console.WriteLine(e);
+                        }
+                        break;
+                    case "3":
+                        foreach (string e in tab1)
+                        {
+                            if (e != null)
+                                Console.WriteLine(e);
+                        }
+                        break;
+                }
+            } while (choix != "0");
         }
     }
 }
