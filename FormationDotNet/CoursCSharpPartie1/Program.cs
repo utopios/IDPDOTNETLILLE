@@ -476,35 +476,106 @@ namespace CoursCSharpPartie1
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine($"La moyenne est de {(double)somme / (i - 1)}");*/
             //Exercice 30
-            Console.WriteLine("Quelle est l'instruction qui permet de sortir d'une boucle en C# ?");
-            Console.WriteLine("\t a- break");
-            Console.WriteLine("\t b- continue");
-            Console.WriteLine("\t c- exit");
-            Console.WriteLine("\t d- quit");
+            //Console.WriteLine("Quelle est l'instruction qui permet de sortir d'une boucle en C# ?");
+            //Console.WriteLine("\t a- break");
+            //Console.WriteLine("\t b- continue");
+            //Console.WriteLine("\t c- exit");
+            //Console.WriteLine("\t d- quit");
+            //string choix;
+            //do
+            //{
+            //    Console.Write("Entrez votre réponse : ");
+            //    choix = Console.ReadLine();
+            //    if(choix != "a")
+            //    {
+            //        Console.ForegroundColor = ConsoleColor.Red;
+            //        Console.WriteLine("Il faut réviser !!!!");
+            //        Console.ForegroundColor = ConsoleColor.White;
+            //        Console.Write("Nouvel essai ? (o/n) ");
+            //        string c = Console.ReadLine();
+            //        if(c == "n")
+            //        {
+            //            break;
+            //        }
+            //    }
+            //} while (choix != "a");
+            //if(choix == "a")
+            //{
+            //    Console.ForegroundColor = ConsoleColor.Green;
+            //    Console.WriteLine("Bravo vous avez gagné un contrat");
+            //    Console.ForegroundColor = ConsoleColor.White;
+            //}
+
+            //Correction ex 31
             string choix;
+            int note, somme = 0, nbNotes = 0, min =0 , max =0;
             do
             {
-                Console.Write("Entrez votre réponse : ");
+                Console.WriteLine("1 - Saisir les notes");
+                Console.WriteLine("2 - La plus grande note");
+                Console.WriteLine("3 - La plus petite note");
+                Console.WriteLine("4 - La moyenne des notes");
+                Console.WriteLine("0 - Quitter");
+                Console.Write("Votre choix : ");
                 choix = Console.ReadLine();
-                if(choix != "a")
+                Console.Clear();
+                switch(choix)
                 {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("Il faut réviser !!!!");
-                    Console.ForegroundColor = ConsoleColor.White;
-                    Console.Write("Nouvel essai ? (o/n) ");
-                    string c = Console.ReadLine();
-                    if(c == "n")
-                    {
+                    case "1":
+                        note = 0;
+                        somme = 0;
+                        nbNotes = 0;
+                        min = 0;
+                        max = 0;
+                        Console.WriteLine("---Saisir les notes---");
+                        Console.WriteLine("Merci de saisir 999 pour stoper la saisie");
+                        do
+                        {
+                            Console.Write($"Merci de saisir la note N° {nbNotes + 1} :");
+                            note= Convert.ToInt32(Console.ReadLine());
+                            if(note >= 0 && note <= 20)
+                            {
+                                somme += note;
+                                nbNotes++;
+                                if(nbNotes == 1)
+                                {
+                                    min = note;
+                                    max = note;
+                                }
+                                else
+                                {
+                                    if(note > max)
+                                    {
+                                        max = note;
+                                    }
+                                    else if(note < min)
+                                    {
+                                        min = note;
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                Console.WriteLine("\t merci de sasir une note entre 0 et 20");
+                            }
+                        } while (note != 999);
                         break;
-                    }
+                    case "2":
+                        Console.WriteLine($"La plus grande note est {max}");
+                        break;
+                    case "3":
+                        Console.WriteLine($"La plus petite note est {min}");
+
+                        break;
+                    case "4":
+                        Console.WriteLine($"La moyenne est {(double)somme / nbNotes}");
+
+                        break;
+                    case "0":
+                        Environment.Exit(0);
+                        break;
                 }
-            } while (choix != "a");
-            if(choix == "a")
-            {
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("Bravo vous avez gagné un contrat");
-                Console.ForegroundColor = ConsoleColor.White;
-            }
+            } while (choix != "0");
         }
     }
 }
