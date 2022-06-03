@@ -591,7 +591,7 @@ namespace CoursCSharpPartie1
                 Console.WriteLine(element);
             }*/
             //Correction ex 32
-            int[] tab = new int[10];
+            /*int[] tab = new int[10];
             for(int i= 0; i < tab.Length; i++)
             {
                 Console.Write($"Merci de saisir la valeur N° {i + 1} : ");
@@ -602,6 +602,18 @@ namespace CoursCSharpPartie1
             {
                 dec += "\t";
                 Console.WriteLine($"{dec} {tab[i]}");
+            }*/
+            //Correction ex33
+            int[] tab = new int[26];
+            for(int i = 0; i < tab.Length; i++)
+            {
+                tab[i] = i+65;
+            }
+            string dec = "";
+            for (int i=0; i < tab.Length; i++)
+            {
+                dec += " ";
+                Console.WriteLine(dec + Convert.ToChar(tab[i]));
             }
         }
     }
