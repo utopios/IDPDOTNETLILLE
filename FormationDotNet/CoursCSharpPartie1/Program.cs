@@ -507,7 +507,7 @@ namespace CoursCSharpPartie1
             //}
 
             //Correction ex 31
-            string choix;
+            /*string choix;
             int note, somme = 0, nbNotes = 0, min =0 , max =0;
             do
             {
@@ -575,7 +575,21 @@ namespace CoursCSharpPartie1
                         Environment.Exit(0);
                         break;
                 }
-            } while (choix != "0");
+            } while (choix != "0");*/
+
+            //Cours suite tableau
+            int[] tab = new int[5];
+            tab[1] = 4;
+            for(int i = 0; i < tab.Length; i++)
+            {
+                tab[i] = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine(tab[i]);
+            }
+            foreach(int element in tab)
+            {
+               
+                Console.WriteLine(element);
+            }
         }
     }
 }
