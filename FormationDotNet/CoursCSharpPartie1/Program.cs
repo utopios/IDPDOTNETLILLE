@@ -578,7 +578,7 @@ namespace CoursCSharpPartie1
             } while (choix != "0");*/
 
             //Cours suite tableau
-            int[] tab = new int[5];
+            /*int[] tab = new int[5];
             tab[1] = 4;
             for(int i = 0; i < tab.Length; i++)
             {
@@ -589,6 +589,19 @@ namespace CoursCSharpPartie1
             {
                
                 Console.WriteLine(element);
+            }*/
+            //Correction ex 32
+            int[] tab = new int[10];
+            for(int i= 0; i < tab.Length; i++)
+            {
+                Console.Write($"Merci de saisir la valeur N° {i + 1} : ");
+                tab[i] = Convert.ToInt32(Console.ReadLine());
+            }
+            string dec = "";
+            for(int i= 0; i < tab.Length; i++)
+            {
+                dec += "\t";
+                Console.WriteLine($"{dec} {tab[i]}");
             }
         }
     }
