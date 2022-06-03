@@ -604,7 +604,7 @@ namespace CoursCSharpPartie1
                 Console.WriteLine($"{dec} {tab[i]}");
             }*/
             //Correction ex33
-            int[] tab = new int[26];
+            /*int[] tab = new int[26];
             for(int i = 0; i < tab.Length; i++)
             {
                 tab[i] = i+65;
@@ -614,7 +614,44 @@ namespace CoursCSharpPartie1
             {
                 dec += " ";
                 Console.WriteLine(dec + Convert.ToChar(tab[i]));
-            }
+            }*/
+
+            //Correction exercice 35
+            Console.Write("Merci de saisir la taille de l'annuaire : ");
+            int taille = Convert.ToInt32(Console.ReadLine());
+            string[] contacts = new string[taille];
+            int count = 0;
+            Console.Clear();
+            string choix;
+            do
+            {
+                Console.WriteLine("1 -- Saisir un contact");
+                Console.WriteLine("2 -- Afficher les contacts");
+                Console.WriteLine("0 -- Quitter");
+                choix = Console.ReadLine();
+                Console.Clear();
+                switch(choix)
+                {
+                    case "1":
+                        if(count < taille)
+                        {
+                            Console.Write("Merci de saisir le contact : ");
+                            contacts[count++] = Console.ReadLine();
+                        }
+                        else
+                        {
+                            Console.WriteLine("Tableau plein");
+                        }
+                        break;
+                    case "2":
+                        foreach(string s in contacts)
+                        {
+                            if(s != null)
+                                Console.WriteLine(s);
+                        }
+                        break;
+                }
+            } while (choix != "0");
         }
     }
 }
