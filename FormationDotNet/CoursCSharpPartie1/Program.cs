@@ -653,7 +653,8 @@ namespace CoursCSharpPartie1
                         break;
                 }
             } while (choix != "0");*/
-            Console.Write("Merci de saisir la taille des notes : ");
+            //Correction exercice 36
+            /*Console.Write("Merci de saisir la taille des notes : ");
             int taille = Convert.ToInt32(Console.ReadLine());
             int[] notes= new int[taille];
             string choix;
@@ -714,7 +715,18 @@ namespace CoursCSharpPartie1
                         Environment.Exit(0);
                         break;
                 }
-            } while (choix != "0"); 
+            } while (choix != "0"); */
+
+            //Correction exercice 37
+            string[] mois = new string[] { "Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Aout", "Septembre", "Octobre", "Novembre", "Decembre" };
+
+            string dec = "\t";
+            
+            foreach(string m in mois)
+            {
+                Console.WriteLine($"{dec} {m}");
+                dec += "\t";
+            }
         }
     }
 }
