@@ -590,6 +590,7 @@ namespace CoursCSharpPartie1
                
                 Console.WriteLine(element);
             }*/
+            //int[] tab = new int[] { 1, 2, 3 };
             //Correction ex 32
             /*int[] tab = new int[10];
             for(int i= 0; i < tab.Length; i++)
