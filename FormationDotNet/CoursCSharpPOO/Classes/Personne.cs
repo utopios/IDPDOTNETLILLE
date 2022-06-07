@@ -12,9 +12,19 @@ namespace CoursCSharpPOO.Classes
         public string prenom;
 
         //Méthode de construction
-        public Personne(string n, string p)
+        public Personne()
+        {
+
+        }
+
+        public Personne(string n)
         {
             nom = n;
+        }
+
+        public Personne(string n, string p) : this(n)
+        {
+            //nom = n;
             prenom = p;
         }
         public void Afficher()
