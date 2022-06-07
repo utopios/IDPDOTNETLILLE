@@ -24,18 +24,39 @@ namespace CoursCSharpPOO.Classes
         public bool TestChar(char c)
         {
             //A coder
-            return false;
+            bool found = false;
+            string masqueTmp = "";
+            for(int i=0; i < motATrouve.Length; i++)
+            {
+                if(motATrouve[i] == c)
+                {
+                    found = true;
+                    masqueTmp += c;
+                }
+                else
+                {
+                    masqueTmp += masque[i];
+                }
+            }
+            return found;
         }
 
         public bool TestWin()
         {
             //A coder
-            return false;
+            return motATrouve == masque;
         }
 
         public void GenererMasque(GenerateurMot generateur)
         {
             //A coder
+            string masqueTmp = "";
+            motATrouve = generateur.Generer();
+            for(int i=0; i < motATrouve.Length; i++)
+            {
+                masqueTmp += "*";
+            }
+            masque = masqueTmp;
         }
     }
 }
