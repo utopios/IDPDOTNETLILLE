@@ -10,6 +10,7 @@ namespace CoursCSharpPOO.Classes
     {
         private string nom;
         private string prenom;
+        public static int Nombre = 0;
 
         //Méthode de construction
         public Personne()
@@ -56,5 +57,11 @@ namespace CoursCSharpPOO.Classes
         }
 
         public string Prenom { get => prenom; set => prenom = value; }
+
+        public static Personne[] TableauPersonnes()
+        {
+            Personne[] personnes = new Personne[3];
+            return personnes;
+        }
     }
 }

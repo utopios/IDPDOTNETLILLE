@@ -10,3 +10,7 @@ p.Nom = "abadi";
 //Personne p = new Personne("Abadi", "Ihab");
 //Console.WriteLine($"{p.nom} {p.prenom}");
 p.Afficher();
+
+//Pour accéder à un element statique
+Personne.Nombre = 34;
+Console.WriteLine(Personne.Nombre);
