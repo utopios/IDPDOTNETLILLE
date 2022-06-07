@@ -14,5 +14,7 @@
 ////Pour accéder à un element statique
 //Personne.Nombre = 34;
 //Console.WriteLine(Personne.Nombre);
-IHMSalarie ihm = new IHMSalarie();
-ihm.Demarrer();
+//IHMSalarie ihm = new IHMSalarie();
+//ihm.Demarrer();
+IHMPendu pendu = new IHMPendu();
+pendu.Jouer();

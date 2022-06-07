@@ -38,6 +38,11 @@ namespace CoursCSharpPOO.Classes
                     masqueTmp += masque[i];
                 }
             }
+            masque = masqueTmp;
+            if(!found)
+            {
+                nbEssai--;
+            }
             return found;
         }
 
