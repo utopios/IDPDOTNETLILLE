@@ -8,8 +8,8 @@ namespace CoursCSharpPOO.Classes
 {
     class Personne
     {
-        public string nom;
-        public string prenom;
+        private string nom;
+        private string prenom;
 
         //Méthode de construction
         public Personne()
@@ -17,19 +17,44 @@ namespace CoursCSharpPOO.Classes
 
         }
 
-        public Personne(string n)
+        public Personne(string ne) : this()
         {
-            nom = n;
+            nom = ne;
         }
+
+
 
         public Personne(string n, string p) : this(n)
         {
             //nom = n;
-            prenom = p;
+            Prenom = p;
         }
         public void Afficher()
         {
-            Console.WriteLine($"{nom} {prenom}");
+            Console.WriteLine($"{nom} {Prenom}");
         }
+
+        //public void SetNom(string nom)
+        //{
+        //    if(nom.Length > 3)
+        //        this.nom = nom;
+        //}
+
+        //public void SetPrenom(string prenom)
+        //{
+        //    this.prenom= prenom;
+        //}
+
+        public string Nom
+        {
+            get { return nom; }
+            set 
+            {
+                if (value.Length > 3)
+                    nom = value;
+            }
+        }
+
+        public string Prenom { get => prenom; set => prenom = value; }
     }
 }
