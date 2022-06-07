@@ -10,5 +10,10 @@ namespace CoursCSharpPOO.Classes
     {
         public string nom;
         public string prenom;
+
+        public void Afficher()
+        {
+            Console.WriteLine($"{nom} {prenom}");
+        }
     }
 }

@@ -4,4 +4,5 @@
 Personne p = new Personne();
 p.prenom = "ihab";
 p.nom = "abadi";
-Console.WriteLine($"{p.nom} {p.prenom}");
+//Console.WriteLine($"{p.nom} {p.prenom}");
+p.Afficher();
