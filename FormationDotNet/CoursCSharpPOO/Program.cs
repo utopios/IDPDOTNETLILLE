@@ -16,5 +16,10 @@
 //Console.WriteLine(Personne.Nombre);
 //IHMSalarie ihm = new IHMSalarie();
 //ihm.Demarrer();
-IHMPendu pendu = new IHMPendu();
-pendu.Jouer();
+//IHMPendu pendu = new IHMPendu();
+//pendu.Jouer();
+
+//Cours héritage
+Enfant e = new Enfant();
+e.Name = "enfant 1";
+e.Number = 10;
