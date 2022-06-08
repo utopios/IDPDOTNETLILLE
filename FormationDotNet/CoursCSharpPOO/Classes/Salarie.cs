@@ -54,5 +54,10 @@ namespace CoursCSharpPOO.Classes
         {
             compteur = valeur;
         }
+
+        public virtual decimal CalculerSalaire()
+        {
+            return Salaire;
+        }
     }
 }
