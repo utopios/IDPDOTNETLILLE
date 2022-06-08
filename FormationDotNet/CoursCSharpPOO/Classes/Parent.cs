@@ -13,6 +13,15 @@ namespace CoursCSharpPOO.Classes
 
         public string Name { get => name; set => name = value; }
         public int Number { get => number; set => number = value; }
+        public Parent()
+        {
+
+        }
+        public Parent(string name, int number)
+        {
+            Name = name;
+            Number = number;
+        }
 
         protected void Afficher()
         {

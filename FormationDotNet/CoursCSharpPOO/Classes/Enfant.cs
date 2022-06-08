@@ -12,6 +12,11 @@ namespace CoursCSharpPOO.Classes
 
         public int ChildNumber { get => childNumber; set => childNumber = value; }
 
+        
+        public Enfant(string name, int number) : base(name, number) 
+        {
+
+        }
         public void AfficherEnfant()
         {
             Afficher();
