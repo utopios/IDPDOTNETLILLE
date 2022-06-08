@@ -10,8 +10,10 @@ namespace CoursCSharpPOO.Classes
     {
         private decimal chiffreAffaire;
         private decimal commission;
-        public Commercial(string matricule, string nom, string categorie, string service, decimal salaire) : base(matricule, nom, categorie, service, salaire)
+        public Commercial(string matricule, string nom, string categorie, string service, decimal salaire, decimal chiffre, decimal commission) : base(matricule, nom, categorie, service, salaire)
         {
+            ChiffreAffaire = chiffre;
+            Commission = commission;
         }
 
         public override decimal CalculerSalaire()
