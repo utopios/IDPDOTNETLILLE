@@ -20,10 +20,21 @@
 //pendu.Jouer();
 
 //Cours héritage
-Parent e = new Parent("tt", 10);
+Parent e = new Enfant("tt", 10);
 //e.Name = "enfant 1";
 //e.Number = 10;
 Console.WriteLine(e.GetType());
 //e.ChildNumber = 33;
 //e.Afficher();
-((Enfant)e).AfficherEnfant();
+
+//((Enfant)e).AfficherEnfant();
+//Pour le cast entre objets
+//Enfant enfant = (Enfant)e;
+//Enfant enfant = e as Enfant;
+//if(enfant != null)
+//    Console.WriteLine(enfant.GetType());
+
+if(e is Enfant enfant)
+{
+    Console.WriteLine(enfant.GetType());
+}
