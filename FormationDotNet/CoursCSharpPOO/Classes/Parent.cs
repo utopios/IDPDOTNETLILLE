@@ -13,5 +13,10 @@ namespace CoursCSharpPOO.Classes
 
         public string Name { get => name; set => name = value; }
         public int Number { get => number; set => number = value; }
+
+        protected void Afficher()
+        {
+            Console.WriteLine($"{Name} {Number}");
+        }
     }
 }

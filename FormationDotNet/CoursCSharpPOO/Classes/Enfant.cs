@@ -8,5 +8,14 @@ namespace CoursCSharpPOO.Classes
 {
     class Enfant : Parent
     {
+        private int childNumber;
+
+        public int ChildNumber { get => childNumber; set => childNumber = value; }
+
+        public void AfficherEnfant()
+        {
+            Afficher();
+            Console.WriteLine($"{ChildNumber}");
+        }
     }
 }
