@@ -20,9 +20,10 @@
 //pendu.Jouer();
 
 //Cours héritage
-Enfant e = new Enfant("tt", 10);
+Parent e = new Parent("tt", 10);
 //e.Name = "enfant 1";
 //e.Number = 10;
-e.ChildNumber = 33;
+Console.WriteLine(e.GetType());
+//e.ChildNumber = 33;
 //e.Afficher();
-e.AfficherEnfant();
+((Enfant)e).AfficherEnfant();
