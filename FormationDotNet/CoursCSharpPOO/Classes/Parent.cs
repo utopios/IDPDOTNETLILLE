@@ -23,7 +23,7 @@ namespace CoursCSharpPOO.Classes
             Number = number;
         }
 
-        public void Afficher()
+        public virtual void Afficher()
         {
             Console.WriteLine($"{Name} {Number}");
         }

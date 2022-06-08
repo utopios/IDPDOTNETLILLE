@@ -12,6 +12,11 @@ namespace CoursCSharpPOO.Classes
         {
         }
 
+        public override void Afficher()
+        {
+            Console.WriteLine("Methode afficher special A");
+        }
+
         public void AfficherA()
         {
             Console.WriteLine("Je suis un objet A");
