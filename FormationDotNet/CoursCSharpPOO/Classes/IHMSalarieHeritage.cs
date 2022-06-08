@@ -100,12 +100,25 @@ namespace CoursCSharpPOO.Classes
         }
         private void ActionAfficherSalaire()
         {
-
+            foreach(Salarie s in salaries)
+            {
+                Console.WriteLine($"{s.Nom} salaire : {s.CalculerSalaire()} euros : {s.GetType()}");
+            }
+            Suivant();
         }
 
         private void ActionRechercherEmploye()
         {
-
+            Console.Write("Merci de saisir le nom : ");
+            string nom = Console.ReadLine();
+            foreach(Salarie s in salaries)
+            {
+                if(s != null && s.Nom == nom)
+                {
+                    Console.WriteLine($"{s.Nom} salaire : {s.CalculerSalaire()} euros : {s.GetType()}");
+                }
+            }
+            Suivant();
         }
 
         private void Suivant()
