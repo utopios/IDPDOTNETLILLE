@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CoursCSharpPOO.Classes
 {
-    class EnfantA : Enfant
+    class EnfantA : Parent
     {
         public EnfantA(string name, int number) : base(name, number)
         {
