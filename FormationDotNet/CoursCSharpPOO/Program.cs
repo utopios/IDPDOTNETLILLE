@@ -20,10 +20,10 @@
 //pendu.Jouer();
 
 //Cours héritage
-Parent e = new Enfant("tt", 10);
-//e.Name = "enfant 1";
-//e.Number = 10;
-Console.WriteLine(e.GetType());
+//Parent e = new Enfant("tt", 10);
+////e.Name = "enfant 1";
+////e.Number = 10;
+//Console.WriteLine(e.GetType());
 //e.ChildNumber = 33;
 //e.Afficher();
 
@@ -34,7 +34,24 @@ Console.WriteLine(e.GetType());
 //if(enfant != null)
 //    Console.WriteLine(enfant.GetType());
 
-if(e is Enfant enfant)
+//if(e is Enfant enfant)
+//{
+//    Console.WriteLine(enfant.GetType());
+//}
+
+Parent[] elements = new Parent[2];
+elements[0] = new EnfantA("test A", 10);
+elements[1] = new EnfantB("test B", 10);
+foreach(Parent e in elements)
 {
-    Console.WriteLine(enfant.GetType());
+    e.Afficher();
+    if(e is EnfantA ea)
+    {
+        ea.AfficherA();
+    }
+    else if(e is EnfantB eb)
+    {
+        eb.AfficherB();
+    }
+    Console.WriteLine(e.GetType());
 }
