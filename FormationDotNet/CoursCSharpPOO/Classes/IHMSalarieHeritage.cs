@@ -11,12 +11,15 @@ namespace CoursCSharpPOO.Classes
         private Salarie[] salaries;
         private int nbSalaries;
         private string choix;
+        private string choixAjout;
+        private int compteur;
 
         public void Demarrer()
         {
             Console.Write("Merci de saisir le nombre de salarié : ");
             nbSalaries = Convert.ToInt32(Console.ReadLine());
             salaries = new Salarie[nbSalaries];
+            compteur = 0;
             Console.Clear();
             do
             {
@@ -55,6 +58,44 @@ namespace CoursCSharpPOO.Classes
 
         private void ActionAjoutEmploye()
         {
+            do
+            {
+                MenuAjout();
+                choixAjout = Console.ReadLine();
+                Console.Clear();
+                if((choixAjout == "1" || choixAjout == "2") && compteur < salaries.Length)
+                {
+                    Salarie s = null;
+                    Console.Write("Merci de saisir le nom complet : ");
+                    string nom = Console.ReadLine();
+                    Console.Write("Merci de saisir le matricule : ");
+                    string matricule = Console.ReadLine();
+                    Console.Write("Merci de saisir le catégorie : ");
+                    string categorie = Console.ReadLine();
+                    Console.Write("Merci de saisir le service : ");
+                    string service = Console.ReadLine();
+                    Console.Write("Merci de saisir le salaire : ");
+                    decimal salaire = Convert.ToDecimal(Console.ReadLine());
+                    switch (choixAjout)
+                    {
+                        case "1":
+                            s = new Salarie(matricule, nom, categorie, service, salaire);
+                            break;
+                        case "2":
+                            Console.Write("Merci de saisir le chiffre d'affaire : ");
+                            decimal chiffre = Convert.ToDecimal(Console.ReadLine());
+                            Console.Write("Merci de saisir la commisison en % : ");
+                            decimal commission = Convert.ToDecimal(Console.ReadLine());
+                            s = new Commercial(matricule, nom, categorie, service, salaire, chiffre, commission);
+                            break;
+                    }
+                    if(s != null)
+                    {
+                        salaries[compteur++] = s; 
+                    }
+                }
+            } while (choixAjout != "0");
+            
 
         }
         private void ActionAfficherSalaire()

@@ -39,19 +39,22 @@
 //    Console.WriteLine(enfant.GetType());
 //}
 
-Parent[] elements = new Parent[2];
-elements[0] = new EnfantA("test A", 10);
-elements[1] = new EnfantB("test B", 10);
-foreach(Parent e in elements)
-{
-    e.Afficher();
-    if(e is EnfantA ea)
-    {
-        ea.AfficherA();
-    }
-    else if(e is EnfantB eb)
-    {
-        eb.AfficherB();
-    }
-    Console.WriteLine(e.GetType());
-}
+//Parent[] elements = new Parent[2];
+//elements[0] = new EnfantA("test A", 10);
+//elements[1] = new EnfantB("test B", 10);
+//foreach(Parent e in elements)
+//{
+//    e.Afficher();
+//    if(e is EnfantA ea)
+//    {
+//        ea.AfficherA();
+//    }
+//    else if(e is EnfantB eb)
+//    {
+//        eb.AfficherB();
+//    }
+//    Console.WriteLine(e.GetType());
+//}
+
+IHMSalarieHeritage ihm = new IHMSalarieHeritage();
+ihm.Demarrer();
