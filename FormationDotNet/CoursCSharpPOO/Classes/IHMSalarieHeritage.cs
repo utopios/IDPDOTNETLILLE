@@ -8,7 +8,8 @@ namespace CoursCSharpPOO.Classes
 {
     class IHMSalarieHeritage
     {
-        private Salarie[] salaries;
+        //private Salarie[] salaries;
+        private List<Salarie> salaries;
         private int nbSalaries;
         private string choix;
         private string choixAjout;
@@ -16,9 +17,10 @@ namespace CoursCSharpPOO.Classes
 
         public void Demarrer()
         {
-            Console.Write("Merci de saisir le nombre de salarié : ");
-            nbSalaries = Convert.ToInt32(Console.ReadLine());
-            salaries = new Salarie[nbSalaries];
+            //Console.Write("Merci de saisir le nombre de salarié : ");
+            //nbSalaries = Convert.ToInt32(Console.ReadLine());
+            //salaries = new Salarie[nbSalaries];
+            salaries = new List<Salarie>();
             compteur = 0;
             Console.Clear();
             do
@@ -63,7 +65,7 @@ namespace CoursCSharpPOO.Classes
                 MenuAjout();
                 choixAjout = Console.ReadLine();
                 Console.Clear();
-                if((choixAjout == "1" || choixAjout == "2") && compteur < salaries.Length)
+                if((choixAjout == "1" || choixAjout == "2") /*&& compteur < salaries.Length*/)
                 {
                     Salarie s = null;
                     Console.Write("Merci de saisir le nom complet : ");
@@ -91,7 +93,8 @@ namespace CoursCSharpPOO.Classes
                     }
                     if(s != null)
                     {
-                        salaries[compteur++] = s; 
+                        //salaries[compteur++] = s; 
+                        salaries.Add(s);
                     }
                 }
             } while (choixAjout != "0");

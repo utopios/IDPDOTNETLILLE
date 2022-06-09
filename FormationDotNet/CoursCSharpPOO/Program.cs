@@ -56,8 +56,8 @@
 //    Console.WriteLine(e.GetType());
 //}
 
-//IHMSalarieHeritage ihm = new IHMSalarieHeritage();
-//ihm.Demarrer();
+IHMSalarieHeritage ihm = new IHMSalarieHeritage();
+ihm.Demarrer();
 
 //Générique
 //Maison<Enfant> maisonEnfant = new Maison<Enfant>();
@@ -78,8 +78,8 @@
 //Console.WriteLine(element);
 
 //Liste
-List<string> liste = new List<string>();
-liste.Add("toto");
-liste.Add("tata");
-liste.Remove("toto");
-Console.WriteLine(liste.Count);
+//List<string> liste = new List<string>();
+//liste.Add("toto");
+//liste.Add("tata");
+//liste.Remove("toto");
+//Console.WriteLine(liste.Count);
