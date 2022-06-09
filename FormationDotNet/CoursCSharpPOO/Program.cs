@@ -20,12 +20,12 @@
 //pendu.Jouer();
 
 //Cours héritage
-//Parent e = new Enfant("tt", 10);
-////e.Name = "enfant 1";
-////e.Number = 10;
-//Console.WriteLine(e.GetType());
+Parent e = new Enfant("tt", 10);
+//e.Name = "enfant 1";
+//e.Number = 10;
+Console.WriteLine(e.GetType());
 //e.ChildNumber = 33;
-//e.Afficher();
+e.Afficher();
 
 //((Enfant)e).AfficherEnfant();
 //Pour le cast entre objets
@@ -56,5 +56,5 @@
 //    Console.WriteLine(e.GetType());
 //}
 
-IHMSalarieHeritage ihm = new IHMSalarieHeritage();
-ihm.Demarrer();
+//IHMSalarieHeritage ihm = new IHMSalarieHeritage();
+//ihm.Demarrer();

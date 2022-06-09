@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CoursCSharpPOO.Classes
 {
-    class Enfant : Parent
+    sealed class Enfant : Parent
     {
         private int childNumber;
 
@@ -21,6 +21,11 @@ namespace CoursCSharpPOO.Classes
         {
             Afficher();
             Console.WriteLine($"{ChildNumber}");
+        }
+
+        public override void MethodeAbstract()
+        {
+           //Code méthode abstract
         }
     }
 }

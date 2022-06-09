@@ -21,5 +21,10 @@ namespace CoursCSharpPOO.Classes
         {
             Console.WriteLine("Je suis un objet A");
         }
+
+        public override void MethodeAbstract()
+        {
+            //Code méthode abstract
+        }
     }
 }
