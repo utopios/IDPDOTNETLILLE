@@ -60,8 +60,19 @@
 //ihm.Demarrer();
 
 //Générique
-Maison<Enfant> maisonEnfant = new Maison<Enfant>();
-maisonEnfant.Entrer(new Enfant("t", 10));
+//Maison<Enfant> maisonEnfant = new Maison<Enfant>();
+//maisonEnfant.Entrer(new Enfant("t", 10));
 
-Maison<LePendu> maisonLePendu = new Maison<LePendu>();
-maisonLePendu.Entrer(new LePendu());
+//Maison<LePendu> maisonLePendu = new Maison<LePendu>();
+//maisonLePendu.Entrer(new LePendu());
+
+//Cas d'utilisation
+Pile<string> pileS = new Pile<string>(3);
+pileS.Empiler("Toto");
+pileS.Empiler("Tata");
+pileS.Empiler("Titi");
+
+pileS.Depiler();
+
+string element = pileS.GetElement(2);
+Console.WriteLine(element);
