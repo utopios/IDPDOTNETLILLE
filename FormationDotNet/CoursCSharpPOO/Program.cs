@@ -20,12 +20,12 @@
 //pendu.Jouer();
 
 //Cours héritage
-Parent e = new Enfant("tt", 10);
-//e.Name = "enfant 1";
-//e.Number = 10;
-Console.WriteLine(e.GetType());
-//e.ChildNumber = 33;
-e.Afficher();
+//Parent e = new Enfant("tt", 10);
+////e.Name = "enfant 1";
+////e.Number = 10;
+//Console.WriteLine(e.GetType());
+////e.ChildNumber = 33;
+//e.Afficher();
 
 //((Enfant)e).AfficherEnfant();
 //Pour le cast entre objets
@@ -58,3 +58,10 @@ e.Afficher();
 
 //IHMSalarieHeritage ihm = new IHMSalarieHeritage();
 //ihm.Demarrer();
+
+//Générique
+Maison<Enfant> maisonEnfant = new Maison<Enfant>();
+maisonEnfant.Entrer(new Enfant("t", 10));
+
+Maison<LePendu> maisonLePendu = new Maison<LePendu>();
+maisonLePendu.Entrer(new LePendu());
