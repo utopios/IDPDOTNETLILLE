@@ -67,12 +67,19 @@
 //maisonLePendu.Entrer(new LePendu());
 
 //Cas d'utilisation
-Pile<string> pileS = new Pile<string>(3);
-pileS.Empiler("Toto");
-pileS.Empiler("Tata");
-pileS.Empiler("Titi");
+//Pile<string> pileS = new Pile<string>(3);
+//pileS.Empiler("Toto");
+//pileS.Empiler("Tata");
+//pileS.Empiler("Titi");
 
-pileS.Depiler();
+//pileS.Depiler();
 
-string element = pileS.GetElement(2);
-Console.WriteLine(element);
+//string element = pileS.GetElement(2);
+//Console.WriteLine(element);
+
+//Liste
+List<string> liste = new List<string>();
+liste.Add("toto");
+liste.Add("tata");
+liste.Remove("toto");
+Console.WriteLine(liste.Count);
