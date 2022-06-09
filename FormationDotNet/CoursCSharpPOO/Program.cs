@@ -56,8 +56,8 @@
 //    Console.WriteLine(e.GetType());
 //}
 
-IHMSalarieHeritage ihm = new IHMSalarieHeritage();
-ihm.Demarrer();
+//IHMSalarieHeritage ihm = new IHMSalarieHeritage();
+//ihm.Demarrer();
 
 //Générique
 //Maison<Enfant> maisonEnfant = new Maison<Enfant>();
@@ -83,3 +83,19 @@ ihm.Demarrer();
 //liste.Add("tata");
 //liste.Remove("toto");
 //Console.WriteLine(liste.Count);
+
+//Dictionnaire
+Dictionary<string, Enfant> dico = new Dictionary<string, Enfant>();
+dico.Add("key1", new Enfant("enfant key1", 10));
+
+//Parccourir les clés d'un dico
+foreach(string key in dico.Keys)
+{
+    Console.WriteLine(dico[key]);
+}
+
+//Ou les valeurs
+foreach(Enfant e in dico.Values)
+{
+    Console.WriteLine(e);
+}
