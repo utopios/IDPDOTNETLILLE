@@ -101,8 +101,13 @@ using CoursCSharpPOO.Interface;
 //    Console.WriteLine(e);
 //}
 
-IAvancer a = new Salarie("", "", "", "", 1000);
-IAvancer b = new Maison<int>();
-List<IAvancer> liste = new List<IAvancer>();
-liste.Add(a);
-liste.Add(b);
+//IAvancer a = new Salarie("", "", "", "", 1000);
+//IAvancer b = new Maison<int>();
+//List<IAvancer> liste = new List<IAvancer>();
+//liste.Add(a);
+//liste.Add(b);
+Voiture laguna = new Voiture("Renault", "Laguna", 30);
+Console.WriteLine(laguna); 
+laguna.Demarrer(); 
+laguna.Rouler(25); 
+Console.WriteLine(laguna);
