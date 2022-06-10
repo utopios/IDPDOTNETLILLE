@@ -113,21 +113,28 @@ using CoursCSharpPOO.Interface;
 //Console.WriteLine(laguna);
 
 //Gestion des exceptions
-try
-{
-    Console.Write("Merci de saisir un nombre ");
-    int nb = Convert.ToInt32(Console.ReadLine());
-    object o = new object();
-    Enfant e = (Enfant)o;
-    e.AfficherEnfant();
-}
-catch(FormatException ex)
-{
-    Console.WriteLine(ex.Message);
-}
-catch(InvalidCastException ex)
-{
-    Console.WriteLine("Erreur  cast "+ ex.Message);
-}
+//try
+//{
+//    Console.Write("Merci de saisir un nombre ");
+//    int nb = Convert.ToInt32(Console.ReadLine());
+//    object o = new object();
+//    Enfant e = (Enfant)o;
+//    e.AfficherEnfant();
+//}
+//catch(FormatException ex)
+//{
+//    Console.WriteLine(ex.Message);
+//}
+//catch(InvalidCastException ex)
+//{
+//    Console.WriteLine("Erreur  cast "+ ex.Message);
+//}
 
-//Ecrire une méthode qui permet de gérér les exceptions de conversion entre une chaine de cartère et une décimal.
+//Ecrire une méthode qui permet de gérér les exceptions
+//de conversion entre une chaine de caractère et une décimal.
+
+Console.Write("Merci de saisir une decimal > 0 : ");
+string value = Console.ReadLine();
+decimal result = Tools.ParseDecimal(value);
+
+Console.WriteLine(result);
