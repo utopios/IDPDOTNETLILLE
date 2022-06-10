@@ -106,8 +106,26 @@ using CoursCSharpPOO.Interface;
 //List<IAvancer> liste = new List<IAvancer>();
 //liste.Add(a);
 //liste.Add(b);
-Voiture laguna = new Voiture("Renault", "Laguna", 30);
-Console.WriteLine(laguna); 
-laguna.Demarrer(); 
-laguna.Rouler(25); 
-Console.WriteLine(laguna);
+//Voiture laguna = new Voiture("Renault", "Laguna", 30);
+//Console.WriteLine(laguna); 
+//laguna.Demarrer(); 
+//laguna.Rouler(25); 
+//Console.WriteLine(laguna);
+
+//Gestion des exceptions
+try
+{
+    //Console.Write("Merci de saisir un nombre ");
+    //int nb = Convert.ToInt32(Console.ReadLine());
+    object o = new object();
+    Enfant e = (Enfant)o;
+    e.AfficherEnfant();
+}
+catch(FormatException ex)
+{
+    Console.WriteLine(ex.Message);
+}
+catch(InvalidCastException ex)
+{
+    Console.WriteLine("Erreur  cast "+ ex.Message);
+}
