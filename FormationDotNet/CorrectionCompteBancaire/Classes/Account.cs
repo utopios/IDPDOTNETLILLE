@@ -25,15 +25,28 @@ namespace CorrectionCompteBancaire.Classes
             //AccountNumber = (int)DateTime.Now.Ticks;
             AccountNumber = accountNumber;
             Operations = new List<Operation>();
+            totalAmount = 0;
         }
 
         public bool WithDraw(Operation operation)
         {
+            if(totalAmount >= Math.Abs(operation.Amount))
+            {
+                operations.Add(operation);
+                totalAmount -= Math.Abs(operation.Amount);
+                return true;
+            }
             return false;
         }
 
         public bool Deposit(Operation operation)
         {
+            if(operation.Amount > 0)
+            {
+                operations.Add(operation);
+                totalAmount += operation.Amount;
+                return true;
+            }
             return false;
         }
 

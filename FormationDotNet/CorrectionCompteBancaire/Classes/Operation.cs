@@ -16,5 +16,8 @@ namespace CorrectionCompteBancaire.Classes
             operationDateTime = DateTime.Now;
             this.amount = amount;
         }
+
+        public decimal Amount { get => amount; }
+        public DateTime OperationDateTime { get => operationDateTime; }
     }
 }

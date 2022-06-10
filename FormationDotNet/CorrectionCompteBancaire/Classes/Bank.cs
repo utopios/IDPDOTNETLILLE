@@ -19,16 +19,22 @@ namespace CorrectionCompteBancaire.Classes
             Accounts = new List<Account>();
         }
 
-        public bool AddAccount(Customer customer)
+        public Account AddAccount(Customer customer)
         {
-            //A coder
-
-            return false;
+            Account account = new Account(customer, createRandomAccountNumber(5));
+            accounts.Add(account);
+            return account;
         }
 
-        public bool MakeWithDraw(decimal amount)
+        public bool MakeWithDraw(decimal amount, int accountNumber)
         {
             //A coder
+            Account account = GetAccount(accountNumber);
+            if(account != null)
+            {
+                Operation operation = new Operation(amount);
+                return account.WithDraw(operation);
+            }
             return false;
         }
 
@@ -41,11 +47,26 @@ namespace CorrectionCompteBancaire.Classes
         public Account GetAccount(int number)
         {
             //A coder
-            return null;
+            Account account = null;
+            foreach(Account a in accounts)
+            {
+                if(account.AccountNumber == number)
+                {
+                    account = a;
+                    break;
+                }
+            }
+            return account;
         }
         private int createRandomAccountNumber(int size)
         {
-            return 0;
+            string code = "";
+            Random r = new Random();
+            for(int i= 1; i <= size; i++)
+            {
+                code += r.Next(0, 10);
+            }
+            return Convert.ToInt32(code);
         }
 
     }
