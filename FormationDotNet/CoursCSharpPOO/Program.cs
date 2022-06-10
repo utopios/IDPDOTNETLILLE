@@ -115,8 +115,8 @@ using CoursCSharpPOO.Interface;
 //Gestion des exceptions
 try
 {
-    //Console.Write("Merci de saisir un nombre ");
-    //int nb = Convert.ToInt32(Console.ReadLine());
+    Console.Write("Merci de saisir un nombre ");
+    int nb = Convert.ToInt32(Console.ReadLine());
     object o = new object();
     Enfant e = (Enfant)o;
     e.AfficherEnfant();
