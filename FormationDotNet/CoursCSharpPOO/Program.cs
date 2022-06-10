@@ -129,3 +129,5 @@ catch(InvalidCastException ex)
 {
     Console.WriteLine("Erreur  cast "+ ex.Message);
 }
+
+//Ecrire une méthode qui permet de gérér les exceptions de conversion entre une chaine de cartère et une décimal.
