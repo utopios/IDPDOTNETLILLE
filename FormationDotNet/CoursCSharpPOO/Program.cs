@@ -1,4 +1,5 @@
 ﻿using CoursCSharpPOO.Classes;
+using CoursCSharpPOO.Interface;
 
 //Création d'une personne à partir de la classe personne
 //Personne p = new Personne();
@@ -85,17 +86,23 @@
 //Console.WriteLine(liste.Count);
 
 //Dictionnaire
-Dictionary<string, Enfant> dico = new Dictionary<string, Enfant>();
-dico.Add("key1", new Enfant("enfant key1", 10));
+//Dictionary<string, Enfant> dico = new Dictionary<string, Enfant>();
+//dico.Add("key1", new Enfant("enfant key1", 10));
 
-//Parccourir les clés d'un dico
-foreach(string key in dico.Keys)
-{
-    Console.WriteLine(dico[key]);
-}
+////Parccourir les clés d'un dico
+//foreach(string key in dico.Keys)
+//{
+//    Console.WriteLine(dico[key]);
+//}
 
-//Ou les valeurs
-foreach(Enfant e in dico.Values)
-{
-    Console.WriteLine(e);
-}
+////Ou les valeurs
+//foreach(Enfant e in dico.Values)
+//{
+//    Console.WriteLine(e);
+//}
+
+IAvancer a = new Salarie("", "", "", "", 1000);
+IAvancer b = new Maison<int>();
+List<IAvancer> liste = new List<IAvancer>();
+liste.Add(a);
+liste.Add(b);

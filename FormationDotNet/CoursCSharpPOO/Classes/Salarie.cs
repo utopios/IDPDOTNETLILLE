@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CoursCSharpPOO.Interface;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CoursCSharpPOO.Classes
 {
-    class Salarie
+    class Salarie : IAvancer
     {
         private string matricule;
         private string nom;
@@ -58,6 +59,11 @@ namespace CoursCSharpPOO.Classes
         public virtual decimal CalculerSalaire()
         {
             return Salaire;
+        }
+
+        public void Avancer()
+        {
+            Console.WriteLine("Le salarié avance");
         }
     }
 }

@@ -114,7 +114,7 @@ namespace CorrectionCompteBancaire.Classes
             {
                 Console.WriteLine("=====================");
                 Console.WriteLine($"---Numéro de compte : {account.AccountNumber}--");
-                Console.WriteLine($"---Client : {account.Customer.LastName} {account.Customer.FirstName} {account.Customer.Phone}--");
+                Console.WriteLine($"---Client : {account.Customer}--");
                 GreenColor($"Solde : {account.TotalAmount} €");
                 Console.WriteLine("---Liste des opérations : ");
                 foreach(Operation o in account.Operations)
@@ -154,7 +154,7 @@ namespace CorrectionCompteBancaire.Classes
             Customer customer = new Customer(phone, firstName, lastName);
             return customer;
         }
-
+        //Partie 1
         private void RedColor(string message)
         {
             Console.ForegroundColor = ConsoleColor.Red;
@@ -162,6 +162,7 @@ namespace CorrectionCompteBancaire.Classes
             Console.ForegroundColor = ConsoleColor.White;
         }
 
+        //Partie 2
         private void GreenColor(string message)
         {
             Console.ForegroundColor = ConsoleColor.Green;

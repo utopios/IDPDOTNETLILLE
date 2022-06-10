@@ -26,5 +26,14 @@ namespace CorrectionCompteBancaire.Classes
             FirstName = firstName;
             LastName = lastName;
         }
+        public override string ToString()
+        {
+            return $"Prénom {FirstName}, Nom : {LastName}";
+        }
+        public override bool Equals(object? obj)
+        {
+            Customer c = (Customer)obj;
+            return FirstName == c.FirstName && LastName == c.LastName;
+        }
     }
 }

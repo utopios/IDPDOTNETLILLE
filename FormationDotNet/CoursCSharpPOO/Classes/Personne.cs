@@ -63,5 +63,10 @@ namespace CoursCSharpPOO.Classes
             Personne[] personnes = new Personne[3];
             return personnes;
         }
+
+        public override string ToString()
+        {
+            return base.ToString();
+        }
     }
 }
