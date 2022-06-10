@@ -56,7 +56,7 @@ namespace CorrectionCompteBancaire.Classes
             Account account = null;
             foreach(Account a in accounts)
             {
-                if(account.AccountNumber == number)
+                if(a.AccountNumber == number)
                 {
                     account = a;
                     break;

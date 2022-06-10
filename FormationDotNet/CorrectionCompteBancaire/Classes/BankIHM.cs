@@ -23,7 +23,7 @@ namespace CorrectionCompteBancaire.Classes
                 Menu();
                 choice = Console.ReadLine();
                 Console.Clear();
-                switch(choice)
+                switch (choice)
                 {
                     case "1":
                         CreateAccountAction();
@@ -53,10 +53,10 @@ namespace CorrectionCompteBancaire.Classes
         public void CreateAccountAction()
         {
             Customer customer = CreateCustomer();
-            if(customer != null)
+            if (customer != null)
             {
                 Account account = bank.AddAccount(customer);
-                if(account != null)
+                if (account != null)
                 {
                     GreenColor($"Compte créé avec le numéro {account.AccountNumber}");
                 }
@@ -73,22 +73,74 @@ namespace CorrectionCompteBancaire.Classes
 
         public void MakeWithDrawAction()
         {
-
+            Account account = GetAccountAction();
+            if (account != null)
+            {
+                Console.Write("Merci de saisir le montant du retrait : ");
+                decimal montant = Convert.ToDecimal(Console.ReadLine());
+                if (bank.MakeWithDraw(Math.Abs(montant) * -1, account.AccountNumber))
+                {
+                    GreenColor($"Retrait effectué, nouveau solde : ${account.TotalAmount}€");
+                }
+                else
+                {
+                    RedColor("Retrait impossible");
+                }
+            }
         }
 
         public void MakeDepositAction()
         {
-
+            Account account = GetAccountAction();
+            if (account != null)
+            {
+                Console.Write("Merci de saisir le montant du dépôt : ");
+                decimal montant = Convert.ToDecimal(Console.ReadLine());
+                if (bank.MakeDeposit(Math.Abs(montant), account.AccountNumber))
+                {
+                    GreenColor($"Dépôt effectué, nouveau solde : ${account.TotalAmount}€");
+                }
+                else
+                {
+                    RedColor("Dépôt impossible");
+                }
+            }
         }
 
         public void DisplayBankAccountAction()
         {
-
+            Account account = GetAccountAction();
+            if (account != null)
+            {
+                Console.WriteLine("=====================");
+                Console.WriteLine($"---Numéro de compte : {account.AccountNumber}--");
+                Console.WriteLine($"---Client : {account.Customer.LastName} {account.Customer.FirstName} {account.Customer.Phone}--");
+                GreenColor($"Solde : {account.TotalAmount} €");
+                Console.WriteLine("---Liste des opérations : ");
+                foreach(Operation o in account.Operations)
+                {
+                    if(o.Amount >= 0)
+                    {
+                        GreenColor($"Date : {o.OperationDateTime}, Montant : {o.Amount}");
+                    }
+                    else
+                    {
+                        RedColor($"Date : {o.OperationDateTime}, Montant : {o.Amount}");
+                    }
+                }
+            }
         }
 
         private Account GetAccountAction()
         {
-            return null;
+            Console.Write("Merci de saisir le numéro de compte : ");
+            int number = Convert.ToInt32(Console.ReadLine());
+            Account account = bank.GetAccount(number);
+            if (account == null)
+            {
+                RedColor("Aucun compte avec ce numéro");
+            }
+            return account;
         }
 
         private Customer CreateCustomer()
