@@ -17,6 +17,7 @@ namespace CorrectionCompteBancaire.Classes
         public Bank(string name)
         {
             Accounts = new List<Account>();
+            Name = name;
         }
 
         public Account AddAccount(Customer customer)
@@ -38,9 +39,14 @@ namespace CorrectionCompteBancaire.Classes
             return false;
         }
 
-        public bool MakeDeposit(decimal amount)
+        public bool MakeDeposit(decimal amount, int accountNumber)
         {
-            //A coder
+            Account account = GetAccount(accountNumber);
+            if (account != null)
+            {
+                Operation operation = new Operation(amount);
+                return account.Deposit(operation);
+            }
             return false;
         }
 
