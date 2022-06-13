@@ -179,12 +179,15 @@ using CoursCSharpPOO.Interface;
 //    Console.WriteLine("Erreur de saisi");
 //}
 
-decimal prix;
-if(Tools.ParseDecimal(Console.ReadLine(), out prix))
-{
-    Console.WriteLine("Le prix est de " + prix);
-}
-else
-{
-    Console.WriteLine("Erreur de saisi");
-}
+//decimal prix;
+//if(Tools.ParseDecimal(Console.ReadLine(), out prix))
+//{
+//    Console.WriteLine("Le prix est de " + prix);
+//}
+//else
+//{
+//    Console.WriteLine("Erreur de saisi");
+//}
+
+Tools.Afficher("frr",10, 30);
+Tools.Afficher("(((",40, 2, 5, 7);

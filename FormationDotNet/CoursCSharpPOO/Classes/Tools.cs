@@ -36,5 +36,24 @@ namespace CoursCSharpPOO.Classes
             }
             return result;
         }
+
+        //public static void Afficher(int a)
+        //{
+        //    Console.WriteLine(a);
+        //}
+        //public static void Afficher(int a, int b)
+        //{
+        //    Console.WriteLine(a);
+        //    Console.WriteLine(b);
+        //}
+
+        public static void Afficher(string message, params int[] tab)
+        {
+            Console.WriteLine(message);
+            for(int i = 0; i < tab.Length; i++)
+            {
+                Console.WriteLine(tab[i]);
+            }
+        }
     }
 }
