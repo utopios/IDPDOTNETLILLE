@@ -139,14 +139,42 @@ using CoursCSharpPOO.Interface;
 
 //Console.WriteLine(result);
 
-Personne p = new Personne();
-try
+//Personne p = new Personne();
+//try
+//{
+//    p.Telephone = "1234567890";
+//}catch(Exception ex)
+//{
+//    Console.WriteLine(ex.GetType());
+//}finally
+//{
+//    Console.WriteLine("Bonjour");
+//}
+
+//Passage de paramètres
+//int a = 10;
+//int n = 20;
+//int totalInitial = 100;
+//Calculatrice.Addition(a, n, ref totalInitial);
+//Console.WriteLine(totalInitial);
+
+//int[] tab = new int[] { 1, 2 };
+//Calculatrice.Addition(tab);
+//foreach(int i in tab)
+//{
+//    Console.WriteLine(i);
+//}
+
+//int b;
+//Calculatrice.Initialisation(out b);
+//Console.WriteLine(b);
+
+int age;
+if(int.TryParse(Console.ReadLine(), out age))
 {
-    p.Telephone = "1234567890";
-}catch(Exception ex)
+    Console.WriteLine("Votre age est de " + age);
+}
+else
 {
-    Console.WriteLine(ex.GetType());
-}finally
-{
-    Console.WriteLine("Bonjour");
+    Console.WriteLine("Erreur de saisi");
 }
