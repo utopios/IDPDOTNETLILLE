@@ -21,12 +21,22 @@ namespace CoursCSharpPOO.Classes
             Console.WriteLine(a);
         }
 
-        public static void Addition(int[] tab)
+        //public static void Addition(int[] tab)
+        //{
+        //    for(int i=0; i<tab.Length; i++)
+        //    {
+        //        tab[i] = 10;
+        //    }
+        //}
+
+        public static int Addition(params int[] tab)
         {
-            for(int i=0; i<tab.Length; i++)
+            int total = 0;
+            foreach(int i in tab)
             {
-                tab[i] = 10;
+                total += i;
             }
+            return total;
         }
     }
 }

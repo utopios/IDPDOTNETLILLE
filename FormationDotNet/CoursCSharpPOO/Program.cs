@@ -189,5 +189,8 @@ using CoursCSharpPOO.Interface;
 //    Console.WriteLine("Erreur de saisi");
 //}
 
-Tools.Afficher("frr",10, 30);
-Tools.Afficher("(((",40, 2, 5, 7);
+//Tools.Afficher("frr",10, 30);
+//Tools.Afficher("(((",40, 2, 5, 7);
+
+Console.WriteLine(Calculatrice.Addition(1, 4, 7, 9));
+Console.WriteLine(Calculatrice.Addition(45,54));
