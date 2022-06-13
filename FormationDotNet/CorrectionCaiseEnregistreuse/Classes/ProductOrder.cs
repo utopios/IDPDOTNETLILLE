@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace CorrectionCaisseEnregistreuse.Classes
 {
-     class ProductOrder
+    class ProductOrder
     {
+        private Product product;
+        private int qty;
+
+        public int Qty { get => qty; set => qty = value; }
+        public Product Product { get => product; set => product = value; }
     }
 }

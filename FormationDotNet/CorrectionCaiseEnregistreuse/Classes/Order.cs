@@ -6,7 +6,42 @@ using System.Threading.Tasks;
 
 namespace CorrectionCaisseEnregistreuse.Classes
 {
-    internal class Order
+    class Order
     {
+        private int id;
+        private List<ProductOrder> products;
+        private Payment payment;
+        private static int count;
+
+        public int Id { get => id; set => id = value; }
+        public List<ProductOrder> Products { get => products; set => products = value; }
+        public Payment Payment { get => payment; set => payment = value; }
+
+        public Order()
+        {
+            Id = ++count;
+            Products = new List<ProductOrder>();
+        }
+
+        public bool AddProduct(Product product)
+        {
+            ProductOrder productOrder = Products.Find(p => p.Product.Id == product.Id);
+            if(productOrder == null)
+            {
+                productOrder = new ProductOrder() { Product = product, Qty = 1};
+                products.Add(productOrder);
+
+            }
+            else
+            {
+                productOrder.Qty += 1;
+            }
+            return true;
+        }
+
+        public bool Pay(Payment payment)
+        {
+            return false;
+        }
     }
 }
