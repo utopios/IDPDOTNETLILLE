@@ -21,5 +21,20 @@ namespace CoursCSharpPOO.Classes
             }
             return result;
         }
+
+        public static bool ParseDecimal(string value, out decimal variable)
+        {
+            bool result = false;
+            try
+            {
+                variable = Convert.ToDecimal(value);
+                result = true;
+            }
+            catch (Exception ex)
+            {
+                variable = 0;
+            }
+            return result;
+        }
     }
 }

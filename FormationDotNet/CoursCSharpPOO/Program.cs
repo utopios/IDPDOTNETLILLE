@@ -169,10 +169,20 @@ using CoursCSharpPOO.Interface;
 //Calculatrice.Initialisation(out b);
 //Console.WriteLine(b);
 
-int age;
-if(int.TryParse(Console.ReadLine(), out age))
+//int age;
+//if(int.TryParse(Console.ReadLine(), out age))
+//{
+//    Console.WriteLine("Votre age est de " + age);
+//}
+//else
+//{
+//    Console.WriteLine("Erreur de saisi");
+//}
+
+decimal prix;
+if(Tools.ParseDecimal(Console.ReadLine(), out prix))
 {
-    Console.WriteLine("Votre age est de " + age);
+    Console.WriteLine("Le prix est de " + prix);
 }
 else
 {
