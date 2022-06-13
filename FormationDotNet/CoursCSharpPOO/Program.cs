@@ -197,8 +197,20 @@ using CoursCSharpPOO.Interface;
 
 //Calculatrice.Calcule(10, 30, Calculatrice.Soustraction);
 //Calculatrice.Calcule(10, 30, Tools.Multiplication);
-Calculatrice.Calcule(30, 10, delegate (int a, int b) { return a / b; });
-Calculatrice.Calcule(30, 10, (int a, int b) => { return a / b; });
-Calculatrice.Calcule(30, 10, (a, b) => { return a / b; });
-//Une fonction lambda
-Calculatrice.Calcule(30, 10,  (a, b) => a / b);
+//Calculatrice.Calcule(30, 10, delegate (int a, int b) { return a / b; });
+//Calculatrice.Calcule(30, 10, (int a, int b) => { return a / b; });
+//Calculatrice.Calcule(30, 10, (a, b) => { return a / b; });
+////Une fonction lambda
+//Calculatrice.Calcule(30, 10,  (a, b) => a / b);
+
+//Exercice
+/*
+ Modifier la classe pile en y ajoutant une méthode rechercher 
+qui accepte comme paramètre la méthode de recherche.
+ */
+Pile<string> pile = new Pile<string>(3);
+pile.Empiler("toto");
+pile.Empiler("tata");
+
+string element = pile.SearchElement(e => e == "titi");
+Console.WriteLine(element);

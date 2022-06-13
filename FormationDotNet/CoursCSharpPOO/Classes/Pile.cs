@@ -45,5 +45,19 @@ namespace CoursCSharpPOO.Classes
             }
             return default(T);
         }
+
+        public T SearchElement(Func<T, bool> searchMethod)
+        {
+            T result = default(T);
+            foreach(T element in elements)
+            {
+                if(searchMethod(element))
+                {
+                    result = element;
+                    break;
+                }
+            }
+            return result;
+        }
     }
 }
