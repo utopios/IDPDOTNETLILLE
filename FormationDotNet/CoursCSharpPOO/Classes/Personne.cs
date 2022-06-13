@@ -71,7 +71,8 @@ namespace CoursCSharpPOO.Classes
                 }
                 else
                 {
-                    throw new Exception("Erreur téléphone");
+                    //throw new Exception("Erreur téléphone");
+                    throw new PhoneException();
                 }
             }
         }

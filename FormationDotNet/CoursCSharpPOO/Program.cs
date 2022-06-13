@@ -142,8 +142,11 @@ using CoursCSharpPOO.Interface;
 Personne p = new Personne();
 try
 {
-    p.Telephone = "1234";
+    p.Telephone = "1234567890";
 }catch(Exception ex)
 {
-    Console.WriteLine(ex.Message);
+    Console.WriteLine(ex.GetType());
+}finally
+{
+    Console.WriteLine("Bonjour");
 }
