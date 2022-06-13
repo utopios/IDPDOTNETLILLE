@@ -11,6 +11,8 @@ namespace CoursCSharpPOO.Classes
         private string nom;
         private string prenom;
         public static int Nombre = 0;
+        private string telephone;
+
 
         //Méthode de construction
         public Personne()
@@ -57,6 +59,22 @@ namespace CoursCSharpPOO.Classes
         }
 
         public string Prenom { get => prenom; set => prenom = value; }
+
+        public string Telephone { 
+            get => telephone; 
+
+            set
+            {
+                if(value.Length == 10)
+                {
+                    telephone = value;
+                }
+                else
+                {
+                    throw new Exception("Erreur téléphone");
+                }
+            }
+        }
 
         public static Personne[] TableauPersonnes()
         {

@@ -133,8 +133,17 @@ using CoursCSharpPOO.Interface;
 //Ecrire une méthode qui permet de gérér les exceptions
 //de conversion entre une chaine de caractère et une décimal.
 
-Console.Write("Merci de saisir une decimal > 0 : ");
-string value = Console.ReadLine();
-decimal result = Tools.ParseDecimal(value);
+//Console.Write("Merci de saisir une decimal > 0 : ");
+//string value = Console.ReadLine();
+//decimal result = Tools.ParseDecimal(value);
 
-Console.WriteLine(result);
+//Console.WriteLine(result);
+
+Personne p = new Personne();
+try
+{
+    p.Telephone = "1234";
+}catch(Exception ex)
+{
+    Console.WriteLine(ex.Message);
+}
