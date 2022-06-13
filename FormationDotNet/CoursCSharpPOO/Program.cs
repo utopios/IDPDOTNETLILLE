@@ -195,5 +195,10 @@ using CoursCSharpPOO.Interface;
 //Console.WriteLine(Calculatrice.Addition(1, 4, 7, 9));
 //Console.WriteLine(Calculatrice.Addition(45,54));
 
-Calculatrice.Calcule(10, 30, Calculatrice.Soustraction);
-Calculatrice.Calcule(10, 30, Tools.Multiplication);
+//Calculatrice.Calcule(10, 30, Calculatrice.Soustraction);
+//Calculatrice.Calcule(10, 30, Tools.Multiplication);
+Calculatrice.Calcule(30, 10, delegate (int a, int b) { return a / b; });
+Calculatrice.Calcule(30, 10, (int a, int b) => { return a / b; });
+Calculatrice.Calcule(30, 10, (a, b) => { return a / b; });
+//Une fonction lambda
+Calculatrice.Calcule(30, 10,  (a, b) => a / b);

@@ -46,7 +46,11 @@ namespace CoursCSharpPOO.Classes
             return total;
         }
 
-        public static void Calcule(int a, int b, CalculeDelegate methodeCalcule)
+        //public static void Calcule(int a, int b, CalculeDelegate methodeCalcule)
+        //{
+        //    Console.WriteLine(methodeCalcule(a, b));
+        //}
+        public static void Calcule(int a, int b, Func<int, int, int> methodeCalcule)
         {
             Console.WriteLine(methodeCalcule(a, b));
         }
