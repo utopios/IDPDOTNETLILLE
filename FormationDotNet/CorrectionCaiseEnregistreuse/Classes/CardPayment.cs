@@ -8,5 +8,10 @@ namespace CorrectionCaisseEnregistreuse.Classes
 {
     class CardPayment : Payment
     {
+        public override bool Pay(decimal amount)
+        {
+            //Pour tester le paiement accépté et refusé
+            return amount % 2 == 0;
+        }
     }
 }
