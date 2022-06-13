@@ -208,9 +208,14 @@ using CoursCSharpPOO.Interface;
  Modifier la classe pile en y ajoutant une méthode rechercher 
 qui accepte comme paramètre la méthode de recherche.
  */
-Pile<string> pile = new Pile<string>(3);
-pile.Empiler("toto");
-pile.Empiler("tata");
+//Pile<string> pile = new Pile<string>(3);
+//pile.Empiler("toto");
+//pile.Empiler("tata");
 
-string element = pile.SearchElement(e => e == "titi");
+//string element = pile.SearchElement(e => e == "titi");
+//Console.WriteLine(element);
+
+List<string> liste = new List<string>() { "toto", "tata", "titi" };
+
+string element = liste.Find(e => e == "toto");
 Console.WriteLine(element);
