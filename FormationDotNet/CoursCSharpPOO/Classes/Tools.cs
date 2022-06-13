@@ -55,5 +55,10 @@ namespace CoursCSharpPOO.Classes
                 Console.WriteLine(tab[i]);
             }
         }
+
+        public static int Multiplication(int a, int b)
+        {
+            return a * b;
+        }
     }
 }

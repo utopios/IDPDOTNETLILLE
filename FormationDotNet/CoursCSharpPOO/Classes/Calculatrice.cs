@@ -8,6 +8,13 @@ namespace CoursCSharpPOO.Classes
 {
     class Calculatrice
     {
+        public delegate int CalculeDelegate(int a, int b);
+        
+        public static int Soustraction(int a, int b)
+        {
+            return a - b; 
+        }
+        
         public static void Addition(int a, int b, ref int total)
         {
             total += a;
@@ -32,11 +39,16 @@ namespace CoursCSharpPOO.Classes
         public static int Addition(params int[] tab)
         {
             int total = 0;
-            foreach(int i in tab)
+            foreach (int i in tab)
             {
                 total += i;
             }
             return total;
+        }
+
+        public static void Calcule(int a, int b, CalculeDelegate methodeCalcule)
+        {
+            Console.WriteLine(methodeCalcule(a, b));
         }
     }
 }
