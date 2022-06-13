@@ -16,7 +16,19 @@ namespace CorrectionCaisseEnregistreuse.Classes
         public int Id { get => id; set => id = value; }
         public List<ProductOrder> Products { get => products; set => products = value; }
         public Payment Payment { get => payment; set => payment = value; }
-
+        
+        public decimal Total
+        {
+            get
+            {
+                decimal total = 0;
+                Products.ForEach(p =>
+                {
+                    total += p.Qty * p.Product.Price;
+                });
+                return total;
+            }
+        }
         public Order()
         {
             Id = ++count;
@@ -41,7 +53,8 @@ namespace CorrectionCaisseEnregistreuse.Classes
 
         public bool Pay(Payment payment)
         {
-            return false;
+            Payment = payment;
+            return Payment.Pay(Total);
         }
     }
 }
