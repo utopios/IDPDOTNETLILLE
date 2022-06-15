@@ -222,24 +222,27 @@ qui accepte comme paramètre la méthode de recherche.
 
 //Utilisation des events
 
-Moto moto = new Moto();
-moto.Promotion += Tools.EnvoieMail;
-moto.Promotion += Tools.EnvoieSMS;
-moto.Prix = 3000;
-int count = 0;
-string choix;
-do
-{
-    Console.Write("Une promo ? ");
-    choix = Console.ReadLine();
-    if (choix == "oui")
-    {
-        count++;
-        decimal.TryParse(Console.ReadLine(), out decimal montant);
-        moto.Reduction(montant);
-        if(count ==2)
-        {
-            moto.Promotion -= Tools.EnvoieSMS;
-        }
-    }
-} while (choix != "0");
+//Moto moto = new Moto();
+//moto.Promotion += Tools.EnvoieMail;
+//moto.Promotion += Tools.EnvoieSMS;
+//moto.Prix = 3000;
+//int count = 0;
+//string choix;
+//do
+//{
+//    Console.Write("Une promo ? ");
+//    choix = Console.ReadLine();
+//    if (choix == "oui")
+//    {
+//        count++;
+//        decimal.TryParse(Console.ReadLine(), out decimal montant);
+//        moto.Reduction(montant);
+//        if(count ==2)
+//        {
+//            moto.Promotion -= Tools.EnvoieSMS;
+//        }
+//    }
+//} while (choix != "0");
+//Ex
+//En utilisant la classe pile,
+//ajoutez un event pile pleine à exécuter quand la pile est pleine
