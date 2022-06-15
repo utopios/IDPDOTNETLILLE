@@ -215,7 +215,7 @@ qui accepte comme paramètre la méthode de recherche.
 //string element = pile.SearchElement(e => e == "titi");
 //Console.WriteLine(element);
 
-List<string> liste = new List<string>() { "toto", "tata", "titi" };
+//List<string> liste = new List<string>() { "toto", "tata", "titi" };
 
-string element = liste.Find(e => e == "toto");
-Console.WriteLine(element);
+//string element = liste.Find(e => e == "toto");
+//Console.WriteLine(element);
