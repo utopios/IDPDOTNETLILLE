@@ -60,5 +60,15 @@ namespace CoursCSharpPOO.Classes
         {
             return a * b;
         }
+
+        public static void EnvoieMail()
+        {
+            Console.WriteLine("Mail envoyé");
+        }
+
+        public static void EnvoieSMS()
+        {
+            Console.WriteLine("SMS envoyé");
+        }
     }
 }

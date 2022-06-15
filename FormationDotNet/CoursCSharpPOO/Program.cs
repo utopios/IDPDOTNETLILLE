@@ -219,3 +219,20 @@ qui accepte comme paramètre la méthode de recherche.
 
 //string element = liste.Find(e => e == "toto");
 //Console.WriteLine(element);
+
+//Utilisation des events
+
+Moto moto = new Moto();
+moto.Promotion += Tools.EnvoieMail;
+moto.Promotion += Tools.EnvoieSMS;
+string choix;
+do
+{
+    Console.Write("Une promo ? ");
+    choix = Console.ReadLine();
+    if (choix == "oui")
+    {
+        decimal.TryParse(Console.ReadLine(), out decimal montant);
+        moto.Reduction(montant);
+    }
+} while (choix != "0");
