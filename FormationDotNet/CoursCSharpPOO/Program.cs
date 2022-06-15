@@ -225,7 +225,8 @@ qui accepte comme paramètre la méthode de recherche.
 Moto moto = new Moto();
 moto.Promotion += Tools.EnvoieMail;
 moto.Promotion += Tools.EnvoieSMS;
-moto.Prix = 300;
+moto.Prix = 3000;
+int count = 0;
 string choix;
 do
 {
@@ -233,7 +234,12 @@ do
     choix = Console.ReadLine();
     if (choix == "oui")
     {
+        count++;
         decimal.TryParse(Console.ReadLine(), out decimal montant);
         moto.Reduction(montant);
+        if(count ==2)
+        {
+            moto.Promotion -= Tools.EnvoieSMS;
+        }
     }
 } while (choix != "0");
