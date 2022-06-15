@@ -66,6 +66,11 @@ namespace CoursCSharpPOO.Classes
             Console.WriteLine("Mail envoyé "+prix);
         }
 
+        public static void EnvoieMail()
+        {
+            Console.WriteLine("Mail envoyé ");
+        }
+
         public static void EnvoieSMS(decimal prix)
         {
             Console.WriteLine("SMS envoyé "+prix);

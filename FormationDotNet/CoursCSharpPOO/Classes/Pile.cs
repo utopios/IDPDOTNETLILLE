@@ -10,7 +10,7 @@ namespace CoursCSharpPOO.Classes
     {
         private T[] elements;
         private int compteur;
-
+        public event Action PilePleine;
         public Pile(int t)
         {
             elements = new T[t];
@@ -24,7 +24,14 @@ namespace CoursCSharpPOO.Classes
                 elements[compteur++] = element;
                 return true;
             }
-            return false;
+            else
+            {
+                //if (PilePleine != null)
+                //    PilePleine();
+                //<=>
+                PilePleine?.Invoke();
+                return false;
+            }
         }
 
         public bool Depiler()
