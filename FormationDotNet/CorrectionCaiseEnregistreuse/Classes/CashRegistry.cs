@@ -33,14 +33,15 @@ namespace CorrectionCaisseEnregistreuse.Classes
             return product;
         }
 
-        public Order AddOrder(Order order, Payment payment)
+        public bool AddOrder(Order order, Payment payment)
         {
             //A coder
             if (order.Pay(payment))
             {
                 Orders.Add(order);
+                return true;
             }
-            return order;
+            return false;
         }
     }
 }
