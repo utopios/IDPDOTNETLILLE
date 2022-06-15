@@ -225,6 +225,7 @@ qui accepte comme paramètre la méthode de recherche.
 Moto moto = new Moto();
 moto.Promotion += Tools.EnvoieMail;
 moto.Promotion += Tools.EnvoieSMS;
+moto.Prix = 300;
 string choix;
 do
 {

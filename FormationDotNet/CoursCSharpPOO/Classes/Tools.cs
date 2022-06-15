@@ -61,14 +61,14 @@ namespace CoursCSharpPOO.Classes
             return a * b;
         }
 
-        public static void EnvoieMail()
+        public static void EnvoieMail(decimal prix)
         {
-            Console.WriteLine("Mail envoyé");
+            Console.WriteLine("Mail envoyé "+prix);
         }
 
-        public static void EnvoieSMS()
+        public static void EnvoieSMS(decimal prix)
         {
-            Console.WriteLine("SMS envoyé");
+            Console.WriteLine("SMS envoyé "+prix);
         }
     }
 }
