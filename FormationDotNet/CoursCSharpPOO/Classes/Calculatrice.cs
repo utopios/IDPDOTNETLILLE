@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CoursCSharpPOO.Classes
 {
-    class Calculatrice
+    public class Calculatrice
     {
         public delegate int CalculeDelegate(int a, int b);
         
@@ -53,6 +53,11 @@ namespace CoursCSharpPOO.Classes
         public static void Calcule(int a, int b, Func<int, int, int> methodeCalcule)
         {
             Console.WriteLine(methodeCalcule(a, b));
+        }
+
+        public int Addition(int a, int b)
+        {
+            return a + b;
         }
     }
 }
