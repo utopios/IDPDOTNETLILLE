@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace CoursCSharpPOO.Classes
 {
     
-    class Tools
+    public class Tools
     {
         public static decimal ParseDecimal(string value)
         {
