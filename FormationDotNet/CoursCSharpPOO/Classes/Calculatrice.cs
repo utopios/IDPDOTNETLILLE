@@ -10,10 +10,10 @@ namespace CoursCSharpPOO.Classes
     {
         public delegate int CalculeDelegate(int a, int b);
         
-        public static int Soustraction(int a, int b)
-        {
-            return a - b; 
-        }
+        //public static int Soustraction(int a, int b)
+        //{
+        //    return a - b; 
+        //}
         
         public static void Addition(int a, int b, ref int total)
         {
@@ -58,6 +58,11 @@ namespace CoursCSharpPOO.Classes
         public int Addition(int a, int b)
         {
             return a + b;
+        }
+
+        public int Soustraction(int a, int b)
+        {
+            return a - b;
         }
     }
 }
