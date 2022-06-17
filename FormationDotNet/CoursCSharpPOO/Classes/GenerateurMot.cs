@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CoursCSharpPOO.Interface;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CoursCSharpPOO.Classes
 {
-    class GenerateurMot
+    public class GenerateurMot : IGenerateur
     {
         private string[] mots = new string[] { "google", "amazon", "facebook", "apple", "microsoft" };
         private Random random = new Random();

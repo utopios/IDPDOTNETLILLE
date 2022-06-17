@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CoursCSharpPOO.Interface;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CoursCSharpPOO.Classes
 {
-    class LePendu
+    public class LePendu
     {
         private int nbEssai;
         private string masque;
@@ -52,7 +53,7 @@ namespace CoursCSharpPOO.Classes
             return motATrouve == masque;
         }
 
-        public void GenererMasque(GenerateurMot generateur)
+        public void GenererMasque(IGenerateur generateur)
         {
             //A coder
             string masqueTmp = "";
