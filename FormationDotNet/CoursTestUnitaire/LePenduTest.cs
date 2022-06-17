@@ -1,4 +1,6 @@
 ﻿using CoursCSharpPOO.Classes;
+using CoursCSharpPOO.Interface;
+using Moq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,11 +13,12 @@ namespace CoursTestUnitaire
     public class LePenduTest
     {
         private LePendu pendu = new LePendu();
-        private FakeGenerateur generateur = new FakeGenerateur();
+        private IGenerateur generateur = Mock.Of<IGenerateur>();
         [TestMethod]
         public void TestCharTest_c_true()
         {
             //Act
+            Mock.Get(generateur).Setup(r => r.Generer()).Returns("coucou");
             pendu.GenererMasque(generateur);
             bool result = pendu.TestChar('c');
             Assert.IsTrue(result);
@@ -52,6 +55,11 @@ namespace CoursTestUnitaire
             Assert.AreEqual("c**c**", pendu.Masque);
         }
 
-        
+        [TestMethod] 
+        public void TestGenerateurMasque()
+        {
+            pendu.GenererMasque(generateur);
+            Assert.AreEqual("******", pendu.Masque);
+        }
     }
 }
