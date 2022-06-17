@@ -75,5 +75,21 @@ namespace CoursCSharpPOO.Classes
         {
             Console.WriteLine("SMS envoyé "+prix);
         }
+
+        public string ConvertCivility(int a)
+        {
+            if(a == 1)
+            {
+                return "Mme.";
+            }
+            else if(a == 2)
+            {
+                return "M.";
+            }
+            else
+            {
+                return null;
+            }
+        }
     }
 }
