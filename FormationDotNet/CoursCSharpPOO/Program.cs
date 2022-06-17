@@ -247,8 +247,10 @@ qui accepte comme paramètre la méthode de recherche.
 //En utilisant la classe pile,
 //ajoutez un event pile pleine à exécuter quand la pile est pleine
 
-Pile<string> pile = new Pile<string>(2);
-pile.PilePleine += Tools.EnvoieMail;
-pile.Empiler("toto");
-pile.Empiler("tata");
-pile.Empiler("titi");
+//Pile<string> pile = new Pile<string>(2);
+//pile.PilePleine += Tools.EnvoieMail;
+//pile.Empiler("toto");
+//pile.Empiler("tata");
+//pile.Empiler("titi");
+
+Tools tools = new Tools(new Dice());

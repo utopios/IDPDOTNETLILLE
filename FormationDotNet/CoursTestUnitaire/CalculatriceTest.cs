@@ -35,32 +35,6 @@ namespace CoursTestUnitaire
             Assert.AreEqual(10, result);
         }
 
-        //Ecrire les fonctions de tests pour la méthode civility
-
-        [TestMethod]
-        public void CivilityTest_1_MME()
-        {
-            Tools tools = new Tools();
-
-            string result = tools.ConvertCivility(1);
-            Assert.AreEqual("Mme.", result);
-        }
-        [TestMethod]
-        public void CivilityTest_2_M()
-        {
-            Tools tools = new Tools();
-
-            string result = tools.ConvertCivility(2);
-            Assert.AreEqual("M.", result);
-        }
-
-        [TestMethod]
-        public void CivilityTest_3_NULL()
-        {
-            Tools tools = new Tools();
-
-            string result = tools.ConvertCivility(3);
-            Assert.IsNull(result);
-        }
+        
     }
 }

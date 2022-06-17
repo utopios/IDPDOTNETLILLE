@@ -9,6 +9,17 @@ namespace CoursCSharpPOO.Classes
     
     public class Tools
     {
+        private IDice _dice;
+        public Tools()
+        {
+
+        }
+
+        public Tools(IDice dice)
+        {
+            _dice = dice;
+        }
+
         public static decimal ParseDecimal(string value)
         {
             decimal result = 0;
@@ -90,6 +101,23 @@ namespace CoursCSharpPOO.Classes
             {
                 return null;
             }
+        }
+
+        //private int getRandom(int max)
+        //{
+        //    return new Random().Next(1, max);
+        //}
+
+        //public int Dice()
+        //{
+        //    return getRandom(7);
+        //}
+
+        public string GetElement()
+        {
+            string[] tab = new string[] { "e1", "e2", "e3", "e4", "e5", "e6" };
+
+            return tab[_dice.GetRandom() - 1];
         }
     }
 }
