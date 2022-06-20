@@ -55,27 +55,28 @@ namespace Bowling.Classes
             }
             else
             {
-                if(Rolls.Count == 1 && Rolls[0].Pins == 10)
+                if(Rolls.Count <= 2 && (Rolls[0].Pins == 10 || Rolls[0].Pins + Rolls[1].Pins == 10))
                 {
-                    int pins = _generator.RandomPins(10);
+                    int max = (Rolls.Count == 2 && Rolls[0].Pins + Rolls[1].Pins != 10) ? 10 - Rolls[1].Pins : 10;
+                    int pins = _generator.RandomPins(max);
                     Roll r = new Roll(pins);
                     Rolls.Add(r);
                     return true;
                 }
-                else if(Rolls.Count == 2 && Rolls[0].Pins == 10)
-                {
-                    int pins = _generator.RandomPins(10 - Rolls[1].Pins);
-                    Roll r = new Roll(pins);
-                    Rolls.Add(r);
-                    return true;
-                }
-                else if(Rolls.Count == 2 && Rolls[0].Pins + Rolls[1].Pins == 10)
-                {
-                    int pins = _generator.RandomPins(10);
-                    Roll r = new Roll(pins);
-                    Rolls.Add(r);
-                    return true;
-                }
+                //else if(Rolls.Count == 2 && Rolls[0].Pins == 10)
+                //{
+                //    int pins = _generator.RandomPins(10 - Rolls[1].Pins);
+                //    Roll r = new Roll(pins);
+                //    Rolls.Add(r);
+                //    return true;
+                //}
+                //else if(Rolls.Count == 2 && Rolls[0].Pins + Rolls[1].Pins == 10)
+                //{
+                //    int pins = _generator.RandomPins(10);
+                //    Roll r = new Roll(pins);
+                //    Rolls.Add(r);
+                //    return true;
+                //}
                 return false;
             }
         }
