@@ -24,11 +24,23 @@ namespace BowlingTest
             Assert.AreEqual(6, frame.Score);
         }
 
+        //Test de la classe PinGenerator
+        //[TestMethod]
+        //public void Roll_SimpleFrame_MaxScore()
+        //{
+        //    Mock.Get(_generator).Setup(m => m.RandomPins(10)).Returns(6);
+        //    Roll r = new Roll(7);
+        //    frame = new Frame(_generator, false);
+        //    frame.Rolls = new List<Roll>() { r };
+        //    bool result = frame.Roll();
+        //    Assert.IsFalse(result);
+        //}
+
         [TestMethod]
         public void Roll_SimpleFrame_SecondRoll_CheckScore()
         {
-            Mock.Get(_generator).Setup(m => m.RandomPins(10)).Returns(3);
             Roll r = new Roll(6);
+            Mock.Get(_generator).Setup(m => m.RandomPins(4)).Returns(3);
             frame = new Frame(_generator, false);
             frame.Rolls = new List<Roll>() { r };
             frame.Roll();
@@ -49,7 +61,7 @@ namespace BowlingTest
         [TestMethod]
         public void Roll_SimpleFrame_MoreRolls_ReturnFalse()
         {
-            Mock.Get(_generator).Setup(m => m.RandomPins(10)).Returns(3);
+            Mock.Get(_generator).Setup(m => m.RandomPins(2)).Returns(3);
             Roll r1 = new Roll(4);
             Roll r2 = new Roll(4);
             frame = new Frame(_generator, false);
@@ -64,7 +76,7 @@ namespace BowlingTest
         {
             Mock.Get(_generator).Setup(m => m.RandomPins(10)).Returns(3);
             Roll r = new Roll(10);
-            frame = new Frame(_generator, false);
+            frame = new Frame(_generator, true);
             frame.Rolls = new List<Roll>() { r };
             bool result = frame.Roll();
             Assert.IsTrue(result);
@@ -75,7 +87,7 @@ namespace BowlingTest
         {
             Mock.Get(_generator).Setup(m => m.RandomPins(10)).Returns(3);
             Roll r = new Roll(10);
-            frame = new Frame(_generator, false);
+            frame = new Frame(_generator, true);
             frame.Rolls = new List<Roll>() { r };
             frame.Roll();
             Assert.AreEqual(13, frame.Score);
@@ -84,10 +96,10 @@ namespace BowlingTest
         [TestMethod]
         public void Roll_LastFrame_ThirdRoll_FirstRollStrick_ReturnTrue()
         {
-            Mock.Get(_generator).Setup(m => m.RandomPins(10)).Returns(3);
+            Mock.Get(_generator).Setup(m => m.RandomPins(7)).Returns(3);
             Roll r1 = new Roll(10);
             Roll r2 = new Roll(3);
-            frame = new Frame(_generator, false);
+            frame = new Frame(_generator, true);
             frame.Rolls = new List<Roll>() { r1, r2 };
             bool result = frame.Roll();
             Assert.IsTrue(result);
@@ -96,10 +108,10 @@ namespace BowlingTest
         [TestMethod]
         public void Roll_LastFrame_ThirdRoll_FirstRollStrick_CheckScore()
         {
-            Mock.Get(_generator).Setup(m => m.RandomPins(10)).Returns(3);
+            Mock.Get(_generator).Setup(m => m.RandomPins(7)).Returns(3);
             Roll r1 = new Roll(10);
             Roll r2 = new Roll(3);
-            frame = new Frame(_generator, false);
+            frame = new Frame(_generator, true);
             frame.Rolls = new List<Roll>() { r1, r2 };
             frame.Roll();
             Assert.AreEqual(16, frame.Score);
@@ -111,7 +123,7 @@ namespace BowlingTest
             Mock.Get(_generator).Setup(m => m.RandomPins(10)).Returns(3);
             Roll r1 = new Roll(7);
             Roll r2 = new Roll(3);
-            frame = new Frame(_generator, false);
+            frame = new Frame(_generator, true);
             frame.Rolls = new List<Roll>() { r1, r2 };
             bool result = frame.Roll();
             Assert.IsTrue(result);
@@ -123,10 +135,10 @@ namespace BowlingTest
             Mock.Get(_generator).Setup(m => m.RandomPins(10)).Returns(3);
             Roll r1 = new Roll(7);
             Roll r2 = new Roll(3);
-            frame = new Frame(_generator, false);
+            frame = new Frame(_generator, true);
             frame.Rolls = new List<Roll>() { r1, r2 };
             frame.Roll();
-            Assert.AreEqual(16, frame.Score);
+            Assert.AreEqual(13, frame.Score);
         }
 
         [TestMethod]
@@ -136,7 +148,7 @@ namespace BowlingTest
             Roll r1 = new Roll(7);
             Roll r2 = new Roll(3);
             Roll r3 = new Roll(10);
-            frame = new Frame(_generator, false);
+            frame = new Frame(_generator, true);
             frame.Rolls = new List<Roll>() { r1, r2, r3 };
             bool result = frame.Roll();
             Assert.IsFalse(result);
