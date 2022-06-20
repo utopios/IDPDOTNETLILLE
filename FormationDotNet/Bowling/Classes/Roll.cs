@@ -8,5 +8,12 @@ namespace Bowling.Classes
 {
     public class Roll
     {
+        private int pins;
+        public int Pins { get => pins;}
+
+        public Roll(int pins)
+        {
+            this.pins = pins;
+        }
     }
 }
