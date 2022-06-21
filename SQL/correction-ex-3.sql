@@ -29,7 +29,7 @@ order by surface desc;
 
 -- Question 7
 SELECT count(*) as nb_ville from villes_france_free as v 
-where v.ville_nom like 'SAINT%';
+where v.ville_nom like 'SAINT-%';
 
 --Question 8
 SELECT * FROM (
@@ -40,3 +40,13 @@ as tmp_ville where nombre > 1 order by nombre desc;
 -- Question 9
 SELECT * FROM villes_france_free 
 where ville_surface > (SELECT AVG(ville_surface) from villes_france_free);
+
+-- Question 10
+SELECT * FROM
+(SELECT SUM(v.ville_population_2012) as populations, d.departement_code, d.departement_nom 
+from villes_france_free as v inner join departement as d on v.ville_departement=d.departement_code
+group by d.departement_code, d.departement_nom) as tmp_populations where populations > 1000000;
+
+-- Question 11
+UPDATE villes_france_free set ville_nom=REPLACE(ville_nom,'-', ' ')
+where ville_nom like 'SAINT-%';
