@@ -36,3 +36,7 @@ SELECT * FROM (
 SELECT count(*) as nombre, v.ville_nom 
 from villes_france_free as v group by v.ville_nom)
 as tmp_ville where nombre > 1 order by nombre desc;
+
+-- Question 9
+SELECT * FROM villes_france_free 
+where ville_surface > (SELECT AVG(ville_surface) from villes_france_free);
