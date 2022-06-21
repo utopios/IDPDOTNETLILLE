@@ -22,3 +22,6 @@ SELECT * FROM personne order by nom asc;
 
 --Q4
 SELECT * FROM personne order by titre asc;
+
+--Q5
+SELECT * FROM personne where email='dd@cc.fr';
