@@ -21,7 +21,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Éléments de solution", "�
 	ProjectSection(SolutionItems) = preProject
 		..\SQL\AjoutLivre.sql = ..\SQL\AjoutLivre.sql
 		coursSql.sql = coursSql.sql
+		..\SQL\departement.sql = ..\SQL\departement.sql
+		..\SQL\villes_france_sqlserver.sql = ..\SQL\villes_france_sqlserver.sql
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoursAdoDotNet", "CoursAdoDotNet\CoursAdoDotNet.csproj", "{C27F61D5-ED15-442F-9A25-5C30B2654A53}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +61,10 @@ Global
 		{EEBBE759-1733-4DDA-81E8-F1C2AB726415}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EEBBE759-1733-4DDA-81E8-F1C2AB726415}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EEBBE759-1733-4DDA-81E8-F1C2AB726415}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C27F61D5-ED15-442F-9A25-5C30B2654A53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C27F61D5-ED15-442F-9A25-5C30B2654A53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C27F61D5-ED15-442F-9A25-5C30B2654A53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C27F61D5-ED15-442F-9A25-5C30B2654A53}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
