@@ -33,3 +33,6 @@ cmd.Dispose();
 connection.Close();
 
 Console.WriteLine(nbLigne);
+
+//Ecrire un programme qui demande à l'utilisateur de saisir
+//titre produit, prix et stock et les ajoute dans une table produit
