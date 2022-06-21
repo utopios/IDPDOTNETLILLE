@@ -10,3 +10,10 @@ SELECT a.id as adresseid, p.nom, a.ville FROM personne as p inner join adresse a
 SELECT * FROM personne left join adresse on personne.id = adresse.personne_id;
 SELECT * FROM personne right join adresse on personne.id = adresse.personne_id;
 SELECT * FROM personne full join adresse on personne.id = adresse.personne_id;
+
+SELECT * FROM personne, adresse where personne.id = adresse.personne_id;
+
+--Requetes imbriquées
+
+SELECT * FROM adresse WHERE 
+personne_id IN (SELECT id from personne where telephone like '0%');
