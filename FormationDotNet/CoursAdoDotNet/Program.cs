@@ -98,10 +98,13 @@ SqlConnection connection = new SqlConnection(connectionString);
 
 //Exercice 
 /*
- Ecrire une application qui permet de gérer un annuaire téléphonique.
+1- Ecrire une application qui permet de gérer un annuaire téléphonique.
 L'application doit permettre d'ajouter un contact(id, nom, prenom, telephone).
 L'application doit permettre de modifier un contact.
 L'application doit permettre de supprimer un contact.
 L'application doit permettre de rechercher des contacts par téléphone.
-
+2- On souhaite ajouter à notre entité contact, une collection d'adresse email.
+   - Modifier la base de données pour prendre en compte les emails.
+   - Modifier l'application pour prendre en compte la collection des emails.
+ 
  */
