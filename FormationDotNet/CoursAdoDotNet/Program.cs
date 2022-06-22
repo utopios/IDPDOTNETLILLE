@@ -108,3 +108,4 @@ L'application doit permettre de rechercher des contacts par téléphone.
    - Modifier l'application pour prendre en compte la collection des emails.
  
  */
+

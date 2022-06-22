@@ -9,7 +9,7 @@ namespace AnnuaireAdoNet.Classes
 {
     public class DataBase
     {
-        private static string connectionString;
+        private static string connectionString = @"Data Source=(LocalDb)\cousDotNet;Integrated Security=True";
 
         public static SqlConnection Connection
         {

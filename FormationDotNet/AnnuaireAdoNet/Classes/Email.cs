@@ -29,7 +29,7 @@ namespace AnnuaireAdoNet.Classes
             _connection = DataBase.Connection;
             _command = new SqlCommand(request, _connection);
             _command.Parameters.Add(new SqlParameter("@mail", Mail));
-            _command.Parameters.Add(new SqlParameter("@contactId", ContactId));
+            _command.Parameters.Add(new SqlParameter("@contactId", contactId));
             _connection.Open();
             Id = (int)_command.ExecuteScalar();
             _command.Dispose();
@@ -50,7 +50,7 @@ namespace AnnuaireAdoNet.Classes
             _connection.Close();
             return nbRow == 1;
         }
-        private static List<Email> GetEmails(int contactId)
+        public static List<Email> GetEmails(int contactId)
         {
             List<Email> emails = new List<Email>();
             request = "SELECT * FROM email where contact_id=@contactId";
