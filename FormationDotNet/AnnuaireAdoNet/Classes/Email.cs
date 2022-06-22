@@ -23,16 +23,55 @@ namespace AnnuaireAdoNet.Classes
 
         public bool Save(int contactId)
         {
-            return false;
+            request = "INSERT INTO email (mail, contact_id) " +
+                "OUTPUT INSERTED.ID values" +
+                "(@mail, @contactId)";
+            _connection = DataBase.Connection;
+            _command = new SqlCommand(request, _connection);
+            _command.Parameters.Add(new SqlParameter("@mail", Mail));
+            _command.Parameters.Add(new SqlParameter("@contactId", ContactId));
+            _connection.Open();
+            Id = (int)_command.ExecuteScalar();
+            _command.Dispose();
+            _connection.Close();
+            return Id > 0;
         }
 
         private bool Delete()
         {
-            return false;
+            request = "delete from email where id=@id";
+
+            _connection = DataBase.Connection;
+            _command = new SqlCommand(request, _connection);
+            _command.Parameters.Add(new SqlParameter("@id", Id));
+            _connection.Open();
+            int nbRow = _command.ExecuteNonQuery();
+            _command.Dispose();
+            _connection.Close();
+            return nbRow == 1;
         }
         private static List<Email> GetEmails(int contactId)
         {
-            return null;
+            List<Email> emails = new List<Email>();
+            request = "SELECT * FROM email where contact_id=@contactId";
+            _connection = DataBase.Connection;
+            _command = new SqlCommand(request, _connection);
+            _command.Parameters.Add(new SqlParameter("@contactId", contactId));
+            _connection.Open();
+            _reader = _command.ExecuteReader();
+            while (_reader.Read())
+            {
+                Email email = new Email()
+                {
+                    Id = _reader.GetInt32(0),
+                    Mail = _reader.GetString(1)
+                };
+                emails.Add(email);
+            }
+            _reader.Close();
+            _command.Dispose();
+            _connection.Close();
+            return emails;
         }
     }
 }
