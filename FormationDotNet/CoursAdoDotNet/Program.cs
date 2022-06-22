@@ -67,6 +67,7 @@ Console.Write("Merci de saisir le stock du produit : ");
 int stock = Convert.ToInt32(Console.ReadLine());
 
 request = "INSERT INTO produit (titre, prix, stock) " +
+    "OUTPUT INSERTED.id " +
     "values (@titre, @prix, @stock)";
 
 command = new SqlCommand(request, connection);
@@ -74,7 +75,9 @@ command.Parameters.Add(new SqlParameter("@titre", titre));
 command.Parameters.Add(new SqlParameter("@prix", prix));
 command.Parameters.Add(new SqlParameter("@stock", stock));
 
-int nbLigne = command.ExecuteNonQuery();
-Console.WriteLine(nbLigne);
+//int nbLigne = command.ExecuteNonQuery();
+int id = (int)command.ExecuteScalar();
+//Console.WriteLine(nbLigne);
+Console.WriteLine(id);
 command.Dispose();
 connection.Close();
