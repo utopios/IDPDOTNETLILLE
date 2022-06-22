@@ -14,6 +14,8 @@ namespace AnnuaireAdoNet.Classes
         private string lastName;
         private string phone;
 
+        private List<Email> emails;
+
         private static SqlConnection _connection;
         private static string request;
         private static SqlCommand _command;
@@ -23,12 +25,14 @@ namespace AnnuaireAdoNet.Classes
         public string FirstName { get => firstName; set => firstName = value; }
         public string LastName { get => lastName; set => lastName = value; }
         public string Phone { get => phone; set => phone = value; }
+        public List<Email> Emails { get => emails; set => emails = value; }
 
         public Contact(string firstName, string lastName, string phone)
         {
             FirstName = firstName;
             LastName = lastName;
             Phone = phone;
+            Emails = new List<Email>();
         }
 
         public Contact(int id, string firstName, string lastName, string phone) : this(firstName, lastName, phone)
