@@ -39,45 +39,59 @@ SqlConnection connection = new SqlConnection(connectionString);
 
 //Correction
 
-string request = "CREATE TABLE produit (" +
-    "id int PRIMARY KEY IDENTITY(1,1)," +
-    "titre varchar(100) not null," +
-    "prix decimal not null," +
-    "stock int not null"+
-    ")";
+//string request = "CREATE TABLE produit (" +
+//    "id int PRIMARY KEY IDENTITY(1,1)," +
+//    "titre varchar(100) not null," +
+//    "prix decimal not null," +
+//    "stock int not null"+
+//    ")";
+//SqlCommand command = new SqlCommand(request, connection);
+//connection.Open();
+//try
+//{
+//    command.ExecuteNonQuery();
+//    Console.WriteLine("table créée");
+//}catch(Exception ex)
+//{
+//    Console.WriteLine("Table existe");
+//}
+//finally
+//{
+//    command.Dispose();
+//}
+//Console.Write("Merci de saisir le titre du produit : ");
+//string titre = Console.ReadLine();
+//Console.Write("Merci de saisir le prix du produit : ");
+//decimal prix = Convert.ToDecimal(Console.ReadLine());
+//Console.Write("Merci de saisir le stock du produit : ");
+//int stock = Convert.ToInt32(Console.ReadLine());
+
+//request = "INSERT INTO produit (titre, prix, stock) " +
+//    "OUTPUT INSERTED.id " +
+//    "values (@titre, @prix, @stock)";
+
+//command = new SqlCommand(request, connection);
+//command.Parameters.Add(new SqlParameter("@titre", titre));
+//command.Parameters.Add(new SqlParameter("@prix", prix));
+//command.Parameters.Add(new SqlParameter("@stock", stock));
+
+////int nbLigne = command.ExecuteNonQuery();
+//int id = (int)command.ExecuteScalar();
+////Console.WriteLine(nbLigne);
+//Console.WriteLine(id);
+//command.Dispose();
+//connection.Close();
+
+
+//Requete de lecture
+string request = "SELECT * FROM produit";
 SqlCommand command = new SqlCommand(request, connection);
 connection.Open();
-try
+SqlDataReader reader = command.ExecuteReader();
+while(reader.Read())
 {
-    command.ExecuteNonQuery();
-    Console.WriteLine("table créée");
-}catch(Exception ex)
-{
-    Console.WriteLine("Table existe");
+    Console.WriteLine($"id {reader.GetInt32(0)}, titre {reader.GetString(1)}");
 }
-finally
-{
-    command.Dispose();
-}
-Console.Write("Merci de saisir le titre du produit : ");
-string titre = Console.ReadLine();
-Console.Write("Merci de saisir le prix du produit : ");
-decimal prix = Convert.ToDecimal(Console.ReadLine());
-Console.Write("Merci de saisir le stock du produit : ");
-int stock = Convert.ToInt32(Console.ReadLine());
-
-request = "INSERT INTO produit (titre, prix, stock) " +
-    "OUTPUT INSERTED.id " +
-    "values (@titre, @prix, @stock)";
-
-command = new SqlCommand(request, connection);
-command.Parameters.Add(new SqlParameter("@titre", titre));
-command.Parameters.Add(new SqlParameter("@prix", prix));
-command.Parameters.Add(new SqlParameter("@stock", stock));
-
-//int nbLigne = command.ExecuteNonQuery();
-int id = (int)command.ExecuteScalar();
-//Console.WriteLine(nbLigne);
-Console.WriteLine(id);
+reader.Close();
 command.Dispose();
 connection.Close();
