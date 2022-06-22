@@ -84,14 +84,24 @@ SqlConnection connection = new SqlConnection(connectionString);
 
 
 //Requete de lecture
-string request = "SELECT * FROM produit";
-SqlCommand command = new SqlCommand(request, connection);
-connection.Open();
-SqlDataReader reader = command.ExecuteReader();
-while(reader.Read())
-{
-    Console.WriteLine($"id {reader.GetInt32(0)}, titre {reader.GetString(1)}");
-}
-reader.Close();
-command.Dispose();
-connection.Close();
+//string request = "SELECT * FROM produit";
+//SqlCommand command = new SqlCommand(request, connection);
+//connection.Open();
+//SqlDataReader reader = command.ExecuteReader();
+//while(reader.Read())
+//{
+//    Console.WriteLine($"id {reader.GetInt32(0)}, titre {reader.GetString(1)}");
+//}
+//reader.Close();
+//command.Dispose();
+//connection.Close();
+
+//Exercice 
+/*
+ Ecrire une application qui permet de gérer un annuaire téléphonique.
+L'application doit permettre d'ajouter un contact(id, nom, prenom, telephone).
+L'application doit permettre de modifier un contact.
+L'application doit permettre de supprimer un contact.
+L'application doit permettre de rechercher des contacts par téléphone.
+
+ */
