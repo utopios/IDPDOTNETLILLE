@@ -12,7 +12,7 @@ namespace CompteBancaireAdoNet.Classes
         private string firstName;
         private string lastName;
         private string phone;
-        private static int count = 0;
+        //private static int count = 0;
 
         public int Id { get => id; set => id = value; }
         public string Phone { get => phone; set => phone = value; }
@@ -21,7 +21,7 @@ namespace CompteBancaireAdoNet.Classes
 
         public Customer(string phone, string firstName, string lastName)
         {
-            Id = ++count;
+            //Id = ++count;
             Phone = phone;
             FirstName = firstName;
             LastName = lastName;
