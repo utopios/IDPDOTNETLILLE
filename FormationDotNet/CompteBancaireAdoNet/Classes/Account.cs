@@ -23,7 +23,7 @@ namespace CompteBancaireAdoNet.Classes
 
         public Account()
         {
-
+            TotalAmount = 0;
         }
         public Account(Customer customer, int accountNumber)
         {

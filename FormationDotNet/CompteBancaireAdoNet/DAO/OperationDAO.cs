@@ -26,7 +26,7 @@ namespace CompteBancaireAdoNet.DAO
             request = "SELECT id, amount, operation_date_time from operation where account_id=@accountId";
             _connection = DataBase.Connection;
             _command = new SqlCommand(request, _connection);
-            _command.Parameters.Add(new SqlParameter("@account_id", accountId));
+            _command.Parameters.Add(new SqlParameter("@accountId", accountId));
             _connection.Open();
             _reader = _command.ExecuteReader();
             while(_reader.Read())

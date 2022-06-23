@@ -48,7 +48,7 @@ namespace CompteBancaireAdoNet.Classes
                 //    if(new AccountDAO().Update(account))
                 //        return account.WithDraw(operation);
                 //}
-                return new OperationDAO().Save(operation) && new AccountDAO().Update(account) && account.WithDraw(operation);
+                return new OperationDAO().Save(operation) && account.WithDraw(operation) && new AccountDAO().Update(account);
             }
             return false;
         }
@@ -59,7 +59,8 @@ namespace CompteBancaireAdoNet.Classes
             if (account != null)
             {
                 Operation operation = new Operation(amount);
-                return new OperationDAO().Save(operation) && new AccountDAO().Update(account) && account.Deposit(operation);
+                operation.AccountId = account.Id;
+                return new OperationDAO().Save(operation) && account.Deposit(operation) && new AccountDAO().Update(account);
             }
             return false;
         }
