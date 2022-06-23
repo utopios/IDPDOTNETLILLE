@@ -38,10 +38,17 @@ namespace CompteBancaireAdoNet.Classes
         {
             //A coder
             Account account = GetAccount(accountNumber);
+
             if (account != null)
             {
                 Operation operation = new Operation(amount);
-                return account.WithDraw(operation);
+                operation.AccountId = account.Id;
+                //if(new OperationDAO().Save(operation))
+                //{
+                //    if(new AccountDAO().Update(account))
+                //        return account.WithDraw(operation);
+                //}
+                return new OperationDAO().Save(operation) && new AccountDAO().Update(account) && account.WithDraw(operation);
             }
             return false;
         }
@@ -52,7 +59,7 @@ namespace CompteBancaireAdoNet.Classes
             if (account != null)
             {
                 Operation operation = new Operation(amount);
-                return account.Deposit(operation);
+                return new OperationDAO().Save(operation) && new AccountDAO().Update(account) && account.Deposit(operation);
             }
             return false;
         }
@@ -60,7 +67,8 @@ namespace CompteBancaireAdoNet.Classes
         public Account GetAccount(int number)
         {
             //A coder
-            Account account = null;
+            //DAO
+            Account account = new AccountDAO().GetWithAccountNumber(number);
             //foreach (Account a in accounts)
             //{
             //    if (a.AccountNumber == number)
@@ -69,7 +77,6 @@ namespace CompteBancaireAdoNet.Classes
             //        break;
             //    }
             //}
-            //DAO
             return account;
         }
         private int createRandomAccountNumber(int size)
