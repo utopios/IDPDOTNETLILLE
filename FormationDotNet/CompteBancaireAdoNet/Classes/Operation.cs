@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CorrectionCompteBancaire.Classes
+namespace CompteBancaireAdoNet.Classes
 {
-    class Operation
+    public class Operation
     {
         private decimal amount;
         private DateTime operationDateTime;

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CorrectionCompteBancaire.Classes
+namespace CompteBancaireAdoNet.Classes
 {
-    class Customer
+    public class Customer
     {
         private int id;
         private string firstName;

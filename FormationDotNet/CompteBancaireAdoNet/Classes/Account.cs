@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CorrectionCompteBancaire.Classes
+namespace CompteBancaireAdoNet.Classes
 {
-    class Account
+    public class Account
     {
         private Customer customer;
         private int accountNumber;
@@ -17,7 +17,7 @@ namespace CorrectionCompteBancaire.Classes
         public int AccountNumber { get => accountNumber; set => accountNumber = value; }
         public decimal TotalAmount { get => totalAmount; set => totalAmount = value; }
         public Customer Customer { get => customer; set => customer = value; }
-        internal List<Operation> Operations { get => operations; set => operations = value; }
+        public List<Operation> Operations { get => operations; set => operations = value; }
 
         public Account(Customer customer, int accountNumber)
         {
