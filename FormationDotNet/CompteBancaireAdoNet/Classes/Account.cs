@@ -8,6 +8,7 @@ namespace CompteBancaireAdoNet.Classes
 {
     public class Account
     {
+        private int id;
         private Customer customer;
         private int accountNumber;
         private decimal totalAmount;
@@ -18,7 +19,12 @@ namespace CompteBancaireAdoNet.Classes
         public decimal TotalAmount { get => totalAmount; set => totalAmount = value; }
         public Customer Customer { get => customer; set => customer = value; }
         public List<Operation> Operations { get => operations; set => operations = value; }
+        public int Id { get => id; set => id = value; }
 
+        public Account()
+        {
+
+        }
         public Account(Customer customer, int accountNumber)
         {
             Customer = customer;
