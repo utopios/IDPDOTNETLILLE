@@ -8,9 +8,10 @@ namespace CompteBancaireAdoNet.Classes
 {
     public class Operation
     {
+        private int id;
         private decimal amount;
         private DateTime operationDateTime;
-
+        private int accountId;
         public Operation(decimal amount)
         {
             operationDateTime = DateTime.Now;
@@ -18,6 +19,8 @@ namespace CompteBancaireAdoNet.Classes
         }
 
         public decimal Amount { get => amount; }
-        public DateTime OperationDateTime { get => operationDateTime; }
+        public DateTime OperationDateTime { get => operationDateTime; set => operationDateTime = value; }
+        public int Id { get => id; set => id = value; }
+        public int AccountId { get => accountId; set => accountId = value; }
     }
 }
