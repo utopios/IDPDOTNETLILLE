@@ -61,14 +61,15 @@ namespace CompteBancaireAdoNet.Classes
         {
             //A coder
             Account account = null;
-            foreach (Account a in accounts)
-            {
-                if (a.AccountNumber == number)
-                {
-                    account = a;
-                    break;
-                }
-            }
+            //foreach (Account a in accounts)
+            //{
+            //    if (a.AccountNumber == number)
+            //    {
+            //        account = a;
+            //        break;
+            //    }
+            //}
+            //DAO
             return account;
         }
         private int createRandomAccountNumber(int size)

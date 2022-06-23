@@ -41,6 +41,37 @@ namespace CompteBancaireAdoNet.DAO
             return account;
         }
 
+        public  Account GetWithAccountNumber(int id)
+        {
+            Account account = null;
+            int customerId = 0;
+            request = "SELECT id, total_amount, customer_id from account where account_number=@id";
+            _connection = DataBase.Connection;
+            _command = new SqlCommand(request, _connection);
+            _command.Parameters.Add(new SqlParameter("@id", id));
+            _connection.Open();
+            _reader = _command.ExecuteReader();
+            if (_reader.Read())
+            {
+                account = new Account()
+                {
+                    Id = _reader.GetInt32(0),
+                    TotalAmount = _reader.GetDecimal(1),
+                    AccountNumber = id,
+                };
+                customerId = _reader.GetInt32(2);
+            }
+            _reader.Close();
+            _command.Dispose();
+            _connection.Close();
+            if (account != null)
+            {
+                account.Customer = new CustomerDAO().Get(customerId);
+                account.Operations = new OperationDAO().GetAll(account.Id);
+            }
+            return account;
+        }
+
         public override List<Account> GetAll()
         {
             throw new NotImplementedException();
@@ -61,6 +92,21 @@ namespace CompteBancaireAdoNet.DAO
             _command.Dispose();
             _connection.Close();
             return element.Id > 0;
+        }
+
+        public bool Update(Account element)
+        {
+            request = "update account set total_amount=@totalAmount " +
+                "where id=@id";
+            _connection = DataBase.Connection;
+            _command = new SqlCommand(request, _connection);
+            _command.Parameters.Add(new SqlParameter("@totalAmount", element.TotalAmount));
+            _command.Parameters.Add(new SqlParameter("@id", element.Id));
+            _connection.Open();
+            int rowNb = (int)_command.ExecuteNonQuery();
+            _command.Dispose();
+            _connection.Close();
+            return rowNb == 1;
         }
     }
 }
