@@ -33,8 +33,11 @@ namespace CompteBancaireAdoNet.DAO
             _reader.Close();
             _command.Dispose();
             _connection.Close();
-            account.Customer = new CustomerDAO().Get(customerId);
-            account.Operations = new OperationDAO().GetAll(account.Id);
+            if (account != null)
+            {
+                account.Customer = new CustomerDAO().Get(customerId);
+                account.Operations = new OperationDAO().GetAll(account.Id);
+            }
             return account;
         }
 

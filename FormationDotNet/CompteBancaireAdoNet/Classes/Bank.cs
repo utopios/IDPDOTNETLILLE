@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CompteBancaireAdoNet.DAO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,16 +23,22 @@ namespace CompteBancaireAdoNet.Classes
 
         public Account AddAccount(Customer customer)
         {
-            Account account = new Account(customer, createRandomAccountNumber(5));
-            accounts.Add(account);
-            return account;
+            if (new CustomerDAO().Save(customer)) {
+                Account account = new Account(customer, createRandomAccountNumber(5));
+                if (new AccountDAO().Save(account)) { 
+                    accounts.Add(account);
+                    return account;
+                }
+                return null;
+            }
+            return null;
         }
 
         public bool MakeWithDraw(decimal amount, int accountNumber)
         {
             //A coder
             Account account = GetAccount(accountNumber);
-            if(account != null)
+            if (account != null)
             {
                 Operation operation = new Operation(amount);
                 return account.WithDraw(operation);
@@ -54,9 +61,9 @@ namespace CompteBancaireAdoNet.Classes
         {
             //A coder
             Account account = null;
-            foreach(Account a in accounts)
+            foreach (Account a in accounts)
             {
-                if(a.AccountNumber == number)
+                if (a.AccountNumber == number)
                 {
                     account = a;
                     break;
@@ -68,7 +75,7 @@ namespace CompteBancaireAdoNet.Classes
         {
             string code = "";
             Random r = new Random();
-            for(int i= 1; i <= size; i++)
+            for (int i = 1; i <= size; i++)
             {
                 code += r.Next(0, 10);
             }
