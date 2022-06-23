@@ -10,15 +10,24 @@ namespace CompteBancaireAdoNet.DAO
 {
     public class AccountDAO : BaseDAO<Account>
     {
+        public AccountDAO()
+        {
+
+        }
+        public AccountDAO(SqlConnection connection, SqlTransaction transaction) : base(connection, transaction)
+        {
+        }
+
         public override Account Get(int id)
         {
             Account account = null;
             int customerId = 0;
             request = "SELECT account_number, total_amount, customer_id from account where id=@id";
             _connection = DataBase.Connection;
+            _connection.Open();
+            _transaction = _connection.BeginTransaction();
             _command = new SqlCommand(request, _connection);
             _command.Parameters.Add(new SqlParameter("@id", id));
-            _connection.Open();
             _reader = _command.ExecuteReader();
             if (_reader.Read())
             {
@@ -28,14 +37,14 @@ namespace CompteBancaireAdoNet.DAO
                     TotalAmount = _reader.GetDecimal(1),
                     AccountNumber = _reader.GetInt32(0),
                 };
-                customerId = _reader.GetInt32(2);
+                account.Customer = new CustomerDAO(_connection, _transaction).Get(_reader.GetInt32(2));
             }
             _reader.Close();
             _command.Dispose();
+            _transaction.Commit();
             _connection.Close();
             if (account != null)
             {
-                account.Customer = new CustomerDAO().Get(customerId);
                 account.Operations = new OperationDAO().GetAll(account.Id);
             }
             return account;
@@ -47,9 +56,11 @@ namespace CompteBancaireAdoNet.DAO
             int customerId = 0;
             request = "SELECT id, total_amount, customer_id from account where account_number=@id";
             _connection = DataBase.Connection;
+            _connection.Open();
+            _transaction = _connection.BeginTransaction();
             _command = new SqlCommand(request, _connection);
             _command.Parameters.Add(new SqlParameter("@id", id));
-            _connection.Open();
+            _command.Transaction = _transaction;
             _reader = _command.ExecuteReader();
             if (_reader.Read())
             {
@@ -63,10 +74,11 @@ namespace CompteBancaireAdoNet.DAO
             }
             _reader.Close();
             _command.Dispose();
+            account.Customer = new CustomerDAO(_connection, _transaction).Get(customerId);
+
             _connection.Close();
             if (account != null)
             {
-                account.Customer = new CustomerDAO().Get(customerId);
                 account.Operations = new OperationDAO().GetAll(account.Id);
             }
             return account;

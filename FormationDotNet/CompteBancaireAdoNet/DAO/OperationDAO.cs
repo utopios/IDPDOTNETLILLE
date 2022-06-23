@@ -10,6 +10,14 @@ namespace CompteBancaireAdoNet.DAO
 {
     public class OperationDAO : BaseDAO<Operation>
     {
+        public OperationDAO()
+        {
+
+        }
+        public OperationDAO(SqlConnection connection, SqlTransaction transaction) : base(connection, transaction)
+        {
+        }
+
         public override Operation Get(int id)
         {
             throw new NotImplementedException();
