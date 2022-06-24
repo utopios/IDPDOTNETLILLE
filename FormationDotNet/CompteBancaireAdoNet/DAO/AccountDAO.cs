@@ -2,6 +2,7 @@
 using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -110,14 +111,21 @@ namespace CompteBancaireAdoNet.DAO
         {
             request = "update account set total_amount=@totalAmount " +
                 "where id=@id";
-            _connection = DataBase.Connection;
+            bool isOpen = _connection.State == ConnectionState.Open;
+            _connection = (isOpen) ? _connection : DataBase.Connection;
             _command = new SqlCommand(request, _connection);
+            if (isOpen && _transaction != null)
+            {
+                _command.Transaction = _transaction;
+            }
             _command.Parameters.Add(new SqlParameter("@totalAmount", element.TotalAmount));
             _command.Parameters.Add(new SqlParameter("@id", element.Id));
-            _connection.Open();
+            if (!isOpen)
+                _connection.Open();
             int rowNb = (int)_command.ExecuteNonQuery();
             _command.Dispose();
-            _connection.Close();
+            if (!isOpen)
+                _connection.Close();
             return rowNb == 1;
         }
     }

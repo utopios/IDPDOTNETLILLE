@@ -2,6 +2,7 @@
 using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -58,15 +59,22 @@ namespace CompteBancaireAdoNet.DAO
             request = "INSERT INTO operation (amount, operation_date_time, account_id) " +
                 "OUTPUT INSERTED.ID values " +
                 "(@amount, @operationDateTime, @accountId)";
-            _connection = DataBase.Connection;
+            bool isOpen = _connection.State == ConnectionState.Open;
+            _connection = (isOpen) ? _connection : DataBase.Connection;
             _command = new SqlCommand(request, _connection);
+            if (isOpen && _transaction != null)
+            {
+                _command.Transaction = _transaction;
+            }
             _command.Parameters.Add(new SqlParameter("@amount", element.Amount));
             _command.Parameters.Add(new SqlParameter("@operationDateTime", element.OperationDateTime));
             _command.Parameters.Add(new SqlParameter("@accountId", element.AccountId));
-            _connection.Open();
+            if (!isOpen)
+                _connection.Open();
             element.Id = (int)_command.ExecuteScalar();
             _command.Dispose();
-            _connection.Close();
+            if (!isOpen)
+                _connection.Close();
             return element.Id > 0;
         }
 

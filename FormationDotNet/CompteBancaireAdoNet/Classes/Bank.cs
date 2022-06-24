@@ -60,9 +60,21 @@ namespace CompteBancaireAdoNet.Classes
             Account account = GetAccount(accountNumber);
             if (account != null)
             {
+                SqlConnection connection = DataBase.Connection;
+                connection.Open();
+                SqlTransaction transaction = connection.BeginTransaction();
                 Operation operation = new Operation(amount);
                 operation.AccountId = account.Id;
-                return new OperationDAO().Save(operation) && account.Deposit(operation) && new AccountDAO().Update(account);
+                bool result = new OperationDAO(connection, transaction).Save(operation) && account.Deposit(operation) && new AccountDAO(connection, transaction).Update(account);
+                if(result)
+                {
+                    transaction.Commit();
+                }else
+                {
+                    transaction.Rollback();
+                }
+                connection.Close();
+                return result;
             }
             return false;
         }
