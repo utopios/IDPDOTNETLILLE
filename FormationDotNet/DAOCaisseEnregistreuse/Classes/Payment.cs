@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CorrectionCaisseEnregistreuse.Classes
+namespace DAOCaisseEnregistreuse.Classes
 {
-    abstract class Payment
+    public abstract class Payment
     {
         private string reference;
         private DateTime paymentDate;

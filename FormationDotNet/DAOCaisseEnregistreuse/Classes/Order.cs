@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CorrectionCaisseEnregistreuse.Classes
+namespace DAOCaisseEnregistreuse.Classes
 {
-    class Order
+    public class Order
     {
         private int id;
         private List<ProductOrder> products;

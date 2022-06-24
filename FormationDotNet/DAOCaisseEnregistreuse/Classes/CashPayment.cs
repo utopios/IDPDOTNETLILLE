@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CorrectionCaisseEnregistreuse.Classes
+namespace DAOCaisseEnregistreuse.Classes
 {
-    class CashPayment : Payment
+    public class CashPayment : Payment
     {
         private decimal change;
         private decimal givenAmount;

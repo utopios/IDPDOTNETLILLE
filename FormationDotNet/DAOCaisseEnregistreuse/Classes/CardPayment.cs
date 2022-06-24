@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CorrectionCaisseEnregistreuse.Classes
+namespace DAOCaisseEnregistreuse.Classes
 {
-    class CardPayment : Payment
+    public class CardPayment : Payment
     {
         public override bool Pay(decimal amount)
         {
