@@ -31,7 +31,7 @@ namespace DAOCaisseEnregistreuse.DAO
 
         protected void OpenConnection()
         {
-            isOpen = _connection.State == ConnectionState.Open;
+            isOpen = (_connection != null) && _connection.State == ConnectionState.Open;
             if (!isOpen)
             {
                 _connection = DataBase.Connection;

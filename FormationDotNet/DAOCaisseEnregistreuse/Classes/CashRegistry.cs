@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DAOCaisseEnregistreuse.DAO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,7 @@ namespace DAOCaisseEnregistreuse.Classes
     {
         private List<Product> products;
         private List<Order> orders;
+        private ProductDAO productDAO;
 
         public List<Product> Products { get => products; set => products = value; }
         public List<Order> Orders { get => orders; set => orders = value; }
@@ -23,13 +25,16 @@ namespace DAOCaisseEnregistreuse.Classes
         public Product GetProductById(int id)
         {
             //A Coder
-            return Products.Find( p=> p.Id == id);
+            productDAO = new ProductDAO();
+            return productDAO.Get(id);
         }
 
         public Product AddProduct(Product product)
         {
             //A Coder
-            Products.Add(product);
+            //Products.Add(product);
+            productDAO = new ProductDAO();
+            productDAO.Save(product);
             return product;
         }
 
