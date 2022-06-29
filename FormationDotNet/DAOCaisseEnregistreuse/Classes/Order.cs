@@ -31,7 +31,7 @@ namespace DAOCaisseEnregistreuse.Classes
         }
         public Order()
         {
-            Id = ++count;
+            
             Products = new List<ProductOrder>();
         }
 
