@@ -1,4 +1,5 @@
 ﻿using DAOCaisseEnregistreuse.DAO;
+using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,7 @@ namespace DAOCaisseEnregistreuse.Classes
         private List<Product> products;
         private List<Order> orders;
         private ProductDAO productDAO;
+        private OrderDAO orderDAO;
 
         public List<Product> Products { get => products; set => products = value; }
         public List<Order> Orders { get => orders; set => orders = value; }
@@ -43,8 +45,12 @@ namespace DAOCaisseEnregistreuse.Classes
             //A coder
             if (order.Pay(payment))
             {
-                Orders.Add(order);
-                return true;
+                //Orders.Add(order);
+                SqlConnection connection = DataBase.Connection;
+                connection.Open();
+                SqlTransaction transaction = connection.BeginTransaction();
+                orderDAO = new OrderDAO(connection, transaction);
+                return orderDAO.Save(order);
             }
             return false;
         }

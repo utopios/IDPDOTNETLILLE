@@ -28,11 +28,11 @@ namespace DAOCaisseEnregistreuse.DAO
         public override bool Save(Order element)
         {
             bool result = false;
-            OpenConnection();
+            //OpenConnection();
             try
             {
                 //Enregistrer la commande
-                request = "INSERT INTO order (total) OUTPUT INSERTED.ID values" +
+                request = "INSERT INTO [order] (total) OUTPUT INSERTED.ID values" +
                 "(@total)";
                 _command = new SqlCommand(request, _connection);
                 _command.Transaction = _transaction;
@@ -42,12 +42,13 @@ namespace DAOCaisseEnregistreuse.DAO
 
                 //Enregistrer le paiement et mettre à jour le sock
                 
-                request = "INSERT INTO payment (total, payment_date, type) OUTPUT INSERTED.ID (@total, @payment_date, @type)";
+                request = "INSERT INTO payment (total, payment_date, type, order_id) OUTPUT INSERTED.ID values (@total, @payment_date, @type, @order_id)";
                 _command = new SqlCommand(request, _connection);
                 _command.Transaction = _transaction;
                 _command.Parameters.Add(new SqlParameter("@total", element.Total));
                 _command.Parameters.Add(new SqlParameter("@payment_date", element.Payment.PaymentDate));
                 _command.Parameters.Add(new SqlParameter("@type", element.Payment.GetType().ToString()));
+                _command.Parameters.Add(new SqlParameter("@order_id", element.Id));
                 element.Payment.Id = (int)_command.ExecuteScalar();
                 _command.Dispose();
 
@@ -75,23 +76,30 @@ namespace DAOCaisseEnregistreuse.DAO
 
                 foreach (ProductOrder p in element.Products)
                 {
-                    request = "INSERT INTO product_order (product_id, order_qty, qty)" +
-                        "values(@product_id, @order_qty, @qty);" +
+                    request = "INSERT INTO product_order (product_id, order_id, qty)" +
+                        "values(@product_id, @order_id, @qty);" +
                         "update product set stock=stock-@qty where id=@product_id;";
                     _command = new SqlCommand(request, _connection);
                     _command.Transaction = _transaction;
                     _command.Parameters.Add(new SqlParameter("@product_id", p.Product.Id));
-                    _command.Parameters.Add(new SqlParameter("@order_qty", element.Id));
+                    _command.Parameters.Add(new SqlParameter("@order_id", element.Id));
                     _command.Parameters.Add(new SqlParameter("@qty", p.Qty));
                     //_command.Parameters.Add(new SqlParameter("@stock",p.Product.Stock-p.Qty));
                     _command.ExecuteNonQuery();
                     _command.Dispose();
                 }
-
                 result = true;
+                _transaction.Commit();
             }catch(Exception ex)
             {
-
+                Console.WriteLine(ex);
+                _transaction.Rollback();
+                
+            }
+            finally
+            {
+                //CloseConnection();
+                _connection.Close();
             }
             return result;                     
         }
