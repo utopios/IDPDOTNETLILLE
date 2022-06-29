@@ -11,7 +11,7 @@ telephone varchar(10) NOT NULL
 CREATE TABLE chambre (
 id int PRIMARY KEY IDENTITY(1,1) NOT NULL,
 statut varchar(30) NOT NULL,
-prix int NOT NULL,
+prix decimal NOT NULL,
 nb_max int NOT NULL
 );
 

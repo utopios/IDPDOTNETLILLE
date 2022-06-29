@@ -9,7 +9,7 @@ namespace CorrectionTPHotel.DAO
 {
     internal abstract class BaseDAO
     {
-        private static string connectionString = @"Data Source=(LocalDb)\coursDotNet;Integrated Security=True";
+        private static string connectionString = @"Data Source=(LocalDb)\cousDotNet;Integrated Security=True";
         protected static SqlConnection connection;
         protected static SqlCommand command;
         protected static SqlDataReader reader;
