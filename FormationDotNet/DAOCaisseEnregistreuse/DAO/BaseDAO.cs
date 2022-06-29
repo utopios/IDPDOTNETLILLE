@@ -9,12 +9,12 @@ namespace DAOCaisseEnregistreuse.DAO
 {
     public abstract class BaseDAO <T>
     {
-        protected static SqlConnection _connection;
-        protected static SqlTransaction _transaction;
-        protected static SqlCommand _command;
-        protected static SqlDataReader _reader;
-        protected static string request;
-
+        protected SqlConnection _connection;
+        protected SqlTransaction _transaction;
+        protected SqlCommand _command;
+        protected SqlDataReader _reader;
+        protected string request;
+        protected bool isOpen;
         public BaseDAO()
         {
 

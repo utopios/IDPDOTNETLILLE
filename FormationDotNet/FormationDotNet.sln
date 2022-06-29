@@ -29,7 +29,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoursAdoDotNet", "CoursAdoD
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnnuaireAdoNet", "AnnuaireAdoNet\AnnuaireAdoNet.csproj", "{A44A364B-7D43-4965-96E7-359B0F041ABC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompteBancaireAdoNet", "CompteBancaireAdoNet\CompteBancaireAdoNet.csproj", "{7B88EE79-9487-4AB6-9A8D-C38738CB7547}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CompteBancaireAdoNet", "CompteBancaireAdoNet\CompteBancaireAdoNet.csproj", "{7B88EE79-9487-4AB6-9A8D-C38738CB7547}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAOCaisseEnregistreuse", "DAOCaisseEnregistreuse\DAOCaisseEnregistreuse.csproj", "{3F5E19F2-9233-4771-8721-4A52CC400939}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -77,6 +79,10 @@ Global
 		{7B88EE79-9487-4AB6-9A8D-C38738CB7547}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B88EE79-9487-4AB6-9A8D-C38738CB7547}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B88EE79-9487-4AB6-9A8D-C38738CB7547}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F5E19F2-9233-4771-8721-4A52CC400939}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F5E19F2-9233-4771-8721-4A52CC400939}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F5E19F2-9233-4771-8721-4A52CC400939}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F5E19F2-9233-4771-8721-4A52CC400939}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

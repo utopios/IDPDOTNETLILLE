@@ -12,7 +12,7 @@ namespace DAOCaisseEnregistreuse.Classes
         private string title;
         private decimal price;
         private int stock;
-        private static int count = 0;
+        //private static int count = 0;
 
         public int Id { get => id; set => id = value; }
         public string Title { get => title; set => title = value; }
@@ -21,10 +21,15 @@ namespace DAOCaisseEnregistreuse.Classes
 
         public Product(string title, decimal price, int stock)
         {
-            this.Id = ++count;
+            //this.Id = ++count;
             this.Title = title;
             this.Price = price;
             this.Stock = stock;
+        }
+
+        public Product(int id, string title, decimal price, int stock) : this(title, price, stock)
+        {
+            this.Id = id;
         }
     }
 }
