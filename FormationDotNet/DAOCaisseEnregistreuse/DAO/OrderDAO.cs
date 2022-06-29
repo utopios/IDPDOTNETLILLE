@@ -47,7 +47,7 @@ namespace DAOCaisseEnregistreuse.DAO
                 _command.Transaction = _transaction;
                 _command.Parameters.Add(new SqlParameter("@total", element.Total));
                 _command.Parameters.Add(new SqlParameter("@payment_date", element.Payment.PaymentDate));
-                _command.Parameters.Add(new SqlParameter("@type", element.Payment.GetType().ToString());
+                _command.Parameters.Add(new SqlParameter("@type", element.Payment.GetType().ToString()));
                 element.Payment.Id = (int)_command.ExecuteScalar();
                 _command.Dispose();
 
