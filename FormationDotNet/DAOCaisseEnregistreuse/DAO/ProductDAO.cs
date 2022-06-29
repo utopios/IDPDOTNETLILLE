@@ -15,13 +15,14 @@ namespace DAOCaisseEnregistreuse.DAO
         {
             Product product = null;
             request = "SELECT title, price, stock FROM product where id=@id";
-            isOpen = _connection.State == ConnectionState.Open;
-            if(!isOpen)
-            {
-                _connection = DataBase.Connection;
-                _connection.Open();
-                _transaction = _connection.BeginTransaction();
-            }
+            //isOpen = _connection.State == ConnectionState.Open;
+            //if(!isOpen)
+            //{
+            //    _connection = DataBase.Connection;
+            //    _connection.Open();
+            //    _transaction = _connection.BeginTransaction();
+            //}
+            OpenConnection();
             _command = new SqlCommand(request, _connection);
             _command.Transaction = _transaction;
             _command.Parameters.Add(new SqlParameter("@id", id));
@@ -32,11 +33,7 @@ namespace DAOCaisseEnregistreuse.DAO
             }
             _reader.Close();
             _command.Dispose();
-            if(!isOpen)
-            {
-                _transaction.Commit();
-                _connection.Close();
-            }
+            CloseConnection();
             return product;
         }
 
@@ -47,7 +44,19 @@ namespace DAOCaisseEnregistreuse.DAO
 
         public override bool Save(Product element)
         {
-            throw new NotImplementedException();
+            request = "INSERT INTO product (title, price, stock) " +
+                "OUTPUT INSERTED.ID values" +
+                "(@title,@price,@stock)";
+            OpenConnection();
+            _command = new SqlCommand(request, _connection);
+            _command.Transaction = _transaction;
+            _command.Parameters.Add(new SqlParameter("@title", element.Title));
+            _command.Parameters.Add(new SqlParameter("@price", element.Price));
+            _command.Parameters.Add(new SqlParameter("@stock", element.Stock));
+            element.Id = (int)_command.ExecuteScalar();
+            _command.Dispose();
+            CloseConnection();
+            return element.Id > 0;
         }
     }
 }
