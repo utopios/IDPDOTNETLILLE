@@ -26,7 +26,7 @@ namespace coursWPF
             //Title = "Avec du C#";
             //b1.Content = "Contenu bouton ajouté en c#";
             //CreateStackPanel();
-            CreateGrid();
+            //CreateGrid();
         }
 
         private void CreateStackPanel()
@@ -55,11 +55,19 @@ namespace coursWPF
             grid.RowDefinitions.Add(row1);
             Button b1 = new Button() { Content = "b1" };
             Button b2 = new Button() { Content = "b2" };
+            b1.Click += DemoClick;
+            b2.Click += DemoClick;
             Grid.SetRow(b1, 0);
             Grid.SetRow(b2, 1);
             grid.Children.Add(b1);
             grid.Children.Add(b2);
             Content = grid;
+        }
+        public void DemoClick(object sender, RoutedEventArgs eventArgs)
+        {
+            Button b = (Button)sender;
+
+            MessageBox.Show("Click OK sur bouton"+ b.Content);
         }
     }
 }
