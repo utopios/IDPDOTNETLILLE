@@ -158,7 +158,15 @@ namespace coursWPF.Windows
                             }
                             operation = v;
                             break;
+                        case "=":
+                            MakeOperation();
+                            operation = null;
+                            break;
                         case "C":
+                            firstNumber = 0;
+                            newNumber = true;
+                            operation = null;
+                            label.Content = 0;
                             break;
 
                     }
