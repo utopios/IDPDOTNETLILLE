@@ -23,6 +23,9 @@ namespace coursWPF.Windows
         private Grid grid;
         private bool newNumber = true;
         private Label label;
+        private string operation = null;
+        private double firstNumber = 0;
+        private string[] operations = new string[] { "+", "-", "/", "*" }; 
         public Calculatrice()
         {
             InitializeComponent();
@@ -92,6 +95,29 @@ namespace coursWPF.Windows
             }
         }
 
+        private void MakeOperation()
+        {
+            double result = 0;
+            double valScreen = Convert.ToDouble(label.Content.ToString());
+            switch(operation)
+            {
+                case "+":
+                    result = valScreen + firstNumber;
+                    break;
+                case "-":
+                    result = firstNumber - valScreen;
+                    break;
+                case "/":
+                    result = firstNumber / valScreen;
+                    break;
+                case "*":
+                    result = firstNumber * valScreen;
+                    break;
+            }
+            firstNumber = result;
+            label.Content = result;
+        }
+
         private void ClickButton(object sender, RoutedEventArgs routedEventArgs)
         {
             double number;
@@ -121,6 +147,20 @@ namespace coursWPF.Windows
                                 newNumber = false;
                             }
                             break;
+                        case string v when operations.Contains(v):
+                            if(operation != null)
+                            {
+                                MakeOperation();
+                            }
+                            else
+                            {
+                                firstNumber = Convert.ToDouble(label.Content.ToString());
+                            }
+                            operation = v;
+                            break;
+                        case "C":
+                            break;
+
                     }
                 }
 
