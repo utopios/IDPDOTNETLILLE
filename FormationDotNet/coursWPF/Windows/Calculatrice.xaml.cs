@@ -21,6 +21,7 @@ namespace coursWPF.Windows
     {
         private string[] tab = new string[] { "C", "+/-", "%", "/", "7", "8", "9", "X", "4", "5", "6", "-", "1", "2", "3", "+", "0", ",", "=" };
         private Grid grid;
+        private Label label;
         public Calculatrice()
         {
             InitializeComponent();
@@ -33,7 +34,7 @@ namespace coursWPF.Windows
 
         private void CreateBlackScreen()
         {
-            Label label = new Label()
+            label = new Label()
             {
                 Content = 0,
                 HorizontalContentAlignment = HorizontalAlignment.Right,
@@ -67,6 +68,7 @@ namespace coursWPF.Windows
                 {
                     Content = tab[i]
                 };
+                b.Click += ClickButton;
                 grid.Children.Add(b);
                 Grid.SetColumn(b, col);
                 Grid.SetRow(b, row);
@@ -86,6 +88,15 @@ namespace coursWPF.Windows
                     col++;
                 }
                 count++;
+            }
+        }
+
+        private void ClickButton(object sender, RoutedEventArgs routedEventArgs)
+        {
+            if(sender is Button b)
+            {
+                string val = b.Content.ToString();
+                label.Content += val;
             }
         }
 
