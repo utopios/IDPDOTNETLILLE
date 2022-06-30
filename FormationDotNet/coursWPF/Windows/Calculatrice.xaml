@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:coursWPF.Windows"
         mc:Ignorable="d"
         Title="Calculatrice" Height="471" Width="517">
-    <Grid>
+    <!--<Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="2*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
@@ -41,5 +41,5 @@
         <Button Content="0" Grid.Row="5" Grid.ColumnSpan="2" Grid.Column="0"></Button>
         <Button Content="," Grid.Row="5" Grid.Column="2"></Button>
         <Button Background="Orange" Foreground="White" Content="=" Grid.Row="5" Grid.Column="3"></Button>
-    </Grid>
+    </Grid>-->
 </Window>
