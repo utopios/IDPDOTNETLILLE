@@ -21,6 +21,7 @@ namespace coursWPF.Windows
     {
         private string[] tab = new string[] { "C", "+/-", "%", "/", "7", "8", "9", "X", "4", "5", "6", "-", "1", "2", "3", "+", "0", ",", "=" };
         private Grid grid;
+        private bool newNumber = true;
         private Label label;
         public Calculatrice()
         {
@@ -93,10 +94,36 @@ namespace coursWPF.Windows
 
         private void ClickButton(object sender, RoutedEventArgs routedEventArgs)
         {
+            double number;
             if(sender is Button b)
             {
                 string val = b.Content.ToString();
-                label.Content += val;
+                if(double.TryParse(val, out number))
+                {
+                    if(newNumber)
+                    {
+                        label.Content = val;
+                        newNumber = false;
+                    }
+                    else
+                    {
+                        label.Content += val;
+                    }
+                }else
+                {
+                    newNumber = true;
+                    switch(val)
+                    {
+                        case ",":
+                            if(!label.Content.ToString().Contains(","))
+                            {
+                                label.Content += ",";
+                                newNumber = false;
+                            }
+                            break;
+                    }
+                }
+
             }
         }
 
