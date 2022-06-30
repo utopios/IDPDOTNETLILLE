@@ -25,6 +25,18 @@ namespace coursWPF
             InitializeComponent();
             //Title = "Avec du C#";
             //b1.Content = "Contenu bouton ajouté en c#";
+            CreateStackPanel();
+        }
+
+        private void CreateStackPanel()
+        {
+            StackPanel stack = new StackPanel();
+            stack.Orientation = Orientation.Horizontal;
+            stack.Children.Add(new Button() { Content = "b1" });
+            stack.Children.Add(new Button() { Content = "b2" });
+            stack.Children.Add(new Label() { Content = "label 1" });
+            Content = stack;
+
         }
     }
 }
