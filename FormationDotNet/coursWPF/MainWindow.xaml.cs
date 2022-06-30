@@ -23,8 +23,8 @@ namespace coursWPF
         public MainWindow()
         {
             InitializeComponent();
-            Title = "Avec du C#";
-            b1.Content = "Contenu bouton ajouté en c#";
+            //Title = "Avec du C#";
+            //b1.Content = "Contenu bouton ajouté en c#";
         }
     }
 }
