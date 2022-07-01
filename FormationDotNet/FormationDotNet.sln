@@ -41,6 +41,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CorrectionWPF", "Correction
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorrectionAnnuaire", "CorrectionAnnuaire\CorrectionAnnuaire.csproj", "{DDA33B4B-8290-4383-9F00-48198B6A4E8B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorrectionBanqueWPF", "CorrectionBanqueWPF\CorrectionBanqueWPF.csproj", "{9B43B767-408D-4596-906E-129A15168380}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -103,12 +105,17 @@ Global
 		{DDA33B4B-8290-4383-9F00-48198B6A4E8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DDA33B4B-8290-4383-9F00-48198B6A4E8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DDA33B4B-8290-4383-9F00-48198B6A4E8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B43B767-408D-4596-906E-129A15168380}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B43B767-408D-4596-906E-129A15168380}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B43B767-408D-4596-906E-129A15168380}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B43B767-408D-4596-906E-129A15168380}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{DDA33B4B-8290-4383-9F00-48198B6A4E8B} = {7E72ADD9-8036-42E1-B3C2-EBBDD0A1E808}
+		{9B43B767-408D-4596-906E-129A15168380} = {7E72ADD9-8036-42E1-B3C2-EBBDD0A1E808}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {17BC5B87-F4FC-4C84-BD11-0E8C79B13B2C}
