@@ -35,7 +35,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAOCaisseEnregistreuse", "D
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CorrectionTPHotel", "CorrectionTPHotel\CorrectionTPHotel.csproj", "{00386A17-60C7-4153-A69F-56238E28E86B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "coursWPF", "coursWPF\coursWPF.csproj", "{9C91B0C1-BB65-49D1-AC8E-8925ED213588}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "coursWPF", "coursWPF\coursWPF.csproj", "{9C91B0C1-BB65-49D1-AC8E-8925ED213588}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CorrectionWPF", "CorrectionWPF", "{7E72ADD9-8036-42E1-B3C2-EBBDD0A1E808}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorrectionAnnuaire", "CorrectionAnnuaire\CorrectionAnnuaire.csproj", "{DDA33B4B-8290-4383-9F00-48198B6A4E8B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -95,9 +99,16 @@ Global
 		{9C91B0C1-BB65-49D1-AC8E-8925ED213588}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9C91B0C1-BB65-49D1-AC8E-8925ED213588}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9C91B0C1-BB65-49D1-AC8E-8925ED213588}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDA33B4B-8290-4383-9F00-48198B6A4E8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDA33B4B-8290-4383-9F00-48198B6A4E8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDA33B4B-8290-4383-9F00-48198B6A4E8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDA33B4B-8290-4383-9F00-48198B6A4E8B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DDA33B4B-8290-4383-9F00-48198B6A4E8B} = {7E72ADD9-8036-42E1-B3C2-EBBDD0A1E808}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {17BC5B87-F4FC-4C84-BD11-0E8C79B13B2C}
