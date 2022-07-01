@@ -48,6 +48,11 @@
                         </ListView.View>
                     </ListView>
                 </StackPanel>
+                <StackPanel
+                     Orientation="Horizontal">
+                    <Button Content="Supprimer" Click="DeleteClick"></Button>
+                    <Button Content="Modifier" Click="EditClick"></Button>
+                </StackPanel>
             </StackPanel>
         </GroupBox>
     </Grid>

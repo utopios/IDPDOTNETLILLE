@@ -22,6 +22,7 @@ namespace CorrectionAnnuaire
     public partial class MainWindow : Window
     {
         private List<TextBox> textBoxesEmails;
+        private Contact contactToEdit;
         public MainWindow()
         {
             textBoxesEmails = new List<TextBox>();
@@ -31,31 +32,50 @@ namespace CorrectionAnnuaire
 
         public void ActionValidClick(object sender, RoutedEventArgs routedEventArgs)
         {
-            Contact contact = new Contact(prenom.Text, nom.Text, telephone.Text);
-            
-            if(contact.Save())
+            if(contactToEdit == null)
             {
-                foreach (TextBox textBox in textBoxesEmails)
+                Contact contact = new Contact(prenom.Text, nom.Text, telephone.Text);
+
+                if (contact.Save())
                 {
-                    if (textBox.Text != "")
+                    foreach (TextBox textBox in textBoxesEmails)
                     {
-                        Email e = new Email()
+                        if (textBox.Text != "")
                         {
-                            Mail = textBox.Text,
-                        };
-                        e.Save(contact.Id);
+                            Email e = new Email()
+                            {
+                                Mail = textBox.Text,
+                            };
+                            e.Save(contact.Id);
+                        }
                     }
+                    MessageBox.Show("Contact ajouté avec l'id " + contact.Id);
+                    prenom.Text = "";
+                    nom.Text = "";
+                    telephone.Text = "";
+                    listBoxContact.ItemsSource = Contact.GetContacts();
                 }
-                MessageBox.Show("Contact ajouté avec l'id " + contact.Id);
-                prenom.Text = "";
-                nom.Text = "";
-                telephone.Text = "";
-                listBoxContact.ItemsSource = Contact.GetContacts();
+                else
+                {
+                    MessageBox.Show("Erreur ajout contact");
+                }
             }
             else
             {
-                MessageBox.Show("Erreur ajout contact");
+                contactToEdit.LastName = nom.Text;
+                contactToEdit.FirstName = prenom.Text;
+                contactToEdit.Phone = telephone.Text;
+                if(contactToEdit.Update())
+                {
+                    MessageBox.Show("Contact modifié ");
+                    prenom.Text = "";
+                    nom.Text = "";
+                    telephone.Text = "";
+                    listBoxContact.ItemsSource = Contact.GetContacts();
+                    contactToEdit = null;
+                }
             }
+            
         }
 
         public void AddEmailTextBox(object sender, RoutedEventArgs routedEventArgs)
@@ -63,6 +83,26 @@ namespace CorrectionAnnuaire
             TextBox emailTextBox = new TextBox() { Width = 300};
             emails.Children.Add(emailTextBox);
             textBoxesEmails.Add(emailTextBox);
+        }
+
+        private void DeleteClick(object sender, RoutedEventArgs e)
+        {
+            if(listBoxContact.SelectedItem is Contact c)
+            {
+                c.Delete();
+                listBoxContact.ItemsSource = Contact.GetContacts();
+            }
+        }
+
+        private void EditClick(object sender, RoutedEventArgs e)
+        {
+            if (listBoxContact.SelectedItem is Contact c)
+            {
+                contactToEdit = c;
+                nom.Text = c.LastName;
+                prenom.Text = c.FirstName;
+                telephone.Text = c.Phone;
+            }
         }
     }
 }
