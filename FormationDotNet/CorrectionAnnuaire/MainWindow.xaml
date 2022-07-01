@@ -37,7 +37,16 @@
                     <Button Click="ActionValidClick" Content="Valider" Width="400"></Button>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <ListBox x:Name="listBoxContact" Width="400"></ListBox>
+                    <!--<ListBox x:Name="listBoxContact" Width="400"></ListBox>-->
+                    <ListView x:Name="listBoxContact">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Nom" Width="100" DisplayMemberBinding="{Binding LastName}"></GridViewColumn>
+                                <GridViewColumn Header="Prénom" Width="100" DisplayMemberBinding="{Binding FirstName}"></GridViewColumn>
+                                <GridViewColumn Header="téléphone" Width="100" DisplayMemberBinding="{Binding Phone}"></GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
                 </StackPanel>
             </StackPanel>
         </GroupBox>
