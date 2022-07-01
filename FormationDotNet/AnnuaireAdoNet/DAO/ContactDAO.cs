@@ -41,9 +41,9 @@ namespace AnnuaireAdoNet.DAO
                 "(@firstName, @lastName, @phone)";
             _connection = DataBase.Connection;
             _command = new SqlCommand(request, _connection);
-            _command.Parameters.Add(new SqlParameter("@firstName", FirstName));
-            _command.Parameters.Add(new SqlParameter("@lastName", LastName));
-            _command.Parameters.Add(new SqlParameter("@phone", Phone));
+            _command.Parameters.Add(new SqlParameter("@firstName", element.FirstName));
+            _command.Parameters.Add(new SqlParameter("@lastName", element.LastName));
+            _command.Parameters.Add(new SqlParameter("@phone", element.Phone));
             _connection.Open();
             element.Id = (int)_command.ExecuteScalar();
             _command.Dispose();

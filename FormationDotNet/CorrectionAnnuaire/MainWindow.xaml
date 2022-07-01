@@ -28,7 +28,7 @@
                     <TextBox x:Name="telephone" Width="300"></TextBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <Button Content="Valider"></Button>
+                    <Button Click="ActionValidClick" Content="Valider" Width="400"></Button>
                 </StackPanel>
             </StackPanel>
         </GroupBox>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AnnuaireAdoNet.Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,22 @@ namespace CorrectionAnnuaire
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        public void ActionValidClick(object sender, RoutedEventArgs routedEventArgs)
+        {
+            Contact contact = new Contact(prenom.Text, nom.Text, telephone.Text);
+            if(contact.Save())
+            {
+                MessageBox.Show("Contact ajouté avec l'id " + contact.Id);
+                prenom.Text = "";
+                nom.Text = "";
+                telephone.Text = "";
+            }
+            else
+            {
+                MessageBox.Show("Erreur ajout contact");
+            }
         }
     }
 }
