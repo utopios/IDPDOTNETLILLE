@@ -100,7 +100,7 @@ namespace AnnuaireAdoNet.Classes
             _reader = _command.ExecuteReader();
             if (_reader.Read())
             {
-                contact = new Contact(_reader.GetInt32(0), _reader.GetString(1), _reader.GetString(2), _reader.GetString(3));
+                contact = new Contact(_reader.GetInt32(0), _reader.GetString(2), _reader.GetString(1), _reader.GetString(3));
             }
             _reader.Close();
             _command.Dispose();
@@ -119,7 +119,7 @@ namespace AnnuaireAdoNet.Classes
             _reader = _command.ExecuteReader();
             while (_reader.Read())
             {
-                Contact contact = new Contact(_reader.GetInt32(0), _reader.GetString(1), _reader.GetString(2), _reader.GetString(3));
+                Contact contact = new Contact(_reader.GetInt32(0), _reader.GetString(2), _reader.GetString(1), _reader.GetString(3));
                 contacts.Add(contact);
             }
             _reader.Close();
@@ -138,7 +138,7 @@ namespace AnnuaireAdoNet.Classes
             _reader = _command.ExecuteReader();
             while (_reader.Read())
             {
-                Contact contact = new Contact(_reader.GetInt32(0), _reader.GetString(1), _reader.GetString(2), _reader.GetString(3));
+                Contact contact = new Contact(_reader.GetInt32(0), _reader.GetString(2), _reader.GetString(1), _reader.GetString(3));
                 contacts.Add(contact);
             }
             _reader.Close();
