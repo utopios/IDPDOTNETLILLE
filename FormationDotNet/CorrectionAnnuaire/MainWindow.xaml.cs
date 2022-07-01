@@ -21,16 +21,30 @@ namespace CorrectionAnnuaire
     /// </summary>
     public partial class MainWindow : Window
     {
+        private List<TextBox> textBoxesEmails;
         public MainWindow()
         {
+            textBoxesEmails = new List<TextBox>();
             InitializeComponent();
         }
 
         public void ActionValidClick(object sender, RoutedEventArgs routedEventArgs)
         {
             Contact contact = new Contact(prenom.Text, nom.Text, telephone.Text);
+            
             if(contact.Save())
             {
+                foreach (TextBox textBox in textBoxesEmails)
+                {
+                    if (textBox.Text != "")
+                    {
+                        Email e = new Email()
+                        {
+                            Mail = textBox.Text,
+                        };
+                        e.Save(contact.Id);
+                    }
+                }
                 MessageBox.Show("Contact ajouté avec l'id " + contact.Id);
                 prenom.Text = "";
                 nom.Text = "";
@@ -40,6 +54,13 @@ namespace CorrectionAnnuaire
             {
                 MessageBox.Show("Erreur ajout contact");
             }
+        }
+
+        public void AddEmailTextBox(object sender, RoutedEventArgs routedEventArgs)
+        {
+            TextBox emailTextBox = new TextBox() { Width = 300};
+            emails.Children.Add(emailTextBox);
+            textBoxesEmails.Add(emailTextBox);
         }
     }
 }

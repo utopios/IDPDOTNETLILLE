@@ -27,8 +27,11 @@
                     <Label Content="Téléphone:" Width="100"></Label>
                     <TextBox x:Name="telephone" Width="300"></TextBox>
                 </StackPanel>
-                <StackPanel Orientation="Vertical">
-                    <Button Content="Ajouter email" Width="400"></Button>
+                <StackPanel Orientation="Horizontal">
+                    <Button Click="AddEmailTextBox" Content="Ajouter email" Width="400"></Button>
+                    <StackPanel Orientation="Vertical" x:Name="emails">
+                        
+                    </StackPanel>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <Button Click="ActionValidClick" Content="Valider" Width="400"></Button>
