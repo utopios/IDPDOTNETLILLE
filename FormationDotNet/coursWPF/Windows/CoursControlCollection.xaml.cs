@@ -20,10 +20,12 @@ namespace coursWPF.Windows
     public partial class CoursControlCollection : Window
     {
         private List<string> listeStrings = new List<string>() { "toto", "tata", "titi"};
+        private List<object> listObjets = new List<object>() { new { Titre = "titre 1", Prix = "p1" }, new { Titre = "titre 2", Prix = "p2" } };
         public CoursControlCollection()
         {
             InitializeComponent();
             maListBox.ItemsSource = listeStrings;
+            maListView.ItemsSource = listObjets;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

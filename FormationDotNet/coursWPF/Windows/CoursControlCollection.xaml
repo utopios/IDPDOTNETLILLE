@@ -12,8 +12,16 @@
             <Button Content="Button" Click="Button_Click"/>
             <ListBox x:Name="maListBox" >
             </ListBox>
+            <ListView x:Name="maListView" >
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="titre" Width="100" DisplayMemberBinding="{Binding Titre}"></GridViewColumn>
+                        <GridViewColumn Header="prix" Width="100" DisplayMemberBinding="{Binding Prix}"></GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
         </StackPanel>
-           
 
     </Grid>
 </Window>
