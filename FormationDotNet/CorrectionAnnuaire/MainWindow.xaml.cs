@@ -26,6 +26,7 @@ namespace CorrectionAnnuaire
         {
             textBoxesEmails = new List<TextBox>();
             InitializeComponent();
+            listBoxContact.ItemsSource = Contact.GetContacts();
         }
 
         public void ActionValidClick(object sender, RoutedEventArgs routedEventArgs)
@@ -49,6 +50,7 @@ namespace CorrectionAnnuaire
                 prenom.Text = "";
                 nom.Text = "";
                 telephone.Text = "";
+                listBoxContact.ItemsSource = Contact.GetContacts();
             }
             else
             {

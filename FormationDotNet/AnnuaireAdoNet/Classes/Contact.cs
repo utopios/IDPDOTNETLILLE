@@ -127,5 +127,29 @@ namespace AnnuaireAdoNet.Classes
             _connection.Close();
             return contacts;
         }
+
+        public static List<Contact> GetContacts()
+        {
+            List<Contact> contacts = new List<Contact>();
+            request = "SELECT * FROM contact";
+            _connection = DataBase.Connection;
+            _command = new SqlCommand(request, _connection);
+            _connection.Open();
+            _reader = _command.ExecuteReader();
+            while (_reader.Read())
+            {
+                Contact contact = new Contact(_reader.GetInt32(0), _reader.GetString(1), _reader.GetString(2), _reader.GetString(3));
+                contacts.Add(contact);
+            }
+            _reader.Close();
+            _command.Dispose();
+            _connection.Close();
+            return contacts;
+        }
+
+        public override string ToString()
+        {
+            return $"Nom {LastName}, Prénom {FirstName}, Téléphone {Phone}";
+        }
     }
 }
