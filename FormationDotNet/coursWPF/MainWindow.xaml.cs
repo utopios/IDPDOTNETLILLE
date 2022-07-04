@@ -1,4 +1,5 @@
-﻿using System;
+﻿using coursWPF.Windows;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -68,6 +69,8 @@ namespace coursWPF
             Button b = (Button)sender;
 
             MessageBox.Show("Click OK sur bouton"+ b.Content);
+            SecondWindow w = new SecondWindow();
+            w.Show();
         }
     }
 }
