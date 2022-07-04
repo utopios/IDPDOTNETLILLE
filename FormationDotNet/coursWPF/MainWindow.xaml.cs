@@ -69,7 +69,7 @@ namespace coursWPF
             Button b = (Button)sender;
 
             MessageBox.Show("Click OK sur bouton"+ b.Content);
-            SecondWindow w = new SecondWindow();
+            SecondWindow w = new SecondWindow(this);
             w.Show();
         }
     }

@@ -7,6 +7,9 @@
         mc:Ignorable="d"
         Title="SecondWindow" Height="450" Width="800">
     <Grid>
-        
+        <Label Content="" x:Name="result" HorizontalAlignment="Left" Margin="334,118,0,0" VerticalAlignment="Top"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="411,217,0,0" VerticalAlignment="Top" Click="Button_Click"/>
+        <Button Content="sh" HorizontalAlignment="Left" Margin="297,267,0,0" VerticalAlignment="Top" Click="Button_Click_1"/>
+
     </Grid>
 </Window>

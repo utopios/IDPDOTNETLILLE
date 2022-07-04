@@ -19,9 +19,30 @@ namespace coursWPF.Windows
     /// </summary>
     public partial class SecondWindow : Window
     {
+        private MainWindow _mainWindow;
         public SecondWindow()
         {
             InitializeComponent();
+        }
+
+        public SecondWindow(string data) : this()
+        {
+            result.Content = data;
+        }
+
+        public SecondWindow(MainWindow window) : this()
+        {
+            _mainWindow = window;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            _mainWindow.Close();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            _mainWindow.Show();
         }
     }
 }
