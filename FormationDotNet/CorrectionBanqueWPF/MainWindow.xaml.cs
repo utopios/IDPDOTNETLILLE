@@ -22,6 +22,7 @@ namespace CorrectionBanqueWPF
     public partial class MainWindow : Window
     {
         private Bank bank;
+        private Account searchAccount;
         public MainWindow()
         {
             InitializeComponent();
@@ -58,12 +59,12 @@ namespace CorrectionBanqueWPF
             int number;
             if(int.TryParse(AccountNumberTextBox.Text, out number))
             {
-                Account account = bank.GetAccount(number);
-                if(account != null)
+                searchAccount = bank.GetAccount(number);
+                if(searchAccount != null)
                 {
-                    ResultCustomerLabel.Content = account.Customer.ToString();
-                    TotalAmountLabel.Content = account.TotalAmount;
-                    OperationsListView.ItemsSource = account.Operations;
+                    ResultCustomerLabel.Content = searchAccount.Customer.ToString();
+                    TotalAmountLabel.Content = searchAccount.TotalAmount;
+                    OperationsListView.ItemsSource = searchAccount.Operations;
                 }
                 else
                 {
@@ -73,6 +74,25 @@ namespace CorrectionBanqueWPF
             else
             {
                 MessageBox.Show("Merci de saisir un numéro !!!!!!");
+            }
+        }
+
+        private void DepositClick(object sender, RoutedEventArgs eventArgs)
+        {
+            if(searchAccount != null)
+            {
+                OperationWindow window = new OperationWindow(searchAccount, "deposit", OperationsListView, TotalAmountLabel, bank);
+                window.Show();
+
+            }
+        }
+        private void WithDrawClick(object sender, RoutedEventArgs eventArgs)
+        {
+            if (searchAccount != null)
+            {
+                OperationWindow window = new OperationWindow(searchAccount, "withDraw", OperationsListView, TotalAmountLabel, bank);
+                window.Show();
+
             }
         }
     }

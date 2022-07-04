@@ -25,7 +25,7 @@
         <TextBox x:Name="AccountNumberTextBox" HorizontalAlignment="Left" Margin="131,148,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="269" Height="27"/>
         <Button Content="Rechercher" x:Name="SearchAccountButton" HorizontalAlignment="Left" Margin="430,148,0,0" VerticalAlignment="Top" Height="27" Width="292"/>
         <GroupBox Header="Resultat de recherche" Margin="0,195,0,0">
-            
+
         </GroupBox>
         <Label Content="Client : " HorizontalAlignment="Left" Margin="14,228,0,179"/>
         <Label Content="" x:Name="ResultCustomerLabel" HorizontalAlignment="Left" Margin="76,228,0,179" Width="358"/>
@@ -39,5 +39,8 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        <Button Click="DepositClick" Content="Effectuer un dépôt" HorizontalAlignment="Left" Margin="10,395,0,0" VerticalAlignment="Top" Height="25" Width="390"/>
+        <Button Click="WithDrawClick" Content="Effectuer un retrait" HorizontalAlignment="Left" Margin="405,395,0,0" VerticalAlignment="Top" Height="25" Width="390"/>
+
     </Grid>
 </Window>

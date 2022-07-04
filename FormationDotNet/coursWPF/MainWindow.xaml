@@ -22,7 +22,7 @@
             <ColumnDefinition Width="1*"></ColumnDefinition>
             <ColumnDefinition Width="2*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Button Grid.Column="1" Click="DemoClick" Grid.Row="1" Content="b1"></Button>
+        <Button Grid.Column="1" Click="DemoClick" x:Name="b1" Grid.Row="1" Content="b1"></Button>
         <Button Grid.Column="0" Click="DemoClick"  Grid.ColumnSpan="2" Grid.Row="2" Content="b2"></Button>
         <Button Grid.Column="0" Click="DemoClick"  Grid.Row="0" Content="b3"></Button>
     </Grid>
