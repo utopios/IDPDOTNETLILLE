@@ -19,7 +19,7 @@
                 <StackPanel Orientation="Horizontal">
                     <Label Content="Numéro Produit : "></Label>
                     <TextBox x:Name="ProductIdTextBox" Width="200"></TextBox>
-                    <Button Content="Ajouter" Width="100"></Button>
+                    <Button Content="Ajouter" Width="100" Click="AddProductToOrderClick"></Button>
                 </StackPanel>
                 <ListView x:Name="ProductsListView" Height="300">
                     <ListView.View>
@@ -43,7 +43,7 @@
                 <Button Margin="10" Content="Nouvelle vente"></Button>
                 <Button Margin="10" Content="Paiement CB"></Button>
                 <Button Margin="10" Content="Paiement cash"></Button>
-                <Button Margin="10" Content="Supprimer produit"></Button>
+                <Button Margin="10" Content="Supprimer produit" Click="DeleteProductClick"></Button>
             </StackPanel>
         </GroupBox>
     </Grid>

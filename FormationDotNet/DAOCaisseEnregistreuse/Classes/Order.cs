@@ -51,6 +51,25 @@ namespace DAOCaisseEnregistreuse.Classes
             return true;
         }
 
+        public bool DeleteProduct(ProductOrder product)
+        {
+            ProductOrder productOrder = Products.Find(p => p.Product.Id == product.Product.Id);
+            if (productOrder != null)
+            {
+                if(productOrder.Qty > 1)
+                {
+                    productOrder.Qty--;
+                }
+                else
+                {
+                    products.Remove(productOrder);
+                }
+                return true;
+            }
+          
+            return false;
+        }
+
         public bool Pay(Payment payment)
         {
             Payment = payment;

@@ -13,5 +13,11 @@ namespace DAOCaisseEnregistreuse.Classes
 
         public int Qty { get => qty; set => qty = value; }
         public Product Product { get => product; set => product = value; }
+
+        public decimal Total { get => Qty * Product.Price; }
+
+        public string Title { get => Product.Title;}
+
+        public decimal Price { get => Product.Price; }
     }
 }
