@@ -72,5 +72,28 @@ namespace CorrectionCaisseEnregistreuseWPF.Windows
             TotalLabel.Content = order.Total;
             ProductIdTextBox.Text = "";
         }
+
+        private void ProductsClick(object sender, RoutedEventArgs e)
+        {
+            ProductWindow w = new ProductWindow();
+            w.Show();
+        }
+
+        private void CardPaymentClick(object sender, RoutedEventArgs e)
+        {
+            CardPayment payment = new CardPayment();
+            if(cashRegistry.AddOrder(order, payment))
+            {
+                MessageBox.Show("Paiement OK");
+                order = new Order();
+                ProductsListView.ItemsSource = new List<ProductOrder>(order.Products);
+                TotalLabel.Content = order.Total;
+                ProductIdTextBox.Text = "";
+            }
+            else
+            {
+                MessageBox.Show("Paiement NOT OK!!!!!!");
+            }
+        }
     }
 }
