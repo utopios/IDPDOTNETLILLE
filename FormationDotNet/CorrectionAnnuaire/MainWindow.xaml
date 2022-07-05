@@ -17,15 +17,15 @@
             <StackPanel Orientation="Vertical">
                 <StackPanel Orientation="Horizontal">
                     <Label Content="Nom:" Width="100"></Label>
-                    <TextBox x:Name="nom" Width="300"></TextBox>
+                    <TextBox x:Name="nom" Text="{Binding LastName}" Width="300"></TextBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <Label Content="prénom:" Width="100"></Label>
-                    <TextBox x:Name="prenom" Width="300"></TextBox>
+                    <TextBox x:Name="prenom" Text="{Binding FirstName}" Width="300"></TextBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <Label Content="Téléphone:" Width="100"></Label>
-                    <TextBox x:Name="telephone" Width="300"></TextBox>
+                    <TextBox x:Name="telephone" Text="{Binding Telephone}" Width="300"></TextBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <Button Click="AddEmailTextBox" Content="Ajouter email" Width="400"></Button>
@@ -38,7 +38,7 @@
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <!--<ListBox x:Name="listBoxContact" Width="400"></ListBox>-->
-                    <ListView x:Name="listBoxContact">
+                    <ListView x:Name="listBoxContact" ItemsSource="{Binding Contacts}">
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn Header="Nom" Width="100" DisplayMemberBinding="{Binding LastName}"></GridViewColumn>

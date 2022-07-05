@@ -27,6 +27,10 @@ namespace AnnuaireAdoNet.Classes
         public string Phone { get => phone; set => phone = value; }
         public List<Email> Emails { get => emails; set => emails = value; }
 
+        public Contact()
+        {
+
+        }
         public Contact(string firstName, string lastName, string phone)
         {
             FirstName = firstName;

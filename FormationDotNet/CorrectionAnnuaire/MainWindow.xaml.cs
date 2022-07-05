@@ -1,4 +1,5 @@
 ﻿using AnnuaireAdoNet.Classes;
+using CorrectionAnnuaire.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,7 +28,8 @@ namespace CorrectionAnnuaire
         {
             textBoxesEmails = new List<TextBox>();
             InitializeComponent();
-            listBoxContact.ItemsSource = Contact.GetContacts();
+            DataContext = new ContactViewModel();
+            //listBoxContact.ItemsSource = Contact.GetContacts();
         }
 
         public void ActionValidClick(object sender, RoutedEventArgs routedEventArgs)
