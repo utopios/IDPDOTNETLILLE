@@ -58,6 +58,7 @@ namespace CorrectionAnnuaire
                     //nom.Text = "";
                     //telephone.Text = "";
                     //listBoxContact.ItemsSource = Contact.GetContacts();
+                    viewModel.Contacts.Add(viewModel.Contact);
                     viewModel.Contact = new Contact();
                 }
                 else
