@@ -1,6 +1,7 @@
 ﻿using DAOCaisseEnregistreuse.Classes;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,6 +28,7 @@ namespace CorrectionCaisseEnregistreuseWPF.Windows
             InitializeComponent();
             cashRegistry = new CashRegistry();
             order = new Order();
+            ProductsListView.ItemsSource = order.Products;
         }
 
         private void AddProductToOrderClick(object sender, RoutedEventArgs e)
@@ -38,8 +40,8 @@ namespace CorrectionCaisseEnregistreuseWPF.Windows
                 if(product != null)
                 {
                     order.AddProduct(product);
-                    ProductsListView.ItemsSource = new List<ProductOrder>(order.Products);
-                    TotalLabel.Content = order.Total;
+                    //ProductsListView.ItemsSource = new List<ProductOrder>(order.Products);
+                    //TotalLabel.Content = order.Total;
                     ProductIdTextBox.Text = "";
                 }
                 else
@@ -59,7 +61,7 @@ namespace CorrectionCaisseEnregistreuseWPF.Windows
             {
                 if(order.DeleteProduct(product))
                 {
-                    ProductsListView.ItemsSource = new List<ProductOrder>(order.Products);
+                    //ProductsListView.ItemsSource = new List<ProductOrder>(order.Products);
                     TotalLabel.Content = order.Total;
                 }
             }
