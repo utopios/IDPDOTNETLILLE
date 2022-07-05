@@ -64,5 +64,13 @@ namespace CorrectionCaisseEnregistreuseWPF.Windows
                 }
             }
         }
+
+        private void NewOrderClick(object sender, RoutedEventArgs e)
+        {
+            order = new Order();
+            ProductsListView.ItemsSource = new List<ProductOrder>(order.Products);
+            TotalLabel.Content = order.Total;
+            ProductIdTextBox.Text = "";
+        }
     }
 }
