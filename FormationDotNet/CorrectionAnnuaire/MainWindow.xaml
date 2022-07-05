@@ -25,7 +25,7 @@
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <Label Content="Téléphone:" Width="100"></Label>
-                    <TextBox x:Name="telephone" Text="{Binding Telephone}" Width="300"></TextBox>
+                    <TextBox x:Name="telephone" Text="{Binding Phone}" Width="300"></TextBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <Button Click="AddEmailTextBox" Content="Ajouter email" Width="400"></Button>

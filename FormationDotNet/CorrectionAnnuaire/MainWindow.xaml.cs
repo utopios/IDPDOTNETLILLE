@@ -24,11 +24,13 @@ namespace CorrectionAnnuaire
     {
         private List<TextBox> textBoxesEmails;
         private Contact contactToEdit;
+        private ContactViewModel viewModel;
         public MainWindow()
         {
             textBoxesEmails = new List<TextBox>();
             InitializeComponent();
-            DataContext = new ContactViewModel();
+            viewModel = new ContactViewModel();
+            DataContext = viewModel;
             //listBoxContact.ItemsSource = Contact.GetContacts();
         }
 
@@ -36,26 +38,27 @@ namespace CorrectionAnnuaire
         {
             if(contactToEdit == null)
             {
-                Contact contact = new Contact(prenom.Text, nom.Text, telephone.Text);
+                //Contact contact = new Contact(prenom.Text, nom.Text, telephone.Text);
 
-                if (contact.Save())
+                if (viewModel.Contact.Save())
                 {
-                    foreach (TextBox textBox in textBoxesEmails)
-                    {
-                        if (textBox.Text != "")
-                        {
-                            Email e = new Email()
-                            {
-                                Mail = textBox.Text,
-                            };
-                            e.Save(contact.Id);
-                        }
-                    }
-                    MessageBox.Show("Contact ajouté avec l'id " + contact.Id);
-                    prenom.Text = "";
-                    nom.Text = "";
-                    telephone.Text = "";
-                    listBoxContact.ItemsSource = Contact.GetContacts();
+                    //foreach (TextBox textBox in textBoxesEmails)
+                    //{
+                    //    if (textBox.Text != "")
+                    //    {
+                    //        Email e = new Email()
+                    //        {
+                    //            Mail = textBox.Text,
+                    //        };
+                    //        e.Save(contact.Id);
+                    //    }
+                    //}
+                    MessageBox.Show("Contact ajouté avec l'id " + viewModel.Contact.Id);
+                    //prenom.Text = "";
+                    //nom.Text = "";
+                    //telephone.Text = "";
+                    //listBoxContact.ItemsSource = Contact.GetContacts();
+                    viewModel.Contact = new Contact();
                 }
                 else
                 {
