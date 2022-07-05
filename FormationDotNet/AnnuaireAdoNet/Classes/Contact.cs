@@ -33,7 +33,7 @@ namespace AnnuaireAdoNet.Classes
 
         public Contact()
         {
-
+            
         }
         public Contact(string firstName, string lastName, string phone)
         {
