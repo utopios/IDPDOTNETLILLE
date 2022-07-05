@@ -34,7 +34,7 @@
                     </StackPanel>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <Button Click="ActionValidClick" Content="Valider" Width="400"></Button>
+                    <Button Command="{Binding ConfirmCommand}" Content="Valider" Width="400"></Button>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <!--<ListBox x:Name="listBoxContact" Width="400"></ListBox>-->

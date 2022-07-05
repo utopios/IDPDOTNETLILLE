@@ -34,56 +34,56 @@ namespace CorrectionAnnuaire
             //listBoxContact.ItemsSource = Contact.GetContacts();
         }
 
-        public void ActionValidClick(object sender, RoutedEventArgs routedEventArgs)
-        {
-            if(viewModel.Contact.Id == 0)
-            {
-                //Contact contact = new Contact(prenom.Text, nom.Text, telephone.Text);
+        //public void ActionValidClick(object sender, RoutedEventArgs routedEventArgs)
+        //{
+        //    if(viewModel.Contact.Id == 0)
+        //    {
+        //        //Contact contact = new Contact(prenom.Text, nom.Text, telephone.Text);
 
-                if (viewModel.Contact.Save())
-                {
-                    //foreach (TextBox textBox in textBoxesEmails)
-                    //{
-                    //    if (textBox.Text != "")
-                    //    {
-                    //        Email e = new Email()
-                    //        {
-                    //            Mail = textBox.Text,
-                    //        };
-                    //        e.Save(contact.Id);
-                    //    }
-                    //}
-                    MessageBox.Show("Contact ajouté avec l'id " + viewModel.Contact.Id);
-                    //prenom.Text = "";
-                    //nom.Text = "";
-                    //telephone.Text = "";
-                    //listBoxContact.ItemsSource = Contact.GetContacts();
-                    viewModel.Contacts.Add(viewModel.Contact);
-                    viewModel.Contact = new Contact();
-                }
-                else
-                {
-                    MessageBox.Show("Erreur ajout contact");
-                }
-            }
-            else
-            {
-                //contactToEdit.LastName = nom.Text;
-                //contactToEdit.FirstName = prenom.Text;
-                //contactToEdit.Phone = telephone.Text;
-                if(viewModel.Contact.Update())
-                {
-                    MessageBox.Show("Contact modifié ");
-                    //prenom.Text = "";
-                    //nom.Text = "";
-                    //telephone.Text = "";
-                    //listBoxContact.ItemsSource = Contact.GetContacts();
-                    //contactToEdit = null;
-                    viewModel.Contact = new Contact();
-                }
-            }
+        //        if (viewModel.Contact.Save())
+        //        {
+        //            //foreach (TextBox textBox in textBoxesEmails)
+        //            //{
+        //            //    if (textBox.Text != "")
+        //            //    {
+        //            //        Email e = new Email()
+        //            //        {
+        //            //            Mail = textBox.Text,
+        //            //        };
+        //            //        e.Save(contact.Id);
+        //            //    }
+        //            //}
+        //            MessageBox.Show("Contact ajouté avec l'id " + viewModel.Contact.Id);
+        //            //prenom.Text = "";
+        //            //nom.Text = "";
+        //            //telephone.Text = "";
+        //            //listBoxContact.ItemsSource = Contact.GetContacts();
+        //            viewModel.Contacts.Add(viewModel.Contact);
+        //            viewModel.Contact = new Contact();
+        //        }
+        //        else
+        //        {
+        //            MessageBox.Show("Erreur ajout contact");
+        //        }
+        //    }
+        //    else
+        //    {
+        //        //contactToEdit.LastName = nom.Text;
+        //        //contactToEdit.FirstName = prenom.Text;
+        //        //contactToEdit.Phone = telephone.Text;
+        //        if(viewModel.Contact.Update())
+        //        {
+        //            MessageBox.Show("Contact modifié ");
+        //            //prenom.Text = "";
+        //            //nom.Text = "";
+        //            //telephone.Text = "";
+        //            //listBoxContact.ItemsSource = Contact.GetContacts();
+        //            //contactToEdit = null;
+        //            viewModel.Contact = new Contact();
+        //        }
+        //    }
             
-        }
+        //}
 
         public void AddEmailTextBox(object sender, RoutedEventArgs routedEventArgs)
         {

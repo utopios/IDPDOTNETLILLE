@@ -1,4 +1,5 @@
 ﻿using AnnuaireAdoNet.Classes;
+using GalaSoft.MvvmLight.Command;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -6,6 +7,8 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Input;
 
 namespace CorrectionAnnuaire.ViewModels
 {
@@ -17,6 +20,8 @@ namespace CorrectionAnnuaire.ViewModels
         private Contact contact;
 
         public ObservableCollection<Contact> Contacts { get; set; }
+
+        public ICommand ConfirmCommand { get; set; }
 
         public Contact Contact
         {
@@ -63,6 +68,7 @@ namespace CorrectionAnnuaire.ViewModels
         {
             Contact= new Contact();
             Contacts = new ObservableCollection<Contact>(Contact.GetContacts());
+            ConfirmCommand = new RelayCommand(ConfirmContact);
         }
 
         private void RaisePropertyChanged(string propertyName)
@@ -70,6 +76,36 @@ namespace CorrectionAnnuaire.ViewModels
             if (PropertyChanged != null)
             {
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+
+        private void ConfirmContact()
+        {
+            if (Contact.Id == 0)
+            {
+               
+                if (Contact.Save())
+                {
+                    
+                    MessageBox.Show("Contact ajouté avec l'id " + Contact.Id);
+                    
+                    Contacts.Add(Contact);
+                    Contact = new Contact();
+                }
+                else
+                {
+                    MessageBox.Show("Erreur ajout contact");
+                }
+            }
+            else
+            {
+              
+                if (Contact.Update())
+                {
+                    MessageBox.Show("Contact modifié ");
+
+                    Contact = new Contact();
+                }
             }
         }
     }
