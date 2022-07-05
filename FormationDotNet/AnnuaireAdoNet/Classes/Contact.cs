@@ -1,13 +1,15 @@
 ﻿using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace AnnuaireAdoNet.Classes
 {
-    public class Contact
+    public class Contact : INotifyPropertyChanged
     {
         private int id;
         private string firstName;
@@ -21,10 +23,12 @@ namespace AnnuaireAdoNet.Classes
         private static SqlCommand _command;
         private static SqlDataReader _reader;
 
+        public event PropertyChangedEventHandler? PropertyChanged;
+
         public int Id { get => id; set => id = value; }
-        public string FirstName { get => firstName; set => firstName = value; }
-        public string LastName { get => lastName; set => lastName = value; }
-        public string Phone { get => phone; set => phone = value; }
+        public string FirstName { get => firstName; set { firstName = value; RaisePropertyChange(); } }
+        public string LastName { get => lastName; set { lastName = value; RaisePropertyChange(); } }
+        public string Phone { get => phone; set { phone = value; RaisePropertyChange(); } }
         public List<Email> Emails { get => emails; set => emails = value; }
 
         public Contact()
@@ -37,6 +41,11 @@ namespace AnnuaireAdoNet.Classes
             LastName = lastName;
             Phone = phone;
             Emails = new List<Email>();
+        }
+
+        private void RaisePropertyChange([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
         public Contact(int id, string firstName, string lastName, string phone) : this(firstName, lastName, phone)
