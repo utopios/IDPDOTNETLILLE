@@ -36,7 +36,7 @@ namespace CorrectionAnnuaire
 
         public void ActionValidClick(object sender, RoutedEventArgs routedEventArgs)
         {
-            if(contactToEdit == null)
+            if(viewModel.Contact.Id == 0)
             {
                 //Contact contact = new Contact(prenom.Text, nom.Text, telephone.Text);
 
@@ -68,17 +68,18 @@ namespace CorrectionAnnuaire
             }
             else
             {
-                contactToEdit.LastName = nom.Text;
-                contactToEdit.FirstName = prenom.Text;
-                contactToEdit.Phone = telephone.Text;
-                if(contactToEdit.Update())
+                //contactToEdit.LastName = nom.Text;
+                //contactToEdit.FirstName = prenom.Text;
+                //contactToEdit.Phone = telephone.Text;
+                if(viewModel.Contact.Update())
                 {
                     MessageBox.Show("Contact modifié ");
-                    prenom.Text = "";
-                    nom.Text = "";
-                    telephone.Text = "";
-                    listBoxContact.ItemsSource = Contact.GetContacts();
-                    contactToEdit = null;
+                    //prenom.Text = "";
+                    //nom.Text = "";
+                    //telephone.Text = "";
+                    //listBoxContact.ItemsSource = Contact.GetContacts();
+                    //contactToEdit = null;
+                    viewModel.Contact = new Contact();
                 }
             }
             
@@ -96,7 +97,8 @@ namespace CorrectionAnnuaire
             if(listBoxContact.SelectedItem is Contact c)
             {
                 c.Delete();
-                listBoxContact.ItemsSource = Contact.GetContacts();
+                viewModel.Contacts.Remove(c);
+                //listBoxContact.ItemsSource = Contact.GetContacts();
             }
         }
 
@@ -104,10 +106,11 @@ namespace CorrectionAnnuaire
         {
             if (listBoxContact.SelectedItem is Contact c)
             {
-                contactToEdit = c;
-                nom.Text = c.LastName;
-                prenom.Text = c.FirstName;
-                telephone.Text = c.Phone;
+                //contactToEdit = c;
+                //nom.Text = c.LastName;
+                //prenom.Text = c.FirstName;
+                //telephone.Text = c.Phone;
+                viewModel.Contact = c;
             }
         }
     }
