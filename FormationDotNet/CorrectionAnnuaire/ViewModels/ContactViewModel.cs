@@ -19,9 +19,13 @@ namespace CorrectionAnnuaire.ViewModels
 
         private Contact contact;
 
+        private Contact selectedContact;
+
         public ObservableCollection<Contact> Contacts { get; set; }
 
         public ICommand ConfirmCommand { get; set; }
+        public ICommand EditCommand { get; set; }
+        public ICommand DeleteCommand { get; set; }
 
         public Contact Contact
         {
@@ -64,11 +68,15 @@ namespace CorrectionAnnuaire.ViewModels
             get => contact.Phone;
         }
 
+        public Contact SelectedContact { get => selectedContact; set => selectedContact = value; }
+
         public ContactViewModel()
         {
             Contact= new Contact();
             Contacts = new ObservableCollection<Contact>(Contact.GetContacts());
             ConfirmCommand = new RelayCommand(ConfirmContact);
+            EditCommand = new RelayCommand(EditCommandAction);
+            DeleteCommand = new RelayCommand(DeleteCommandAction);
         }
 
         private void RaisePropertyChanged(string propertyName)
@@ -105,7 +113,25 @@ namespace CorrectionAnnuaire.ViewModels
                     MessageBox.Show("Contact modifié ");
 
                     Contact = new Contact();
+                    
                 }
+            }
+        }
+
+        private void EditCommandAction()
+        {
+            if(SelectedContact != null)
+            {
+                Contact = SelectedContact;
+            }
+        }
+
+        private void DeleteCommandAction()
+        {
+            if (SelectedContact != null)
+            {
+                SelectedContact.Delete();
+                Contacts.Remove(SelectedContact);
             }
         }
     }

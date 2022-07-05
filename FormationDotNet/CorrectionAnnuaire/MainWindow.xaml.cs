@@ -92,26 +92,26 @@ namespace CorrectionAnnuaire
             textBoxesEmails.Add(emailTextBox);
         }
 
-        private void DeleteClick(object sender, RoutedEventArgs e)
-        {
-            if(listBoxContact.SelectedItem is Contact c)
-            {
-                c.Delete();
-                viewModel.Contacts.Remove(c);
-                //listBoxContact.ItemsSource = Contact.GetContacts();
-            }
-        }
+        //private void DeleteClick(object sender, RoutedEventArgs e)
+        //{
+        //    if(listBoxContact.SelectedItem is Contact c)
+        //    {
+        //        c.Delete();
+        //        viewModel.Contacts.Remove(c);
+        //        //listBoxContact.ItemsSource = Contact.GetContacts();
+        //    }
+        //}
 
-        private void EditClick(object sender, RoutedEventArgs e)
-        {
-            if (listBoxContact.SelectedItem is Contact c)
-            {
-                //contactToEdit = c;
-                //nom.Text = c.LastName;
-                //prenom.Text = c.FirstName;
-                //telephone.Text = c.Phone;
-                viewModel.Contact = c;
-            }
-        }
+        //private void EditClick(object sender, RoutedEventArgs e)
+        //{
+        //    if (listBoxContact.SelectedItem is Contact c)
+        //    {
+        //        //contactToEdit = c;
+        //        //nom.Text = c.LastName;
+        //        //prenom.Text = c.FirstName;
+        //        //telephone.Text = c.Phone;
+        //        viewModel.Contact = c;
+        //    }
+        //}
     }
 }

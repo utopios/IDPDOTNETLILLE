@@ -38,7 +38,7 @@
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <!--<ListBox x:Name="listBoxContact" Width="400"></ListBox>-->
-                    <ListView x:Name="listBoxContact" ItemsSource="{Binding Contacts}">
+                    <ListView x:Name="listBoxContact" SelectedItem="{Binding SelectedContact}" ItemsSource="{Binding Contacts}">
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn Header="Nom" Width="100" DisplayMemberBinding="{Binding LastName}"></GridViewColumn>
@@ -50,8 +50,8 @@
                 </StackPanel>
                 <StackPanel
                      Orientation="Horizontal">
-                    <Button Content="Supprimer" Click="DeleteClick"></Button>
-                    <Button Content="Modifier" Click="EditClick"></Button>
+                    <Button Content="Supprimer" Command="{Binding DeleteCommand}"></Button>
+                    <Button Content="Modifier" Command="{Binding EditCommand}"></Button>
                 </StackPanel>
             </StackPanel>
         </GroupBox>
