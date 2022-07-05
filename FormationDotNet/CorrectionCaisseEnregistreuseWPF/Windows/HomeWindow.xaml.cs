@@ -95,5 +95,11 @@ namespace CorrectionCaisseEnregistreuseWPF.Windows
                 MessageBox.Show("Paiement NOT OK!!!!!!");
             }
         }
+
+        private void CashPaymentClick(object sender, RoutedEventArgs e)
+        {
+            CashPaymentWindow w = new CashPaymentWindow(cashRegistry, order, ProductsListView, TotalLabel, ProductIdTextBox);
+            w.Show();
+        }
     }
 }
