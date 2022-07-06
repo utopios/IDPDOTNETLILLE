@@ -1,4 +1,5 @@
 ﻿using CompteBancaireAdoNet.Classes;
+using CorrectionBanqueWPF.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,32 +28,33 @@ namespace CorrectionBanqueWPF
         {
             InitializeComponent();
             bank = new Bank("wpf bank");
-            CreateAccountButton.Click += CreateAccountClick;
-            SearchAccountButton.Click += SearchAccountClick;
+            DataContext = new MainViewModel();
+            //CreateAccountButton.Click += CreateAccountClick;
+            //SearchAccountButton.Click += SearchAccountClick;
         }
 
-        private void CreateAccountClick(object sender, RoutedEventArgs eventArgs)
-        {
-            decimal initialAmount;
-            Customer customer = new Customer(PhoneTextBox.Text, FirstNameTextBox.Text, LastNameTextBox.Text);
-            Account account = bank.AddAccount(customer);
-            if(account != null)
-            {
-                if(decimal.TryParse(InitialAmountTextBox.Text, out initialAmount))
-                {
-                    bank.MakeDeposit(initialAmount, account.AccountNumber);
-                }
-                MessageBox.Show("Compte crée avec le numéro de compte : "+account.AccountNumber);
-            }
-            else
-            {
-                MessageBox.Show("Erreur création de compte");
-            }
-            PhoneTextBox.Text = "";
-            FirstNameTextBox.Text = "";
-            LastNameTextBox.Text = "";
-            InitialAmountTextBox.Text = "";
-        }
+        //private void CreateAccountClick(object sender, RoutedEventArgs eventArgs)
+        //{
+        //    decimal initialAmount;
+        //    Customer customer = new Customer(PhoneTextBox.Text, FirstNameTextBox.Text, LastNameTextBox.Text);
+        //    Account account = bank.AddAccount(customer);
+        //    if(account != null)
+        //    {
+        //        if(decimal.TryParse(InitialAmountTextBox.Text, out initialAmount))
+        //        {
+        //            bank.MakeDeposit(initialAmount, account.AccountNumber);
+        //        }
+        //        MessageBox.Show("Compte crée avec le numéro de compte : "+account.AccountNumber);
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("Erreur création de compte");
+        //    }
+        //    PhoneTextBox.Text = "";
+        //    FirstNameTextBox.Text = "";
+        //    LastNameTextBox.Text = "";
+        //    InitialAmountTextBox.Text = "";
+        //}
 
         private void SearchAccountClick(object sender, RoutedEventArgs eventArgs)
         {

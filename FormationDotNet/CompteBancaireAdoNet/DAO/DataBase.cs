@@ -9,7 +9,7 @@ namespace CompteBancaireAdoNet.Classes
 {
     public class DataBase
     {
-        private static string connectionString = @"Data Source=(LocalDb)\cousDotNet;Integrated Security=True";
+        private static string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\PC\Desktop\IDP\sgbd.mdf;Integrated Security=True;Connect Timeout=30";
 
         public static SqlConnection Connection
         {

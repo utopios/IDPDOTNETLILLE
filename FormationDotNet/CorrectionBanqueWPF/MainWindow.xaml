@@ -10,14 +10,14 @@
         <GroupBox Header="Création compte" Margin="0,0,0,318">
         </GroupBox>
         <Label Content="Nom Client" HorizontalAlignment="Left" Margin="12,22,0,385"/>
-        <TextBox x:Name="LastNameTextBox" HorizontalAlignment="Left" Margin="96,22,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Height="27"/>
+        <TextBox  Text="{Binding LastName}" HorizontalAlignment="Left" Margin="96,22,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Height="27"/>
         <Label Content="Prénom Client" HorizontalAlignment="Left" Margin="246,22,0,385"/>
-        <TextBox x:Name="FirstNameTextBox" HorizontalAlignment="Center" Margin="0,22,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Height="27"/>
-        <Label Content="téléphone Client" HorizontalAlignment="Left" Margin="500,22,0,385"/>
-        <TextBox x:Name="PhoneTextBox" HorizontalAlignment="Left" Margin="602,22,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Height="27"/>
+        <TextBox  Text="{Binding FirstName}" HorizontalAlignment="Center" Margin="0,22,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="27"/>
+        <Label Content="téléphone Client"  HorizontalAlignment="Left" Margin="500,22,0,385"/>
+        <TextBox  Text="{Binding Phone}" HorizontalAlignment="Left" Margin="602,22,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="27"/>
         <Label Content="Solde Initial" HorizontalAlignment="Left" Margin="12,67,0,340"/>
-        <TextBox x:Name="InitialAmountTextBox" HorizontalAlignment="Left" Margin="96,67,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Height="27"/>
-        <Button Content="Créer un compte" x:Name="CreateAccountButton" HorizontalAlignment="Left" Margin="246,67,0,0" VerticalAlignment="Top" Height="27" Width="476"/>
+        <TextBox HorizontalAlignment="Left" Margin="96,67,0,0" TextWrapping="Wrap" Text="{Binding InitialAmount}" VerticalAlignment="Top" Width="120" Height="27"/>
+        <Button Command="{Binding CreateAccountCommand}" Content="Créer un compte"  HorizontalAlignment="Left" Margin="246,67,0,0" VerticalAlignment="Top" Height="27" Width="476"/>
         <GroupBox Header="Rechercher un compte" Margin="0,121,0,244">
 
         </GroupBox>

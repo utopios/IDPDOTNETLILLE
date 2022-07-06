@@ -19,6 +19,10 @@ namespace CompteBancaireAdoNet.Classes
         public string FirstName { get => firstName; set => firstName = value; }
         public string LastName { get => lastName; set => lastName = value; }
 
+        public Customer()
+        {
+
+        }
         public Customer(string phone, string firstName, string lastName)
         {
             //Id = ++count;
