@@ -11,11 +11,10 @@ using System.Windows.Input;
 
 namespace CorrectionBanqueWPF.ViewModels
 {
-    public class MainViewModel :ViewModelBase
+    public class MainViewModel : ViewModelBase
     {
         private Bank bank;
         public Account Account { get; set; }
-
         public Customer Customer { get => Account.Customer; set => Account.Customer = value; }
 
         public string FirstName { get => Customer.FirstName; set => Customer.FirstName = value; }
@@ -26,14 +25,21 @@ namespace CorrectionBanqueWPF.ViewModels
 
         public decimal InitialAmount { get; set; }
 
+        public Account SearchAccount {get;set;}
+
+        public int SearchAccountNumber { get; set; }
 
         public ICommand CreateAccountCommand { get; set; }
+
+        public ICommand SearchAccountCommand { get; set; }
+                               
         public MainViewModel()
         {
             Account = new Account();
             Account.Customer = new Customer();
             bank = new Bank("bp");
             CreateAccountCommand = new RelayCommand(CreateAccountAction);
+            SearchAccountCommand = new RelayCommand(SearchAccountAction);
         }
 
         private void CreateAccountAction()
@@ -48,6 +54,12 @@ namespace CorrectionBanqueWPF.ViewModels
             {
                 MessageBox.Show("Erreur création de compte");
             }
+        }
+
+        private void SearchAccountAction()
+        {
+            SearchAccount = bank.GetAccount(SearchAccountNumber);
+            RaisePropertyChanged("SearchAccount");
         }
     }
 }

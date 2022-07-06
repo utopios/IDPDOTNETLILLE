@@ -22,16 +22,16 @@
 
         </GroupBox>
         <Label Content="Numéro de compte" HorizontalAlignment="Left" Margin="12,148,0,259"/>
-        <TextBox x:Name="AccountNumberTextBox" HorizontalAlignment="Left" Margin="131,148,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="269" Height="27"/>
-        <Button Content="Rechercher" x:Name="SearchAccountButton" HorizontalAlignment="Left" Margin="430,148,0,0" VerticalAlignment="Top" Height="27" Width="292"/>
+        <TextBox  HorizontalAlignment="Left" Margin="131,148,0,0" TextWrapping="Wrap" Text="{Binding SearchAccountNumber}" VerticalAlignment="Top" Width="269" Height="27"/>
+        <Button Content="Rechercher" Command="{Binding SearchAccountCommand}" HorizontalAlignment="Left" Margin="430,148,0,0" VerticalAlignment="Top" Height="27" Width="292"/>
         <GroupBox Header="Resultat de recherche" Margin="0,195,0,0">
 
         </GroupBox>
         <Label Content="Client : " HorizontalAlignment="Left" Margin="14,228,0,179"/>
-        <Label Content="" x:Name="ResultCustomerLabel" HorizontalAlignment="Left" Margin="76,228,0,179" Width="358"/>
+        <Label Content="{Binding SearchAccount.Customer}"  HorizontalAlignment="Left" Margin="76,228,0,179" Width="358"/>
         <Label Content="Solde : " HorizontalAlignment="Left" Margin="459,228,0,179"/>
-        <Label x:Name="TotalAmountLabel" Content="" HorizontalAlignment="Left" Margin="527,228,0,179" Width="88"/>
-        <ListView x:Name="OperationsListView" Margin="0,255,0,52" >
+        <Label  Content="{Binding SearchAccount.TotalAmount}" HorizontalAlignment="Left" Margin="527,228,0,179" Width="88"/>
+        <ListView ItemsSource="{Binding SearchAccount.Operations}" Margin="0,255,0,52" >
             <ListView.View>
                 <GridView>
                     <GridViewColumn Width="400" Header="Date d'operation" DisplayMemberBinding="{Binding OperationDateTime}"/>
@@ -39,8 +39,8 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button Click="DepositClick" Content="Effectuer un dépôt" HorizontalAlignment="Left" Margin="10,395,0,0" VerticalAlignment="Top" Height="25" Width="390"/>
-        <Button Click="WithDrawClick" Content="Effectuer un retrait" HorizontalAlignment="Left" Margin="405,395,0,0" VerticalAlignment="Top" Height="25" Width="390"/>
+        <Button  Content="Effectuer un dépôt" HorizontalAlignment="Left" Margin="10,395,0,0" VerticalAlignment="Top" Height="25" Width="390"/>
+        <Button  Content="Effectuer un retrait" HorizontalAlignment="Left" Margin="405,395,0,0" VerticalAlignment="Top" Height="25" Width="390"/>
 
     </Grid>
 </Window>

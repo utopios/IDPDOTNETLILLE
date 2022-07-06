@@ -56,46 +56,46 @@ namespace CorrectionBanqueWPF
         //    InitialAmountTextBox.Text = "";
         //}
 
-        private void SearchAccountClick(object sender, RoutedEventArgs eventArgs)
-        {
-            int number;
-            if(int.TryParse(AccountNumberTextBox.Text, out number))
-            {
-                searchAccount = bank.GetAccount(number);
-                if(searchAccount != null)
-                {
-                    ResultCustomerLabel.Content = searchAccount.Customer.ToString();
-                    TotalAmountLabel.Content = searchAccount.TotalAmount;
-                    OperationsListView.ItemsSource = searchAccount.Operations;
-                }
-                else
-                {
-                    MessageBox.Show("aucun compte avec ce numéro");
-                }
-            }
-            else
-            {
-                MessageBox.Show("Merci de saisir un numéro !!!!!!");
-            }
-        }
+        //private void SearchAccountClick(object sender, RoutedEventArgs eventArgs)
+        //{
+        //    int number;
+        //    if(int.TryParse(AccountNumberTextBox.Text, out number))
+        //    {
+        //        searchAccount = bank.GetAccount(number);
+        //        if(searchAccount != null)
+        //        {
+        //            ResultCustomerLabel.Content = searchAccount.Customer.ToString();
+        //            TotalAmountLabel.Content = searchAccount.TotalAmount;
+        //            OperationsListView.ItemsSource = searchAccount.Operations;
+        //        }
+        //        else
+        //        {
+        //            MessageBox.Show("aucun compte avec ce numéro");
+        //        }
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("Merci de saisir un numéro !!!!!!");
+        //    }
+        //}
 
-        private void DepositClick(object sender, RoutedEventArgs eventArgs)
-        {
-            if(searchAccount != null)
-            {
-                OperationWindow window = new OperationWindow(searchAccount, "deposit", OperationsListView, TotalAmountLabel, bank);
-                window.Show();
+        //private void DepositClick(object sender, RoutedEventArgs eventArgs)
+        //{
+        //    if(searchAccount != null)
+        //    {
+        //        OperationWindow window = new OperationWindow(searchAccount, "deposit", OperationsListView, TotalAmountLabel, bank);
+        //        window.Show();
 
-            }
-        }
-        private void WithDrawClick(object sender, RoutedEventArgs eventArgs)
-        {
-            if (searchAccount != null)
-            {
-                OperationWindow window = new OperationWindow(searchAccount, "withDraw", OperationsListView, TotalAmountLabel, bank);
-                window.Show();
+        //    }
+        //}
+        //private void WithDrawClick(object sender, RoutedEventArgs eventArgs)
+        //{
+        //    if (searchAccount != null)
+        //    {
+        //        OperationWindow window = new OperationWindow(searchAccount, "withDraw", OperationsListView, TotalAmountLabel, bank);
+        //        window.Show();
 
-            }
-        }
+        //    }
+        //}
     }
 }
