@@ -32,6 +32,10 @@ namespace CorrectionBanqueWPF.ViewModels
         public ICommand CreateAccountCommand { get; set; }
 
         public ICommand SearchAccountCommand { get; set; }
+
+        public ICommand DepositCommand { get; set; }
+
+        public ICommand WithDrawCommand { get; set; }
                                
         public MainViewModel()
         {
@@ -40,6 +44,8 @@ namespace CorrectionBanqueWPF.ViewModels
             bank = new Bank("bp");
             CreateAccountCommand = new RelayCommand(CreateAccountAction);
             SearchAccountCommand = new RelayCommand(SearchAccountAction);
+            DepositCommand = new RelayCommand(()=>OperationWindowAction("deposit"));
+            WithDrawCommand = new RelayCommand(()=>OperationWindowAction("withDraw"));
         }
 
         private void CreateAccountAction()
@@ -56,10 +62,16 @@ namespace CorrectionBanqueWPF.ViewModels
             }
         }
 
-        private void SearchAccountAction()
+        public void SearchAccountAction()
         {
             SearchAccount = bank.GetAccount(SearchAccountNumber);
             RaisePropertyChanged("SearchAccount");
+        }
+
+        private void OperationWindowAction(string type)
+        {
+            OperationWindow o = new OperationWindow(type, this, bank);
+            o.Show();
         }
     }
 }

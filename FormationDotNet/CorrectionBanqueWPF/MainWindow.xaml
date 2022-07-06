@@ -39,8 +39,8 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button  Content="Effectuer un dépôt" HorizontalAlignment="Left" Margin="10,395,0,0" VerticalAlignment="Top" Height="25" Width="390"/>
-        <Button  Content="Effectuer un retrait" HorizontalAlignment="Left" Margin="405,395,0,0" VerticalAlignment="Top" Height="25" Width="390"/>
+        <Button Command="{Binding DepositCommand}"  Content="Effectuer un dépôt" HorizontalAlignment="Left" Margin="10,395,0,0" VerticalAlignment="Top" Height="25" Width="390"/>
+        <Button Command="{Binding WithDrawCommand}" Content="Effectuer un retrait" HorizontalAlignment="Left" Margin="405,395,0,0" VerticalAlignment="Top" Height="25" Width="390"/>
 
     </Grid>
 </Window>

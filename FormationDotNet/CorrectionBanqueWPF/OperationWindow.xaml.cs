@@ -1,4 +1,5 @@
 ﻿using CompteBancaireAdoNet.Classes;
+using CorrectionBanqueWPF.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,55 +21,60 @@ namespace CorrectionBanqueWPF
     /// </summary>
     public partial class OperationWindow : Window
     {
-        private Account _account;
-        private string _type;
-        private ListView _listView;
-        private Label _totalAmountLabel;
-        private Bank _bank;
+        //private Account _account;
+        //private string _type;
+        //private ListView _listView;
+        //private Label _totalAmountLabel;
+        //private Bank _bank;
         public OperationWindow()
         {
             InitializeComponent();
         }
 
-        public OperationWindow(Account account, string type, ListView listView, Label totalAmountLabel, Bank bank) : this()
-        {
-            _account = account;
-            _type = type;
-            _listView = listView;
-            _totalAmountLabel = totalAmountLabel;
-            AccountNumberLabel.Content = _account.AccountNumber;
-            Title += " " + type;
-            _bank = bank;
-        }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        public OperationWindow(string type, MainViewModel mainViewModel, Bank bank):this()
         {
-            decimal amount;
-            bool result = false;
-            if(decimal.TryParse(AmountTextBox.Text, out amount))
-            {
-                if(_type== "deposit")
-                {
-                    if(_bank.MakeDeposit(amount, _account.AccountNumber))
-                    {
-                        result = true;
-                    }
-                }
-                else if(_type == "withDraw")
-                {
-                    if(_bank.MakeWithDraw(amount, _account.AccountNumber))
-                    {
-                        result = true;
-                    }
-                }
-            }
-            if(result)
-            {
-                _account = _bank.GetAccount(_account.AccountNumber);
-                _listView.ItemsSource = _account.Operations;
-                _totalAmountLabel.Content = _account.TotalAmount;
-                Close();
-            }
+            DataContext = new OperationViewModel(type, mainViewModel, bank);
         }
+        //public OperationWindow(Account account, string type, ListView listView, Label totalAmountLabel, Bank bank) : this()
+        //{
+        //    _account = account;
+        //    _type = type;
+        //    _listView = listView;
+        //    _totalAmountLabel = totalAmountLabel;
+        //    AccountNumberLabel.Content = _account.AccountNumber;
+        //    Title += " " + type;
+        //    _bank = bank;
+        //}
+
+        //private void Button_Click(object sender, RoutedEventArgs e)
+        //{
+        //    decimal amount;
+        //    bool result = false;
+        //    if(decimal.TryParse(AmountTextBox.Text, out amount))
+        //    {
+        //        if(_type== "deposit")
+        //        {
+        //            if(_bank.MakeDeposit(amount, _account.AccountNumber))
+        //            {
+        //                result = true;
+        //            }
+        //        }
+        //        else if(_type == "withDraw")
+        //        {
+        //            if(_bank.MakeWithDraw(amount, _account.AccountNumber))
+        //            {
+        //                result = true;
+        //            }
+        //        }
+        //    }
+        //    if(result)
+        //    {
+        //        _account = _bank.GetAccount(_account.AccountNumber);
+        //        _listView.ItemsSource = _account.Operations;
+        //        _totalAmountLabel.Content = _account.TotalAmount;
+        //        Close();
+        //    }
+        //}
     }
 }

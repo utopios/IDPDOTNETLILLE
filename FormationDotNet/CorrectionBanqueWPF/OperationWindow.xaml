@@ -5,13 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CorrectionBanqueWPF"
         mc:Ignorable="d"
-        Title="opérations" Height="159" Width="327">
+        Title="Opérations" Height="159" Width="327">
     <Grid>
         <Label Content="Numéro de compte" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-        <Label Content="" x:Name="AccountNumberLabel" HorizontalAlignment="Left" Margin="152,10,0,0" VerticalAlignment="Top" Width="165"/>
+        <Label Content="{Binding MainViewModel.SearchAccount.AccountNumber}" x:Name="AccountNumberLabel" HorizontalAlignment="Left" Margin="152,10,0,0" VerticalAlignment="Top" Width="165"/>
         <Label Content="Montant" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="114"/>
-        <TextBox x:Name="AmountTextBox" HorizontalAlignment="Left" Margin="152,41,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="165" Height="26"/>
-        <Button Content="Valider" HorizontalAlignment="Center" Margin="0,83,0,0" VerticalAlignment="Top" Width="307" Click="Button_Click"/>
+        <TextBox  HorizontalAlignment="Left" Margin="152,41,0,0" TextWrapping="Wrap" Text="{Binding Amount}" VerticalAlignment="Top" Width="165" Height="26"/>
+        <Button Command="{Binding OperationCommand}" Content="Valider" HorizontalAlignment="Center" Margin="0,83,0,0" VerticalAlignment="Top" Width="307"/>
 
     </Grid>
 </Window>
