@@ -25,5 +25,12 @@ namespace AnnuaireEntityFrameWorkCore.Classes
         
         [Column("phone")]
         public string Phone { get => phone; set => phone = value; }
+
+        public virtual List<Email> Emails { get; set; }
+
+        public Contact() 
+        {
+            Emails = new List<Email>();
+        }
     }
 }
