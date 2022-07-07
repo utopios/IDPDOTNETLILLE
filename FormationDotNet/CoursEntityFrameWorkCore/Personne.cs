@@ -13,12 +13,14 @@ namespace CoursEntityFrameWorkCore
         private string name;
         private int age;
 
-        public Adresse Adresse { get; set; }
+        //public Adresse Adresse { get; set; }
         public int Id { get => id; set => id = value; }
         public string Name { get => name; set => name = value; }
         public int Age { get => age; set => age = value; }
 
-        [ForeignKey("Adresse")]
-        public int AdresseId { get; set; }
+        //[ForeignKey("Adresse")]
+        //public int AdresseId { get; set; }
+
+        public List<Adresse> Adresses { get; set; }
     }
 }

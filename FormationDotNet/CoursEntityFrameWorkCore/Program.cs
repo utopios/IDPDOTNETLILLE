@@ -7,12 +7,20 @@ using Microsoft.EntityFrameworkCore;
 //    Name = "toto",
 //    Age = 30
 //};
-
-//p.Adresse = new Adresse()
+//List<Adresse> adresses = new List<Adresse>()
 //{
-//    Street = "first street",
-//    City = "Tourcoing"
+//    new Adresse()
+//    {
+//        Street = "first street",
+//        City = "Tourcoing"
+//    },
+//    new Adresse()
+//    {
+//        Street = "first street 2",
+//        City = "Tourcoing"
+//    }
 //};
+//p.Adresses = adresses;
 DataContext d = new DataContext();
 ////Enregistrer la personne dans la table
 //d.Personnes.Add(p);
@@ -25,7 +33,7 @@ DataContext d = new DataContext();
 //Console.WriteLine(list.Count);
 
 //Personne p = d.Personnes.Find(1);
-Personne p = d.Personnes.Include(p => p.Adresse).FirstOrDefault(p=> p.Name == "toto");
+Personne p = d.Personnes.Include(p => p.Adresses).FirstOrDefault(p=> p.Name == "toto");
 ////List<Personne> list = d.Personnes.Where(p => p.Name == "toto").ToList();
 
 //p.Name = "tata";
