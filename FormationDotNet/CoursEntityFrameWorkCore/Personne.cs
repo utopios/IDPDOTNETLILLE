@@ -21,6 +21,6 @@ namespace CoursEntityFrameWorkCore
         //[ForeignKey("Adresse")]
         //public int AdresseId { get; set; }
 
-        public List<Adresse> Adresses { get; set; }
+        public virtual List<Adresse> Adresses { get; set; }
     }
 }
