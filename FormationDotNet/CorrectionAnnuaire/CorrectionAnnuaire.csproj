@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AnnuaireAdoNet\AnnuaireAdoNet.csproj" />
+    <ProjectReference Include="..\AnnuaireEntityFrameWorkCore\AnnuaireEntityFrameWorkCore.csproj" />
   </ItemGroup>
 
 </Project>

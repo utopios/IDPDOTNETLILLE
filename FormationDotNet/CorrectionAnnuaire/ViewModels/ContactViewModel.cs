@@ -1,4 +1,6 @@
-﻿using AnnuaireAdoNet.Classes;
+﻿
+using AnnuaireEntityFrameWorkCore.Classes;
+using AnnuaireEntityFrameWorkCore.Tools;
 using GalaSoft.MvvmLight.Command;
 using System;
 using System.Collections.Generic;
@@ -16,6 +18,7 @@ namespace CorrectionAnnuaire.ViewModels
     {
         public event PropertyChangedEventHandler? PropertyChanged;
 
+        private DataContext _dataContext;
 
         private Contact contact;
 
@@ -72,8 +75,9 @@ namespace CorrectionAnnuaire.ViewModels
 
         public ContactViewModel()
         {
+            _dataContext = new DataContext();
             Contact= new Contact();
-            Contacts = new ObservableCollection<Contact>(Contact.GetContacts());
+            Contacts = new ObservableCollection<Contact>(_dataContext.Contacts);
             ConfirmCommand = new RelayCommand(ConfirmContact);
             EditCommand = new RelayCommand(EditCommandAction);
             DeleteCommand = new RelayCommand(DeleteCommandAction);
@@ -91,8 +95,8 @@ namespace CorrectionAnnuaire.ViewModels
         {
             if (Contact.Id == 0)
             {
-               
-                if (Contact.Save())
+                _dataContext.Contacts.Add(Contact);
+                if (_dataContext.SaveChanges() > 0)
                 {
                     
                     MessageBox.Show("Contact ajouté avec l'id " + Contact.Id);
@@ -108,7 +112,7 @@ namespace CorrectionAnnuaire.ViewModels
             else
             {
               
-                if (Contact.Update())
+                if (_dataContext.SaveChanges() > 0)
                 {
                     MessageBox.Show("Contact modifié ");
 
@@ -130,7 +134,9 @@ namespace CorrectionAnnuaire.ViewModels
         {
             if (SelectedContact != null)
             {
-                SelectedContact.Delete();
+                //SelectedContact.Delete();
+                _dataContext.Contacts.Remove(SelectedContact);
+                _dataContext.SaveChanges();
                 Contacts.Remove(SelectedContact);
             }
         }
