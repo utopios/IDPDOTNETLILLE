@@ -21,6 +21,27 @@ namespace CoursEntityFrameWorkCore.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
+            modelBuilder.Entity("CoursEntityFrameWorkCore.Adresse", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("City")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Street")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Adresses");
+                });
+
             modelBuilder.Entity("CoursEntityFrameWorkCore.Personne", b =>
                 {
                     b.Property<int>("Id")
@@ -28,6 +49,9 @@ namespace CoursEntityFrameWorkCore.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("AdresseId")
+                        .HasColumnType("int");
 
                     b.Property<int>("Age")
                         .HasColumnType("int");
@@ -38,7 +62,20 @@ namespace CoursEntityFrameWorkCore.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("AdresseId");
+
                     b.ToTable("Personnes");
+                });
+
+            modelBuilder.Entity("CoursEntityFrameWorkCore.Personne", b =>
+                {
+                    b.HasOne("CoursEntityFrameWorkCore.Adresse", "Adresse")
+                        .WithMany()
+                        .HasForeignKey("AdresseId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Adresse");
                 });
 #pragma warning restore 612, 618
         }

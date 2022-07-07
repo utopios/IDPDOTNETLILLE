@@ -11,6 +11,8 @@ namespace CoursEntityFrameWorkCore
     public class DataContext : DbContext
     {
         public DbSet<Personne> Personnes { get; set; }
+
+        public DbSet<Adresse> Adresses { get; set; }
         public DataContext() : base()
         {
 
