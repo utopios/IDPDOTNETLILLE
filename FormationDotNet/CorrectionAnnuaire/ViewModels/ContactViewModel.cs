@@ -2,6 +2,7 @@
 using AnnuaireEntityFrameWorkCore.Classes;
 using AnnuaireEntityFrameWorkCore.Tools;
 using GalaSoft.MvvmLight.Command;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -10,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace CorrectionAnnuaire.ViewModels
@@ -19,6 +21,7 @@ namespace CorrectionAnnuaire.ViewModels
         public event PropertyChangedEventHandler? PropertyChanged;
 
         private DataContext _dataContext;
+
 
         private Contact contact;
 
@@ -30,6 +33,7 @@ namespace CorrectionAnnuaire.ViewModels
         public ICommand EditCommand { get; set; }
         public ICommand DeleteCommand { get; set; }
 
+        private List<TextBox> _emailsTextBox;
         public Contact Contact
         {
             get => contact;
@@ -73,14 +77,15 @@ namespace CorrectionAnnuaire.ViewModels
 
         public Contact SelectedContact { get => selectedContact; set => selectedContact = value; }
 
-        public ContactViewModel()
+        public ContactViewModel(List<TextBox> emailTextBox)
         {
             _dataContext = new DataContext();
-            Contact= new Contact();
-            Contacts = new ObservableCollection<Contact>(_dataContext.Contacts);
+            Contact = new Contact();
+            Contacts = new ObservableCollection<Contact>(_dataContext.Contacts.Include(c => c.Emails));
             ConfirmCommand = new RelayCommand(ConfirmContact);
             EditCommand = new RelayCommand(EditCommandAction);
             DeleteCommand = new RelayCommand(DeleteCommandAction);
+            _emailsTextBox = emailTextBox;
         }
 
         private void RaisePropertyChanged(string propertyName)
@@ -95,12 +100,20 @@ namespace CorrectionAnnuaire.ViewModels
         {
             if (Contact.Id == 0)
             {
+                foreach (TextBox e in _emailsTextBox)
+                {
+                    Email mail = new Email()
+                    {
+                        Mail = e.Text
+                    };
+                    contact.Emails.Add(mail);
+                }
                 _dataContext.Contacts.Add(Contact);
                 if (_dataContext.SaveChanges() > 0)
                 {
-                    
+
                     MessageBox.Show("Contact ajouté avec l'id " + Contact.Id);
-                    
+
                     Contacts.Add(Contact);
                     Contact = new Contact();
                 }
@@ -111,20 +124,20 @@ namespace CorrectionAnnuaire.ViewModels
             }
             else
             {
-              
+
                 if (_dataContext.SaveChanges() > 0)
                 {
                     MessageBox.Show("Contact modifié ");
 
                     Contact = new Contact();
-                    
+
                 }
             }
         }
 
         private void EditCommandAction()
         {
-            if(SelectedContact != null)
+            if (SelectedContact != null)
             {
                 Contact = SelectedContact;
             }

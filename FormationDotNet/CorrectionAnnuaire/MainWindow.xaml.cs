@@ -29,7 +29,7 @@ namespace CorrectionAnnuaire
         {
             textBoxesEmails = new List<TextBox>();
             InitializeComponent();
-            viewModel = new ContactViewModel();
+            viewModel = new ContactViewModel(textBoxesEmails);
             DataContext = viewModel;
             //listBoxContact.ItemsSource = Contact.GetContacts();
         }
