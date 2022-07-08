@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace BankEntityFrameWork.Classes
 {
+    [Table("account")]
     public class Account
     {
         private int id;
@@ -15,15 +17,23 @@ namespace BankEntityFrameWork.Classes
 
         private List<Operation> operations;
 
+        [Column("account_number")]
         public int AccountNumber { get => accountNumber; set => accountNumber = value; }
+
+        [Column("total_amount")]
         public decimal TotalAmount { get => totalAmount; set => totalAmount = value; }
+
+        [ForeignKey("CustomerId")]
         public Customer Customer { get => customer; set => customer = value; }
-        public List<Operation> Operations { get => operations; set => operations = value; }
+        public virtual List<Operation> Operations { get => operations; set => operations = value; }
         public int Id { get => id; set => id = value; }
+
+        [Column("customer_id")]
+        public int CustomerId { get; set; }
 
         public Account()
         {
-            TotalAmount = 0;
+            //TotalAmount = 0;
         }
         public Account(Customer customer, int accountNumber)
         {
