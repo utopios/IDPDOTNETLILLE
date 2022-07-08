@@ -19,6 +19,11 @@ namespace BankEntityFrameWork.Repositories
             throw new NotImplementedException();
         }
 
+        public override bool Delete(Customer element)
+        {
+            throw new NotImplementedException();
+        }
+
         public override Customer Find(Predicate<Customer> predicate)
         {
             throw new NotImplementedException();

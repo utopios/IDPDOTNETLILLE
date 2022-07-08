@@ -20,6 +20,9 @@ namespace BankEntityFrameWork.Repositories
 
         public abstract bool Update(T element);
 
+        public abstract bool Delete(T element);
+
+
         public abstract T Find(Predicate<T> predicate);
 
         public abstract List<T> FindAll(Predicate<T> predicate);
