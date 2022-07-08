@@ -26,12 +26,12 @@ namespace CashRegistryEntityFrameWork.Repositories
             var orders = _dataContext.Orders/*.Include(p => p.Payment)*/.Include(o => o.Products).ThenInclude(p => p.Product).ToList();
             orders.ForEach(o =>
             {
-                Payment p = _dataContext.CashPayments.FirstOrDefault(p => p.PaymentId == o.PaymentId);
-                if (p == null)
+                Payment pa = _dataContext.CashPayments.FirstOrDefault(p => p.PaymentId == o.PaymentId);
+                if (pa == null)
                 {
-                    p = _dataContext.CardPayments.FirstOrDefault(p => p.PaymentId == o.PaymentId);
+                    pa = _dataContext.CardPayments.FirstOrDefault(p => p.PaymentId == o.PaymentId);
                 }
-                o.Payment = p;
+                o.Payment = pa;
             });
             return _dataContext.Orders/*.Include(p => p.Payment)*/.Include(o => o.Products).ThenInclude(p => p.Product).ToList();
 
