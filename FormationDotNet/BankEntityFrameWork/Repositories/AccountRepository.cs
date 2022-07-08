@@ -28,7 +28,7 @@ namespace BankEntityFrameWork.Repositories
 
         public override Account Find(Predicate<Account> predicate)
         {
-            return _dataContext.Accounts.Include(p => p.Customer).Include(c => c.Operations).FirstOrDefault((e) => predicate(e));
+            return _dataContext.Accounts.Include(p => p.Customer).Include(c => c.Operations).ToList().FirstOrDefault((e) => predicate(e));
         }
 
         public override List<Account> FindAll(Predicate<Account> predicate)

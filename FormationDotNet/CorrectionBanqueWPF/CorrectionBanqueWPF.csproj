@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BankEntityFrameWork\BankEntityFrameWork.csproj" />
     <ProjectReference Include="..\CompteBancaireAdoNet\CompteBancaireAdoNet.csproj" />
   </ItemGroup>
 

@@ -16,29 +16,54 @@ namespace BankEntityFrameWork.Repositories
 
         public override bool Create(Customer element)
         {
-            _dataContext.Customers.Add(element);
-            return _dataContext.SaveChanges() > 0;
+            throw new NotImplementedException();
         }
 
         public override bool Delete(Customer element)
         {
-            _dataContext.Customers.Remove(element);
-            return _dataContext.SaveChanges() > 0;
+            throw new NotImplementedException();
         }
 
         public override Customer Find(Predicate<Customer> predicate)
         {
-            return _dataContext.Customers.FirstOrDefault(c => predicate(c));
+            throw new NotImplementedException();
         }
 
         public override List<Customer> FindAll(Predicate<Customer> predicate)
         {
-            return _dataContext.Customers.Where(c => predicate(c)).ToList();
+            throw new NotImplementedException();
         }
 
         public override bool Update()
         {
-            return _dataContext.SaveChanges() > 0;
+            throw new NotImplementedException();
         }
+
+        //public override bool Create(Customer element)
+        //{
+        //    //_dataContext.Customers.Add(element);
+        //    //return _dataContext.SaveChanges() > 0;
+        //}
+
+        //public override bool Delete(Customer element)
+        //{
+        //    //_dataContext.Customers.Remove(element);
+        //    //return _dataContext.SaveChanges() > 0;
+        //}
+
+        //public override Customer Find(Predicate<Customer> predicate)
+        //{
+        //    //return _dataContext.Customers.FirstOrDefault(c => predicate(c));
+        //}
+
+        //public override List<Customer> FindAll(Predicate<Customer> predicate)
+        //{
+        //    //return _dataContext.Customers.Where(c => predicate(c)).ToList();
+        //}
+
+        //public override bool Update()
+        //{
+        //    //return _dataContext.SaveChanges() > 0;
+        //}
     }
 }

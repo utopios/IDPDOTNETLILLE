@@ -1,4 +1,6 @@
 ﻿
+using BankEntityFrameWork.Repositories;
+using BankEntityFrameWork.Tools;
 using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
@@ -12,6 +14,7 @@ namespace BankEntityFrameWork.Classes
     {
         private string name;
         private List<Account> accounts;
+        private DataContext dataContext;
 
         public string Name { get => name; set => name = value; }
         public List<Account> Accounts { get => accounts; set => accounts = value; }
@@ -20,90 +23,70 @@ namespace BankEntityFrameWork.Classes
         {
             Accounts = new List<Account>();
             Name = name;
+            dataContext = new DataContext();
         }
 
-        //public Account AddAccount(Customer customer)
-        //{
-        //    if (new CustomerDAO().Save(customer)) {
-        //        Account account = new Account(customer, createRandomAccountNumber(5));
-        //        if (new AccountDAO().Save(account)) { 
-        //            accounts.Add(account);
-        //            return account;
-        //        }
-        //        return null;
-        //    }
-        //    return null;
-        //}
+        public Account AddAccount(Customer customer)
+        {
+            //if (new CustomerDAO().Save(customer))
+            //{
+            //    Account account = new Account(customer, createRandomAccountNumber(5));
+            //    if (new AccountDAO().Save(account))
+            //    {
+            //        accounts.Add(account);
+            //        return account;
+            //    }
+            //    return null;
+            //}
+            //return null;
 
-        //public bool MakeWithDraw(decimal amount, int accountNumber)
-        //{
-        //    //A coder
-        //    Account account = GetAccount(accountNumber);
+            Account account = new Account(customer, createRandomAccountNumber(5));
+            if(new AccountRepository(dataContext).Create(account))
+            {
+                return account;
+            }
+            return null;
+        }
 
-        //    if (account != null)
-        //    {
-        //        Operation operation = new Operation(amount);
-        //        operation.AccountId = account.Id;
-        //        //if(new OperationDAO().Save(operation))
-        //        //{
-        //        //    if(new AccountDAO().Update(account))
-        //        //        return account.WithDraw(operation);
-        //        //}
-        //        return new OperationDAO().Save(operation) && account.WithDraw(operation) && new AccountDAO().Update(account);
-        //    }
-        //    return false;
-        //}
+        public bool MakeWithDraw(decimal amount, int accountNumber)
+        {
+            //A coder
+            Account account = GetAccount(accountNumber);
 
-        //public bool MakeDeposit(decimal amount, int accountNumber)
-        //{
-            
-        //    Account account = GetAccount(accountNumber);
-        //    if (account != null)
-        //    {
-        //        SqlConnection connection = DataBase.Connection;
-        //        connection.Open();
-        //        SqlTransaction transaction = connection.BeginTransaction();
-        //        Operation operation = new Operation(amount);
-        //        operation.AccountId = account.Id;
-        //        bool result = new OperationDAO(connection, transaction).Save(operation) && account.Deposit(operation) && new AccountDAO(connection, transaction).Update(account);
-        //        if(result)
-        //        {
-        //            transaction.Commit();
-        //        }else
-        //        {
-        //            transaction.Rollback();
-        //        }
-        //        connection.Close();
-        //        return result;
-        //    }
-        //    return false;
-        //}
+            if (account != null)
+            {
+                Operation operation = new Operation(amount);
+                
+              
+ 
+                return account.WithDraw(operation) && new AccountRepository(dataContext).Update();
+            }
+            return false;
+        }
 
-        //public Account GetAccount(int number)
-        //{
-        //    //A coder
-        //    //DAO
-        //    Account account = new AccountDAO().GetWithAccountNumber(number);
-        //    //foreach (Account a in accounts)
-        //    //{
-        //    //    if (a.AccountNumber == number)
-        //    //    {
-        //    //        account = a;
-        //    //        break;
-        //    //    }
-        //    //}
-        //    return account;
-        //}
-        //private int createRandomAccountNumber(int size)
-        //{
-        //    string code = "";
-        //    Random r = new Random();
-        //    for (int i = 1; i <= size; i++)
-        //    {
-        //        code += r.Next(0, 10);
-        //    }
-        //    return Convert.ToInt32(code);
-        //}
+        public bool MakeDeposit(decimal amount, int accountNumber)
+        {
+            Account account = GetAccount(accountNumber);
+            Operation operation = new Operation(amount);
+            return account.Deposit(operation) && new AccountRepository(dataContext).Update();
+          
+        }
+
+        public Account GetAccount(int number)
+        {
+            Account account = new AccountRepository(dataContext).Find(c => c.AccountNumber == number);
+            return account;
+        }
+        private int createRandomAccountNumber(int size)
+        {
+            string code = "";
+            Random r = new Random();
+            for (int i = 1; i <= size; i++)
+            {
+                code += r.Next(0, 10);
+            }
+            return Convert.ToInt32(code);
+        }
 
     }
 }

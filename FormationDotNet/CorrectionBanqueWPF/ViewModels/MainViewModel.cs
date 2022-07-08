@@ -1,4 +1,5 @@
-﻿using CompteBancaireAdoNet.Classes;
+﻿
+using BankEntityFrameWork.Classes;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using System;

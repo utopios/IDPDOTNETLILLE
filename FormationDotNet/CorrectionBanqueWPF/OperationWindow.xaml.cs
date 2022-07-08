@@ -1,4 +1,5 @@
-﻿using CompteBancaireAdoNet.Classes;
+﻿
+using BankEntityFrameWork.Classes;
 using CorrectionBanqueWPF.ViewModels;
 using System;
 using System.Collections.Generic;

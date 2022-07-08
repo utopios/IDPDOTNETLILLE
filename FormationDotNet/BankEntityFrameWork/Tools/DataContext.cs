@@ -12,7 +12,7 @@ namespace BankEntityFrameWork.Tools
     public class DataContext : DbContext
     {
         public DbSet<Account> Accounts { get; set; }
-        public DbSet<Customer> Customers { get; set; }
+        //public DbSet<Customer> Customers { get; set; }
         public DataContext() : base()
         {
 
