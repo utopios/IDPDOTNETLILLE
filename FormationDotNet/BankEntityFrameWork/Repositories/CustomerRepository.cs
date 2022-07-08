@@ -16,27 +16,29 @@ namespace BankEntityFrameWork.Repositories
 
         public override bool Create(Customer element)
         {
-            throw new NotImplementedException();
+            _dataContext.Customers.Add(element);
+            return _dataContext.SaveChanges() > 0;
         }
 
         public override bool Delete(Customer element)
         {
-            throw new NotImplementedException();
+            _dataContext.Customers.Remove(element);
+            return _dataContext.SaveChanges() > 0;
         }
 
         public override Customer Find(Predicate<Customer> predicate)
         {
-            throw new NotImplementedException();
+            return _dataContext.Customers.FirstOrDefault(c => predicate(c));
         }
 
         public override List<Customer> FindAll(Predicate<Customer> predicate)
         {
-            throw new NotImplementedException();
+            return _dataContext.Customers.Where(c => predicate(c)).ToList();
         }
 
-        public override bool Update(Customer element)
+        public override bool Update()
         {
-            throw new NotImplementedException();
+            return _dataContext.SaveChanges() > 0;
         }
     }
 }

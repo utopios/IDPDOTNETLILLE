@@ -18,7 +18,7 @@ namespace BankEntityFrameWork.Repositories
 
         public abstract bool Create(T element);
 
-        public abstract bool Update(T element);
+        public abstract bool Update();
 
         public abstract bool Delete(T element);
 
