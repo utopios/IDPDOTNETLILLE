@@ -23,17 +23,20 @@ namespace CashRegistryEntityFrameWork.Repositories
 
         public override List<Order> FindAll()
         {
-            var orders = _dataContext.Orders/*.Include(p => p.Payment)*/.Include(o => o.Products).ThenInclude(p => p.Product).ToList();
-            orders.ForEach(o =>
-            {
-                Payment pa = _dataContext.CashPayments.FirstOrDefault(p => p.PaymentId == o.PaymentId);
-                if (pa == null)
-                {
-                    pa = _dataContext.CardPayments.FirstOrDefault(p => p.PaymentId == o.PaymentId);
-                }
-                o.Payment = pa;
-            });
-            return _dataContext.Orders/*.Include(p => p.Payment)*/.Include(o => o.Products).ThenInclude(p => p.Product).ToList();
+            //var orders = _dataContext.Orders/*.Include(p => p.Payment)*/.Include(o => o.Products).ThenInclude(p => p.Product).ToList();
+            //orders.ForEach(o =>
+            //{
+            //    Payment pa = _dataContext.CashPayments.FirstOrDefault(p => p.PaymentId == o.PaymentId);
+            //    if (pa == null)
+            //    {
+            //        pa = _dataContext.CardPayments.FirstOrDefault(p => p.PaymentId == o.PaymentId);
+            //    }
+            //    o.Payment = pa;
+            //});
+
+            //Custom request query
+            var orders = _dataContext.Orders.FromSqlRaw("SELECT Id, PaymentId FROM Order where Id > {0}", 10).ToList();
+            return orders;
 
         }
     }
