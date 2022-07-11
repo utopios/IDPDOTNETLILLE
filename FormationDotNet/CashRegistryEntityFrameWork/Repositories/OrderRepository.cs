@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace CashRegistryEntityFrameWork.Repositories
 {
     public class OrderRepository : BaseRepository<Order>
@@ -34,7 +35,10 @@ namespace CashRegistryEntityFrameWork.Repositories
             //    o.Payment = pa;
             //});
 
-            //Custom request query
+            //Custom request query with ADO.NET
+            var command = _dataContext.Database.GetDbConnection().CreateCommand();
+            command.CommandText = "SELECT * FROM order";
+            //Custom request query with Model
             var orders = _dataContext.Orders.FromSqlRaw("SELECT Id, PaymentId FROM Order where Id > {0}", 10).ToList();
             return orders;
 
