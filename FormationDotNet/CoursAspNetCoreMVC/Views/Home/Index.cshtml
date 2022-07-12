@@ -14,8 +14,23 @@
     }
     Voiture : @voiture.Marque
 </div>*@
-
+@*
 @foreach (Voiture voiture in (ViewData["voitures"] as List<Voiture>))
+{
+    <div class="text-center">
+        @if (voiture.Marque == "Tesla")
+        {
+            <div>electrique</div>
+        }
+        else
+        {
+            <div>diesel</div>
+        }
+        Voiture : @voiture.Marque
+    </div>
+}*@
+
+@foreach (Voiture voiture in ViewBag.voitures)
 {
     <div class="text-center">
         @if (voiture.Marque == "Tesla")
