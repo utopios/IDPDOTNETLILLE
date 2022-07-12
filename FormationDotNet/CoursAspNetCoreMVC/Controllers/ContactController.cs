@@ -4,18 +4,18 @@ namespace CoursAspNetCoreMVC.Controllers
 {
     public class ContactController : Controller
     {
-        public string Index()
+        public IActionResult Index()
         {
-            return "Acccueil annuaire contact";
+            return View();
         }
 
-        public string Form()
+        public IActionResult Form()
         {
-            return "Page formulaire";
+            return View();
         }
-        public string DetailContact()
+        public IActionResult DetailContact()
         {
-            return "Page détail contact";
+            return View();
         }
     }
 }
