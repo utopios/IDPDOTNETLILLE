@@ -6,7 +6,8 @@ namespace CoursAspNetCoreMVC.Controllers
     {
         public IActionResult Index()
         {
-            return new ContentResult() { Content = "<h1>Bonjour je suis la méthode index du controleur produit</h1>", ContentType="text/html" };
+            //return new ContentResult() { Content = "<h1>Bonjour je suis la méthode index du controleur produit</h1>", ContentType="text/html" };
+            return View();
         }
     }
 }
