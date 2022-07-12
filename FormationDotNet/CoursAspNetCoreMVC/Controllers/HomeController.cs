@@ -24,9 +24,9 @@ namespace CoursAspNetCoreMVC.Controllers
             //ViewData["voiture"] = v;
             //ViewData["voitures"] = new List<Voiture>() { v, new Voiture() { Marque="Espace" } };
             //2 => ViewBag
-            ViewBag.voiture = v;
-            ViewBag.voitures = new List<Voiture>() { v, new Voiture() { Marque = "Espace" } };
-            return View();
+            //ViewBag.voiture = v;
+            //ViewBag.voitures = new List<Voiture>() { v, new Voiture() { Marque = "Espace" } };
+            return View(v);
         }
 
         public IActionResult Privacy()

@@ -1,4 +1,5 @@
-﻿@{
+﻿@model Voiture
+@{
     ViewData["Title"] = "Home Page";
     Layout = "_Layout";
     //var voiture = @ViewData["voiture"] as Voiture;
@@ -30,7 +31,7 @@
     </div>
 }*@
 
-@foreach (Voiture voiture in ViewBag.voitures)
+@*@foreach (Voiture voiture in ViewBag.voitures)
 {
     <div class="text-center">
         @if (voiture.Marque == "Tesla")
@@ -43,4 +44,15 @@
         }
         Voiture : @voiture.Marque
     </div>
-}
+}*@
+<div class="text-center">
+        @if (Model.Marque == "Tesla")
+        {
+            <div>electrique</div>
+        }
+        else
+        {
+            <div>diesel</div>
+        }
+        Voiture : @Model.Marque
+    </div>
