@@ -55,9 +55,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankEntityFrameWork", "Bank
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CashRegistryEntityFrameWork", "CashRegistryEntityFrameWork\CashRegistryEntityFrameWork.csproj", "{F2C7E1E7-A96E-4AA1-8E47-CAE381D4778A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFrameWorkDbFirst", "EntityFrameWorkDbFirst\EntityFrameWorkDbFirst.csproj", "{0CFF7A76-A71D-4815-BBB9-8102FD205380}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityFrameWorkDbFirst", "EntityFrameWorkDbFirst\EntityFrameWorkDbFirst.csproj", "{0CFF7A76-A71D-4815-BBB9-8102FD205380}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "demoEntityFrameworkDbFirst", "demoEntityFrameworkDbFirst\demoEntityFrameworkDbFirst.csproj", "{48F1FB32-3ED0-4BD9-8DA6-86738E3CAC89}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "demoEntityFrameworkDbFirst", "demoEntityFrameworkDbFirst\demoEntityFrameworkDbFirst.csproj", "{48F1FB32-3ED0-4BD9-8DA6-86738E3CAC89}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CoursAspNetCore", "CoursAspNetCore", "{0A239F47-E3AA-4F2E-A39B-8ACA22DBC27E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "coursAspNetCore", "coursAspNetCore\coursAspNetCore.csproj", "{289BD504-F134-4712-9E28-3F114970B590}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -153,6 +157,10 @@ Global
 		{48F1FB32-3ED0-4BD9-8DA6-86738E3CAC89}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{48F1FB32-3ED0-4BD9-8DA6-86738E3CAC89}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{48F1FB32-3ED0-4BD9-8DA6-86738E3CAC89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{289BD504-F134-4712-9E28-3F114970B590}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{289BD504-F134-4712-9E28-3F114970B590}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{289BD504-F134-4712-9E28-3F114970B590}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{289BD504-F134-4712-9E28-3F114970B590}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -165,6 +173,7 @@ Global
 		{F2C7E1E7-A96E-4AA1-8E47-CAE381D4778A} = {8050CA4C-DB4A-4DD4-8001-E641C4BA7A2B}
 		{0CFF7A76-A71D-4815-BBB9-8102FD205380} = {8050CA4C-DB4A-4DD4-8001-E641C4BA7A2B}
 		{48F1FB32-3ED0-4BD9-8DA6-86738E3CAC89} = {8050CA4C-DB4A-4DD4-8001-E641C4BA7A2B}
+		{289BD504-F134-4712-9E28-3F114970B590} = {0A239F47-E3AA-4F2E-A39B-8ACA22DBC27E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {17BC5B87-F4FC-4C84-BD11-0E8C79B13B2C}
