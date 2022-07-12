@@ -4,9 +4,9 @@ namespace CoursAspNetCoreMVC.Controllers
 {
     public class ProductController : Controller
     {
-        public string Index()
+        public IActionResult Index()
         {
-            return "Bonjour je suis la méthode index du controleur produit";
+            return new ContentResult() { Content = "<h1>Bonjour je suis la méthode index du controleur produit</h1>", ContentType="text/html" };
         }
     }
 }
