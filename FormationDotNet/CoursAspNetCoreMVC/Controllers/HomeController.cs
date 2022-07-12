@@ -15,6 +15,14 @@ namespace CoursAspNetCoreMVC.Controllers
 
         public IActionResult Index()
         {
+            Voiture v = new Voiture()
+            {
+                Marque = "Tesla"
+            };
+            //pour passer des données du controleur vers la vue
+            //1 => ViewData
+            ViewData["voiture"] = v;
+            ViewData["voitures"] = new List<Voiture>() { v, new Voiture() { Marque="Espace" } };
             return View();
         }
 
