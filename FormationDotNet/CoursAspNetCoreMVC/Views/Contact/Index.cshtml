@@ -4,7 +4,8 @@
 @{
 }
 
-@foreach (Contact contact in ViewData["contacts"] as List<Contact>)
+@*@foreach (Contact contact in ViewData["contacts"] as List<Contact>)*@
+@foreach (Contact contact in ViewBag.contacts)
 {
     <div>
         @contact.FirstName @contact.LastName @contact.Phone

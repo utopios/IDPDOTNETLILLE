@@ -9,7 +9,8 @@ namespace CoursAspNetCoreMVC.Controllers
         {
             //
             DataContext _data = new DataContext();
-            ViewData["contacts"] = _data.Contacts.ToList();
+            //ViewData["contacts"] = _data.Contacts.ToList();
+            ViewBag.contacts = _data.Contacts.ToList();
             return View();
         }
 
