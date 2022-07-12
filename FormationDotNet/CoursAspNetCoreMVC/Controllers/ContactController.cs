@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AnnuaireEntityFrameWorkCore.Tools;
+using Microsoft.AspNetCore.Mvc;
 
 namespace CoursAspNetCoreMVC.Controllers
 {
@@ -6,6 +7,9 @@ namespace CoursAspNetCoreMVC.Controllers
     {
         public IActionResult Index()
         {
+            //
+            DataContext _data = new DataContext();
+            ViewData["contacts"] = _data.Contacts.ToList();
             return View();
         }
 

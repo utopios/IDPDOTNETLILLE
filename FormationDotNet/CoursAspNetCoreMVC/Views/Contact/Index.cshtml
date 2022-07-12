@@ -3,3 +3,10 @@
 *@
 @{
 }
+
+@foreach (Contact contact in ViewData["contacts"] as List<Contact>)
+{
+    <div>
+        @contact.FirstName @contact.LastName @contact.Phone
+    </div>
+}
