@@ -6,10 +6,16 @@ namespace CoursAspNetCoreMVC.Controllers
 {
     public class ContactController : Controller
     {
+        private DataContext _data;
+
+        public ContactController()
+        {
+            _data = new DataContext();
+        }
         public IActionResult Index(string search, string message, string type)
         {
             //
-            DataContext _data = new DataContext();
+           
             //ViewData["contacts"] = _data.Contacts.ToList();
             //ViewBag.contacts = _data.Contacts.ToList();
             ViewBag.message = message;
@@ -30,7 +36,6 @@ namespace CoursAspNetCoreMVC.Controllers
             Contact contact = new Contact();
             if (id != null)
             {
-                DataContext _data = new DataContext();
                 contact = _data.Contacts.Find(id);
             }
             return View(contact);
@@ -40,7 +45,6 @@ namespace CoursAspNetCoreMVC.Controllers
         public IActionResult SubmitForm([Bind("FirstName", "LastName", "Phone")] Contact contact, int? id)
         {
 
-            DataContext _data = new DataContext();
             //Contact contact = new Contact()
             //{
             //    FirstName = firstName,
@@ -67,13 +71,11 @@ namespace CoursAspNetCoreMVC.Controllers
         }
         public IActionResult DetailContact(int id)
         {
-            DataContext _data = new DataContext();
             return View(_data.Contacts.Find(id));
         }
 
         public IActionResult DeleteContact(int id)
         {
-            DataContext _data = new DataContext();
             Contact contact = _data.Contacts.Find(id);
             object data;
             if (contact == null)
