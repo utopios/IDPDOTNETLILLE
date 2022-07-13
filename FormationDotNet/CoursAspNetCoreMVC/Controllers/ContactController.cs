@@ -20,15 +20,16 @@ namespace CoursAspNetCoreMVC.Controllers
             return View();
         }
 
-        public IActionResult SubmitForm(string firstName, string lastName, string phone)
+        //public IActionResult SubmitForm(string firstName, string lastName, string phone)
+        public IActionResult SubmitForm([Bind("FirstName", "LastName", "Phone")]Contact contact)
         {
             DataContext _data = new DataContext();
-            Contact contact = new Contact()
-            {
-                FirstName = firstName,
-                LastName = lastName,
-                Phone = phone
-            };
+            //Contact contact = new Contact()
+            //{
+            //    FirstName = firstName,
+            //    LastName = lastName,
+            //    Phone = phone
+            //};
             _data.Contacts.Add(contact);
             _data.SaveChanges();
             return RedirectToAction("Index");
