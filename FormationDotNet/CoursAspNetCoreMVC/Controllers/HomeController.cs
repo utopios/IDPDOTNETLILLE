@@ -50,6 +50,11 @@ namespace CoursAspNetCoreMVC.Controllers
             return View();
         }
 
+        public string SubmitForm(string marque)
+        {
+            return marque;
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

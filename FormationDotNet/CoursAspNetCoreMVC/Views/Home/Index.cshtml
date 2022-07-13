@@ -57,3 +57,14 @@
         }
         Voiture : @Model.Marque
     </div>*@
+
+<div>
+    <form asp-action="SubmitForm" asp-controller="Home" method="post">
+        <div>
+            <input type="text" name="marque" />
+        </div>
+        <div>
+            <button type="submit">Valider</button>
+        </div>
+    </form>
+</div>
