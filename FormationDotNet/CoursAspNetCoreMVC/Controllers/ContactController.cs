@@ -6,13 +6,21 @@ namespace CoursAspNetCoreMVC.Controllers
 {
     public class ContactController : Controller
     {
-        public IActionResult Index()
+        public IActionResult Index(string search)
         {
             //
             DataContext _data = new DataContext();
             //ViewData["contacts"] = _data.Contacts.ToList();
             //ViewBag.contacts = _data.Contacts.ToList();
-            return View(_data.Contacts.ToList());
+            if(search == null ||search =="")
+            {
+                return View(_data.Contacts.ToList());
+
+            }
+            else
+            {
+                return View(_data.Contacts.Where(c=> c.FirstName == search || c.LastName == search || c.Phone == search).ToList());
+            }
         }
 
         public IActionResult Form()
