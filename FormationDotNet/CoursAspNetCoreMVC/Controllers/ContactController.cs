@@ -6,20 +6,22 @@ namespace CoursAspNetCoreMVC.Controllers
 {
     public class ContactController : Controller
     {
-        public IActionResult Index(string search)
+        public IActionResult Index(string search, string message, string type)
         {
             //
             DataContext _data = new DataContext();
             //ViewData["contacts"] = _data.Contacts.ToList();
             //ViewBag.contacts = _data.Contacts.ToList();
-            if(search == null ||search =="")
+            ViewBag.message = message;
+            ViewBag.type = type;
+            if (search == null || search == "")
             {
                 return View(_data.Contacts.ToList());
 
             }
             else
             {
-                return View(_data.Contacts.Where(c=> c.FirstName == search || c.LastName == search || c.Phone == search).ToList());
+                return View(_data.Contacts.Where(c => c.FirstName == search || c.LastName == search || c.Phone == search).ToList());
             }
         }
 
@@ -29,7 +31,7 @@ namespace CoursAspNetCoreMVC.Controllers
         }
 
         //public IActionResult SubmitForm(string firstName, string lastName, string phone)
-        public IActionResult SubmitForm([Bind("FirstName", "LastName", "Phone")]Contact contact)
+        public IActionResult SubmitForm([Bind("FirstName", "LastName", "Phone")] Contact contact)
         {
             DataContext _data = new DataContext();
             //Contact contact = new Contact()
@@ -46,6 +48,24 @@ namespace CoursAspNetCoreMVC.Controllers
         {
             DataContext _data = new DataContext();
             return View(_data.Contacts.Find(id));
+        }
+
+        public IActionResult DeleteContact(int id)
+        {
+            DataContext _data = new DataContext();
+            Contact contact = _data.Contacts.Find(id);
+            object data;
+            if (contact == null)
+            {
+                data = new { message = "aucun contact avec cet id", type = "alert-danger" };
+            }
+            else
+            {
+                _data.Contacts.Remove(contact);
+                _data.SaveChanges();
+                data = new { Message = "suppression Ok", type = "alert-success" };
+            }
+            return RedirectToAction("Index", data);
         }
     }
 }

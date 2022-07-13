@@ -7,6 +7,16 @@
 
 @*@foreach (Contact contact in ViewData["contacts"] as List<Contact>)*@
 @*@foreach (Contact contact in ViewBag.contacts)*@
+@if(ViewBag.message != null)
+{
+    <div class="container">
+        <div class="row">
+            <div class="alert @ViewBag.type">
+                @ViewBag.message
+            </div>
+        </div>
+    </div>
+}
 <div>
     <form asp-action="Index" asp-controller="Contact">
         <input type="text" name="search" />
@@ -16,6 +26,6 @@
 @foreach (Contact contact in Model)
 {
     <div>
-        @contact.FirstName @contact.LastName @contact.Phone <a asp-action="DetailContact" asp-controller="Contact" asp-route-id="@contact.Id">Detail</a>
+        @contact.FirstName @contact.LastName @contact.Phone <a asp-action="DetailContact" asp-controller="Contact" asp-route-id="@contact.Id">Detail</a><a asp-action="DeleteContact" asp-controller="Contact" asp-route-id="@contact.Id">Supprimer</a>
     </div>
 }
