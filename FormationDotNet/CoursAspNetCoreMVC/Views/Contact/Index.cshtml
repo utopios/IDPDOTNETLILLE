@@ -10,6 +10,6 @@
 @foreach (Contact contact in Model)
 {
     <div>
-        @contact.FirstName @contact.LastName @contact.Phone
+        @contact.FirstName @contact.LastName @contact.Phone <a asp-action="DetailContact" asp-controller="Contact" asp-route-id="@contact.Id">Detail</a>
     </div>
 }

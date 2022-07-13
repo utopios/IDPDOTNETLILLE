@@ -18,9 +18,10 @@ namespace CoursAspNetCoreMVC.Controllers
         {
             return View();
         }
-        public IActionResult DetailContact()
+        public IActionResult DetailContact(int id)
         {
-            return View();
+            DataContext _data = new DataContext();
+            return View(_data.Contacts.Find(id));
         }
     }
 }
