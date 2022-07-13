@@ -1,12 +1,17 @@
-﻿<form class="container" asp-action="SubmitForm" asp-controller="Contact" method="post">
+﻿@model Contact
+<form class="container" asp-action="SubmitForm" asp-controller="Contact" method="post">
+    @if(Model.Id > 0)
+    {
+        <input type="hidden" name="id" value="@Model.Id" />
+    }
     <div class="row m-1">
-        <input type="text" name="firstName" placeholder="Prénom du contact" class="col p-1 form-control" />
+        <input type="text" value="@Model.FirstName" name="firstName" placeholder="Prénom du contact" class="col p-1 form-control" />
     </div>
     <div class="row m-1">
-        <input type="text" name="lastName" placeholder="Nom du contact" class="col p-1 form-control" />
+        <input type="text" value="@Model.LastName" name="lastName" placeholder="Nom du contact" class="col p-1 form-control" />
     </div>
     <div class="row m-1">
-        <input type="text" name="phone" placeholder="Téléphone du contact" class="col p-1 form-control" />
+        <input type="text" value="@Model.Phone" name="phone" placeholder="Téléphone du contact" class="col p-1 form-control" />
     </div>
     <div class="row m-1">
         <button class="btn btn-success col p-1" type="submit">Valider</button>

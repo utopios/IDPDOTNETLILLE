@@ -25,14 +25,21 @@ namespace CoursAspNetCoreMVC.Controllers
             }
         }
 
-        public IActionResult Form()
+        public IActionResult Form(int? id)
         {
-            return View();
+            Contact contact = new Contact();
+            if (id != null)
+            {
+                DataContext _data = new DataContext();
+                contact = _data.Contacts.Find(id);
+            }
+            return View(contact);
         }
 
         //public IActionResult SubmitForm(string firstName, string lastName, string phone)
-        public IActionResult SubmitForm([Bind("FirstName", "LastName", "Phone")] Contact contact)
+        public IActionResult SubmitForm([Bind("FirstName", "LastName", "Phone")] Contact contact, int? id)
         {
+
             DataContext _data = new DataContext();
             //Contact contact = new Contact()
             //{
@@ -40,8 +47,22 @@ namespace CoursAspNetCoreMVC.Controllers
             //    LastName = lastName,
             //    Phone = phone
             //};
-            _data.Contacts.Add(contact);
-            _data.SaveChanges();
+            if(id == null)
+            {
+                _data.Contacts.Add(contact);
+                _data.SaveChanges();
+            }
+            else
+            {
+                Contact updateContact = _data.Contacts.Find(id);
+                if(updateContact != null)
+                {
+                    updateContact.FirstName = contact.FirstName;
+                    updateContact.LastName = contact.LastName;
+                    updateContact.Phone = contact.Phone;
+                    _data.SaveChanges();
+                }
+            }
             return RedirectToAction("Index");
         }
         public IActionResult DetailContact(int id)

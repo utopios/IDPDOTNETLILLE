@@ -26,6 +26,6 @@
 @foreach (Contact contact in Model)
 {
     <div>
-        @contact.FirstName @contact.LastName @contact.Phone <a asp-action="DetailContact" asp-controller="Contact" asp-route-id="@contact.Id">Detail</a><a asp-action="DeleteContact" asp-controller="Contact" asp-route-id="@contact.Id">Supprimer</a>
+        @contact.FirstName @contact.LastName @contact.Phone <a asp-action="DetailContact" asp-controller="Contact" asp-route-id="@contact.Id">Detail</a> <a asp-action="Form" asp-controller="Contact" asp-route-id="@contact.Id">Edit</a> <a asp-action="DeleteContact" asp-controller="Contact" asp-route-id="@contact.Id">Supprimer</a>
     </div>
 }
