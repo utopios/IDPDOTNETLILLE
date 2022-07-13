@@ -31,7 +31,7 @@
     </div>
 }*@
 
-@*@foreach (Voiture voiture in ViewBag.voitures)
+@foreach (Voiture voiture in ViewBag.voitures)
 {
     <div class="text-center">
         @if (voiture.Marque == "Tesla")
@@ -43,9 +43,10 @@
             <div>diesel</div>
         }
         Voiture : @voiture.Marque
+        <a asp-controller="Home" asp-action="DetailVoiture" asp-route-marque="@voiture.Marque" >Lien</a>
     </div>
-}*@
-<div class="text-center">
+}
+@*<div class="text-center">
         @if (Model.Marque == "Tesla")
         {
             <div>electrique</div>
@@ -55,4 +56,4 @@
             <div>diesel</div>
         }
         Voiture : @Model.Marque
-    </div>
+    </div>*@

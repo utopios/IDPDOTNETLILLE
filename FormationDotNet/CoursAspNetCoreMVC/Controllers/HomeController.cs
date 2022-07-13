@@ -25,6 +25,22 @@ namespace CoursAspNetCoreMVC.Controllers
             //ViewData["voitures"] = new List<Voiture>() { v, new Voiture() { Marque="Espace" } };
             //2 => ViewBag
             //ViewBag.voiture = v;
+            ViewBag.voitures = new List<Voiture>() { v, new Voiture() { Marque = "Espace" } };
+            return View(v);
+        }
+
+        public IActionResult DetailVoiture(string marque)
+        {
+            Voiture v = new Voiture()
+            {
+                Marque = marque
+            };
+            //pour passer des données du controleur vers la vue
+            //1 => ViewData
+            //ViewData["voiture"] = v;
+            //ViewData["voitures"] = new List<Voiture>() { v, new Voiture() { Marque="Espace" } };
+            //2 => ViewBag
+            //ViewBag.voiture = v;
             //ViewBag.voitures = new List<Voiture>() { v, new Voiture() { Marque = "Espace" } };
             return View(v);
         }
