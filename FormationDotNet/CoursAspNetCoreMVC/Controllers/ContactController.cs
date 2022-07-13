@@ -1,4 +1,5 @@
-﻿using AnnuaireEntityFrameWorkCore.Tools;
+﻿using AnnuaireEntityFrameWorkCore.Classes;
+using AnnuaireEntityFrameWorkCore.Tools;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CoursAspNetCoreMVC.Controllers
@@ -17,6 +18,20 @@ namespace CoursAspNetCoreMVC.Controllers
         public IActionResult Form()
         {
             return View();
+        }
+
+        public IActionResult SubmitForm(string firstName, string lastName, string phone)
+        {
+            DataContext _data = new DataContext();
+            Contact contact = new Contact()
+            {
+                FirstName = firstName,
+                LastName = lastName,
+                Phone = phone
+            };
+            _data.Contacts.Add(contact);
+            _data.SaveChanges();
+            return RedirectToAction("Index");
         }
         public IActionResult DetailContact(int id)
         {
