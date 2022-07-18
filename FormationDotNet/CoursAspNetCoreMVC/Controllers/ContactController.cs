@@ -8,9 +8,9 @@ namespace CoursAspNetCoreMVC.Controllers
     {
         private DataContext _data;
 
-        public ContactController()
+        public ContactController(DataContext data)
         {
-            _data = new DataContext();
+            _data = data;
         }
         public IActionResult Index(string search, string message, string type)
         {
