@@ -91,13 +91,16 @@ namespace CoursAspNetCoreMVC.Controllers
             }
         }
 
-        public IActionResult SubmitForm(IFormFile image)
+        public IActionResult SubmitForm(IFormFile[] image)
         {
             //string path = Path.Combine(_env.WebRootPath,"images", image.FileName);
             //Stream stream = new FileStream(path, FileMode.Create);
             //image.CopyTo(stream);
             //stream.Close();
-            string chemin = _upload.Upload(image);
+            foreach(IFormFile file in image)
+            {
+                string chemin = _upload.Upload(file);
+            }
             return RedirectToAction("Index");
         }
     }
