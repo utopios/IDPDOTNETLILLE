@@ -13,11 +13,17 @@ namespace CorrectionCompteBancaireAspNet.Controllers
         {
             _bankService = bankService;
         }
-        public IActionResult Index(string Message, string Type)
+        public IActionResult Index(string Search, string Message, string Type)
         {
+            Account account = null;
+            int accountNumber;
+            if(Search != null && int.TryParse(Search, out accountNumber))
+            {
+                account = _bankService.GetAccount(accountNumber);
+            }
             ViewBag.Message = Message;
             ViewBag.Type = Type;
-            return View();
+            return View(account);
         }
         public IActionResult Form()
         {
