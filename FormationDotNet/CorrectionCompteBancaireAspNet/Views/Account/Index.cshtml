@@ -51,5 +51,9 @@
                 }
             </tbody>
         </table>
+        <div class="row m-1">
+            <a class="col-6 btn p-1 btn-success" asp-action="FormOperation" asp-controller="Account" asp-route-id="@Model.AccountNumber" asp-route-type="deposit">Effectuer un dépôt</a>
+            <a class="col-6 btn p-1 btn-danger" asp-action="FormOperation" asp-controller="Account" asp-route-id="@Model.AccountNumber" asp-route-type="withDraw">Effectuer un retrait</a>
+        </div>
     </div>
 }

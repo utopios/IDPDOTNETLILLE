@@ -1,0 +1,10 @@
+﻿<form asp-action="SubmitFormOperation" asp-controller="Account">
+    <input type="hidden" name="id" value="@ViewBag.AccountNumber" />
+    <input type="hidden" name="type" value="@ViewBag.Type" />
+    <div class="row m-1 justify-content-center align-content-center">
+        <input type="text" name="Amount" placeholder="Le montant de l'opération'" class="form-control col-6 p-1" />
+    </div>
+    <div class="row m-1 justify-content-center align-content-center">
+        <button class="form-control col-6 p-1 btn btn-primary" type="submit" >Valider</button>
+    </div>
+</form>

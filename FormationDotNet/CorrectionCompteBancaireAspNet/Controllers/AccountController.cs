@@ -44,5 +44,43 @@ namespace CorrectionCompteBancaireAspNet.Controllers
             }
             return RedirectToAction("Index", data);
         }
+
+        public IActionResult FormOperation(int id, string type)
+        {
+            Account account = _bankService.GetAccount(id);      
+            if (account == null)
+            {
+                object data = new { Message = "aucun compte avec id", Type = "alert-danger" };
+                return RedirectToAction("Index", data);
+            }
+            else
+            {
+                ViewBag.AccountNumber = account.AccountNumber;
+                ViewBag.Type = type;
+                return View();
+            }
+        }
+
+        public IActionResult SubmitFormOperation(int id, string type, decimal amount)
+        {
+            Account account = _bankService.GetAccount(id);
+            if (account == null)
+            {
+                object data = new { Message = "aucun compte avec id", Type = "alert-danger" };
+                return RedirectToAction("Index", data);
+            }
+            else
+            {
+                if(type == "deposit")
+                {
+                    _bankService.MakeDeposit(amount, id);
+                }
+                else if(type =="withDraw")
+                {
+                    _bankService.MakeWithDraw(amount, id);
+                }
+                return RedirectToAction("Index", new {Search = id});
+            }
+        }
     }
 }
