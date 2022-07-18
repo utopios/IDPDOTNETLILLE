@@ -1,4 +1,5 @@
-﻿using CoursAspIOC.Models;
+﻿using CoursAspIOC.Interfaces;
+using CoursAspIOC.Models;
 using CoursAspIOC.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
@@ -8,11 +9,11 @@ namespace CoursAspIOC.Controllers
     public class HomeController : Controller
     {
 
-        private ServiceA _serviceA;
+        private IServiceA _serviceA;
 
         private ServiceB _serviceB;
 
-        public HomeController(ServiceA serviceA, ServiceB serviceB)
+        public HomeController(IServiceA serviceA, ServiceB serviceB)
         {
             _serviceA = serviceA;
             _serviceB = serviceB;

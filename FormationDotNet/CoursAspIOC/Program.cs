@@ -1,10 +1,12 @@
+using CoursAspIOC.Interfaces;
 using CoursAspIOC.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddTransient(typeof(ServiceA));
+//builder.Services.AddTransient(typeof(ServiceA));
+builder.Services.AddTransient<IServiceA, ServiceAPrime>();
 builder.Services.AddTransient(typeof(ServiceB));
 //builder.Services.AddTransient(typeof(RandomService));
 //builder.Services.AddScoped(typeof(RandomService));

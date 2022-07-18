@@ -1,6 +1,8 @@
-﻿namespace CoursAspIOC.Services
+﻿using CoursAspIOC.Interfaces;
+
+namespace CoursAspIOC.Services
 {
-    public class ServiceA
+    public class ServiceA : IServiceA
     {
         private RandomService _randomService;
 
