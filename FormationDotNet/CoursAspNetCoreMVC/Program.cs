@@ -1,8 +1,11 @@
+using CoursAspNetCoreMVC.Interface;
+using CoursAspNetCoreMVC.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
+builder.Services.AddTransient<IUpload, UploadService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

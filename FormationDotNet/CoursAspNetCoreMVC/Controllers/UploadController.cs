@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using CoursAspNetCoreMVC.Interface;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CoursAspNetCoreMVC.Controllers
@@ -9,9 +10,11 @@ namespace CoursAspNetCoreMVC.Controllers
 
         private IWebHostEnvironment _env;
 
-        public UploadController(IWebHostEnvironment env)
+        private IUpload _upload;
+        public UploadController(IWebHostEnvironment env, IUpload upload)
         {
             _env = env;
+            _upload = upload;
         }
 
         public ActionResult Index()
@@ -90,10 +93,11 @@ namespace CoursAspNetCoreMVC.Controllers
 
         public IActionResult SubmitForm(IFormFile image)
         {
-            string path = Path.Combine(_env.WebRootPath,"images", image.FileName);
-            Stream stream = new FileStream(path, FileMode.Create);
-            image.CopyTo(stream);
-            stream.Close();
+            //string path = Path.Combine(_env.WebRootPath,"images", image.FileName);
+            //Stream stream = new FileStream(path, FileMode.Create);
+            //image.CopyTo(stream);
+            //stream.Close();
+            string chemin = _upload.Upload(image);
             return RedirectToAction("Index");
         }
     }
