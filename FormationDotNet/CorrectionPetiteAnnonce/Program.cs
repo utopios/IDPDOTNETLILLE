@@ -1,3 +1,4 @@
+using CorrectionPetiteAnnonce.Interfaces;
 using CorrectionPetiteAnnonce.Models;
 using CorrectionPetiteAnnonce.Repositories;
 using CorrectionPetiteAnnonce.Services;
@@ -9,6 +10,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<DataContextService>();
 builder.Services.AddScoped<BaseRepository<Annonce>, AnnonceRepository>();
 builder.Services.AddScoped<BaseRepository<Categorie>, CategorieRepository>();
+builder.Services.AddTransient<IUpload, UploadService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
