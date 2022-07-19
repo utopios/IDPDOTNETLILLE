@@ -19,7 +19,7 @@ namespace CorrectionPetiteAnnonce.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            return View(_annonceRepository.FindAll(a => true));
         }
 
         public IActionResult Form()
