@@ -1,4 +1,6 @@
-﻿@model List<Annonce>
+﻿@using CorrectionPetiteAnnonce.Services
+@inject ToolsService _toolsService
+@model List<Annonce>
 <div class="container">
     @foreach (Annonce a in Model)
     {
@@ -8,10 +10,10 @@
             </div>
             <div class="col-9">
                 <div class="row m-1">
-                    <h2 class="col">@a.Titre @a.Prix</h2>
+                    <h2 class="col">@a.Titre @a.Prix€</h2>
                 </div>
                 <div class="row m-1">
-                    <div class="col">@a.Description</div>
+                    <div class="col">@_toolsService.Substruction(a.Description,2)</div>
                 </div>
             </div>
         </div>

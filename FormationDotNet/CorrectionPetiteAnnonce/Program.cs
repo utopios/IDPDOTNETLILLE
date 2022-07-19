@@ -11,6 +11,7 @@ builder.Services.AddDbContext<DataContextService>();
 builder.Services.AddScoped<BaseRepository<Annonce>, AnnonceRepository>();
 builder.Services.AddScoped<BaseRepository<Categorie>, CategorieRepository>();
 builder.Services.AddTransient<IUpload, UploadService>();
+builder.Services.AddScoped<ToolsService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
