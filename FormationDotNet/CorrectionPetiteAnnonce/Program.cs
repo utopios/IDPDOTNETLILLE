@@ -1,8 +1,14 @@
+using CorrectionPetiteAnnonce.Models;
+using CorrectionPetiteAnnonce.Repositories;
+using CorrectionPetiteAnnonce.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
+builder.Services.AddDbContext<DataContextService>();
+builder.Services.AddScoped<BaseRepository<Annonce>, AnnonceRepository>();
+builder.Services.AddScoped<BaseRepository<Categorie>, CategorieRepository>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
