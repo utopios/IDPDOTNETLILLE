@@ -13,9 +13,9 @@ namespace CorrectionPetiteAnnonce.Repositories
         
         public abstract bool Delete(T entity);
 
-        public abstract T Find(Predicate<T> predicate);
+        public abstract T Find(Func<T, bool> predicate);
         
-        public abstract List<T> FindAll(Predicate<T> predicate);
+        public abstract List<T> FindAll(Func<T, bool> predicate);
 
         public bool Update()
         {

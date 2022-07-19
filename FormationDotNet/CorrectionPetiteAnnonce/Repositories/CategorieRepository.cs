@@ -21,14 +21,14 @@ namespace CorrectionPetiteAnnonce.Repositories
             return Update();
         }
 
-        public override Categorie Find(Predicate<Categorie> predicate)
+        public override Categorie Find(Func<Categorie, bool> predicate)
         {
             throw new NotImplementedException();
         }
 
-        public override List<Categorie> FindAll(Predicate<Categorie> predicate)
+        public override List<Categorie> FindAll(Func<Categorie, bool> predicate)
         {
-            return _dataContextService.Categories.Where(c => predicate(c)).ToList();
+            return _dataContextService.Categories.ToList().Where(c => predicate(c)).ToList();
         }
     }
 }

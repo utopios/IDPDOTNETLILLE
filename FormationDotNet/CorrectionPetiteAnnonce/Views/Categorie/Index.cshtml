@@ -1,0 +1,23 @@
+﻿@model List<Categorie>
+
+<div class="container">
+    <div class="row m-1">
+        <form class="col" asp-action="SubmitCategorie" asp-controller="Categorie">
+            <div class="row">
+                <div class="col-9">
+                    <input type="text" name="titre" class="form-control" placeholder="Titre de la catégorie" />
+                </div>
+                <button class="col-3 btn btn-default">Ajouter</button>
+            </div>
+        </form>
+    </div>
+    <div class="row">
+        <h1 class="col">La liste des catégories</h1>
+    </div>
+    @foreach(Categorie c in Model)
+    {
+        <div class="row">
+            <div class="col">@c.Titre</div>
+        </div>
+    }
+</div>

@@ -22,7 +22,7 @@ namespace CorrectionPetiteAnnonce.Repositories
             return Update();
         }
 
-        public override Annonce Find(Predicate<Annonce> predicate)
+        public override Annonce Find(Func<Annonce, bool> predicate)
         {
             return _dataContextService.Annonces
                 .Include(a => a.Images)
@@ -30,12 +30,12 @@ namespace CorrectionPetiteAnnonce.Repositories
                 .FirstOrDefault(a => predicate(a));
         }
 
-        public override List<Annonce> FindAll(Predicate<Annonce> predicate)
+        public override List<Annonce> FindAll(Func<Annonce, bool> predicate)
         {
             return _dataContextService.Annonces
                 .Include(a => a.Images)
-                .Include(a => a.Categorie)
-                .Where(a => predicate(a)).ToList();
+                .Include(a => a.Categorie).
+                ToList().Where(a => predicate(a)).ToList();
         }
     }
 }
