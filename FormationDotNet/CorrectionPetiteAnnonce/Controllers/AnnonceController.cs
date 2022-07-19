@@ -10,11 +10,13 @@ namespace CorrectionPetiteAnnonce.Controllers
         private BaseRepository<Categorie> _categorieRepository;
         private BaseRepository<Annonce> _annonceRepository;
         private IUpload _upload;
-        public AnnonceController(BaseRepository<Categorie> categorieRepository, BaseRepository<Annonce> annonceRepository, IUpload upload)
+        private ILogin _login;
+        public AnnonceController(BaseRepository<Categorie> categorieRepository, BaseRepository<Annonce> annonceRepository, IUpload upload, ILogin login)
         {
             _categorieRepository = categorieRepository;
             _annonceRepository = annonceRepository;
             _upload = upload;
+            _login = login;
         }
 
         public IActionResult Index()
@@ -24,7 +26,10 @@ namespace CorrectionPetiteAnnonce.Controllers
 
         public IActionResult Form()
         {
-            return View(_categorieRepository.FindAll(c=>true));
+            if (_login.IsLogged())
+                return View(_categorieRepository.FindAll(c => true));
+            else
+                return RedirectToAction("Index", "Login");
         }
 
         public IActionResult SubmitForm(Annonce annonce, IFormFile[] images)

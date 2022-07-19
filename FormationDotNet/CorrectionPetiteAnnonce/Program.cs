@@ -10,8 +10,11 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<DataContextService>();
 builder.Services.AddScoped<BaseRepository<Annonce>, AnnonceRepository>();
 builder.Services.AddScoped<BaseRepository<Categorie>, CategorieRepository>();
+builder.Services.AddScoped<BaseRepository<Utilisateur>, UtilisateurRepository>();
 builder.Services.AddTransient<IUpload, UploadService>();
 builder.Services.AddScoped<ToolsService>();
+builder.Services.AddScoped<ILogin, CookieLoginService>();
+builder.Services.AddHttpContextAccessor();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
