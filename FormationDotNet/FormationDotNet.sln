@@ -73,6 +73,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorrectionCompteBancaireAsp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorrectionPetiteAnnonce", "CorrectionPetiteAnnonce\CorrectionPetiteAnnonce.csproj", "{BFB98A61-D833-4F2D-A6E2-E6FF3704AFAC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoursAspNetCoreCookiesSession", "CoursAspNetCoreCookiesSession\CoursAspNetCoreCookiesSession.csproj", "{9F9A22E6-8F61-4768-BFCE-2CDF20C34946}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -187,6 +189,10 @@ Global
 		{BFB98A61-D833-4F2D-A6E2-E6FF3704AFAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BFB98A61-D833-4F2D-A6E2-E6FF3704AFAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BFB98A61-D833-4F2D-A6E2-E6FF3704AFAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F9A22E6-8F61-4768-BFCE-2CDF20C34946}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F9A22E6-8F61-4768-BFCE-2CDF20C34946}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F9A22E6-8F61-4768-BFCE-2CDF20C34946}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F9A22E6-8F61-4768-BFCE-2CDF20C34946}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -204,6 +210,7 @@ Global
 		{7874A584-F758-4ACA-BB08-B707E0128C22} = {0A239F47-E3AA-4F2E-A39B-8ACA22DBC27E}
 		{3828E2BB-9380-445A-B8AC-CBCC4E788FE2} = {7414172F-90CD-46D0-8610-44082D4CC4A7}
 		{BFB98A61-D833-4F2D-A6E2-E6FF3704AFAC} = {7414172F-90CD-46D0-8610-44082D4CC4A7}
+		{9F9A22E6-8F61-4768-BFCE-2CDF20C34946} = {0A239F47-E3AA-4F2E-A39B-8ACA22DBC27E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {17BC5B87-F4FC-4C84-BD11-0E8C79B13B2C}
