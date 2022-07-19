@@ -15,17 +15,19 @@ namespace CoursAspNetCoreCookiesSession.Controllers
 
         public IActionResult Index()
         {
-            var options = new CookieOptions()
-            {
-                Expires = DateTime.Now.AddDays(1)
-            };
-            HttpContext.Response.Cookies.Append("key-cookie", "value of cookie", options);
+            //var options = new CookieOptions()
+            //{
+            //    Expires = DateTime.Now.AddDays(1)
+            //};
+            //HttpContext.Response.Cookies.Append("key-cookie", "value of cookie", options);
+            HttpContext.Session.SetString("key-session", "value-session");
             return View();
         }
 
         public IActionResult Privacy()
         {
-            string value = HttpContext.Request.Cookies["key-cookie"];
+            //string value = HttpContext.Request.Cookies["key-cookie"];
+            string value = HttpContext.Session.GetString("key-session"); 
             return View();
         }
 
