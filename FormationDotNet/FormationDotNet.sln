@@ -71,6 +71,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CorrectionAspNetCore", "Cor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorrectionCompteBancaireAspNet", "CorrectionCompteBancaireAspNet\CorrectionCompteBancaireAspNet.csproj", "{3828E2BB-9380-445A-B8AC-CBCC4E788FE2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorrectionPetiteAnnonce", "CorrectionPetiteAnnonce\CorrectionPetiteAnnonce.csproj", "{BFB98A61-D833-4F2D-A6E2-E6FF3704AFAC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -181,6 +183,10 @@ Global
 		{3828E2BB-9380-445A-B8AC-CBCC4E788FE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3828E2BB-9380-445A-B8AC-CBCC4E788FE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3828E2BB-9380-445A-B8AC-CBCC4E788FE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFB98A61-D833-4F2D-A6E2-E6FF3704AFAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFB98A61-D833-4F2D-A6E2-E6FF3704AFAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFB98A61-D833-4F2D-A6E2-E6FF3704AFAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFB98A61-D833-4F2D-A6E2-E6FF3704AFAC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -197,6 +203,7 @@ Global
 		{D72C647E-F08D-46EF-94F5-C9BF1B0E840B} = {0A239F47-E3AA-4F2E-A39B-8ACA22DBC27E}
 		{7874A584-F758-4ACA-BB08-B707E0128C22} = {0A239F47-E3AA-4F2E-A39B-8ACA22DBC27E}
 		{3828E2BB-9380-445A-B8AC-CBCC4E788FE2} = {7414172F-90CD-46D0-8610-44082D4CC4A7}
+		{BFB98A61-D833-4F2D-A6E2-E6FF3704AFAC} = {7414172F-90CD-46D0-8610-44082D4CC4A7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {17BC5B87-F4FC-4C84-BD11-0E8C79B13B2C}
