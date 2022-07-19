@@ -40,5 +40,11 @@ namespace CorrectionPetiteAnnonce.Controllers
             _annonceRepository.Add(annonce);
             return RedirectToAction("Index");
         }
+
+        public IActionResult Detail(int id)
+        {
+            Annonce annonce = _annonceRepository.Find(a => a.Id == id);
+            return View(annonce);
+        }
     }
 }

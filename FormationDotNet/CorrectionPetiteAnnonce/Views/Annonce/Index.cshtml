@@ -4,18 +4,20 @@
 <div class="container">
     @foreach (Annonce a in Model)
     {
-        <div class="row m-1">
-            <div class="col-3">
-                <img width="100%" src="~/@a.Images[0].Uri" />
-            </div>
-            <div class="col-9">
-                <div class="row m-1">
-                    <h2 class="col">@a.Titre @a.Prix€</h2>
+        <a asp-action="Detail" asp-controller="Annonce" asp-route-id="@a.Id">
+            <div class="row m-1">
+                <div class="col-3">
+                    <img width="100%" src="~/@a.Images[0].Uri" />
                 </div>
-                <div class="row m-1">
-                    <div class="col">@_toolsService.Substruction(a.Description,2)</div>
+                <div class="col-9">
+                    <div class="row m-1">
+                        <h2 class="col">@a.Titre @a.Prix€</h2>
+                    </div>
+                    <div class="row m-1">
+                        <div class="col">@_toolsService.Substruction(a.Description,2)</div>
+                    </div>
                 </div>
             </div>
-        </div>
+        </a>
     }
 </div>

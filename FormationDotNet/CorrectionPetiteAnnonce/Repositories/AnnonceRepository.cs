@@ -27,7 +27,7 @@ namespace CorrectionPetiteAnnonce.Repositories
             return _dataContextService.Annonces
                 .Include(a => a.Images)
                 .Include(a => a.Categorie)
-                .FirstOrDefault(a => predicate(a));
+                .ToList().FirstOrDefault(a => predicate(a));
         }
 
         public override List<Annonce> FindAll(Func<Annonce, bool> predicate)

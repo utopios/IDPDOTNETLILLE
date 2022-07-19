@@ -1,0 +1,22 @@
+﻿@model Annonce
+@if (Model == null)
+{
+    <div class="alert alert-danger">
+        Aucune annonce avec cet id
+    </div>
+}
+else
+{
+    <div>
+        <h1>@Model.Titre</h1>
+        <div>
+            @Model.Description
+        </div>
+        @foreach (Image img in Model.Images)
+        {
+            <div>
+                <img src="~/@img.Uri" />
+            </div>
+        }
+    </div>
+}
