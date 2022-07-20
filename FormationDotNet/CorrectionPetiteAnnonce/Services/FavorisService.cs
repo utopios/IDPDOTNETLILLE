@@ -69,7 +69,7 @@ namespace CorrectionPetiteAnnonce.Services
                 return list;
             }catch(Exception ex)
             {
-                return null;
+                return new List<int>();
             }
         }
 

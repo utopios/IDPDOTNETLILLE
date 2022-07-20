@@ -15,6 +15,7 @@ builder.Services.AddTransient<IUpload, UploadService>();
 builder.Services.AddScoped<ToolsService>();
 //builder.Services.AddScoped<ILogin, CookieLoginService>();
 builder.Services.AddScoped<ILogin, SessionLoginService>();
+builder.Services.AddScoped<FavorisService>();
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddSession(options =>
 {
