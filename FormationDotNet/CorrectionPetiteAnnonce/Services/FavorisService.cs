@@ -31,6 +31,7 @@ namespace CorrectionPetiteAnnonce.Services
             if(!favorisInt.Contains(id))
             {
                 favorisInt.Add(id);
+                SetFavorisInSession(favorisInt);
                 return true;
             }
             return false;
@@ -42,6 +43,7 @@ namespace CorrectionPetiteAnnonce.Services
             if (favorisInt.Contains(id))
             {
                 favorisInt.Remove(id);
+                SetFavorisInSession(favorisInt);
                 return true;
             }
             return false;
@@ -71,6 +73,10 @@ namespace CorrectionPetiteAnnonce.Services
             }
         }
 
+        private void SetFavorisInSession(object obj)
+        {
+            _contextAccessor.HttpContext.Session.SetString("favoris", JsonConvert.SerializeObject(obj));
+        }
 
     }
 }
