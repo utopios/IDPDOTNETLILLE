@@ -1,5 +1,6 @@
 ﻿using CoursAspNetCoreCookiesSession.Models;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System.Diagnostics;
 
 namespace CoursAspNetCoreCookiesSession.Controllers
@@ -20,14 +21,18 @@ namespace CoursAspNetCoreCookiesSession.Controllers
             //    Expires = DateTime.Now.AddDays(1)
             //};
             //HttpContext.Response.Cookies.Append("key-cookie", "value of cookie", options);
+            List<string> liste = new List<string>() { "toto", "tata", "titi" };
             HttpContext.Session.SetString("key-session", "value-session");
+            HttpContext.Session.SetString("liste", JsonConvert.SerializeObject(liste));
             return View();
         }
 
         public IActionResult Privacy()
         {
             //string value = HttpContext.Request.Cookies["key-cookie"];
-            string value = HttpContext.Session.GetString("key-session"); 
+            string value = HttpContext.Session.GetString("key-session");
+            string chaine = HttpContext.Session.GetString("liste");
+            List<string> liste = JsonConvert.DeserializeObject<List<string>>(chaine);
             return View();
         }
 
