@@ -9,11 +9,12 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<DataContext>();
-builder.Services.AddScoped<BaseRepository<Product>, ProductRepository>();
-builder.Services.AddScoped<BaseRepository<Order>, OrderRepository>();
-builder.Services.AddScoped<BaseRepository<CashRegistryUser>, CashRegistryUserRepository>();
-builder.Services.AddScoped<ICart, CartSessionService>();
-builder.Services.AddScoped<ILogin, LoginSessionService>();
+//builder.Services.AddScoped<BaseRepository<Product>, ProductRepository>();
+//builder.Services.AddScoped<BaseRepository<Order>, OrderRepository>();
+//builder.Services.AddScoped<BaseRepository<CashRegistryUser>, CashRegistryUserRepository>();
+//builder.Services.AddScoped<ICart, CartSessionService>();
+//builder.Services.AddScoped<ILogin, LoginSessionService>();
+builder.Services.AddAllServices();
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddSession(options =>
 {
