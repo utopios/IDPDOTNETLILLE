@@ -24,5 +24,6 @@ namespace CashRegistryEntityFrameWork.Repositories
         }
 
         public abstract List<T> FindAll();
+        public abstract List<T> FindAll(Predicate<T> predicate);
     }
 }

@@ -43,5 +43,10 @@ namespace CashRegistryEntityFrameWork.Repositories
             return orders;
 
         }
+
+        public override List<Order> FindAll(Predicate<Order> predicate)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

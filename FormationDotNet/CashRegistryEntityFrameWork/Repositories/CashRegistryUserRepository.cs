@@ -23,5 +23,10 @@ namespace CashRegistryEntityFrameWork.Repositories
         {
             throw new NotImplementedException();
         }
+
+        public override List<CashRegistryUser> FindAll(Predicate<CashRegistryUser> predicate)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

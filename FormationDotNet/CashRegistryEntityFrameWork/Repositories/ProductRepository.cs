@@ -25,5 +25,10 @@ namespace CashRegistryEntityFrameWork.Repositories
         {
             return _dataContext.Products.ToList();
         }
+
+        public override List<Product> FindAll(Predicate<Product> predicate)
+        {
+            return _dataContext.Products.ToList().Where(p => predicate(p)).ToList();
+        }
     }
 }
