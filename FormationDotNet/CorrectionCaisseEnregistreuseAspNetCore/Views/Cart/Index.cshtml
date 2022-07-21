@@ -15,11 +15,11 @@
             @foreach (ProductOrder p in Model.Products)
             {
                 <tr>
-                    <th scope="row">@p.Id</th>
+                    <th scope="row">@p.Product.Id</th>
                     <td>@p.Product.Title</td>
                     <td>@p.Product.Price €</td>
                     <td>@(p.Product.Price * p.Qty) €</td>
-                    <td><a asp-action="RemoveFromCart" asp-controller="Cart" asp-route-id="@p.Id"><i class="fa-solid fa-cart-minus"></i></a></td>
+                    <td><a asp-action="RemoveFromCart" asp-controller="Cart" asp-route-id="@p.Id"><i class="fas fa-trash-alt"></i></a></td>
                 </tr>
             }
 

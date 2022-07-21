@@ -26,7 +26,7 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="CashRegistry" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark">Panier : @_cartService.TotalProducts</a>
+                            <a class="nav-link text-dark" asp-action="Index" asp-controller="Cart">Panier : @_cartService.TotalProducts</a>
                         </li>
                     </ul>
                 </div>
