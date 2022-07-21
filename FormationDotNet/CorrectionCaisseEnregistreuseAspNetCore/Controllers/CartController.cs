@@ -12,6 +12,12 @@ namespace CorrectionCaisseEnregistreuseAspNetCore.Controllers
             _cartService = cartService;
         }
 
+
+        public IActionResult Index()
+        {
+            return View(_cartService.GetOrder());
+        }
+
         public IActionResult AddToCart(int id)
         {
             _cartService.AddProduct(id);

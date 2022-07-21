@@ -1,0 +1,34 @@
+﻿@using CashRegistryEntityFrameWork.Classes
+@model Order
+<div class="container">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Titre</th>
+                <th scope="col">Prix</th>
+                <th scope="col">Total Produit</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (ProductOrder p in Model.Products)
+            {
+                <tr>
+                    <th scope="row">@p.Id</th>
+                    <td>@p.Product.Title</td>
+                    <td>@p.Product.Price €</td>
+                    <td>@(p.Product.Price * p.Qty) €</td>
+                    <td><a asp-action="RemoveFromCart" asp-controller="Cart" asp-route-id="@p.Id"><i class="fa-solid fa-cart-minus"></i></a></td>
+                </tr>
+            }
+
+
+        </tbody>
+    </table>
+    <div class="row">
+        <div class="col">
+            Total: @Model.Total €
+        </div>
+    </div>
+</div>
