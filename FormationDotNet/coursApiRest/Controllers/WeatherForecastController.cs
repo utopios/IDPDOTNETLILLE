@@ -30,14 +30,14 @@ namespace coursApiRest.Controllers
             .ToArray();
         }
         [HttpGet("{id}")]
-        public WeatherForecast GetOne(int id)
+        public IActionResult GetOne(int id)
         {
-            return new WeatherForecast
+            return  Ok(new WeatherForecast
             {
                 Date = DateTime.Now.AddDays(1),
                 TemperatureC = id,
                 Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-            };
+            });
         }
     }
 }
