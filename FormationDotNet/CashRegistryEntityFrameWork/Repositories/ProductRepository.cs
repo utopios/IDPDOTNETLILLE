@@ -23,7 +23,7 @@ namespace CashRegistryEntityFrameWork.Repositories
 
         public override Product Find(Func<Product, bool> predicate)
         {
-            return _dataContext.Products.FirstOrDefault(p => predicate(p));
+            return _dataContext.Products.ToList().FirstOrDefault(p => predicate(p));
         }
 
         public override List<Product> FindAll()

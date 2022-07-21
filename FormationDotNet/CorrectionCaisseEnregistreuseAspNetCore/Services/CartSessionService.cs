@@ -8,7 +8,7 @@ namespace CorrectionCaisseEnregistreuseAspNetCore.Services
     public class CartSessionService : ICart
     {
         private IHttpContextAccessor _httpContextAccessor;
-        private BaseRepository<Product> _productRepository; 
+        private BaseRepository<Product> _productRepository;
 
         public CartSessionService(IHttpContextAccessor httpContextAccessor, BaseRepository<Product> productRepository)
         {
@@ -16,12 +16,23 @@ namespace CorrectionCaisseEnregistreuseAspNetCore.Services
             _productRepository = productRepository;
         }
 
-        public int TotalProducts => GetOrder().Products.Count;
+        public int TotalProducts
+        {
+            get
+            {
+                int total = 0;
+                GetOrder().Products.ToList().ForEach(p =>
+                {
+                    total += p.Qty;
+                });
+                return total;
+            }
+        }
 
         public bool AddProduct(int productId)
         {
             Order order = GetOrder();
-            if(order.AddProduct(_productRepository.Find(p => p.Id == productId)))
+            if (order.AddProduct(_productRepository.Find(p => p.Id == productId)))
             {
                 _httpContextAccessor.HttpContext.Session.SetString("order", JsonConvert.SerializeObject(order));
                 return true;
@@ -36,7 +47,8 @@ namespace CorrectionCaisseEnregistreuseAspNetCore.Services
             try
             {
                 order = JsonConvert.DeserializeObject<Order>(orderString);
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
 
             }

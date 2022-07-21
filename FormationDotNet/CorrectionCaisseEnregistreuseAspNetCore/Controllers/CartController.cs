@@ -1,12 +1,21 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CorrectionCaisseEnregistreuseAspNetCore.Interfaces;
+using Microsoft.AspNetCore.Mvc;
 
 namespace CorrectionCaisseEnregistreuseAspNetCore.Controllers
 {
     public class CartController : Controller
     {
-        public IActionResult Index()
+        private ICart _cartService;
+
+        public CartController(ICart cartService)
         {
-            return View();
+            _cartService = cartService;
+        }
+
+        public IActionResult AddToCart(int id)
+        {
+            _cartService.AddProduct(id);
+            return RedirectToAction("Index", "CashRegistry", new {search = id});
         }
     }
 }
