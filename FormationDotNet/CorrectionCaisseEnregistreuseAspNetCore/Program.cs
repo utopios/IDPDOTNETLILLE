@@ -13,6 +13,11 @@ builder.Services.AddScoped<BaseRepository<Product>, ProductRepository>();
 builder.Services.AddScoped<BaseRepository<Order>, OrderRepository>();
 builder.Services.AddScoped<ICart, CartSessionService>();
 builder.Services.AddScoped<ILogin, LoginSessionService>();
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(60);
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -26,6 +31,7 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+app.UseSession();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=CashRegistry}/{action=Index}/{id?}");

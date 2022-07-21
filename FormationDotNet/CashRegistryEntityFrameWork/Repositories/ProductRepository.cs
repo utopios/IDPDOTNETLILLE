@@ -21,13 +21,19 @@ namespace CashRegistryEntityFrameWork.Repositories
             return _dataContext.SaveChanges() > 0;
         }
 
+        public override Product Find(Func<Product, bool> predicate)
+        {
+            return _dataContext.Products.FirstOrDefault(p => predicate(p));
+        }
+
         public override List<Product> FindAll()
         {
             return _dataContext.Products.ToList();
         }
 
-        public override List<Product> FindAll(Predicate<Product> predicate)
+        public override List<Product> FindAll(Func<Product, bool> predicate)
         {
+            //A revoir
             return _dataContext.Products.ToList().Where(p => predicate(p)).ToList();
         }
     }

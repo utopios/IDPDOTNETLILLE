@@ -1,4 +1,5 @@
-﻿using CashRegistryEntityFrameWork.Tools;
+﻿using CashRegistryEntityFrameWork.Classes;
+using CashRegistryEntityFrameWork.Tools;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +25,8 @@ namespace CashRegistryEntityFrameWork.Repositories
         }
 
         public abstract List<T> FindAll();
-        public abstract List<T> FindAll(Predicate<T> predicate);
+
+        public abstract T Find(Func<T, bool> predicate);
+        public abstract List<T> FindAll(Func<T, bool> predicate);
     }
 }

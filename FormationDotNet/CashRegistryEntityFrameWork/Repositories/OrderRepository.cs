@@ -22,6 +22,11 @@ namespace CashRegistryEntityFrameWork.Repositories
             return _dataContext.SaveChanges() > 0;
         }
 
+        public override Order Find(Func<Order, bool> predicate)
+        {
+            throw new NotImplementedException();
+        }
+
         public override List<Order> FindAll()
         {
             //var orders = _dataContext.Orders/*.Include(p => p.Payment)*/.Include(o => o.Products).ThenInclude(p => p.Product).ToList();
@@ -44,7 +49,7 @@ namespace CashRegistryEntityFrameWork.Repositories
 
         }
 
-        public override List<Order> FindAll(Predicate<Order> predicate)
+        public override List<Order> FindAll(Func<Order, bool> predicate)
         {
             throw new NotImplementedException();
         }

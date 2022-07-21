@@ -19,12 +19,19 @@ namespace CashRegistryEntityFrameWork.Repositories
             throw new NotImplementedException();
         }
 
+        
+
+        public override CashRegistryUser Find(Func<CashRegistryUser, bool> predicate)
+        {
+            throw new NotImplementedException();
+        }
+
         public override List<CashRegistryUser> FindAll()
         {
             throw new NotImplementedException();
         }
 
-        public override List<CashRegistryUser> FindAll(Predicate<CashRegistryUser> predicate)
+        public override List<CashRegistryUser> FindAll(Func<CashRegistryUser, bool> predicate)
         {
             throw new NotImplementedException();
         }
