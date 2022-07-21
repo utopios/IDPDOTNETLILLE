@@ -23,5 +23,10 @@ namespace CorrectionCaisseEnregistreuseAspNetCore.Controllers
             _cartService.AddProduct(id);
             return RedirectToAction("Index", "CashRegistry", new {search = id});
         }
+        public IActionResult RemoveFromCart(int id)
+        {
+            _cartService.RemoveProduct(id);
+            return RedirectToAction("Index");
+        }
     }
 }
