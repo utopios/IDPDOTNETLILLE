@@ -77,6 +77,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoursAspNetCoreCookiesSessi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorrectionCaisseEnregistreuseAspNetCore", "CorrectionCaisseEnregistreuseAspNetCore\CorrectionCaisseEnregistreuseAspNetCore.csproj", "{835B3837-1032-4240-BA6E-4C207CE358A0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "coursApiRest", "coursApiRest\coursApiRest.csproj", "{FC1D0E44-7B35-4069-BABE-CEE95C6DCBB1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -199,6 +201,10 @@ Global
 		{835B3837-1032-4240-BA6E-4C207CE358A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{835B3837-1032-4240-BA6E-4C207CE358A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{835B3837-1032-4240-BA6E-4C207CE358A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC1D0E44-7B35-4069-BABE-CEE95C6DCBB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC1D0E44-7B35-4069-BABE-CEE95C6DCBB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC1D0E44-7B35-4069-BABE-CEE95C6DCBB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC1D0E44-7B35-4069-BABE-CEE95C6DCBB1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -218,6 +224,7 @@ Global
 		{BFB98A61-D833-4F2D-A6E2-E6FF3704AFAC} = {7414172F-90CD-46D0-8610-44082D4CC4A7}
 		{9F9A22E6-8F61-4768-BFCE-2CDF20C34946} = {0A239F47-E3AA-4F2E-A39B-8ACA22DBC27E}
 		{835B3837-1032-4240-BA6E-4C207CE358A0} = {7414172F-90CD-46D0-8610-44082D4CC4A7}
+		{FC1D0E44-7B35-4069-BABE-CEE95C6DCBB1} = {0A239F47-E3AA-4F2E-A39B-8ACA22DBC27E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {17BC5B87-F4FC-4C84-BD11-0E8C79B13B2C}
