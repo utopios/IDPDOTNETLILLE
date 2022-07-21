@@ -17,6 +17,7 @@ namespace CorrectionPetiteAnnonce.Controllers
             return View("~/Views/Annonce/Index.cshtml",_favorisService.GetFavoris());
         }
 
+        [HttpGet]
         public IActionResult ToggleFavoris(int id, bool add)
         {
             if(add)

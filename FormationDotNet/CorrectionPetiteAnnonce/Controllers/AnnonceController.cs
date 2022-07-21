@@ -32,6 +32,7 @@ namespace CorrectionPetiteAnnonce.Controllers
                 return RedirectToAction("Index", "Login");
         }
 
+        [HttpPost]
         public IActionResult SubmitForm(Annonce annonce, IFormFile[] images)
         {
             foreach(IFormFile image in images)
