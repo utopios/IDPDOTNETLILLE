@@ -3,6 +3,7 @@ using CashRegistryEntityFrameWork.Repositories;
 using CashRegistryEntityFrameWork.Tools;
 using CorrectionCaisseEnregistreuseAspNetCore.Interfaces;
 using CorrectionCaisseEnregistreuseAspNetCore.Services;
+using CorrectionCaisseEnregistreuseAspNetCore.Tools;
 
 var builder = WebApplication.CreateBuilder(args);
 
