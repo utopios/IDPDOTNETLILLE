@@ -14,6 +14,7 @@ namespace CashRegistryEntityFrameWork.Tools
         public DbSet<Order> Orders { get; set; }
         public DbSet<Product> Products { get; set; }
         
+        public DbSet<CashRegistryUser> Users { get; set; }
         public DbSet<CashPayment> CashPayments { get; set; }
         public DbSet<CardPayment> CardPayments { get; set; }
         public DataContext() : base()

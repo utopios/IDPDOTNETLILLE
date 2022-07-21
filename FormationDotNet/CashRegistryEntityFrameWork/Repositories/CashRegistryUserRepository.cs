@@ -23,7 +23,7 @@ namespace CashRegistryEntityFrameWork.Repositories
 
         public override CashRegistryUser Find(Func<CashRegistryUser, bool> predicate)
         {
-            throw new NotImplementedException();
+            return _dataContext.Users.ToList().FirstOrDefault(u => predicate(u));
         }
 
         public override List<CashRegistryUser> FindAll()
