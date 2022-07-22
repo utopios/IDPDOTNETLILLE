@@ -30,9 +30,20 @@ namespace ApiCompteBancaire.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody] Account account)
+        public IActionResult Post([FromBody] AccountDTO accountDTO)
         {
-            return Ok(account);
+            Customer customer = new Customer()
+            {
+                FirstName = accountDTO.Customer.FirstName,
+                LastName = accountDTO.Customer.LastName,
+                Phone = accountDTO.Customer.Phone
+            };
+            Account account = new Account(customer, Bank.CreateRandomAccountNumber(5));
+            _accountRepository.Create(account);
+            return Ok(new ResponseAccountDTO(accountDTO.Customer, account.AccountNumber, account.TotalAmount, account.Operations));
         }
     }
+    public record CustomerDTO(string FirstName, string LastName, string Phone);
+    public record AccountDTO(CustomerDTO Customer);
+    public record ResponseAccountDTO(CustomerDTO Customer, int NumberAccount, decimal TotalAmount = 0, List<Operation> operations = null);
 }

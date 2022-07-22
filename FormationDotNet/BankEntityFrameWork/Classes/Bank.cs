@@ -88,5 +88,16 @@ namespace BankEntityFrameWork.Classes
             return Convert.ToInt32(code);
         }
 
+        public static int CreateRandomAccountNumber(int size)
+        {
+            string code = "";
+            Random r = new Random();
+            for (int i = 1; i <= size; i++)
+            {
+                code += r.Next(0, 10);
+            }
+            return Convert.ToInt32(code);
+        }
+
     }
 }
