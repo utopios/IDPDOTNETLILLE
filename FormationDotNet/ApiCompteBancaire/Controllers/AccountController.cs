@@ -26,7 +26,11 @@ namespace ApiCompteBancaire.Controllers
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
-            return NotFound();
+            Account account = _accountRepository.Find(a => a.AccountNumber == id);
+            if (account == null)
+                return NotFound();
+            else
+                return Ok(new ResponseAccountDTO(new CustomerDTO(account.Customer.FirstName, account.Customer.LastName, account.Customer.Phone), account.AccountNumber, account.TotalAmount, account.Operations));
         }
 
         [HttpPost]

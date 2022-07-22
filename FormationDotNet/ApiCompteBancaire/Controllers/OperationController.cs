@@ -16,9 +16,28 @@ namespace ApiCompteBancaire.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody] OperationDTO operation, [FromRoute]int id)
+        public IActionResult Post([FromBody] OperationDTO operationDTO, [FromRoute]int id)
         {
-            return Ok();
+            Account account = _accountRepository.Find(a => a.AccountNumber == id);
+            if (account == null)
+                return NotFound();
+            Operation operation = new Operation(operationDTO.amount);
+            if(operationDTO.type == "deposit")
+            {
+                if(account.Deposit(operation) && _accountRepository.Update())
+                {
+                    return Ok();
+                }
+                return StatusCode(500);
+            }else if(operationDTO.type == "withDraw") 
+            {
+                if (account.WithDraw(operation) && _accountRepository.Update())
+                {
+                    return Ok();
+                }
+                return StatusCode(500);
+            }
+            return StatusCode(500);
         }
     }
 
