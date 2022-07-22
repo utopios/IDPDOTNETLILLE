@@ -39,5 +39,29 @@ namespace coursApiRest.Controllers
                 Summary = Summaries[Random.Shared.Next(Summaries.Length)]
             });
         }
+
+        [HttpPost]
+        public IActionResult Post([FromForm] string meteo, [FromForm] string ville, [FromForm] IFormFile image)
+        {
+            return Ok();
+        }
+
+        //[HttpPost]
+        //public IActionResult Post([FromBody] object data)
+        //{
+        //    return Ok();
+        //}
+
+        [HttpPut("{id}")]
+        public IActionResult Put([FromBody] object data, int id)
+        {
+            return Ok();
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            return Ok();
+        }
     }
 }
