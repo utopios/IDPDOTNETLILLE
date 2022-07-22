@@ -31,5 +31,41 @@ namespace ApiContact.Controllers
             else
                 return NotFound();
         }
+
+        [HttpPost]
+        public IActionResult Post([FromBody]Contact contact)
+        {
+            _dataContext.Contacts.Add(contact);
+            if(_dataContext.SaveChanges() > 0)
+            {
+                return Ok(contact);
+            }
+            else
+            {
+                return StatusCode(500);
+            }
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            Contact contact = _dataContext.Contacts.Find(id);
+            if (contact != null)
+            {
+                _dataContext.Contacts.Remove(contact);
+                if (_dataContext.SaveChanges() > 0)
+                {
+                    return Ok(new {message = "delete ok"});
+                }
+                else
+                {
+                    return StatusCode(500);
+                }
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
     }
 }
