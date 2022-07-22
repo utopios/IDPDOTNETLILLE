@@ -32,7 +32,7 @@ namespace coursApiRest.Controllers
         [HttpGet("{id}")]
         public IActionResult GetOne(int id)
         {
-            return  Ok(new WeatherForecast
+            return Ok(new WeatherForecast
             {
                 Date = DateTime.Now.AddDays(1),
                 TemperatureC = id,
