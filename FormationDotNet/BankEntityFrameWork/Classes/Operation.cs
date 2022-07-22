@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace BankEntityFrameWork.Classes
@@ -39,6 +40,7 @@ namespace BankEntityFrameWork.Classes
         [Column("account_id")]
         public int AccountId { get => accountId; set => accountId = value; }
 
+        [JsonIgnore]
         [ForeignKey("AccountId")]
         public Account Account { get; set; }
     }

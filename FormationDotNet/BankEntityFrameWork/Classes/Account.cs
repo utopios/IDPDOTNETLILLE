@@ -35,6 +35,7 @@ namespace BankEntityFrameWork.Classes
         {
             //TotalAmount = 0;
             Operations = new List<Operation>();
+            Customer = new Customer();
         }
         public Account(Customer customer, int accountNumber)
         {
