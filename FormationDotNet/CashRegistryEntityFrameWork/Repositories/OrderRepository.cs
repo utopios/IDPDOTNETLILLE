@@ -24,7 +24,7 @@ namespace CashRegistryEntityFrameWork.Repositories
 
         public override Order Find(Func<Order, bool> predicate)
         {
-            throw new NotImplementedException();
+            return _dataContext.Orders.Include(o => o.Payment).Include(p => p.Products).ThenInclude(pr => pr.Product).ToList().FirstOrDefault(p => predicate(p));
         }
 
         public override List<Order> FindAll()

@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace CashRegistryEntityFrameWork.Classes
@@ -29,7 +30,7 @@ namespace CashRegistryEntityFrameWork.Classes
         public int OrderId { get; set; }
         [ForeignKey("ProductId")]
         public Product Product { get => product; set => product = value; }
-
+        [JsonIgnore]
         [ForeignKey("OrderId")]
         public Order Order { get; set; }
 

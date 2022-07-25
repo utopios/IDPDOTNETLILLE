@@ -1,4 +1,6 @@
-﻿namespace ApiCashRegistry.Tools
+﻿using CashRegistryEntityFrameWork.Classes;
+
+namespace ApiCashRegistry.Tools
 {
     public class Records
     {
@@ -10,5 +12,5 @@
 
     public record OrderRequestDTO(int[] ProductsId);
 
-    public record OrderResponseDTO(int OrderId, decimal Total);
+    public record OrderResponseDTO(int OrderId, decimal Total, object[] products, Payment payment);
 }

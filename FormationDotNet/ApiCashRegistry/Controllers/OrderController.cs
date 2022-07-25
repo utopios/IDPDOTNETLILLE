@@ -17,9 +17,15 @@ namespace ApiCashRegistry.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post(OrderRequestDTO orderRequestDTO)
+        public IActionResult Post([FromBody] OrderRequestDTO orderRequestDTO)
         {
             return Ok(_orderService.AddOrder(orderRequestDTO));
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult Get(int id)
+        {
+            return Ok(_orderService.GetOrder(id));
         }
     }
 }

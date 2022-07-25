@@ -29,7 +29,13 @@ namespace ApiCashRegistry.Services
                 order.AddProduct(_productRepository.Find(p => p.Id == i));
             }
             _orderRepository.Create(order);
-            return new OrderResponseDTO(order.Id, order.Total);
-        } 
+            return new OrderResponseDTO(order.Id, order.Total, null, null);
+        }
+
+        public OrderResponseDTO GetOrder(int id)
+        {
+            Order order = _orderRepository.Find(p => p.Id == id);
+            return new OrderResponseDTO(order.Id, order.Total, order.Products.ToArray(), order.Payment);
+        }
     }
 }
