@@ -9,13 +9,13 @@ namespace ApiCashRegistry.Services
     {
         private BaseRepository<Order> _orderRepository;
         private BaseRepository<Product> _productRepository;
-        private DataContext _dataContext;
 
-        public OrderService(BaseRepository<Order> orderRepository, BaseRepository<Product> productRepository, DataContext dataContext)
+
+        public OrderService(BaseRepository<Order> orderRepository, BaseRepository<Product> productRepository)
         {
             _orderRepository = orderRepository;
             _productRepository = productRepository;
-            _dataContext = dataContext;
+            
         }
 
         public OrderResponseDTO AddOrder(OrderRequestDTO orderRequestDTO)
