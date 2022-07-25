@@ -1,5 +1,6 @@
 ﻿using ApiCashRegistry.Services;
 using ApiCashRegistry.Tools;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,6 +8,7 @@ namespace ApiCashRegistry.Controllers
 {
     [Route("api/v1/[controller]")]
     [ApiController]
+    [EnableCors("allRequest")]
     public class OrderController : ControllerBase
     {
         private OrderService _orderService;

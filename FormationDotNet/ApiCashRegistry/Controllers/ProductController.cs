@@ -7,6 +7,7 @@ namespace ApiCashRegistry.Controllers
 {
     [Route("api/v1/[controller]")]
     [ApiController]
+    [EnableCors("allRequestOnlyGetVerb")]
     public class ProductController : ControllerBase
     {
         private ProductService _productService;
