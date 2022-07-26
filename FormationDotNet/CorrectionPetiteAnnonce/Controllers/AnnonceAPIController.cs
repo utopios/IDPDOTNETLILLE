@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace CorrectionPetiteAnnonce.Controllers
 {
@@ -40,14 +41,16 @@ namespace CorrectionPetiteAnnonce.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public IActionResult Get()
         {
-            
+            ClaimsIdentity claimsIdentity = (ClaimsIdentity)HttpContext.User.Identity;
+            string email = claimsIdentity.FindFirst("username").Value;
             return Ok(_annonceRepository.FindAll(a => true));
         }
 
         [HttpPut("{id}/image")]
-        [Authorize]
+        [Authorize("police1")]
         public IActionResult PutImage(int id, [FromForm]IFormFile image)
         {
             Annonce annonce = _annonceRepository.Find(a => a.Id == id);

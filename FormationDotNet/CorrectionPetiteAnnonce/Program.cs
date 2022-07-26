@@ -47,7 +47,13 @@ builder.Services.AddAuthentication(a =>
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("bonjour je suis la chaine de crypto"))
     };
 });
-
+builder.Services.AddAuthorization(builder =>
+{
+    builder.AddPolicy("police1", options =>
+    {
+        options.RequireClaim("role", "role 1");
+    });
+});
 builder.Services.AddSession(options =>
 {
     options.IdleTimeout = TimeSpan.FromMinutes(60);
