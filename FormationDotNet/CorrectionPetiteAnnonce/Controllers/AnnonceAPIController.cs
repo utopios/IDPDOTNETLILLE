@@ -37,6 +37,13 @@ namespace CorrectionPetiteAnnonce.Controllers
             return Ok(annonce);
         }
 
+        [HttpGet]
+        public IActionResult Get()
+        {
+            
+            return Ok(_annonceRepository.FindAll(a => true));
+        }
+
         [HttpPut("{id}/image")]
         public IActionResult PutImage(int id, [FromForm]IFormFile image)
         {
