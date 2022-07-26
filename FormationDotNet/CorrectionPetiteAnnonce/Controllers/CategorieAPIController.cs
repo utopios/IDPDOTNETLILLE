@@ -22,5 +22,11 @@ namespace CorrectionPetiteAnnonce.Controllers
             _categorieRepository.Add(categorie);
             return Ok(categorie);
         }
+
+        [HttpGet]
+        public IActionResult Get()
+        {            
+            return Ok(_categorieRepository.FindAll(c => true));
+        }
     }
 }

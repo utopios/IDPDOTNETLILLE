@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace CorrectionPetiteAnnonce.Models
 {
@@ -19,6 +20,7 @@ namespace CorrectionPetiteAnnonce.Models
         [Column("annonce_id")]
         public int AnnonceId { get => annonceId; set => annonceId = value; }
 
+        [JsonIgnore]
         [ForeignKey("AnnonceId")]
         public Annonce Annonce { get; set; }
     }
