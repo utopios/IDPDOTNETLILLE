@@ -15,6 +15,12 @@ builder.Services.AddAuthentication(a =>
 {
     o.TokenValidationParameters = new TokenValidationParameters()
     {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateIssuerSigningKey = true,
+        ValidateLifetime = true,
+        ValidIssuer = "m2i",
+        ValidAudience = "m2i",
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("bonjour je suis la chaine de crypto"))
     };
 });
