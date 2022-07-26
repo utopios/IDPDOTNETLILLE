@@ -1,6 +1,7 @@
 ﻿using CorrectionPetiteAnnonce.Interfaces;
 using CorrectionPetiteAnnonce.Models;
 using CorrectionPetiteAnnonce.Repositories;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,6 +9,7 @@ namespace CorrectionPetiteAnnonce.Controllers
 {
     [Route("api/v1/annonce")]
     [ApiController]
+    [EnableCors("react")]
     public class AnnonceAPIController : ControllerBase
     {
         private BaseRepository<Categorie> _categorieRepository;

@@ -7,6 +7,7 @@ namespace CorrectionPetiteAnnonce.Controllers
 {
     [Route("api/v1/Categorie")]
     [ApiController]
+    [EnableCors("react")]
     public class CategorieAPIController : ControllerBase
     {
         private BaseRepository<Categorie> _categorieRepository;

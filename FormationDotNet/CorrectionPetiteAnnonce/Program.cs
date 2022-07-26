@@ -17,6 +17,13 @@ builder.Services.AddScoped<ToolsService>();
 builder.Services.AddScoped<ILogin, SessionLoginService>();
 builder.Services.AddScoped<FavorisService>();
 builder.Services.AddHttpContextAccessor();
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("react", builder =>
+    {
+        builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+    });
+});
 builder.Services.AddSession(options =>
 {
     options.IdleTimeout = TimeSpan.FromMinutes(60);
@@ -33,7 +40,7 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
-
+app.UseCors();
 app.UseSession();
 
 app.MapControllerRoute(
