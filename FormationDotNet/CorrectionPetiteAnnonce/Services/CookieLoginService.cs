@@ -31,5 +31,10 @@ namespace CorrectionPetiteAnnonce.Services
             }
             return false;
         }
+
+        public string Login(UserDTO userDTO)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

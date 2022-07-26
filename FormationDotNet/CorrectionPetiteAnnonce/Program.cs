@@ -2,6 +2,9 @@ using CorrectionPetiteAnnonce.Interfaces;
 using CorrectionPetiteAnnonce.Models;
 using CorrectionPetiteAnnonce.Repositories;
 using CorrectionPetiteAnnonce.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,7 +17,8 @@ builder.Services.AddScoped<BaseRepository<Utilisateur>, UtilisateurRepository>()
 builder.Services.AddTransient<IUpload, UploadService>();
 builder.Services.AddScoped<ToolsService>();
 //builder.Services.AddScoped<ILogin, CookieLoginService>();
-builder.Services.AddScoped<ILogin, SessionLoginService>();
+//builder.Services.AddScoped<ILogin, SessionLoginService>();
+builder.Services.AddScoped<ILogin, JwtLoginService>();
 builder.Services.AddScoped<FavorisService>();
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddCors(options =>
@@ -24,6 +28,26 @@ builder.Services.AddCors(options =>
         builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
     });
 });
+
+builder.Services.AddAuthentication(a =>
+{
+    a.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    a.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+}
+).AddJwtBearer(o =>
+{
+    o.TokenValidationParameters = new TokenValidationParameters()
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateIssuerSigningKey = true,
+        ValidateLifetime = true,
+        ValidIssuer = "m2i",
+        ValidAudience = "m2i",
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("bonjour je suis la chaine de crypto"))
+    };
+});
+
 builder.Services.AddSession(options =>
 {
     options.IdleTimeout = TimeSpan.FromMinutes(60);
@@ -38,7 +62,7 @@ if (!app.Environment.IsDevelopment())
 app.UseStaticFiles();
 
 app.UseRouting();
-
+app.UseAuthentication();
 app.UseAuthorization();
 app.UseCors();
 app.UseSession();

@@ -1,6 +1,7 @@
 ﻿using CorrectionPetiteAnnonce.Interfaces;
 using CorrectionPetiteAnnonce.Models;
 using CorrectionPetiteAnnonce.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -24,6 +25,7 @@ namespace CorrectionPetiteAnnonce.Controllers
 
 
         [HttpPost]
+        [Authorize]
         public IActionResult Post([FromBody] AnnonceDTO annonceDTO)
         {
             Annonce annonce = new Annonce()
@@ -45,6 +47,7 @@ namespace CorrectionPetiteAnnonce.Controllers
         }
 
         [HttpPut("{id}/image")]
+        [Authorize]
         public IActionResult PutImage(int id, [FromForm]IFormFile image)
         {
             Annonce annonce = _annonceRepository.Find(a => a.Id == id);

@@ -8,7 +8,7 @@ const App = () => {
   
   const [annonces, setAnnonces] = useState([])
   const getAnnonces = () => {
-    axios.get("http://localhost:5164/api/v1/annonce").then(res => {
+    axios.get("http://localhost:5164/api/v1/annonce", {headers:{"Authorization": ""}}).then(res => {
       setAnnonces(res.data)
     })
   }
