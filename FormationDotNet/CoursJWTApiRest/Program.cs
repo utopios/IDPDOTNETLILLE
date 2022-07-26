@@ -1,3 +1,4 @@
+using CoursJWTApiRest.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
@@ -10,6 +11,7 @@ builder.Services.AddControllers();
 builder.Services.AddAuthentication(a =>
 {
     a.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    a.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
 }
 ).AddJwtBearer( o=>
 {
@@ -24,10 +26,11 @@ builder.Services.AddAuthentication(a =>
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("bonjour je suis la chaine de crypto"))
     };
 });
+builder.Services.AddScoped<TokenService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
