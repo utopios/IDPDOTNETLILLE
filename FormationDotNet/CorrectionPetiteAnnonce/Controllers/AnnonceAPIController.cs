@@ -49,7 +49,7 @@ namespace CorrectionPetiteAnnonce.Controllers
             {
                 return NotFound();
             }
-            return Ok(annonce);
+            
         }
     }
 
