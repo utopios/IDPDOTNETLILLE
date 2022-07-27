@@ -47,7 +47,7 @@ namespace CorrectionPetiteAnnonce.Services
                 Audience = "m2i",
                 Subject = new ClaimsIdentity(new Claim[]
                 {
-                        new Claim("role", "admin"),
+                        new Claim("role", utilisateur.Role),
                         new Claim("username", utilisateur.Email)
                 })
             };

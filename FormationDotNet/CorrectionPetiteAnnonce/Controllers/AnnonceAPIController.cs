@@ -27,6 +27,7 @@ namespace CorrectionPetiteAnnonce.Controllers
 
         [HttpPost]
         [Authorize]
+        [Authorize("admin")]
         public IActionResult Post([FromBody] AnnonceDTO annonceDTO)
         {
             Annonce annonce = new Annonce()
@@ -44,13 +45,13 @@ namespace CorrectionPetiteAnnonce.Controllers
         [Authorize]
         public IActionResult Get()
         {
-            ClaimsIdentity claimsIdentity = (ClaimsIdentity)HttpContext.User.Identity;
-            string email = claimsIdentity.FindFirst("username").Value;
+            //ClaimsIdentity claimsIdentity = (ClaimsIdentity)HttpContext.User.Identity;
+            //string email = claimsIdentity.FindFirst("username").Value;
             return Ok(_annonceRepository.FindAll(a => true));
         }
 
         [HttpPut("{id}/image")]
-        [Authorize("police1")]
+        [Authorize("admin")]
         public IActionResult PutImage(int id, [FromForm]IFormFile image)
         {
             Annonce annonce = _annonceRepository.Find(a => a.Id == id);

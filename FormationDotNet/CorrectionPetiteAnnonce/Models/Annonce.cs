@@ -29,6 +29,11 @@ namespace CorrectionPetiteAnnonce.Models
         [ForeignKey("CategorieId")]
         public Categorie Categorie { get; set; }
 
+        [Column("utilisateur_id")]
+        public int UtilisateurId { get; set; }
+
+        [ForeignKey("UtilisateurId")]
+        public Utilisateur Utilisateur { get; set; }
         public List<Image> Images { get; set; }
 
         public Annonce()

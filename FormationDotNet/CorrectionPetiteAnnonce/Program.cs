@@ -49,9 +49,9 @@ builder.Services.AddAuthentication(a =>
 });
 builder.Services.AddAuthorization(builder =>
 {
-    builder.AddPolicy("police1", options =>
+    builder.AddPolicy("admin", options =>
     {
-        options.RequireClaim("role", "role 1");
+        options.RequireRole("admin");
     });
 });
 builder.Services.AddSession(options =>

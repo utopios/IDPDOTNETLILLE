@@ -1,17 +1,25 @@
 ﻿using CorrectionPetiteAnnonce.Models;
 using CorrectionPetiteAnnonce.Services;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
 
 namespace CorrectionPetiteAnnonce.Repositories
 {
     public class AnnonceRepository : BaseRepository<Annonce>
     {
-        public AnnonceRepository(DataContextService dataContextService) : base(dataContextService)
+        private IHttpContextAccessor _contextAccessor;
+        private BaseRepository<Utilisateur> _utilisateurRepository;
+
+        public AnnonceRepository(DataContextService dataContextService, IHttpContextAccessor contextAccessor, BaseRepository<Utilisateur> utilisateurRepository) : base(dataContextService)
         {
+            _contextAccessor = contextAccessor;
+            _utilisateurRepository = utilisateurRepository;
         }
 
         public override bool Add(Annonce entity)
         {
+            string email = ((ClaimsIdentity)_contextAccessor.HttpContext.User.Identity).FindFirst("username").Value;
+            entity.Utilisateur = _utilisateurRepository.Find(u => u.Email == email);
             _dataContextService.Annonces.Add(entity);
             return Update() && entity.Id > 0;
         }
