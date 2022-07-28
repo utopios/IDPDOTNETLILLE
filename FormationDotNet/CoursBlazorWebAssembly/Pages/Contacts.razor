@@ -1,9 +1,10 @@
 ﻿@page "/contacts"
-
+@using CoursBlazorWebAssembly.Services
+@inject ContactService _contactService;
 
 <h3>Contacts</h3>
-<FormContactComponent OnContactAdded="@AddContact"></FormContactComponent>
-@foreach(Contact c in contacts)
+@*<FormContactComponent OnContactAdded="@AddContact"></FormContactComponent>*@
+@foreach(Contact c in _contactService.Contacts)
 {
     @*<div>
         @c.Id @c.Name @c.Phone
@@ -39,9 +40,9 @@
         contacts.Remove(contacts.Find(c => c.Id == id));
     }
 
-    public void AddContact(Contact contact)
-    {
-        contact.Id = contacts.Count + 1;
-        contacts.Add(contact);
-    }
+    //public void AddContact(Contact contact)
+    //{
+    //    contact.Id = contacts.Count + 1;
+    //    contacts.Add(contact);
+    //}
 }

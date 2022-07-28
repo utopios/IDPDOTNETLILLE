@@ -1,0 +1,12 @@
+﻿@page "/formcontact"
+@using CoursBlazorWebAssembly.Services
+@inject ContactService _contactService;
+<h3>FormContact</h3>
+<FormContactComponent OnContactAdded="@AddContact"></FormContactComponent>
+@code {
+    public void AddContact(Contact contact)
+    {
+        contact.Id = _contactService.Contacts.Count + 1;
+        _contactService.Contacts.Add(contact);
+    }
+}
