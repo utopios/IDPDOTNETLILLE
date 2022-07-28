@@ -8,7 +8,7 @@
         @c.Id @c.Name @c.Phone
     </div>*@
     @*<ContactComponent Id="@c.Id" Name="@c.Name" Phone="@c.Phone"></ContactComponent>*@
-    <ContactComponent Contact="@c"></ContactComponent>
+    <ContactComponent Contact="@c" OnDeletedContact="@DeleteContact"></ContactComponent>
 }
 
 @code {
@@ -26,10 +26,15 @@
             },
             new Contact()
             {
-                Id = 1,
+                Id = 2,
                 Name = "toto",
                 Phone = "06060606060"
             },
         };
+    }
+
+    public void DeleteContact(int id)
+    {
+        contacts.Remove(contacts.Find(c => c.Id == id));
     }
 }

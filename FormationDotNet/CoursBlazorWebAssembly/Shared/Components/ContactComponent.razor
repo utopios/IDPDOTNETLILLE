@@ -1,6 +1,7 @@
 ﻿@using CoursBlazorWebAssembly.Models
 <div>
     @Contact.Id @Contact.Name @Contact.Phone
+    <a @onclick="() => DeleteContact(Contact.Id)">Supprimer</a>
 </div>
 @code {
 
@@ -15,4 +16,12 @@
 
     [Parameter]
     public Contact Contact { get; set; }
+
+    [Parameter]
+    public EventCallback<int> OnDeletedContact { get; set; }
+
+    public void DeleteContact(int id)
+    {
+        OnDeletedContact.InvokeAsync(id);
+    }
 }
