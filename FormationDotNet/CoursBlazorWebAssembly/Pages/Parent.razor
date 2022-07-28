@@ -1,5 +1,8 @@
 ﻿@page "/parent"
+@using CoursBlazorWebAssembly.Services
+@inject DemoStateService _demoStateService;
 <h3>Parent</h3>
+<div>@_demoStateService.Data</div>
 <Child Data="data" SendElementToParent="@GetElementFromChild"></Child>
 <div>Element from child @ElementFromChild</div>
 @code {

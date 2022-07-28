@@ -1,4 +1,6 @@
 ﻿@page "/componentA"
+@using CoursBlazorWebAssembly.Services
+@inject DemoStateService _demoStateService;
 @{
     string newName = "new Name";
 }
@@ -15,5 +17,6 @@
     public void ChangeName(string name)
     {
         Name = name;
+        _demoStateService.Data = name;
     }
 }
