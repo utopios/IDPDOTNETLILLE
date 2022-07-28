@@ -2,6 +2,7 @@
 
 
 <h3>Contacts</h3>
+<FormContactComponent OnContactAdded="@AddContact"></FormContactComponent>
 @foreach(Contact c in contacts)
 {
     @*<div>
@@ -36,5 +37,11 @@
     public void DeleteContact(int id)
     {
         contacts.Remove(contacts.Find(c => c.Id == id));
+    }
+
+    public void AddContact(Contact contact)
+    {
+        contact.Id = contacts.Count + 1;
+        contacts.Add(contact);
     }
 }

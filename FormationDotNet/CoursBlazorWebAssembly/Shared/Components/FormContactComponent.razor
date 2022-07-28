@@ -1,0 +1,24 @@
+﻿<h3>FormContactComponent</h3>
+<EditForm Model="@Contact" OnValidSubmit="@SubmitContact" >
+    <div>
+        <InputText @bind-Value="@Contact.Name" placeholder="Nom complet du contact" />
+    </div>
+    <div>
+        <InputText @bind-Value="@Contact.Phone" placeholder="Téléphone du contact" />
+    </div>
+    <div>
+        <button type="submit">Valider</button>
+    </div>
+</EditForm>
+@code {
+    public Contact Contact = new();
+
+    [Parameter]
+    public EventCallback<Contact> OnContactAdded { get; set; }
+
+    public void SubmitContact()
+    {
+        OnContactAdded.InvokeAsync(Contact);
+        Contact = new();
+    }
+}
