@@ -1,8 +1,17 @@
 ﻿<h3>Child</h3>
+<div>
+    <EditForm Model="PersonneData" >
+        <InputText @bind-Value="@PersonneData.Nom"></InputText>
+        <InputText @bind-Value="@PersonneData.Prenom"></InputText>
+    </EditForm>
+    <label>@PersonneData.Nom @PersonneData.Prenom</label>
+</div>
 <a @onclick="@ClickButton">Send to parent</a>
 @code {
     [Parameter]
     public string Data { get; set; }
+
+    public Personne PersonneData = new();
 
     [Parameter]
     public EventCallback<string> SendElementToParent { get; set; }
@@ -11,4 +20,5 @@
     {
         SendElementToParent.InvokeAsync("data from child");
     }
+
 }
