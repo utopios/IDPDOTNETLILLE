@@ -1,6 +1,7 @@
 ﻿@using CoursBlazorWebAssembly.Models
 <div>
     @Contact.Id @Contact.Name @Contact.Phone
+    <a href="/contact/@Contact.Id">Detail</a>
     <a @onclick="() => DeleteContact(Contact.Id)">Supprimer</a>
 </div>
 @code {
