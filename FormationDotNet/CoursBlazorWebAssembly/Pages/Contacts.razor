@@ -1,12 +1,14 @@
 ﻿@page "/contacts"
 @using CoursBlazorWebAssembly.Models
+@using CoursBlazorWebAssembly.Shared.Components
 
 <h3>Contacts</h3>
 @foreach(Contact c in contacts)
 {
-    <div>
+    @*<div>
         @c.Id @c.Name @c.Phone
-    </div>
+    </div>*@
+    <ContactComponent Id="@c.Id" Name="@c.Name" Phone="@c.Phone"></ContactComponent>
 }
 
 @code {
