@@ -1,8 +1,9 @@
 ﻿@page "/componentA"
-<h3>ComponentA @Name</h3>
 @{
     string newName = "new Name";
 }
+<h3>ComponentA @Name</h3>
+
 <a @onclick="() => ChangeName(newName)">Click</a>
 @code {
     public string Name { get; set; }

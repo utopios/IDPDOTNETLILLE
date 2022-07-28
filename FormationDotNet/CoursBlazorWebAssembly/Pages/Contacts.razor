@@ -1,0 +1,32 @@
+﻿@page "/contacts"
+@using CoursBlazorWebAssembly.Models
+
+<h3>Contacts</h3>
+@foreach(Contact c in contacts)
+{
+    <div>
+        @c.Id @c.Name @c.Phone
+    </div>
+}
+
+@code {
+    private List<Contact> contacts;
+    public Contacts()
+    {
+        contacts = new List<Contact>()
+        {
+            new Contact()
+            {
+                Id = 1,
+                Name = "abadi",
+                Phone = "06060606060"
+            },
+            new Contact()
+            {
+                Id = 1,
+                Name = "toto",
+                Phone = "06060606060"
+            },
+        };
+    }
+}
