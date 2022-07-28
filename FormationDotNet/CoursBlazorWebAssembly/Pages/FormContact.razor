@@ -1,6 +1,7 @@
 ﻿@page "/formcontact"
 @using CoursBlazorWebAssembly.Services
 @inject ContactService _contactService;
+@inject NavigationManager _navigateManager;
 <h3>FormContact</h3>
 <FormContactComponent OnContactAdded="@AddContact"></FormContactComponent>
 @code {
@@ -8,5 +9,6 @@
     {
         contact.Id = _contactService.Contacts.Count + 1;
         _contactService.Contacts.Add(contact);
+        _navigateManager.NavigateTo("/contacts");
     }
 }
