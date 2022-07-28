@@ -1,0 +1,12 @@
+﻿@page "/parent"
+<h3>Parent</h3>
+<Child Data="data" SendElementToParent="@GetElementFromChild"></Child>
+<div>Element from child @ElementFromChild</div>
+@code {
+    private string ElementFromChild { get; set; }
+
+    public void GetElementFromChild(string element)
+    {
+        ElementFromChild = element;
+    }
+}

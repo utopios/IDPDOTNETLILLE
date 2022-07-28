@@ -1,0 +1,14 @@
+﻿<h3>Child</h3>
+<a @onclick="@ClickButton">Send to parent</a>
+@code {
+    [Parameter]
+    public string Data { get; set; }
+
+    [Parameter]
+    public EventCallback<string> SendElementToParent { get; set; }
+
+    public void ClickButton()
+    {
+        SendElementToParent.InvokeAsync("data from child");
+    }
+}

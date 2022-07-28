@@ -1,14 +1,18 @@
-﻿<div>
-    @Id @Name @Phone
+﻿@using CoursBlazorWebAssembly.Models
+<div>
+    @Contact.Id @Contact.Name @Contact.Phone
 </div>
 @code {
 
+    //[Parameter]
+    //public string Name { get; set; }
+
+    //[Parameter]
+    //public int Id { get; set; }
+
+    //[Parameter]
+    //public string Phone { get; set; }
+
     [Parameter]
-    public string Name { get; set; }
-    
-    [Parameter]
-    public int Id { get; set; }
-    
-    [Parameter]
-    public string Phone { get; set; }
+    public Contact Contact { get; set; }
 }
