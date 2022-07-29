@@ -1,4 +1,5 @@
 ﻿@inject ProductService _productService;
+@inject NavigationManager _navigationManager;
 <h3>FormProductComponent</h3>
 @if(ErrorMessage != null)
 {
@@ -35,6 +36,7 @@
         if(_productService.AddProduct(product))
         {
             product = new();
+            _navigationManager.NavigateTo("/products");
         }
         else
         {
