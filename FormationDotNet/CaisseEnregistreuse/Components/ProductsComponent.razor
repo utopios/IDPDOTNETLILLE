@@ -17,5 +17,13 @@
     </tbody>
 </table>
 @code {
-    
+
+    //public ProductsComponent()
+    //{
+    //}
+    //Cette fonction est appelée à l'initialisation du component
+    protected override void OnInitialized()
+    {
+        _productService.ProductsChanged += StateHasChanged;        
+    }
 }

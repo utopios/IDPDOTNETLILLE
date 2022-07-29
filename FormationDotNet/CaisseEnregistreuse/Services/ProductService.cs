@@ -5,7 +5,7 @@ namespace CaisseEnregistreuse.Services;
 public class ProductService : IProductService
 {
     private List<Product> _products;
-
+    public event Action ProductsChanged;
     public ProductService()
     {
         _products = new List<Product>() { new Product() { Id =1, Title="product 1", Price=10, Stock=10} };
@@ -17,6 +17,7 @@ public class ProductService : IProductService
     {
         product.Id = _products.Count + 1;
         _products.Add(product);
+        ProductsChanged?.Invoke();
         return true;
     }
 
