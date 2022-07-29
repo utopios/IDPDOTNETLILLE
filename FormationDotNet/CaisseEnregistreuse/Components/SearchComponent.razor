@@ -1,0 +1,18 @@
+﻿@inject ProductService _productService;
+<h3>SearchComponent</h3>
+@*<EditForm OnValidSubmit="SubmitSearchProduct" Model="@SearchText">
+    <InputText placeholder="recherche d'un produit" @bind-Value="@SearchText"></InputText>
+    <button onclick="@SubmitSearchProduct" type="submit">Rechercher</button>
+</EditForm>*@
+<div>
+    <input placeholder="recherche d'un produit" @bind="@SearchText" />
+    <button onclick="@SubmitSearchProduct" type="submit">Rechercher</button>
+</div>
+@code {
+    public string SearchText { get; set; }
+
+    public void SubmitSearchProduct()
+    {
+        _productService.SearchProductTitle(SearchText);
+    }
+}

@@ -1,4 +1,4 @@
-﻿@inject ProductService _productService
+﻿@*@inject ProductService _productService*@
 <h3>ProductsComponent</h3>
 <table class="table">
   <thead class="thead-dark">
@@ -10,7 +10,7 @@
     </tr>
   </thead>
   <tbody>
-        @foreach(Product p in _productService.Products)
+        @foreach(Product p in Products)
         {
             <ProductComponent Product="@p"></ProductComponent>
         }
@@ -22,8 +22,11 @@
     //{
     //}
     //Cette fonction est appelée à l'initialisation du component
-    protected override void OnInitialized()
-    {
-        _productService.ProductsChanged += StateHasChanged;        
-    }
+
+    [Parameter]
+    public List<Product> Products { get; set; }
+    //protected override void OnInitialized()
+    //{
+    //    _productService.ProductsChanged += StateHasChanged;        
+    //}
 }

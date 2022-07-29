@@ -1,7 +1,11 @@
 ﻿@page "/products"
+@inject ProductService _productService;
 <h3>Products</h3>
 <FormProductComponent></FormProductComponent>
-<ProductsComponent></ProductsComponent>
+<ProductsComponent Products="@_productService.Products"></ProductsComponent>
 @code {
-    
+    protected override void OnInitialized()
+    {
+        _productService.ProductsChanged += StateHasChanged;        
+    }
 }
