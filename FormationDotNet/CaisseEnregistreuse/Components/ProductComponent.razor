@@ -3,9 +3,16 @@
     <td>@Product.Title</td>
     <td>@Product.Price</td>
     <td>@Product.Stock</td>
+    @if(Search)
+    {
+        <td><a>Ajouter au panier</a></td>
+    }
 </tr>
 
-@code {
-    [Parameter]
+        @code {
+
+        [Parameter]
+        public bool Search { get; set; }
+        [Parameter]
     public Product Product { get; set; }
 }

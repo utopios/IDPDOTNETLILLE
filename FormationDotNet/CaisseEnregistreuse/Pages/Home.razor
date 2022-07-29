@@ -2,7 +2,7 @@
 @inject ProductService _productService;
 <h3>Home</h3>
 <SearchComponent></SearchComponent>
-<ProductsComponent Products="@_productService.SearchProducts"></ProductsComponent>
+<ProductsComponent Search="true" Products="@_productService.SearchProducts"></ProductsComponent>
 @code {
     protected override void OnInitialized()
     {
