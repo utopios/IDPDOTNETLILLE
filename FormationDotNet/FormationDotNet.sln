@@ -95,6 +95,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CorrectionBlazor", "Correct
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CaisseEnregistreuse", "CaisseEnregistreuse\CaisseEnregistreuse.csproj", "{DD295473-BD7A-441A-A3E4-A141A60C48DC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CycleVieComposant", "CycleVieComposant\CycleVieComposant.csproj", "{FD294681-EBF5-4474-A987-950BCE53FFEC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -245,6 +247,10 @@ Global
 		{DD295473-BD7A-441A-A3E4-A141A60C48DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DD295473-BD7A-441A-A3E4-A141A60C48DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DD295473-BD7A-441A-A3E4-A141A60C48DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD294681-EBF5-4474-A987-950BCE53FFEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD294681-EBF5-4474-A987-950BCE53FFEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD294681-EBF5-4474-A987-950BCE53FFEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD294681-EBF5-4474-A987-950BCE53FFEC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -271,6 +277,7 @@ Global
 		{74A42BD1-57D9-43C7-9BB9-600A4620B218} = {0A239F47-E3AA-4F2E-A39B-8ACA22DBC27E}
 		{24CF9EDF-8C30-4900-8B50-5B6D49052ABE} = {1DF16BE6-FBAA-4019-B932-AECBBFFD28EC}
 		{DD295473-BD7A-441A-A3E4-A141A60C48DC} = {874CBE39-686B-4FD1-9CC1-F98FFC791A51}
+		{FD294681-EBF5-4474-A987-950BCE53FFEC} = {1DF16BE6-FBAA-4019-B932-AECBBFFD28EC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {17BC5B87-F4FC-4C84-BD11-0E8C79B13B2C}
