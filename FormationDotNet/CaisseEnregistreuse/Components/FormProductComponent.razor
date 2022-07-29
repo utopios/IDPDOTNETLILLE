@@ -1,0 +1,44 @@
+﻿@inject ProductService _productService;
+<h3>FormProductComponent</h3>
+@if(ErrorMessage != null)
+{
+    <div class="alert alert-danger">
+        @ErrorMessage
+    </div>
+}
+<EditForm Model="@product" OnValidSubmit="SubmitFormProduct" class="container">
+    <div class="row m-1 justify-content-center align-content-center">
+        <div class="col-6">
+            <InputText class="from-control p-1" @bind-Value="@product.Title" placeholder="Titre du produit" ></InputText>
+        </div>
+    </div>
+    <div class="row m-1 justify-content-center align-content-center">
+        <div class="col-6">
+            <InputNumber class="from-control p-1" @bind-Value="@product.Price" placeholder="Prix du produit" ></InputNumber>
+        </div>
+    </div>
+    <div class="row m-1 justify-content-center align-content-center">
+        <div class="col-6">
+            <InputNumber class="from-control p-1" @bind-Value="@product.Stock" placeholder="Stock du produit" ></InputNumber>
+        </div>
+    </div>
+    <div class="row m-1 justify-content-center align-content-center">
+        <button class="col-6 p-1" type="submit">Valider</button>
+    </div>
+</EditForm>
+@code {
+    private Product product = new();
+    private string ErrorMessage { get; set; }
+
+    public void SubmitFormProduct()
+    {
+        if(_productService.AddProduct(product))
+        {
+            product = new();
+        }
+        else
+        {
+            ErrorMessage = "Erreur d'ajout de produit";
+        }
+    }
+}

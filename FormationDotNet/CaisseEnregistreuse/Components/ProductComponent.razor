@@ -1,0 +1,11 @@
+﻿<tr>
+    <th scope="row">@Product.Id</th>
+    <td>@Product.Title</td>
+    <td>@Product.Price</td>
+    <td>@Product.Stock</td>
+</tr>
+
+@code {
+    [Parameter]
+    public Product Product { get; set; }
+}

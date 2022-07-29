@@ -1,0 +1,21 @@
+﻿@inject ProductService _productService
+<h3>ProductsComponent</h3>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Titre</th>
+      <th scope="col">Prix</th>
+      <th scope="col">Stock</th>
+    </tr>
+  </thead>
+  <tbody>
+        @foreach(Product p in _productService.Products)
+        {
+            <ProductComponent Product="@p"></ProductComponent>
+        }
+    </tbody>
+</table>
+@code {
+   
+}
