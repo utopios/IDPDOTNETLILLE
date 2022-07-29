@@ -10,6 +10,7 @@
     private async Task GetProducts()
     {
         ProductsData = await _productService.GetProducts();
+        StateHasChanged();
     }
     protected override async Task OnInitializedAsync()
     {
@@ -17,10 +18,6 @@
         _productService.ProductsChanged += GetProducts;
     }
 
-    protected override Task OnParametersSetAsync()
-    {
-            StateHasChanged();
-        return base.OnParametersSetAsync();
-    }
+    
    
 }
