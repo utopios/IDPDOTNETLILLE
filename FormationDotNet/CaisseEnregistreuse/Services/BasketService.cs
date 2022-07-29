@@ -26,7 +26,7 @@ namespace CaisseEnregistreuse.Services
 
         public void RemoveProduct(Product product)
         {
-            Products.Add(product);
+            Products.Remove(product);
         }
     }
 }
