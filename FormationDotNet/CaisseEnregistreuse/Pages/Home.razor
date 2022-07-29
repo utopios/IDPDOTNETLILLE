@@ -1,8 +1,8 @@
 ﻿@page "/"
-@inject ProductService _productService;
+@inject IProductService _productService;
 <h3>Home</h3>
-<SearchComponent></SearchComponent>
-<ProductsComponent Search="true" Products="@_productService.SearchProducts"></ProductsComponent>
+@*<SearchComponent></SearchComponent>
+<ProductsComponent Search="true" Products="@_productService.SearchProducts"></ProductsComponent>*@
 @code {
     protected override void OnInitialized()
     {

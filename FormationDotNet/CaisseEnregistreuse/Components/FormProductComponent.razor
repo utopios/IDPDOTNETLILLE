@@ -1,7 +1,7 @@
-﻿@inject ProductService _productService;
+﻿@inject IProductService _productService;
 @inject NavigationManager _navigationManager;
 <h3>FormProductComponent</h3>
-@if(ErrorMessage != null)
+@if (ErrorMessage != null)
 {
     <div class="alert alert-danger">
         @ErrorMessage
@@ -10,17 +10,17 @@
 <EditForm Model="@product" OnValidSubmit="SubmitFormProduct" class="container">
     <div class="row m-1 justify-content-center align-content-center">
         <div class="col-6">
-            <InputText class="from-control p-1" @bind-Value="@product.Title" placeholder="Titre du produit" ></InputText>
+            <InputText class="from-control p-1" @bind-Value="@product.Title" placeholder="Titre du produit"></InputText>
         </div>
     </div>
     <div class="row m-1 justify-content-center align-content-center">
         <div class="col-6">
-            <InputNumber class="from-control p-1" @bind-Value="@product.Price" placeholder="Prix du produit" ></InputNumber>
+            <InputNumber class="from-control p-1" @bind-Value="@product.Price" placeholder="Prix du produit"></InputNumber>
         </div>
     </div>
     <div class="row m-1 justify-content-center align-content-center">
         <div class="col-6">
-            <InputNumber class="from-control p-1" @bind-Value="@product.Stock" placeholder="Stock du produit" ></InputNumber>
+            <InputNumber class="from-control p-1" @bind-Value="@product.Stock" placeholder="Stock du produit"></InputNumber>
         </div>
     </div>
     <div class="row m-1 justify-content-center align-content-center">
@@ -31,9 +31,9 @@
     private Product product = new();
     private string ErrorMessage { get; set; }
 
-    public void SubmitFormProduct()
+    public async void SubmitFormProduct()
     {
-        if(_productService.AddProduct(product))
+        if (await _productService.AddProduct(product))
         {
             product = new();
             //_navigationManager.NavigateTo("/products");

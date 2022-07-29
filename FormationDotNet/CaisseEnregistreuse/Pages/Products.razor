@@ -1,11 +1,26 @@
 ﻿@page "/products"
-@inject ProductService _productService;
+@inject IProductService _productService;
 <h3>Products</h3>
 <FormProductComponent></FormProductComponent>
-<ProductsComponent Products="@_productService.Products"></ProductsComponent>
+<ProductsComponent Products="@ProductsData"></ProductsComponent>
 @code {
-    protected override void OnInitialized()
+
+    public List<Product> ProductsData = new();
+
+    private async Task GetProducts()
     {
-        _productService.ProductsChanged += StateHasChanged;        
+        ProductsData = await _productService.GetProducts();
     }
+    protected override async Task OnInitializedAsync()
+    {
+        await GetProducts();
+        _productService.ProductsChanged += GetProducts;
+    }
+
+    protected override Task OnParametersSetAsync()
+    {
+            StateHasChanged();
+        return base.OnParametersSetAsync();
+    }
+   
 }

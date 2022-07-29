@@ -2,7 +2,7 @@
 using CaisseEnregistreuse.Models;
 
 namespace CaisseEnregistreuse.Services;
-public class ProductService : IProductService
+public class ProductService 
 {
     private List<Product> _products;
     private List<Product> _searchProducts;
@@ -34,6 +34,11 @@ public class ProductService : IProductService
     {
         _searchProducts = _products.Where(p => p.Title.Contains(search)).ToList();
         SearchChanged?.Invoke();
+    }
+
+    public Task<List<Product>> GetProducts()
+    {
+        throw new NotImplementedException();
     }
 }
 
