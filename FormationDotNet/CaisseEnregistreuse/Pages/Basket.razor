@@ -1,6 +1,8 @@
 ﻿@page "/basket"
+@inject BasketService _basketService
 <h3>Basket</h3>
-
+<div>Total : @_basketService.Total €</div>
+<ProductsComponent Products="@_basketService.Products"></ProductsComponent>
 @code {
 
 }

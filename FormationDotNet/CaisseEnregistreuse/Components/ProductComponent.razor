@@ -1,18 +1,26 @@
-﻿<tr>
+﻿@inject BasketService _basketService
+@inject NavigationManager _navigationManager
+<tr>
     <th scope="row">@Product.Id</th>
     <td>@Product.Title</td>
     <td>@Product.Price</td>
     <td>@Product.Stock</td>
-    @if(Search)
+    @if (Search)
     {
-        <td><a>Ajouter au panier</a></td>
+        <td><a onclick="@AddToCart">Ajouter au panier</a></td>
     }
 </tr>
 
-        @code {
+@code {
 
-        [Parameter]
-        public bool Search { get; set; }
-        [Parameter]
+    [Parameter]
+    public bool Search { get; set; }
+    [Parameter]
     public Product Product { get; set; }
+
+    public void AddToCart()
+    {
+        _basketService.AddProduct(Product);
+        _navigationManager.NavigateTo("/basket");
+    }
 }
