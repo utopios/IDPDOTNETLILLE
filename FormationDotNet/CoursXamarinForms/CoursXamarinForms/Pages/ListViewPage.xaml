@@ -12,7 +12,13 @@
             </ListView.Header>
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextCell Text="{Binding .}"></TextCell>
+                    <!--<TextCell Text="{Binding Name}"></TextCell>-->
+                    <ViewCell>
+                        <StackLayout>
+                            <Label Text="{Binding Name}"></Label>
+                            <Label Text="{Binding Age}"></Label>
+                        </StackLayout>
+                    </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

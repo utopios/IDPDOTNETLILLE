@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CoursXamarinForms.Classes;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -14,10 +15,11 @@ namespace CoursXamarinForms.Pages
     public partial class ListViewPage : ContentPage
     {
         ObservableCollection<string> datas = new ObservableCollection<string>() { "toto", "tata", "titi" };
+        ObservableCollection<Personne> dataPersonnes = new ObservableCollection<Personne>() { new Personne() { Name = "tata", Age=33 } };
         public ListViewPage()
         {
             InitializeComponent();
-            demoListView.ItemsSource = datas;
+            demoListView.ItemsSource = dataPersonnes;
         }
 
         private void Button_Clicked(object sender, EventArgs e)
