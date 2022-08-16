@@ -12,9 +12,13 @@ namespace CoursXamarinForms.Pages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CalculatricePage : ContentPage
     {
-        private string[] tab = new string[] { "C", "+/-", "%", "/", "7", "8", "9", "X", "4", "5", "6", "-", "1", "2", "3", "+", "0", ",", "=" };
+        private string[] tab = new string[] { "C", "+/-", "%", "/", "7", "8", "9", "*", "4", "5", "6", "-", "1", "2", "3", "+", "0", ",", "=" };
         Label label;
         Grid grid;
+        private bool newNumber = true;
+        private string operation = null;
+        private double firstNumber = 0;
+        private string[] operations = new string[] { "+", "-", "/", "*" };
         public CalculatricePage()
         {
             InitializeComponent();
@@ -61,7 +65,7 @@ namespace CoursXamarinForms.Pages
                 {
                     Text = tab[i]
                 };
-                
+                b.Clicked += ClickButton;
                 grid.Children.Add(b);
                 Grid.SetColumn(b, col);
                 Grid.SetRow(b, row);
@@ -82,6 +86,87 @@ namespace CoursXamarinForms.Pages
                     col++;
                 }
                 count++;
+            }
+        }
+
+        private void MakeOperation()
+        {
+            double result = 0;
+            double valScreen = Convert.ToDouble(label.Text.ToString());
+            switch (operation)
+            {
+                case "+":
+                    result = valScreen + firstNumber;
+                    break;
+                case "-":
+                    result = firstNumber - valScreen;
+                    break;
+                case "/":
+                    result = firstNumber / valScreen;
+                    break;
+                case "*":
+                    result = firstNumber * valScreen;
+                    break;
+            }
+            firstNumber = result;
+            label.Text = result.ToString();
+        }
+
+        private void ClickButton(object sender, EventArgs routedEventArgs)
+        {
+            double number;
+            if (sender is Button b)
+            {
+                string val = b.Text.ToString();
+                if (double.TryParse(val, out number))
+                {
+                    if (newNumber)
+                    {
+                        label.Text = val;
+                        newNumber = false;
+                    }
+                    else
+                    {
+                        label.Text += val;
+                    }
+                }
+                else
+                {
+                    newNumber = true;
+                    switch (val)
+                    {
+                        case ",":
+                            if (!label.Text.ToString().Contains(","))
+                            {
+                                label.Text += ",";
+                                newNumber = false;
+                            }
+                            break;
+                        case string v when operations.Contains(v):
+                            if (operation != null)
+                            {
+                                MakeOperation();
+                            }
+                            else
+                            {
+                                firstNumber = Convert.ToDouble(label.Text.ToString());
+                            }
+                            operation = v;
+                            break;
+                        case "=":
+                            MakeOperation();
+                            operation = null;
+                            break;
+                        case "C":
+                            firstNumber = 0;
+                            newNumber = true;
+                            operation = null;
+                            label.Text = 0.ToString();
+                            break;
+
+                    }
+                }
+
             }
         }
     }
