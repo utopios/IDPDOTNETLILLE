@@ -15,6 +15,16 @@ namespace CoursXamarinForms.Pages
         public HomePage()
         {
             InitializeComponent();
+            GenerateContent();
+        }
+
+        private void GenerateContent()
+        {
+            StackLayout stackLayout = new StackLayout();
+            Content = stackLayout;
+            Label label = new Label() { Text = "content of label" };
+            //stackLayout1.Children.Add(label);
+            stackLayout.Children.Add(label);
         }
     }
 }
