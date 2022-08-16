@@ -11,7 +11,7 @@ namespace CoursXamarinForms
         {
             InitializeComponent();
 
-            MainPage = new CalculatricePage();
+            MainPage = new ListViewPage();
         }
 
         protected override void OnStart()
