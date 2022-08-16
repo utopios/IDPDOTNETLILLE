@@ -15,7 +15,7 @@ namespace CoursXamarinForms.Pages
         public HomePage()
         {
             InitializeComponent();
-            GenerateContent();
+            //GenerateContent();
         }
 
         private void GenerateContent()
@@ -25,6 +25,11 @@ namespace CoursXamarinForms.Pages
             Label label = new Label() { Text = "content of label" };
             //stackLayout1.Children.Add(label);
             stackLayout.Children.Add(label);
+        }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            ResultLabel.Text = EntryName.Text;
         }
     }
 }

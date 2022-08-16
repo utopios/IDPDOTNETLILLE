@@ -2,14 +2,14 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CoursXamarinForms.Pages.HomePage">
-    <!--<StackLayout>
-        <Label Text="Welcome to our home page" />
+    <StackLayout>
+        <Label x:Name="ResultLabel" Text="Welcome to our home page" />
         <StackLayout Orientation="Horizontal">
-            <Button BackgroundColor="Red" TextColor="White" Text="First Button"></Button>
+            <Button Clicked="Button_Clicked" BackgroundColor="Red" TextColor="White" Text="First Button"></Button>
             <Button BackgroundColor="Gray" TextColor="White" Text="second Button"></Button>
         </StackLayout>
-        <Entry  Placeholder="Edit text"></Entry>
-    </StackLayout>-->
+        <Entry x:Name="EntryName"  Placeholder="Edit text"></Entry>
+    </StackLayout>
     <!--<Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
