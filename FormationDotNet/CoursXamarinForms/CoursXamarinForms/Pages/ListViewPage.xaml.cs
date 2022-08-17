@@ -20,11 +20,19 @@ namespace CoursXamarinForms.Pages
         {
             InitializeComponent();
             demoListView.ItemsSource = dataPersonnes;
+            //Enlever le bouton retour
+            NavigationPage.SetHasBackButton(this, false);
+            //NavigationPage.SetHasNavigationBar(this, false);
         }
 
         private void Button_Clicked(object sender, EventArgs e)
         {
             datas.Add(demoEntry.Text);
+        }
+
+        private async void Button_Clicked_1(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
         }
     }
 }

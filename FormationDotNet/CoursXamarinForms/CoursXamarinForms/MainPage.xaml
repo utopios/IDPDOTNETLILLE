@@ -1,9 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="CoursXamarinForms.MainPage">
+             x:Class="CoursXamarinForms.MainPage" Title="Accueil">
 
     <StackLayout>
+        <Button Text="Calculatrice" Clicked="Button_Clicked"></Button>
+        <Button Text="ListeView" Clicked="Button_Clicked_1"></Button>
         <!--<Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
             <Label Text="Welcome to Xamarin.Forms!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
         </Frame>
@@ -19,7 +21,7 @@
                 </FormattedString>
             </Label.FormattedText>
         </Label>-->
-        <Label Text="Contenu"></Label>
+        <!--<Label Text="Contenu"></Label>
         <ScrollView Scrolled="ScrollView_Scrolled">
             <StackLayout>
                 <Label Text=" Lorem ipsum dolor sit amet, consectetur adipiscing elit. In viverra, leo ac luctus consectetur, urna dolor luctus neque, a consectetur arcu turpis id metus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nullam imperdiet pretium enim at semper. Integer interdum quam nec elementum consequat. Integer venenatis mauris ut nunc ornare feugiat. Proin tempor eget erat a sodales. Aenean tristique mattis nisl, non euismod tortor tempor in. Maecenas pretium erat elit, tincidunt tempor dolor maximus eget. Proin posuere ante vel justo pellentesque congue. Fusce pharetra mattis ex sit amet rutrum. Duis maximus, ligula eu faucibus suscipit, ipsum justo semper nisi, mollis sodales massa enim sit amet odio. Maecenas in posuere lorem. Vivamus id ligula neque. Etiam sit amet mauris eget leo eleifend elementum a eu est. Ut lobortis diam at nibh interdum facilisis.
@@ -42,7 +44,7 @@ Sed vel velit id lectus sodales sodales eget vitae risus. Mauris interdum ligula
                 <ScrollView></ScrollView>
             </StackLayout>
             
-        </ScrollView>
+        </ScrollView>-->
         
     </StackLayout>
 
