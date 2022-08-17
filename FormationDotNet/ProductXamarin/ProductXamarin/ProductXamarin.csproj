@@ -17,6 +17,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Pages\ProductPageScoll.xaml.cs">
+      <DependentUpon>ProductPageScoll.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Pages\ProductPage.xaml.cs">
       <DependentUpon>ProductPage.xaml</DependentUpon>
     </Compile>

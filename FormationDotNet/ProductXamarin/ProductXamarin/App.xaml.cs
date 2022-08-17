@@ -11,7 +11,7 @@ namespace ProductXamarin
         {
             InitializeComponent();
 
-            MainPage = new ProductPage();
+            MainPage = new ProductPageScroll();
         }
 
         protected override void OnStart()
