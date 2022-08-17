@@ -49,9 +49,19 @@ namespace ProductXamarin.Pages
 
         }
 
-        private void MenuItem_Clicked(object sender, EventArgs e)
-        {
+        //private void MenuItem_Clicked(object sender, EventArgs e)
+        //{
+        //    Product p = (Product)(sender as Button).CommandParameter;
+        //}
 
+        private void DeleteItem_Clicked(object sender, EventArgs e)
+        {
+            Product p = (Product)(sender as MenuItem).CommandParameter;
+            products.Remove(p);
+        }
+        private void EditItem_Clicked(object sender, EventArgs e)
+        {
+            Product p = (Product)(sender as MenuItem).CommandParameter;
         }
     }
 }

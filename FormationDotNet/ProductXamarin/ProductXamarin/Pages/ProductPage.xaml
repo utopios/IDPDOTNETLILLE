@@ -10,19 +10,20 @@
                 <Entry x:Name="DescriptionEntry" Keyboard="Text" Placeholder="Description du produit" ></Entry>
                 <Button Text="Valider" Clicked="ValidButton_Clicked"></Button>
             </StackLayout>
-            <ListView HasUnevenRows="True" x:Name="ProductsListView" ItemSelected="ProductsListView_ItemSelected" ItemTapped="ProductsListView_ItemTapped">
-                <ListView.ItemTemplate>
+            <!--<ListView HasUnevenRows="True" x:Name="ProductsListView" ItemSelected="ProductsListView_ItemSelected" ItemTapped="ProductsListView_ItemTapped">-->
+                <ListView HasUnevenRows="True" x:Name="ProductsListView" >
+                    <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <ViewCell.ContextActions>
-                                <MenuItem Text="option 1" Clicked="MenuItem_Clicked"></MenuItem>
-                                <MenuItem Text="option 2" Clicked="MenuItem_Clicked"></MenuItem>
+                                <MenuItem Text="Supprimer" CommandParameter="{Binding .}" Clicked="DeleteItem_Clicked"></MenuItem>
+                                <MenuItem Text="Modifier" CommandParameter="{Binding .}" Clicked="EditItem_Clicked"></MenuItem>
                             </ViewCell.ContextActions>
                             <StackLayout HorizontalOptions="FillAndExpand">
                                 <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
                                     <Label Text="{Binding Title}" HorizontalTextAlignment="Start"></Label>
                                     <Label Text="{Binding Price}" HorizontalTextAlignment="End"></Label>
-                                    <Button CommandParameter="{Binding .}" Clicked="MenuItem_Clicked" Text="Option Custom"></Button>
+                                    <!--<Button CommandParameter="{Binding .}" Clicked="MenuItem_Clicked" Text="Option Custom"></Button>-->
                                 </StackLayout>
                                 <Label Text="{Binding ShortDescription}"></Label>
                             </StackLayout>
