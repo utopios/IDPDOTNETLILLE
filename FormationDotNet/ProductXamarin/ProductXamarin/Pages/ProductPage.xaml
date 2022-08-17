@@ -10,12 +10,12 @@
                 <Entry x:Name="DescriptionEntry" Keyboard="Text" Placeholder="Description du produit" ></Entry>
                 <Button Text="Valider" Clicked="ValidButton_Clicked"></Button>
             </StackLayout>
-            <ListView x:Name="ProductsListView">
+            <ListView x:Name="ProductsListView" ItemSelected="ProductsListView_ItemSelected" ItemTapped="ProductsListView_ItemTapped">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout>
-                                <StackLayout HorizontalOptions="Fill" Orientation="Horizontal">
+                            <StackLayout HorizontalOptions="FillAndExpand">
+                                <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
                                     <Label Text="{Binding Title}" HorizontalTextAlignment="Start"></Label>
                                     <Label Text="{Binding Price}" HorizontalTextAlignment="End"></Label>
                                 </StackLayout>

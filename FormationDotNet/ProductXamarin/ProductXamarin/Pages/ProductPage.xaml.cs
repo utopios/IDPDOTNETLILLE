@@ -38,5 +38,15 @@ namespace ProductXamarin.Pages
                 products.Add(p);
             }
         }
+
+        private void ProductsListView_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+
+        }
+
+        private void ProductsListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+
+        }
     }
 }
