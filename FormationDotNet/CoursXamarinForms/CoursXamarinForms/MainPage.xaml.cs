@@ -14,5 +14,10 @@ namespace CoursXamarinForms
         {
             InitializeComponent();
         }
+
+        private void ScrollView_Scrolled(object sender, ScrolledEventArgs e)
+        {
+
+        }
     }
 }

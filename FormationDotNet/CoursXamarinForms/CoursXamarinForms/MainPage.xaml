@@ -4,7 +4,7 @@
              x:Class="CoursXamarinForms.MainPage">
 
     <StackLayout>
-        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
+        <!--<Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
             <Label Text="Welcome to Xamarin.Forms!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
         </Frame>
         <Label Text="Start developing now" FontSize="Title" Padding="30,10,30,10"/>
@@ -18,7 +18,32 @@
                     </FormattedString.Spans>
                 </FormattedString>
             </Label.FormattedText>
-        </Label>
+        </Label>-->
+        <Label Text="Contenu"></Label>
+        <ScrollView Scrolled="ScrollView_Scrolled">
+            <StackLayout>
+                <Label Text=" Lorem ipsum dolor sit amet, consectetur adipiscing elit. In viverra, leo ac luctus consectetur, urna dolor luctus neque, a consectetur arcu turpis id metus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nullam imperdiet pretium enim at semper. Integer interdum quam nec elementum consequat. Integer venenatis mauris ut nunc ornare feugiat. Proin tempor eget erat a sodales. Aenean tristique mattis nisl, non euismod tortor tempor in. Maecenas pretium erat elit, tincidunt tempor dolor maximus eget. Proin posuere ante vel justo pellentesque congue. Fusce pharetra mattis ex sit amet rutrum. Duis maximus, ligula eu faucibus suscipit, ipsum justo semper nisi, mollis sodales massa enim sit amet odio. Maecenas in posuere lorem. Vivamus id ligula neque. Etiam sit amet mauris eget leo eleifend elementum a eu est. Ut lobortis diam at nibh interdum facilisis.
+
+Nam molestie elementum elit vel dignissim. In in tincidunt enim. Aenean vitae laoreet lacus. Curabitur eget lacus non odio congue vestibulum vitae id est. Vivamus velit diam, tincidunt ut mollis vel, ultricies et erat. Aliquam sem odio, semper quis arcu quis, rutrum gravida elit. Suspendisse imperdiet risus eget lectus condimentum iaculis. Phasellus id eros at enim iaculis elementum. Sed maximus ullamcorper ex viverra facilisis. Vestibulum non dui elit. Cras neque lorem, accumsan porttitor urna non, egestas accumsan est.
+
+Donec vel lacus libero. Nullam eget dignissim massa. Duis aliquet lorem enim, in euismod ante interdum quis. Praesent vehicula, lectus ac ullamcorper placerat, mauris lectus malesuada velit, vel finibus metus ex varius erat. Ut fringilla dui nec arcu commodo, sed fringilla libero egestas. Nam ex ante, interdum sed vehicula vel, varius ac magna. Phasellus vitae vestibulum ligula, sit amet suscipit ipsum. Morbi mattis at massa ac feugiat. Duis quis ullamcorper justo. Praesent magna dui, pretium vitae nunc id, commodo consectetur metus. Morbi scelerisque ornare ultricies.
+
+In vitae ligula enim. Donec ullamcorper neque nisi, sit amet elementum sem faucibus vitae. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nullam ornare, mi sit amet viverra consectetur, dui magna ornare sapien, eget hendrerit sem justo eget nulla. Duis quis semper sapien. Suspendisse ac ipsum ut erat ultrices convallis. Praesent in augue faucibus metus ullamcorper sodales et a eros. Maecenas a suscipit turpis, sit amet tincidunt eros. Etiam in blandit ante.
+
+Sed venenatis efficitur erat, dignissim blandit tortor elementum quis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed lacinia ultrices dui, et fringilla eros ornare vel. Vivamus ornare tincidunt sapien id accumsan. Aliquam erat volutpat. Etiam luctus vel massa a maximus. In euismod, sem sed pellentesque viverra, orci magna consectetur erat, ut tristique nulla tortor nec eros. Aenean fermentum venenatis lacus, a porta lorem sollicitudin tincidunt. Ut fermentum, lacus sit amet rhoncus viverra, augue elit mattis dui, at iaculis lorem nibh in enim. Curabitur in libero sem.
+
+Donec sollicitudin tortor quis sagittis vehicula. Fusce malesuada venenatis sem. Nullam at fermentum justo. Curabitur iaculis nunc nec felis tempor, in scelerisque metus vulputate. Aenean et tellus nunc. Proin pulvinar hendrerit varius. Duis at erat dignissim, tristique ex sit amet, vestibulum odio. Sed elit eros, tempus eu enim id, aliquam iaculis justo. In at elementum erat. Donec varius lobortis lectus, molestie pellentesque libero gravida ac. Nulla pretium rutrum gravida. Proin magna diam, scelerisque tempor leo quis, scelerisque interdum ipsum. Vivamus euismod nunc id mauris consectetur blandit.
+
+Etiam rutrum maximus sapien iaculis viverra. In id mauris porta, commodo ipsum nec, tristique turpis. Quisque quam ligula, semper at dictum in, pharetra et massa. Donec a imperdiet quam. Phasellus ac maximus neque. Curabitur maximus ex vitae turpis bibendum, at mattis dolor luctus. Pellentesque tincidunt tristique scelerisque. Mauris at velit eget enim suscipit elementum.
+
+Sed nisi nulla, efficitur a tristique ac, dignissim vitae nibh. Vestibulum scelerisque leo vel urna consectetur sollicitudin. Praesent et nisi lectus. Suspendisse potenti. Mauris et nisi porta, posuere mi sit amet, hendrerit tortor. Duis nec erat erat. Fusce tincidunt nisl vel orci accumsan volutpat sit amet ac ex. Fusce neque tellus, bibendum vel elit nec, consequat commodo erat. Nunc ornare dui id turpis bibendum eleifend. Aliquam suscipit, tortor quis placerat fringilla, velit tellus hendrerit ante, egestas maximus lacus erat sed metus. Pellentesque ac efficitur mauris, quis pellentesque leo. Mauris lobortis, massa eget gravida sagittis, risus metus bibendum nunc, ac aliquam erat leo a arcu. Fusce consectetur lectus vel volutpat ultrices. Suspendisse ac venenatis augue. Cras sed turpis lorem.
+
+Sed vel velit id lectus sodales sodales eget vitae risus. Mauris interdum ligula non metus faucibus, sit amet fermentum purus faucibus. Pellentesque luctus tellus sem, id vestibulum purus lacinia id. Sed bibendum rhoncus massa eu commodo. Proin odio ipsum, iaculis vitae consectetur a, facilisis sit amet nisl. Curabitur condimentum massa ut fringilla elementum. Fusce volutpat elementum dui, quis tristique nibh imperdiet ut. Sed suscipit felis in congue malesuada. Maecenas pharetra eget est ac gravida. Suspendisse mollis sapien at elementum interdum. "></Label>
+                <ScrollView></ScrollView>
+            </StackLayout>
+            
+        </ScrollView>
+        
     </StackLayout>
 
 </ContentPage>
