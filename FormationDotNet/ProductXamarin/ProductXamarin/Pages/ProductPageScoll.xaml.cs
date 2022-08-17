@@ -77,12 +77,12 @@ namespace ProductXamarin.Pages
 
         private void DeleteItem_Clicked(object sender, EventArgs e)
         {
-            Product p = (Product)(sender as MenuItem).CommandParameter;
+            Product p = (Product)(sender as Button).CommandParameter;
             products.Remove(p);
         }
         private void EditItem_Clicked(object sender, EventArgs e)
         {
-            Product p = (Product)(sender as MenuItem).CommandParameter;
+            Product p = (Product)(sender as Button).CommandParameter;
             TitleEntry.Text = p.Title;
             PriceEntry.Text = p.Price.ToString();
             DescriptionEntry.Text = p.Description;
@@ -94,14 +94,25 @@ namespace ProductXamarin.Pages
             StackLayout main = new StackLayout();
             StackLayout l1 = new StackLayout() { Orientation = StackOrientation.Horizontal };
             StackLayout l2 = new StackLayout() { Orientation = StackOrientation.Horizontal };
+            StackLayout l3 = new StackLayout() { Orientation = StackOrientation.Horizontal };
             main.Children.Add(l1);
             main.Children.Add(l2);
+            main.Children.Add(l3);
             Label lTitle = new Label() { Text = product.Title };
             Label lPrice = new Label() { Text = product.Price.ToString() };
             Label lDescription = new Label() { Text = product.ShortDescription };
             l1.Children.Add(lTitle);
             l1.Children.Add(lPrice);
             l2.Children.Add(lDescription);
+
+            Button mEdit = new Button() { Text = "edit" };
+            mEdit.Clicked += EditItem_Clicked;
+            mEdit.CommandParameter = product;
+            l3.Children.Add(mEdit);
+            Button mDelete = new Button() { Text = "delete" };
+            mDelete.Clicked += DeleteItem_Clicked;
+            mDelete.CommandParameter = product;
+            l3.Children.Add(mDelete);
             ScrollProduct.Children.Add(main);
          }
     }
