@@ -15,6 +15,7 @@ namespace ProductXamarin.Pages
     public partial class ProductPage : ContentPage
     {
         private ObservableCollection<Product> products;
+        private int? productId;
         public ProductPage()
         {
             products = new ObservableCollection<Product>();
@@ -27,16 +28,35 @@ namespace ProductXamarin.Pages
             string title = TitleEntry.Text;
             string description = DescriptionEntry.Text;
             decimal price;
+            Product p;
             if(decimal.TryParse(PriceEntry.Text, out price))
             {
-                Product p = new Product()
+                if(productId == null)
                 {
-                    Title = title,
-                    Description = description,
-                    Price = price
-                };
-                products.Add(p);
+                    p = new Product()
+                    {
+                        Title = title,
+                        Description = description,
+                        Price = price,
+                    
+                    };
+                    products.Add(p);
+                }else
+                {
+                    p = products.FirstOrDefault(el => el.Id == productId);
+                    if(p != null)
+                    {
+                        p.Title = title; 
+                        p.Description = description; 
+                        p.Price= price;
+                    }
+                    productId = null;
+                }
+                TitleEntry.Text = "";
+                PriceEntry.Text = "";
+                DescriptionEntry.Text = "";
             }
+
         }
 
         private void ProductsListView_ItemTapped(object sender, ItemTappedEventArgs e)
@@ -62,6 +82,10 @@ namespace ProductXamarin.Pages
         private void EditItem_Clicked(object sender, EventArgs e)
         {
             Product p = (Product)(sender as MenuItem).CommandParameter;
+            TitleEntry.Text = p.Title;
+            PriceEntry.Text = p.Price.ToString();
+            DescriptionEntry.Text = p.Description;
+            productId = p.Id;
         }
     }
 }
