@@ -48,5 +48,10 @@ namespace ProductXamarin.Pages
         {
 
         }
+
+        private void MenuItem_Clicked(object sender, EventArgs e)
+        {
+
+        }
     }
 }
