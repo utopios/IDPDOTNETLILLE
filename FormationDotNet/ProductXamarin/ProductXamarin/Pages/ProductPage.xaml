@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProductXamarin.Pages.ProductPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout>
+                <Entry x:Name="TitleEntry" Keyboard="Text" Placeholder="Titre du produit" ></Entry>
+                <Entry x:Name="PriceEntry" Keyboard="Numeric" Placeholder="Prix du produit" ></Entry>
+                <Entry x:Name="DescriptionEntry" Keyboard="Text" Placeholder="Description du produit" ></Entry>
+                <Button Text="Valider" Clicked="ValidButton_Clicked"></Button>
+            </StackLayout>
+            <ListView x:Name="ProductsListView">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <StackLayout HorizontalOptions="Fill" Orientation="Horizontal">
+                                    <Label Text="{Binding Title}" HorizontalTextAlignment="Start"></Label>
+                                    <Label Text="{Binding Price}" HorizontalTextAlignment="End"></Label>
+                                </StackLayout>
+                                <Label Text="{Binding ShortDescription}"></Label>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
