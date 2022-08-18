@@ -39,7 +39,7 @@ namespace CoursXamarinForms
             HttpClient httpClient = new HttpClient();
             try
             {
-                HttpResponseMessage response = await httpClient.GetAsync("http://10.0.2.2:5211/weatherforecast");
+                HttpResponseMessage response = await httpClient.GetAsync("http://10.0.2.2:5104/api/v1/product");
                 HttpContent httpContent = response.Content;
                 string content = await response.Content.ReadAsStringAsync();
                 List<WeatherForecast> liste = JsonConvert.DeserializeObject<List<WeatherForecast>>(content);
