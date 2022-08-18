@@ -20,5 +20,16 @@ namespace ProductNavigation.Pages
             _product = product;
             BindingContext = _product;
         }
+
+        private async void EditButton_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new FormProductPage(_product));
+        }
+
+        private async void DeleteButton_Clicked(object sender, EventArgs e)
+        {
+            Product.Products.Remove(_product);
+            await Navigation.PopToRootAsync();
+        }
     }
 }
