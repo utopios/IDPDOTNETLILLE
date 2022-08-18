@@ -1,6 +1,7 @@
 ﻿using ProductNavigation.Models;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,6 +31,14 @@ namespace ProductNavigation.Pages
         {
             Product.Products.Remove(_product);
             await Navigation.PopToRootAsync();
+        }
+        protected override void OnAppearing()
+        {
+            Debug.WriteLine("Page is appearing");
+        }
+        protected override void OnDisappearing()
+        {
+            Debug.WriteLine("Page is Disappearing");
         }
     }
 }
