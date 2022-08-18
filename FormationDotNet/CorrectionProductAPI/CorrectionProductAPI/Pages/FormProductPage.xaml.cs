@@ -1,5 +1,6 @@
 ﻿
 using CorrectionProductAPI.Models;
+using CorrectionProductAPI.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,48 +16,54 @@ namespace CorrectionProductAPI.Pages
     public partial class FormProductPage : ContentPage
     {
         private Product editProduct = null;
+        private ProductApiService _productApiService;
         public FormProductPage()
         {
             InitializeComponent();
+            _productApiService = new ProductApiService();
         }
 
         public FormProductPage(Product product) : this()
         {
             editProduct = product;
             TitleEntry.Text = product.Title;
-            //DescriptionEntry.Text = product.Description;
+            StockEntry.Text = product.Stock.ToString();
             PriceEntry.Text = product.Price.ToString();
         }
         private async void ValidButton_Clicked(object sender, EventArgs e)
         {
             string title = TitleEntry.Text;
-            string description = DescriptionEntry.Text;
+            int stock;
             decimal price;
             Product p;
-            if (decimal.TryParse(PriceEntry.Text, out price))
+            bool result = false;
+            if (decimal.TryParse(PriceEntry.Text, out price) && int.TryParse(StockEntry.Text, out stock))
             {
                 if (editProduct == null)
                 {
                     p = new Product()
                     {
                         Title = title,
-                        //Description = description,
+                        Stock = stock,
                         Price = price,
 
                     };
-                   // Product.Products.Add(p);
+                    Product product = await _productApiService.PostProduct(p);
+                    result = product != null;
                 }
                 else
                 { 
-                    editProduct.Title = title;
-                    //editProduct.Description = description;
-                    editProduct.Price = price;
+                    
                     editProduct = null;
                 }
-                TitleEntry.Text = "";
-                PriceEntry.Text = "";
-                DescriptionEntry.Text = "";
-                await Navigation.PopToRootAsync();
+                if(result)
+                {
+                    TitleEntry.Text = "";
+                    PriceEntry.Text = "";
+                    StockEntry.Text = "";
+                    await Navigation.PopToRootAsync();
+                }
+                
             }
         }
     }

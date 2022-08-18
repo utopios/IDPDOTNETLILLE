@@ -7,7 +7,7 @@
             <StackLayout>
                 <Entry x:Name="TitleEntry" Keyboard="Text" Placeholder="Titre du produit" ></Entry>
                 <Entry x:Name="PriceEntry" Keyboard="Numeric" Placeholder="Prix du produit" ></Entry>
-                <Entry x:Name="DescriptionEntry" Keyboard="Text" Placeholder="Description du produit" ></Entry>
+                <Entry x:Name="StockEntry" Keyboard="Numeric" Placeholder="Stock du produit" ></Entry>
                 <Button Text="Valider" Clicked="ValidButton_Clicked"></Button>
             </StackLayout>
         </StackLayout>

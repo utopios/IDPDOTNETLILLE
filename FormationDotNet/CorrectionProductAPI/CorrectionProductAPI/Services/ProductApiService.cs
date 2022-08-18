@@ -25,5 +25,15 @@ namespace CorrectionProductAPI.Services
             products = JsonConvert.DeserializeObject<List<Product>>(stringContent);
             return products;
         }
+
+        public async Task<Product> PostProduct(Product product)
+        {
+            string json = JsonConvert.SerializeObject(product);
+            HttpContent content = new StringContent(json, Encoding.UTF8, "application/json");
+            HttpResponseMessage response = await _httpClient.PostAsync("product", content);
+            string stringContent = await response.Content.ReadAsStringAsync();
+            Product resultProduct = JsonConvert.DeserializeObject<Product>(stringContent);
+            return resultProduct;
+        }
     }
 }
