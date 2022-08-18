@@ -4,7 +4,12 @@
              x:Class="ProductNavigation.Pages.ProductsPage" Title="Liste produits">
     <ContentPage.Content>
         <StackLayout>
-            <Button Text="Formulaire" Clicked="Button_Clicked"></Button>
+            <!--<Button Text="Formulaire" Clicked="Button_Clicked"></Button>-->
+            <Label Text="Formulaire" >
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_Clicked"></TapGestureRecognizer>
+                </Label.GestureRecognizers>
+            </Label>
             <ListView x:Name="ProductsListView" ItemTapped="ProductsListView_ItemTapped">
                 <ListView.ItemTemplate>
                     <DataTemplate>
