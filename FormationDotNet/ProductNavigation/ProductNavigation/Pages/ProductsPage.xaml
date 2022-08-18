@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProductNavigation.Pages.ProductsPage" Title="Liste produits">
+    <ContentPage.Content>
+        <StackLayout>
+            <Button Text="Formulaire" Clicked="Button_Clicked"></Button>
+            <ListView x:Name="ProductsListView" ItemTapped="ProductsListView_ItemTapped">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout HorizontalOptions="FillAndExpand">
+                                <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                                    <Label Text="{Binding Title}" HorizontalTextAlignment="Start"></Label>
+                                    <Label Text="{Binding Price}" HorizontalTextAlignment="End"></Label>
+                                </StackLayout>
+                                <Label Text="{Binding ShortDescription}"></Label>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
