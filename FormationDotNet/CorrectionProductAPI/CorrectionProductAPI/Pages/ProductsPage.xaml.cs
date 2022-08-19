@@ -1,5 +1,6 @@
 ﻿using CorrectionProductAPI.Models;
 using CorrectionProductAPI.Services;
+//using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,8 +19,10 @@ namespace CorrectionProductAPI.Pages
         public ProductsPage()
         {
             InitializeComponent();
-            _productApiService = new ProductApiService();
-
+            //_productApiService = new ProductApiService();
+            
+            //_productApiService = ServiceContainer.ServiceProvider.GetService<ProductApiService>();            
+            _productApiService = ServiceContainer.Container.Resolve<ProductApiService>();
         }
 
         protected async override void OnAppearing()
