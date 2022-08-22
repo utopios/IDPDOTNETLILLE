@@ -29,7 +29,7 @@ namespace CorrectionWeatherApp.ViewModels
         {
             Cities = new ObservableCollection<City>();
             SearchCommand = new MvxCommand(ActionSearchCommand);
-            WeatherCommand = new MvxCommand<string>(ActionWeatherCommand);
+            WeatherCommand = new MvxCommand<City>(ActionWeatherCommand);
             _navigation = navigation;
             _apiService = ServiceContainer.Container.Resolve<IApiService>();
             ImageUri = new Uri(@"https://cdn-icons-png.flaticon.com/512/1555/1555512.png");
@@ -40,10 +40,10 @@ namespace CorrectionWeatherApp.ViewModels
             await RaisePropertyChanged("Cities");
         }
 
-        public async void ActionWeatherCommand(string key)
+        public async void ActionWeatherCommand(City city)
         {
             //Navigation vers la page weather
-            await _navigation.PushAsync(new weatherPage(key));
+            await _navigation.PushAsync(new weatherPage(city.Key, city.LocalizedName));
         }
     }
 }

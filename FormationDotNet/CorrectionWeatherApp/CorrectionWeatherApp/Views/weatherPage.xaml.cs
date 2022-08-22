@@ -19,9 +19,9 @@ namespace CorrectionWeatherApp.Views
             
         }
 
-        public weatherPage(string key) : this()
+        public weatherPage(string key, string name) : this()
         {
-            BindingContext = new WeatherPageViewModel(key);
+            BindingContext = new WeatherPageViewModel(key, name);
         }
     }
 }

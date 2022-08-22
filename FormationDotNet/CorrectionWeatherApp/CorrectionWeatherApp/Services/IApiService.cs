@@ -9,5 +9,6 @@ namespace CorrectionWeatherApp.Services
     public interface IApiService
     {
         Task<IEnumerable<City>> GetCities(string search);
+        Task<IEnumerable<WeatherCondition>> GetWeatherConditions(string key);
     }
 }

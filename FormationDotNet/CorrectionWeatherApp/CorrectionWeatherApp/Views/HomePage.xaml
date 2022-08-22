@@ -17,7 +17,7 @@
                             <StackLayout >
                                 <Label Text="{Binding LocalizedName}">
                                     <Label.GestureRecognizers>
-                                        <TapGestureRecognizer Command="{Binding BindingContext.WeatherCommand, Source={x:Reference homePage}}" CommandParameter="{Binding Key}">
+                                        <TapGestureRecognizer Command="{Binding BindingContext.WeatherCommand, Source={x:Reference homePage}}" CommandParameter="{Binding .}">
 
                                         </TapGestureRecognizer>
                                     </Label.GestureRecognizers>
