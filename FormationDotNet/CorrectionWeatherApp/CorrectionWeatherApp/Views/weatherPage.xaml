@@ -10,9 +10,34 @@
     </ContentPage.Behaviors>
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <ListView HasUnevenRows="True" ItemsSource="{Binding WeatherConditions}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Label Text="{Binding Date}"></Label>
+                                <StackLayout>
+                                    <Label Text="Temperature"></Label>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="{Binding Temperature.Minimum.Value}"></Label>
+                                        <Label Text="{Binding Temperature.Maximum.Value}"></Label>
+                                    </StackLayout>
+                                    <Label Text="Jour"></Label>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Image Source="{Binding Day.UriIcon}"></Image>
+                                        <Label Text="{Binding Day.IconPhrase}"></Label>
+                                    </StackLayout>
+                                    <Label Text="Nuit"></Label>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Image Source="{Binding Night.UriIcon}"></Image>
+                                        <Label Text="{Binding Night.IconPhrase}"></Label>
+                                    </StackLayout>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

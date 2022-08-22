@@ -16,21 +16,21 @@ namespace CorrectionWeatherApp.ViewModels
         public string Name { get; set; }
         private IApiService _apiService;
 
-        public List<WeatherCondition> WeatherConditions { get; set; }
+        public List<Forecast> WeatherConditions { get; set; }
 
         public ICommand AppearedCommand { get; set; }
         public WeatherPageViewModel(string key, string name)
         {
             Key = key;
             Name = name;
-            WeatherConditions = new List<WeatherCondition>();
+            WeatherConditions = new List<Forecast>();
             _apiService = ServiceContainer.Container.Resolve<IApiService>();
             AppearedCommand = new MvxCommand(ViewAppeared);
         }
 
         public async override void ViewAppeared()
         {
-            WeatherConditions = new List<WeatherCondition>(await _apiService.GetWeatherConditions(Key));
+            WeatherConditions = new List<Forecast>((await _apiService.GetWeatherConditions(Key)).DailyForecasts);
             await RaisePropertyChanged("WeatherConditions");
         }
     }

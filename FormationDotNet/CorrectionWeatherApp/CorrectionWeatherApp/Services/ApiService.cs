@@ -32,14 +32,14 @@ namespace CorrectionWeatherApp.Services
             return cityList;
         }
 
-        public async Task<IEnumerable<WeatherCondition>> GetWeatherConditions(string key)
+        public async Task<WeatherCondition> GetWeatherConditions(string key)
         {
             HttpResponseMessage response = await _httpClient.GetAsync($"forecasts/v1/daily/5day/{key}?apikey={_apiKey}&language=fr-fr&metric=true");
             string content = await (response.Content).ReadAsStringAsync();
-            IEnumerable<WeatherCondition> conditions = new List<WeatherCondition>();
+            WeatherCondition conditions = null;
             try
             {
-                conditions = JsonConvert.DeserializeObject<List<WeatherCondition>>(content);
+                conditions = JsonConvert.DeserializeObject<WeatherCondition>(content);
             }
             catch (Exception ex)
             {
