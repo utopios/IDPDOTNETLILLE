@@ -15,7 +15,7 @@
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout>
-                                <Label Text="{Binding Date}"></Label>
+                                <Label Text="{Binding FormatDate}"></Label>
                                 <StackLayout>
                                     <Label Text="Temperature"></Label>
                                     <StackLayout Orientation="Horizontal">

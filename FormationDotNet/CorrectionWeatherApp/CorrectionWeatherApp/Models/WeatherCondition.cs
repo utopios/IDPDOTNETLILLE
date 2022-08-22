@@ -13,6 +13,7 @@ namespace CorrectionWeatherApp.Models
     {
         public DateTime Date { get; set; }
 
+        public string FormatDate { get => Date.ToString("dd-mm-yyyy"); }
         public Temperature Temperature { get; set; }
 
         public IconWeather Day { get; set; }
