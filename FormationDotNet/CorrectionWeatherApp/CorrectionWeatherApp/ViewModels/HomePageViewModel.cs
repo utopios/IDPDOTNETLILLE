@@ -6,6 +6,7 @@ using System.Windows.Input;
 using CorrectionWeatherApp.Helpers;
 using CorrectionWeatherApp.Models;
 using CorrectionWeatherApp.Services;
+using CorrectionWeatherApp.Views;
 using MvvmCross;
 using MvvmCross.Commands;
 using MvvmCross.ViewModels;
@@ -28,7 +29,7 @@ namespace CorrectionWeatherApp.ViewModels
         {
             Cities = new ObservableCollection<City>();
             SearchCommand = new MvxCommand(ActionSearchCommand);
-            WeatherCommand = new MvxCommand<int>(ActionWeatherCommand);
+            WeatherCommand = new MvxCommand<string>(ActionWeatherCommand);
             _navigation = navigation;
             _apiService = ServiceContainer.Container.Resolve<IApiService>();
             ImageUri = new Uri(@"https://cdn-icons-png.flaticon.com/512/1555/1555512.png");
@@ -39,9 +40,10 @@ namespace CorrectionWeatherApp.ViewModels
             await RaisePropertyChanged("Cities");
         }
 
-        public void ActionWeatherCommand(int key)
+        public async void ActionWeatherCommand(string key)
         {
             //Navigation vers la page weather
+            await _navigation.PushAsync(new weatherPage(key));
         }
     }
 }

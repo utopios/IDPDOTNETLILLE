@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="CorrectionWeatherApp.Views.HomePage">
+             x:Class="CorrectionWeatherApp.Views.HomePage" x:Name="homePage">
     <ContentPage.Content>
         <StackLayout>
             <StackLayout>
@@ -9,17 +9,19 @@
             </StackLayout>
             <Entry Placeholder="City..." Text="{Binding CitySearch}"></Entry>
             <Button Text="Search" Command="{Binding SearchCommand}"></Button>
-            <ListView ItemsSource="{Binding Cities}">
-                <ListView.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding WeatherCommand}" CommandParameter="{Binding Key}">
-                        
-                    </TapGestureRecognizer>
-                </ListView.GestureRecognizers>
+            <ListView ItemsSource="{Binding Cities}" SelectionMode="None">
+                
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <ViewCell>
+                        <ViewCell >
                             <StackLayout >
-                                <Label Text="{Binding LocalizedName}"></Label>
+                                <Label Text="{Binding LocalizedName}">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding BindingContext.WeatherCommand, Source={x:Reference homePage}}" CommandParameter="{Binding Key}">
+
+                                        </TapGestureRecognizer>
+                                    </Label.GestureRecognizers>
+                                </Label>
                                 <Label Text="{Binding Country.ID}"></Label>
                             </StackLayout>
                         </ViewCell>
