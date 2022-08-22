@@ -32,6 +32,22 @@ namespace CorrectionWeatherApp.Services
             return cityList;
         }
 
+        public async Task<City> GetCity(string lat, string lon)
+        {
+            HttpResponseMessage response = await _httpClient.GetAsync($"locations/v1/cities/geoposition/search?apikey={_apiKey}&q={lat},{lon}");
+            string content = await (response.Content).ReadAsStringAsync();
+            City city = null;
+            try
+            {
+                city = JsonConvert.DeserializeObject<City>(content);
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return city;
+        }
+
         public async Task<WeatherCondition> GetWeatherConditions(string key)
         {
             HttpResponseMessage response = await _httpClient.GetAsync($"forecasts/v1/daily/5day/{key}?apikey={_apiKey}&language=fr-fr&metric=true");

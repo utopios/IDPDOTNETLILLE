@@ -10,5 +10,6 @@ namespace CorrectionWeatherApp.Services
     {
         Task<IEnumerable<City>> GetCities(string search);
         Task<WeatherCondition> GetWeatherConditions(string key);
+        Task<City> GetCity(string lat, string lon);
     }
 }
