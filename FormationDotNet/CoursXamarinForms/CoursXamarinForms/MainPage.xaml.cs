@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using CoursXamarinForms.Classes;
 using Newtonsoft.Json;
+using Xamarin.Essentials;
+using System.Diagnostics;
 
 namespace CoursXamarinForms
 {
@@ -36,6 +38,33 @@ namespace CoursXamarinForms
 
         protected async override void OnAppearing()
          {
+
+            try
+            {
+                var location = await Geolocation.GetLocationAsync();
+
+                if (location != null)
+                {
+                    Debug.WriteLine($"Latitude: {location.Latitude}, Longitude: {location.Longitude}, Altitude: {location.Altitude}");
+                }
+            }
+            catch (FeatureNotSupportedException fnsEx)
+            {
+                // Handle not supported on device exception
+            }
+            catch (FeatureNotEnabledException fneEx)
+            {
+                // Handle not enabled on device exception
+            }
+            catch (PermissionException pEx)
+            {
+                // Handle permission exception
+            }
+            catch (Exception ex)
+            {
+                // Unable to get location
+            }
+
             HttpClient httpClient = new HttpClient();
             try
             {
