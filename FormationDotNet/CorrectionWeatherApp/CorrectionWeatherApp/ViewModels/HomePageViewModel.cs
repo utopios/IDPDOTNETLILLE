@@ -31,6 +31,7 @@ namespace CorrectionWeatherApp.ViewModels
             WeatherCommand = new MvxCommand<int>(ActionWeatherCommand);
             _navigation = navigation;
             _apiService = ServiceContainer.Container.Resolve<IApiService>();
+            ImageUri = new Uri(@"https://cdn-icons-png.flaticon.com/512/1555/1555512.png");
         }
         public async void ActionSearchCommand()
         {

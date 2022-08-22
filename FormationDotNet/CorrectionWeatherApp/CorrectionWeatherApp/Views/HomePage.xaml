@@ -4,9 +4,28 @@
              x:Class="CorrectionWeatherApp.Views.HomePage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <StackLayout>
+                <Image Source="{Binding ImageUri}"></Image>
+            </StackLayout>
+            <Entry Placeholder="City..." Text="{Binding CitySearch}"></Entry>
+            <Button Text="Search" Command="{Binding SearchCommand}"></Button>
+            <ListView ItemsSource="{Binding Cities}">
+                <ListView.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding WeatherCommand}" CommandParameter="{Binding Key}">
+                        
+                    </TapGestureRecognizer>
+                </ListView.GestureRecognizers>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout >
+                                <Label Text="{Binding LocalizedName}"></Label>
+                                <Label Text="{Binding Country.ID}"></Label>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
