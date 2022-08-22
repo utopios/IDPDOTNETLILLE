@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
 using System.Windows.Input;
+using CorrectionWeatherApp.Helpers;
 using CorrectionWeatherApp.Models;
+using CorrectionWeatherApp.Services;
 using MvvmCross;
 using MvvmCross.Commands;
 using MvvmCross.ViewModels;
@@ -13,6 +15,7 @@ namespace CorrectionWeatherApp.ViewModels
 {
     public class HomePageViewModel : MvxViewModel
     {
+        private IApiService _apiService;
         public Uri ImageUri { get; set; }
         public string CitySearch { get; set; }
         public ICommand SearchCommand { get; set; }
@@ -27,10 +30,12 @@ namespace CorrectionWeatherApp.ViewModels
             SearchCommand = new MvxCommand(ActionSearchCommand);
             WeatherCommand = new MvxCommand<int>(ActionWeatherCommand);
             _navigation = navigation;
+            _apiService = ServiceContainer.Container.Resolve<IApiService>();
         }
-        public void ActionSearchCommand()
+        public async void ActionSearchCommand()
         {
-
+            Cities = new ObservableCollection<City>(await _apiService.GetCities(CitySearch));
+            await RaisePropertyChanged("Cities");
         }
 
         public void ActionWeatherCommand(int key)

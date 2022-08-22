@@ -1,4 +1,5 @@
-﻿using Nancy.TinyIoc;
+﻿using CorrectionWeatherApp.Services;
+using Nancy.TinyIoc;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -16,6 +17,7 @@ namespace CorrectionWeatherApp.Helpers
             if (_container == null)
             {
                 _container = new TinyIoCContainer();
+                _container.Register<IApiService, ApiService>();
             }
         }
 
