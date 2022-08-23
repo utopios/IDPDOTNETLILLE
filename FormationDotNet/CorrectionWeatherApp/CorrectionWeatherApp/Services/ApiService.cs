@@ -14,7 +14,7 @@ namespace CorrectionWeatherApp.Services
         private string _apiKey;
         public ApiService()
         {
-            _apiKey = "eAHd9lgJ7X4TgO9n0e13ljbPp56z8SD3";
+            _apiKey = "A5FHj6304lEjGOWqSabKSk3GonYXIL4Z";
             _httpClient = new HttpClient() { BaseAddress = new Uri(@"https://dataservice.accuweather.com/") };
         }
         public async Task<IEnumerable<City>> GetCities(string search)
