@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CoursXamarinOnglet.Views.AboutPage"
              xmlns:vm="clr-namespace:CoursXamarinOnglet.ViewModels"
-             Title="{Binding Title}">
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+             Title="{Binding Title}" >
     
     <ContentPage.BindingContext>
         <vm:AboutViewModel />
@@ -16,7 +17,7 @@
     </ContentPage.Resources>
 
     <Grid>
-        <Grid.RowDefinitions>
+        <!--<Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
@@ -46,7 +47,8 @@
                         BackgroundColor="{StaticResource Primary}"
                         TextColor="White" />
             </StackLayout>
-        </ScrollView>
+        </ScrollView>-->
+        <maps:Map MapType="Satellite" />
     </Grid>
 
 </ContentPage>
