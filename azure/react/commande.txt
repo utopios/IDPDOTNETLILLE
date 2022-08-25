@@ -1,0 +1,20 @@
+####Commande docker 
+docker build -t <nom_image> <chemin_dockerfile>
+
+docker run -d -it -p <port_host>:<port_container> --name <container_name> -e <variable>="valeur" <nom_image>
+
+docker rm <container_id| name> => suppression
+
+#ajouter un tag
+docker tag <image_name> <image_tag>
+
+#pour connecter azure registry à docker
+az acr login --name <registry_name>
+
+#pour push une image
+docker push <image_avec_tag>
+
+#pour créer un context azure aci
+docker context create aci <nom_context>
+#pour switch de context
+docker context use <context_name>

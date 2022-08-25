@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  caisseenregistreuse:
+    image: ${DOCKER_REGISTRY-}caisseenregistreuse
+    build:
+      context: .
+      dockerfile: CaisseEnregistreuse/Dockerfile
