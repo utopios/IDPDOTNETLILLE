@@ -24,7 +24,7 @@ namespace CashRegistryEntityFrameWork.Tools
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Administrateur\Desktop\IDPDOTNETLILLE\FormationDotNet\dbEntity.mdf;Integrated Security=True;Connect Timeout=30");
+            optionsBuilder.UseSqlServer("Server=tcp:utopios.database.windows.net,1433;Initial Catalog=demo-ihab;Authentication=Active Directory Default;");
         }
     }
 }
