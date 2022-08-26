@@ -14,7 +14,7 @@ builder.Services.AddDbContext<DataContextService>();
 builder.Services.AddScoped<BaseRepository<Annonce>, AnnonceRepository>();
 builder.Services.AddScoped<BaseRepository<Categorie>, CategorieRepository>();
 builder.Services.AddScoped<BaseRepository<Utilisateur>, UtilisateurRepository>();
-builder.Services.AddTransient<IUpload, UploadService>();
+builder.Services.AddTransient<IUpload, UploadAzureService>();
 builder.Services.AddScoped<ToolsService>();
 //builder.Services.AddScoped<ILogin, CookieLoginService>();
 //builder.Services.AddScoped<ILogin, SessionLoginService>();
